@@ -545,7 +545,8 @@ var i=0;
     options: {
       //cutoutPercentage: 40,
       responsive: true,
-      xAxisID: "dd"
+      xAxisID: "dd",
+    maintainAspectRatio: false
 
     }
   });
