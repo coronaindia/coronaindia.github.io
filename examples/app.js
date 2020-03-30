@@ -23,17 +23,17 @@ am4core.ready(function() {
   var numberFormatter = new am4core.NumberFormatter();
 
   var backgroundColor = am4core.color("#00000");
-  var activeColor = am4core.color("#cd5c5c");
-  var confirmedColor = am4core.color("#d21a1a");
-  var recoveredColor = am4core.color("#45d21a");
-  var deathsColor = am4core.color("#1c5fe5");
+  var activeColor = am4core.color("#d21a1a");
+  var confirmedColor = am4core.color("#8B4513");
+  var recoveredColor = am4core.color("#006400");
+  var deathsColor = am4core.color("#000000");
 
   // for an easier access by key
   var colors = { active: activeColor, confirmed: confirmedColor, recovered: recoveredColor, deaths: deathsColor };
 
   var countryColor = am4core.color("#a1caf1");
   var countryStrokeColor = am4core.color("#00008b");
-  var buttonStrokeColor = am4core.color("#00008b");
+  var buttonStrokeColor = am4core.color("#000000");
   var countryHoverColor = am4core.color("#0000a5");
   var activeCountryColor = am4core.color("#0000a5");
 
@@ -134,6 +134,7 @@ am4core.ready(function() {
   var container = am4core.create("chartdiv", am4core.Container);
   container.width = am4core.percent(100);
   container.height = am4core.percent(100);
+  container.background.fill='#fafafa';
 
   container.tooltip = new am4core.Tooltip();  
   container.tooltip.background.fill = am4core.color("#000000");
@@ -321,91 +322,6 @@ am4core.ready(function() {
 
   // END OF MAP  
 
-  // top title
-  var title = mapChart.titles.create();
-  title.fontSize = "1.5em";
-  title.text = "COVID-19 Spread Data";
-  title.align = "left";
-  title.horizontalCenter = "left";
-  title.marginLeft = 20;
-  title.paddingBottom = 10;
-  title.fill = am4core.color("#ffffff");
-  title.y = 20;
-
-  // switch between map and globe
-  var mapGlobeSwitch = mapChart.createChild(am4core.SwitchButton);
-  mapGlobeSwitch.align = "right"
-  mapGlobeSwitch.y = 15;
-  mapGlobeSwitch.leftLabel.text = "Map";
-  mapGlobeSwitch.leftLabel.fill = am4core.color("#ffffff");
-  mapGlobeSwitch.rightLabel.fill = am4core.color("#ffffff");
-  mapGlobeSwitch.rightLabel.text = "Globe";
-  mapGlobeSwitch.verticalCenter = "top";
-
-
-  mapGlobeSwitch.events.on("toggled", function() {
-    if (mapGlobeSwitch.isActive) {
-      mapChart.projection = new am4maps.projections.Orthographic;
-      mapChart.backgroundSeries.show();
-      mapChart.panBehavior = "rotateLongLat";
-      polygonSeries.exclude = [];
-    } else {
-      mapChart.projection = new am4maps.projections.Miller;
-      mapChart.backgroundSeries.hide();
-      mapChart.panBehavior = "move";
-      removeAntarctica(mapData);
-      polygonSeries.data = mapData;
-      polygonSeries.exclude = ["AQ"];
-    }
-  })
-
-
-  // switch between map and globe
-  var absolutePerCapitaSwitch = mapChart.createChild(am4core.SwitchButton);
-  absolutePerCapitaSwitch.align = "center"
-  absolutePerCapitaSwitch.y = 15;
-  absolutePerCapitaSwitch.leftLabel.text = "Absolute";
-  absolutePerCapitaSwitch.leftLabel.fill = am4core.color("#ffffff");
-  absolutePerCapitaSwitch.rightLabel.fill = am4core.color("#ffffff");
-  absolutePerCapitaSwitch.rightLabel.text = "Per Capita";
-  absolutePerCapitaSwitch.rightLabel.interactionsEnabled = true;
-  absolutePerCapitaSwitch.rightLabel.tooltipText = "When calculating max value, countries with population less than 100.000 are not included."
-  absolutePerCapitaSwitch.verticalCenter = "top";
-
-
-  absolutePerCapitaSwitch.events.on("toggled", function() {
-    if (absolutePerCapitaSwitch.isActive) {
-      bubbleSeries.hide(0);
-      perCapita = true;
-      bubbleSeries.interpolationDuration = 0;
-      polygonSeries.heatRules.getIndex(0).max = colors[currentType];
-      polygonSeries.heatRules.getIndex(0).maxValue = maxPC[currentType];
-      polygonSeries.mapPolygons.template.applyOnClones = true;
-
-      sizeSlider.hide()
-      filterSlider.hide();
-      sizeLabel.hide();
-      filterLabel.hide();
-
-      updateCountryTooltip();
-
-    } else {
-      perCapita = false;
-      polygonSeries.interpolationDuration = 0;
-      bubbleSeries.interpolationDuration = 1000;
-      bubbleSeries.show();
-      polygonSeries.heatRules.getIndex(0).max = countryColor;
-      polygonSeries.mapPolygons.template.tooltipText = undefined;
-      sizeSlider.show()
-      filterSlider.show();
-      sizeLabel.show();
-      filterLabel.show();
-    }
-    polygonSeries.mapPolygons.each(function(mapPolygon) {
-      mapPolygon.fill = mapPolygon.fill;
-      mapPolygon.defaultState.properties.fill = undefined;
-    })
-  })
 
 
   // buttons & chart container
@@ -424,7 +340,7 @@ am4core.ready(function() {
   // name of a country and date label
   var countryName = nameAndButtonsContainer.createChild(am4core.Label);
   countryName.fontSize = "1.1em";
-  countryName.fill = am4core.color("#ffffff");
+  countryName.fill = am4core.color("#000000");
   countryName.valign = "middle";
 
   // buttons container (active/confirmed/recovered/deaths)
@@ -440,7 +356,7 @@ am4core.ready(function() {
   chartAndSliderContainer.height = am4core.percent(100);
   chartAndSliderContainer.width = am4core.percent(100);
   chartAndSliderContainer.background = new am4core.RoundedRectangle();
-  chartAndSliderContainer.background.fill = am4core.color("#000000");
+  chartAndSliderContainer.background.fill = am4core.color("#ffffff");
   chartAndSliderContainer.background.cornerRadius(30, 30, 0, 0)
   chartAndSliderContainer.background.fillOpacity = 0.25;
   chartAndSliderContainer.paddingTop = 12;
@@ -451,13 +367,15 @@ am4core.ready(function() {
   sliderContainer.width = am4core.percent(100);
   sliderContainer.padding(0, 15, 15, 10);
   sliderContainer.layout = "horizontal";
+  sliderContainer.background.fill = am4core.color("#ffffff");
+
 
   var slider = sliderContainer.createChild(am4core.Slider);
   slider.width = am4core.percent(100);
   slider.valign = "middle";
   slider.background.opacity = 0.4;
   slider.opacity = 0.7;
-  slider.background.fill = am4core.color("#ffffff");
+  slider.background.fill = am4core.color("#000000");
   slider.marginLeft = 20;
   slider.marginRight = 35;
   slider.height = 15;
@@ -505,7 +423,7 @@ am4core.ready(function() {
   sizeSlider.valign = "top";
   sizeSlider.verticalCenter = "middle";
   sizeSlider.opacity = 0.7;
-  sizeSlider.background.fill = am4core.color("#ffffff");
+  sizeSlider.background.fill = am4core.color("#000000");
   sizeSlider.adapter.add("y", function(y, target) {
     return container.pixelHeight * (1 - buttonsAndChartContainer.percentHeight / 100) * 0.25;
   })
@@ -513,7 +431,7 @@ am4core.ready(function() {
   sizeSlider.startGrip.background.fill = activeColor;
   sizeSlider.startGrip.background.fillOpacity = 0.8;
   sizeSlider.startGrip.background.strokeOpacity = 0;
-  sizeSlider.startGrip.icon.stroke = am4core.color("#ffffff");
+  sizeSlider.startGrip.icon.stroke = am4core.color("#000000");
   sizeSlider.startGrip.background.states.getKey("hover").properties.fill = activeColor;
   sizeSlider.startGrip.background.states.getKey("down").properties.fill = activeColor;
   sizeSlider.horizontalCenter = "middle";
@@ -530,7 +448,7 @@ am4core.ready(function() {
 
   var sizeLabel = container.createChild(am4core.Label);
   sizeLabel.text = "max bubble size *";
-  sizeLabel.fill = am4core.color("#ffffff");
+  sizeLabel.fill = am4core.color("#000000");
   sizeLabel.rotation = 90;
   sizeLabel.fontSize = "10px";
   sizeLabel.fillOpacity = 0.5;
@@ -541,7 +459,7 @@ am4core.ready(function() {
   sizeLabel.tooltip.label.wrap = true;
   sizeLabel.tooltip.label.maxWidth = 300;
   sizeLabel.tooltipText = "Some countries have so many cases that bubbles for countries with smaller values often look the same even if there is a significant difference between them. This slider can be used to increase maximum size of a bubble so that when you zoom in to a region with relatively small values you could compare them anyway."
-  sizeLabel.fill = am4core.color("#ffffff");
+  sizeLabel.fill = am4core.color("#000000");
 
   sizeLabel.adapter.add("y", function(y, target) {
     return container.pixelHeight * (1 - buttonsAndChartContainer.percentHeight / 100) * 0.25;
@@ -558,7 +476,7 @@ am4core.ready(function() {
   filterSlider.valign = "top";
   filterSlider.verticalCenter = "middle";
   filterSlider.opacity = 0.7;
-  filterSlider.background.fill = am4core.color("#ffffff");
+  filterSlider.background.fill = am4core.color("#000000");
   filterSlider.adapter.add("y", function(y, target) {
     return container.pixelHeight * (1 - buttonsAndChartContainer.percentHeight / 100) * 0.7;
   })
@@ -566,7 +484,7 @@ am4core.ready(function() {
   filterSlider.startGrip.background.fill = activeColor;
   filterSlider.startGrip.background.fillOpacity = 0.8;
   filterSlider.startGrip.background.strokeOpacity = 0;
-  filterSlider.startGrip.icon.stroke = am4core.color("#ffffff");
+  filterSlider.startGrip.icon.stroke = am4core.color("#000000");
   filterSlider.startGrip.background.states.getKey("hover").properties.fill = activeColor;
   filterSlider.startGrip.background.states.getKey("down").properties.fill = activeColor;
   filterSlider.horizontalCenter = "middle";
@@ -594,7 +512,7 @@ am4core.ready(function() {
   filterLabel.text = "filter max values *";
   filterLabel.rotation = 90;
   filterLabel.fontSize = "10px";
-  filterLabel.fill = am4core.color("#ffffff");
+  filterLabel.fill = am4core.color("#000000");
   filterLabel.fontSize = "0.8em";
   filterLabel.fillOpacity = 0.5;
   filterLabel.horizontalCenter = "middle";
@@ -603,7 +521,7 @@ am4core.ready(function() {
   filterLabel.tooltip.label.wrap = true;
   filterLabel.tooltip.label.maxWidth = 300;
   filterLabel.tooltipText = "This filter allows to remove countries with many cases from the map so that it would be possible to compare countries with smaller number of cases."
-  filterLabel.fill = am4core.color("#ffffff");
+  filterLabel.fill = am4core.color("#000000");
 
   filterLabel.adapter.add("y", function(y, target) {
     return container.pixelHeight * (1 - buttonsAndChartContainer.percentHeight / 100) * 0.7;
@@ -646,6 +564,7 @@ am4core.ready(function() {
   lineChart.zoomOutButton.disabled = true;
   lineChart.paddingBottom = 5;
   lineChart.paddingTop = 3;
+  lineChart.background.fill = '#ffffff'
 
   // make a copy of data as we will be modifying it
   lineChart.data = JSON.parse(JSON.stringify(covid_total_timeline));
@@ -660,7 +579,7 @@ am4core.ready(function() {
   dateAxis.tooltip.label.fontSize = "0.8em";
   dateAxis.tooltip.background.fill = activeColor;
   dateAxis.tooltip.background.stroke = activeColor;
-  dateAxis.renderer.labels.template.fill = am4core.color("#ffffff");
+  dateAxis.renderer.labels.template.fill = am4core.color("#000000");
   /*
   dateAxis.renderer.labels.template.adapter.add("fillOpacity", function(fillOpacity, target){
       return dateAxis.valueToPosition(target.dataItem.value) + 0.1;
@@ -681,7 +600,7 @@ am4core.ready(function() {
   valueAxis.maxPrecision = 0;
   valueAxis.renderer.inside = true;
   valueAxis.renderer.labels.template.verticalCenter = "bottom";
-  valueAxis.renderer.labels.template.fill = am4core.color("#ffffff");
+  valueAxis.renderer.labels.template.fill = am4core.color("#000000");
   valueAxis.renderer.labels.template.padding(2, 2, 2, 2);
   valueAxis.adapter.add("max", function(max, target) {
     if (max < 5) {
@@ -715,7 +634,7 @@ am4core.ready(function() {
   // https://www.amcharts.com/docs/v4/concepts/legend/  
   lineChart.legend = new am4charts.Legend();
   lineChart.legend.parent = lineChart.plotContainer;
-  lineChart.legend.labels.template.fill = am4core.color("#ffffff");
+  lineChart.legend.labels.template.fill = am4core.color("#000000");
   lineChart.legend.markers.template.height = 8;
   lineChart.legend.contentAlign = "left";
   //lineChart.legend.fontSize = "10px";
@@ -734,8 +653,8 @@ am4core.ready(function() {
   var seriesTypeSwitch = lineChart.legend.createChild(am4core.SwitchButton);
   seriesTypeSwitch.leftLabel.text = "totals";
   seriesTypeSwitch.rightLabel.text = "day change"
-  seriesTypeSwitch.leftLabel.fill = am4core.color("#ffffff");
-  seriesTypeSwitch.rightLabel.fill = am4core.color("#ffffff");
+  seriesTypeSwitch.leftLabel.fill = am4core.color("#000000");
+  seriesTypeSwitch.rightLabel.fill = am4core.color("#000000");
 
   seriesTypeSwitch.events.on("down", function() {
     legendDown = true;
@@ -905,7 +824,7 @@ am4core.ready(function() {
   // data warning label
   var label = lineChart.plotContainer.createChild(am4core.Label);
   label.text = "Current day stats may be incomplete until countries submit their data.";
-  label.fill = am4core.color("#ffffff");
+  label.fill = am4core.color("#000000");
   label.fontSize = "0.8em";
   label.paddingBottom = 4;
   label.opacity = 0.5;
@@ -926,7 +845,7 @@ am4core.ready(function() {
   function addButton(name, color) {
     var button = buttonsContainer.createChild(am4core.Button)
     button.label.valign = "middle"
-    button.label.fill = am4core.color("#ffffff");
+    button.label.fill = am4core.color("#000000");
     //button.label.fontSize = "11px";
     button.background.cornerRadius(30, 30, 30, 30);
     button.background.strokeOpacity = 0.3
