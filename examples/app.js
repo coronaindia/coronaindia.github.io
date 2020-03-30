@@ -147,11 +147,18 @@ am4core.ready(function() {
   // https://www.amcharts.com/docs/v4/chart-types/map/
   var mapChart = container.createChild(am4maps.MapChart);
   mapChart.height = am4core.percent(80);
+  mapChart.width = am4core.percent(100);
   mapChart.zoomControl = new am4maps.ZoomControl();
   mapChart.zoomControl.align = "right";
   mapChart.zoomControl.marginRight = 15;
   mapChart.zoomControl.valign = "middle";
   mapChart.homeGeoPoint = { longitude: 0, latitude: -2 };
+  mapChart.zoomControl.minusButton.background.fill= am4core.color("#ffffff");
+  mapChart.zoomControl.plusButton.background.fill= am4core.color("#ffffff");
+  mapChart.zoomControl.minusButton.stroke= am4core.color("#000000");
+  mapChart.zoomControl.plusButton.stroke= am4core.color("#000000");
+  
+
 
   // by default minus button zooms out by one step, but we modify the behavior so when user clicks on minus, the map would fully zoom-out and show world data
   mapChart.zoomControl.minusButton.events.on("hit", showWorld);
