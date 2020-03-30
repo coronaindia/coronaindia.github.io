@@ -15,20 +15,20 @@
    * License MIT
    * --------------------------------------------
    */
-  var ControlSidebar = function ($) {
+  const ControlSidebar = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'ControlSidebar';
-    var DATA_KEY = 'lte.controlsidebar';
-    var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Event = {
-      COLLAPSED: "collapsed" + EVENT_KEY,
-      EXPANDED: "expanded" + EVENT_KEY
+    const NAME = 'ControlSidebar';
+    const DATA_KEY = 'lte.controlsidebar';
+    const EVENT_KEY = `.${DATA_KEY}`;
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Event = {
+      COLLAPSED: `collapsed${EVENT_KEY}`,
+      EXPANDED: `expanded${EVENT_KEY}`
     };
-    var Selector = {
+    const Selector = {
       CONTROL_SIDEBAR: '.control-sidebar',
       CONTROL_SIDEBAR_CONTENT: '.control-sidebar-content',
       DATA_TOGGLE: '[data-widget="control-sidebar"]',
@@ -36,7 +36,7 @@
       HEADER: '.main-header',
       FOOTER: '.main-footer'
     };
-    var ClassName = {
+    const ClassName = {
       CONTROL_SIDEBAR_ANIMATE: 'control-sidebar-animate',
       CONTROL_SIDEBAR_OPEN: 'control-sidebar-open',
       CONTROL_SIDEBAR_SLIDE: 'control-sidebar-slide-open',
@@ -52,7 +52,7 @@
       FOOTER_LG_FIXED: 'layout-lg-footer-fixed',
       FOOTER_XL_FIXED: 'layout-xl-footer-fixed'
     };
-    var Default = {
+    const Default = {
       controlsidebarSlide: true,
       scrollbarTheme: 'os-theme-light',
       scrollbarAutoHide: 'l'
@@ -62,10 +62,8 @@
      * ====================================================
      */
 
-    var ControlSidebar =
-    /*#__PURE__*/
-    function () {
-      function ControlSidebar(element, config) {
+    class ControlSidebar {
+      constructor(element, config) {
         this._element = element;
         this._config = config;
 
@@ -73,9 +71,7 @@
       } // Public
 
 
-      var _proto = ControlSidebar.prototype;
-
-      _proto.collapse = function collapse() {
+      collapse() {
         // Show the control sidebar
         if (this._config.controlsidebarSlide) {
           $('html').addClass(ClassName.CONTROL_SIDEBAR_ANIMATE);
@@ -88,11 +84,11 @@
           $('body').removeClass(ClassName.CONTROL_SIDEBAR_OPEN);
         }
 
-        var collapsedEvent = $.Event(Event.COLLAPSED);
+        const collapsedEvent = $.Event(Event.COLLAPSED);
         $(this._element).trigger(collapsedEvent);
-      };
+      }
 
-      _proto.show = function show() {
+      show() {
         // Collapse the control sidebar
         if (this._config.controlsidebarSlide) {
           $('html').addClass(ClassName.CONTROL_SIDEBAR_ANIMATE);
@@ -107,12 +103,12 @@
           $('body').addClass(ClassName.CONTROL_SIDEBAR_OPEN);
         }
 
-        var expandedEvent = $.Event(Event.EXPANDED);
+        const expandedEvent = $.Event(Event.EXPANDED);
         $(this._element).trigger(expandedEvent);
-      };
+      }
 
-      _proto.toggle = function toggle() {
-        var shouldClose = $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE);
+      toggle() {
+        const shouldClose = $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE);
 
         if (shouldClose) {
           // Close the control sidebar
@@ -122,40 +118,38 @@
           this.show();
         }
       } // Private
-      ;
 
-      _proto._init = function _init() {
-        var _this = this;
 
+      _init() {
         this._fixHeight();
 
         this._fixScrollHeight();
 
-        $(window).resize(function () {
-          _this._fixHeight();
+        $(window).resize(() => {
+          this._fixHeight();
 
-          _this._fixScrollHeight();
+          this._fixScrollHeight();
         });
-        $(window).scroll(function () {
+        $(window).scroll(() => {
           if ($('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE)) {
-            _this._fixScrollHeight();
+            this._fixScrollHeight();
           }
         });
-      };
+      }
 
-      _proto._fixScrollHeight = function _fixScrollHeight() {
-        var heights = {
+      _fixScrollHeight() {
+        const heights = {
           scroll: $(document).height(),
           window: $(window).height(),
           header: $(Selector.HEADER).outerHeight(),
           footer: $(Selector.FOOTER).outerHeight()
         };
-        var positions = {
+        const positions = {
           bottom: Math.abs(heights.window + $(window).scrollTop() - heights.scroll),
           top: $(window).scrollTop()
         };
-        var navbarFixed = false;
-        var footerFixed = false;
+        let navbarFixed = false;
+        let footerFixed = false;
 
         if ($('body').hasClass(ClassName.LAYOUT_FIXED)) {
           if ($('body').hasClass(ClassName.NAVBAR_FIXED) || $('body').hasClass(ClassName.NAVBAR_SM_FIXED) || $('body').hasClass(ClassName.NAVBAR_MD_FIXED) || $('body').hasClass(ClassName.NAVBAR_LG_FIXED) || $('body').hasClass(ClassName.NAVBAR_XL_FIXED)) {
@@ -197,17 +191,17 @@
             }
           }
         }
-      };
+      }
 
-      _proto._fixHeight = function _fixHeight() {
-        var heights = {
+      _fixHeight() {
+        const heights = {
           window: $(window).height(),
           header: $(Selector.HEADER).outerHeight(),
           footer: $(Selector.FOOTER).outerHeight()
         };
 
         if ($('body').hasClass(ClassName.LAYOUT_FIXED)) {
-          var sidebarHeight = heights.window - heights.header;
+          let sidebarHeight = heights.window - heights.header;
 
           if ($('body').hasClass(ClassName.FOOTER_FIXED) || $('body').hasClass(ClassName.FOOTER_SM_FIXED) || $('body').hasClass(ClassName.FOOTER_MD_FIXED) || $('body').hasClass(ClassName.FOOTER_LG_FIXED) || $('body').hasClass(ClassName.FOOTER_XL_FIXED)) {
             if ($(Selector.FOOTER).css("position") === "fixed") {
@@ -229,13 +223,13 @@
           }
         }
       } // Static
-      ;
 
-      ControlSidebar._jQueryInterface = function _jQueryInterface(operation) {
+
+      static _jQueryInterface(operation) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          let data = $(this).data(DATA_KEY);
 
-          var _options = $.extend({}, Default, $(this).data());
+          const _options = $.extend({}, Default, $(this).data());
 
           if (!data) {
             data = new ControlSidebar(this, _options);
@@ -243,15 +237,14 @@
           }
 
           if (data[operation] === 'undefined') {
-            throw new Error(operation + " is not a function");
+            throw new Error(`${operation} is not a function`);
           }
 
           data[operation]();
         });
-      };
+      }
 
-      return ControlSidebar;
-    }();
+    }
     /**
      *
      * Data Api implementation
@@ -278,7 +271,7 @@
     };
 
     return ControlSidebar;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -286,15 +279,15 @@
    * License MIT
    * --------------------------------------------
    */
-  var Layout = function ($) {
+  const Layout = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'Layout';
-    var DATA_KEY = 'lte.layout';
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Selector = {
+    const NAME = 'Layout';
+    const DATA_KEY = 'lte.layout';
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Selector = {
       HEADER: '.main-header',
       MAIN_SIDEBAR: '.main-sidebar',
       SIDEBAR: '.main-sidebar .sidebar',
@@ -311,7 +304,7 @@
       LOGIN_BOX: '.login-box',
       REGISTER_BOX: '.register-box'
     };
-    var ClassName = {
+    const ClassName = {
       HOLD: 'hold-transition',
       SIDEBAR: 'main-sidebar',
       CONTENT_FIXED: 'content-fixed',
@@ -324,7 +317,7 @@
       CONTROL_SIDEBAR_SLIDE_OPEN: 'control-sidebar-slide-open',
       CONTROL_SIDEBAR_OPEN: 'control-sidebar-open'
     };
-    var Default = {
+    const Default = {
       scrollbarTheme: 'os-theme-light',
       scrollbarAutoHide: 'l',
       panelAutoHeight: true,
@@ -335,10 +328,8 @@
      * ====================================================
      */
 
-    var Layout =
-    /*#__PURE__*/
-    function () {
-      function Layout(element, config) {
+    class Layout {
+      constructor(element, config) {
         this._config = config;
         this._element = element;
 
@@ -346,20 +337,14 @@
       } // Public
 
 
-      var _proto = Layout.prototype;
-
-      _proto.fixLayoutHeight = function fixLayoutHeight(extra) {
-        if (extra === void 0) {
-          extra = null;
-        }
-
-        var control_sidebar = 0;
+      fixLayoutHeight(extra = null) {
+        let control_sidebar = 0;
 
         if ($('body').hasClass(ClassName.CONTROL_SIDEBAR_SLIDE_OPEN) || $('body').hasClass(ClassName.CONTROL_SIDEBAR_OPEN) || extra == 'control_sidebar') {
           control_sidebar = $(Selector.CONTROL_SIDEBAR_CONTENT).height();
         }
 
-        var heights = {
+        const heights = {
           window: $(window).height(),
           header: $(Selector.HEADER).length !== 0 ? $(Selector.HEADER).outerHeight() : 0,
           footer: $(Selector.FOOTER).length !== 0 ? $(Selector.FOOTER).outerHeight() : 0,
@@ -367,9 +352,9 @@
           control_sidebar: control_sidebar
         };
 
-        var max = this._max(heights);
+        const max = this._max(heights);
 
-        var offset = this._config.panelAutoHeight;
+        let offset = this._config.panelAutoHeight;
 
         if (offset === true) {
           offset = 0;
@@ -401,24 +386,22 @@
             });
           }
         }
-      };
+      }
 
-      _proto.fixLoginRegisterHeight = function fixLoginRegisterHeight() {
+      fixLoginRegisterHeight() {
         if ($(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).length === 0) {
           $('body, html').css('height', 'auto');
         } else if ($(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).length !== 0) {
-          var box_height = $(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).height();
+          let box_height = $(Selector.LOGIN_BOX + ', ' + Selector.REGISTER_BOX).height();
 
           if ($('body').css('min-height') !== box_height) {
             $('body').css('min-height', box_height);
           }
         }
       } // Private
-      ;
 
-      _proto._init = function _init() {
-        var _this = this;
 
+      _init() {
         // Activate layout height watcher
         this.fixLayoutHeight();
 
@@ -428,44 +411,40 @@
           setInterval(this.fixLoginRegisterHeight, this._config.loginRegisterAutoHeight);
         }
 
-        $(Selector.SIDEBAR).on('collapsed.lte.treeview expanded.lte.treeview', function () {
-          _this.fixLayoutHeight();
+        $(Selector.SIDEBAR).on('collapsed.lte.treeview expanded.lte.treeview', () => {
+          this.fixLayoutHeight();
         });
-        $(Selector.PUSHMENU_BTN).on('collapsed.lte.pushmenu shown.lte.pushmenu', function () {
-          _this.fixLayoutHeight();
+        $(Selector.PUSHMENU_BTN).on('collapsed.lte.pushmenu shown.lte.pushmenu', () => {
+          this.fixLayoutHeight();
         });
-        $(Selector.CONTROL_SIDEBAR_BTN).on('collapsed.lte.controlsidebar', function () {
-          _this.fixLayoutHeight();
-        }).on('expanded.lte.controlsidebar', function () {
-          _this.fixLayoutHeight('control_sidebar');
+        $(Selector.CONTROL_SIDEBAR_BTN).on('collapsed.lte.controlsidebar', () => {
+          this.fixLayoutHeight();
+        }).on('expanded.lte.controlsidebar', () => {
+          this.fixLayoutHeight('control_sidebar');
         });
-        $(window).resize(function () {
-          _this.fixLayoutHeight();
+        $(window).resize(() => {
+          this.fixLayoutHeight();
         });
         $('body.hold-transition').removeClass('hold-transition');
-      };
+      }
 
-      _proto._max = function _max(numbers) {
+      _max(numbers) {
         // Calculate the maximum number in a list
-        var max = 0;
-        Object.keys(numbers).forEach(function (key) {
+        let max = 0;
+        Object.keys(numbers).forEach(key => {
           if (numbers[key] > max) {
             max = numbers[key];
           }
         });
         return max;
       } // Static
-      ;
 
-      Layout._jQueryInterface = function _jQueryInterface(config) {
-        if (config === void 0) {
-          config = '';
-        }
 
+      static _jQueryInterface(config = '') {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          let data = $(this).data(DATA_KEY);
 
-          var _options = $.extend({}, Default, $(this).data());
+          const _options = $.extend({}, Default, $(this).data());
 
           if (!data) {
             data = new Layout($(this), _options);
@@ -478,23 +457,22 @@
             data[config]();
           }
         });
-      };
+      }
 
-      return Layout;
-    }();
+    }
     /**
      * Data API
      * ====================================================
      */
 
 
-    $(window).on('load', function () {
+    $(window).on('load', () => {
       Layout._jQueryInterface.call($('body'));
     });
-    $(Selector.SIDEBAR + ' a').on('focusin', function () {
+    $(Selector.SIDEBAR + ' a').on('focusin', () => {
       $(Selector.MAIN_SIDEBAR).addClass(ClassName.SIDEBAR_FOCUSED);
     });
-    $(Selector.SIDEBAR + ' a').on('focusout', function () {
+    $(Selector.SIDEBAR + ' a').on('focusout', () => {
       $(Selector.MAIN_SIDEBAR).removeClass(ClassName.SIDEBAR_FOCUSED);
     });
     /**
@@ -511,7 +489,7 @@
     };
 
     return Layout;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -519,25 +497,25 @@
    * License MIT
    * --------------------------------------------
    */
-  var PushMenu = function ($) {
+  const PushMenu = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'PushMenu';
-    var DATA_KEY = 'lte.pushmenu';
-    var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Event = {
-      COLLAPSED: "collapsed" + EVENT_KEY,
-      SHOWN: "shown" + EVENT_KEY
+    const NAME = 'PushMenu';
+    const DATA_KEY = 'lte.pushmenu';
+    const EVENT_KEY = `.${DATA_KEY}`;
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Event = {
+      COLLAPSED: `collapsed${EVENT_KEY}`,
+      SHOWN: `shown${EVENT_KEY}`
     };
-    var Default = {
+    const Default = {
       autoCollapseSize: 992,
       enableRemember: false,
       noTransitionAfterReload: true
     };
-    var Selector = {
+    const Selector = {
       TOGGLE_BUTTON: '[data-widget="pushmenu"]',
       SIDEBAR_MINI: '.sidebar-mini',
       SIDEBAR_COLLAPSED: '.sidebar-collapse',
@@ -545,7 +523,7 @@
       OVERLAY: '#sidebar-overlay',
       WRAPPER: '.wrapper'
     };
-    var ClassName = {
+    const ClassName = {
       SIDEBAR_OPEN: 'sidebar-open',
       COLLAPSED: 'sidebar-collapse',
       OPEN: 'sidebar-open'
@@ -555,10 +533,8 @@
      * ====================================================
      */
 
-    var PushMenu =
-    /*#__PURE__*/
-    function () {
-      function PushMenu(element, options) {
+    class PushMenu {
+      constructor(element, options) {
         this._element = element;
         this._options = $.extend({}, Default, options);
 
@@ -570,9 +546,7 @@
       } // Public
 
 
-      var _proto = PushMenu.prototype;
-
-      _proto.expand = function expand() {
+      expand() {
         if (this._options.autoCollapseSize) {
           if ($(window).width() <= this._options.autoCollapseSize) {
             $(Selector.BODY).addClass(ClassName.OPEN);
@@ -582,14 +556,14 @@
         $(Selector.BODY).removeClass(ClassName.COLLAPSED);
 
         if (this._options.enableRemember) {
-          localStorage.setItem("remember" + EVENT_KEY, ClassName.OPEN);
+          localStorage.setItem(`remember${EVENT_KEY}`, ClassName.OPEN);
         }
 
-        var shownEvent = $.Event(Event.SHOWN);
+        const shownEvent = $.Event(Event.SHOWN);
         $(this._element).trigger(shownEvent);
-      };
+      }
 
-      _proto.collapse = function collapse() {
+      collapse() {
         if (this._options.autoCollapseSize) {
           if ($(window).width() <= this._options.autoCollapseSize) {
             $(Selector.BODY).removeClass(ClassName.OPEN);
@@ -599,26 +573,22 @@
         $(Selector.BODY).addClass(ClassName.COLLAPSED);
 
         if (this._options.enableRemember) {
-          localStorage.setItem("remember" + EVENT_KEY, ClassName.COLLAPSED);
+          localStorage.setItem(`remember${EVENT_KEY}`, ClassName.COLLAPSED);
         }
 
-        var collapsedEvent = $.Event(Event.COLLAPSED);
+        const collapsedEvent = $.Event(Event.COLLAPSED);
         $(this._element).trigger(collapsedEvent);
-      };
+      }
 
-      _proto.toggle = function toggle() {
+      toggle() {
         if (!$(Selector.BODY).hasClass(ClassName.COLLAPSED)) {
           this.collapse();
         } else {
           this.expand();
         }
-      };
+      }
 
-      _proto.autoCollapse = function autoCollapse(resize) {
-        if (resize === void 0) {
-          resize = false;
-        }
-
+      autoCollapse(resize = false) {
         if (this._options.autoCollapseSize) {
           if ($(window).width() <= this._options.autoCollapseSize) {
             if (!$(Selector.BODY).hasClass(ClassName.OPEN)) {
@@ -630,11 +600,11 @@
             }
           }
         }
-      };
+      }
 
-      _proto.remember = function remember() {
+      remember() {
         if (this._options.enableRemember) {
-          var toggleState = localStorage.getItem("remember" + EVENT_KEY);
+          let toggleState = localStorage.getItem(`remember${EVENT_KEY}`);
 
           if (toggleState == ClassName.COLLAPSED) {
             if (this._options.noTransitionAfterReload) {
@@ -657,36 +627,32 @@
           }
         }
       } // Private
-      ;
 
-      _proto._init = function _init() {
-        var _this = this;
 
+      _init() {
         this.remember();
         this.autoCollapse();
-        $(window).resize(function () {
-          _this.autoCollapse(true);
+        $(window).resize(() => {
+          this.autoCollapse(true);
         });
-      };
+      }
 
-      _proto._addOverlay = function _addOverlay() {
-        var _this2 = this;
-
-        var overlay = $('<div />', {
+      _addOverlay() {
+        const overlay = $('<div />', {
           id: 'sidebar-overlay'
         });
-        overlay.on('click', function () {
-          _this2.collapse();
+        overlay.on('click', () => {
+          this.collapse();
         });
         $(Selector.WRAPPER).append(overlay);
       } // Static
-      ;
 
-      PushMenu._jQueryInterface = function _jQueryInterface(operation) {
+
+      static _jQueryInterface(operation) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          let data = $(this).data(DATA_KEY);
 
-          var _options = $.extend({}, Default, $(this).data());
+          const _options = $.extend({}, Default, $(this).data());
 
           if (!data) {
             data = new PushMenu(this, _options);
@@ -697,19 +663,18 @@
             data[operation]();
           }
         });
-      };
+      }
 
-      return PushMenu;
-    }();
+    }
     /**
      * Data API
      * ====================================================
      */
 
 
-    $(document).on('click', Selector.TOGGLE_BUTTON, function (event) {
+    $(document).on('click', Selector.TOGGLE_BUTTON, event => {
       event.preventDefault();
-      var button = event.currentTarget;
+      let button = event.currentTarget;
 
       if ($(button).data('widget') !== 'pushmenu') {
         button = $(button).closest(Selector.TOGGLE_BUTTON);
@@ -717,7 +682,7 @@
 
       PushMenu._jQueryInterface.call($(button), 'toggle');
     });
-    $(window).on('load', function () {
+    $(window).on('load', () => {
       PushMenu._jQueryInterface.call($(Selector.TOGGLE_BUTTON));
     });
     /**
@@ -734,7 +699,7 @@
     };
 
     return PushMenu;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -742,37 +707,37 @@
    * License MIT
    * --------------------------------------------
    */
-  var Treeview = function ($) {
+  const Treeview = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'Treeview';
-    var DATA_KEY = 'lte.treeview';
-    var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Event = {
-      SELECTED: "selected" + EVENT_KEY,
-      EXPANDED: "expanded" + EVENT_KEY,
-      COLLAPSED: "collapsed" + EVENT_KEY,
-      LOAD_DATA_API: "load" + EVENT_KEY
+    const NAME = 'Treeview';
+    const DATA_KEY = 'lte.treeview';
+    const EVENT_KEY = `.${DATA_KEY}`;
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Event = {
+      SELECTED: `selected${EVENT_KEY}`,
+      EXPANDED: `expanded${EVENT_KEY}`,
+      COLLAPSED: `collapsed${EVENT_KEY}`,
+      LOAD_DATA_API: `load${EVENT_KEY}`
     };
-    var Selector = {
+    const Selector = {
       LI: '.nav-item',
       LINK: '.nav-link',
       TREEVIEW_MENU: '.nav-treeview',
       OPEN: '.menu-open',
       DATA_WIDGET: '[data-widget="treeview"]'
     };
-    var ClassName = {
+    const ClassName = {
       LI: 'nav-item',
       LINK: 'nav-link',
       TREEVIEW_MENU: 'nav-treeview',
       OPEN: 'menu-open',
       SIDEBAR_COLLAPSED: 'sidebar-collapse'
     };
-    var Default = {
-      trigger: Selector.DATA_WIDGET + " " + Selector.LINK,
+    const Default = {
+      trigger: `${Selector.DATA_WIDGET} ${Selector.LINK}`,
       animationSpeed: 300,
       accordion: true,
       expandSidebar: false,
@@ -783,58 +748,50 @@
      * ====================================================
      */
 
-    var Treeview =
-    /*#__PURE__*/
-    function () {
-      function Treeview(element, config) {
+    class Treeview {
+      constructor(element, config) {
         this._config = config;
         this._element = element;
       } // Public
 
 
-      var _proto = Treeview.prototype;
-
-      _proto.init = function init() {
+      init() {
         this._setupListeners();
-      };
+      }
 
-      _proto.expand = function expand(treeviewMenu, parentLi) {
-        var _this = this;
-
-        var expandedEvent = $.Event(Event.EXPANDED);
+      expand(treeviewMenu, parentLi) {
+        const expandedEvent = $.Event(Event.EXPANDED);
 
         if (this._config.accordion) {
-          var openMenuLi = parentLi.siblings(Selector.OPEN).first();
-          var openTreeview = openMenuLi.find(Selector.TREEVIEW_MENU).first();
+          const openMenuLi = parentLi.siblings(Selector.OPEN).first();
+          const openTreeview = openMenuLi.find(Selector.TREEVIEW_MENU).first();
           this.collapse(openTreeview, openMenuLi);
         }
 
-        treeviewMenu.stop().slideDown(this._config.animationSpeed, function () {
+        treeviewMenu.stop().slideDown(this._config.animationSpeed, () => {
           parentLi.addClass(ClassName.OPEN);
-          $(_this._element).trigger(expandedEvent);
+          $(this._element).trigger(expandedEvent);
         });
 
         if (this._config.expandSidebar) {
           this._expandSidebar();
         }
-      };
+      }
 
-      _proto.collapse = function collapse(treeviewMenu, parentLi) {
-        var _this2 = this;
-
-        var collapsedEvent = $.Event(Event.COLLAPSED);
-        treeviewMenu.stop().slideUp(this._config.animationSpeed, function () {
+      collapse(treeviewMenu, parentLi) {
+        const collapsedEvent = $.Event(Event.COLLAPSED);
+        treeviewMenu.stop().slideUp(this._config.animationSpeed, () => {
           parentLi.removeClass(ClassName.OPEN);
-          $(_this2._element).trigger(collapsedEvent);
-          treeviewMenu.find(Selector.OPEN + " > " + Selector.TREEVIEW_MENU).slideUp();
+          $(this._element).trigger(collapsedEvent);
+          treeviewMenu.find(`${Selector.OPEN} > ${Selector.TREEVIEW_MENU}`).slideUp();
           treeviewMenu.find(Selector.OPEN).removeClass(ClassName.OPEN);
         });
-      };
+      }
 
-      _proto.toggle = function toggle(event) {
-        var $relativeTarget = $(event.currentTarget);
-        var $parent = $relativeTarget.parent();
-        var treeviewMenu = $parent.find('> ' + Selector.TREEVIEW_MENU);
+      toggle(event) {
+        const $relativeTarget = $(event.currentTarget);
+        const $parent = $relativeTarget.parent();
+        let treeviewMenu = $parent.find('> ' + Selector.TREEVIEW_MENU);
 
         if (!treeviewMenu.is(Selector.TREEVIEW_MENU)) {
           if (!$parent.is(Selector.LI)) {
@@ -847,8 +804,8 @@
         }
 
         event.preventDefault();
-        var parentLi = $relativeTarget.parents(Selector.LI).first();
-        var isOpen = parentLi.hasClass(ClassName.OPEN);
+        const parentLi = $relativeTarget.parents(Selector.LI).first();
+        const isOpen = parentLi.hasClass(ClassName.OPEN);
 
         if (isOpen) {
           this.collapse($(treeviewMenu), parentLi);
@@ -856,28 +813,26 @@
           this.expand($(treeviewMenu), parentLi);
         }
       } // Private
-      ;
 
-      _proto._setupListeners = function _setupListeners() {
-        var _this3 = this;
 
-        $(document).on('click', this._config.trigger, function (event) {
-          _this3.toggle(event);
+      _setupListeners() {
+        $(document).on('click', this._config.trigger, event => {
+          this.toggle(event);
         });
-      };
+      }
 
-      _proto._expandSidebar = function _expandSidebar() {
+      _expandSidebar() {
         if ($('body').hasClass(ClassName.SIDEBAR_COLLAPSED)) {
           $(this._config.sidebarButtonSelector).PushMenu('expand');
         }
       } // Static
-      ;
 
-      Treeview._jQueryInterface = function _jQueryInterface(config) {
+
+      static _jQueryInterface(config) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          let data = $(this).data(DATA_KEY);
 
-          var _options = $.extend({}, Default, $(this).data());
+          const _options = $.extend({}, Default, $(this).data());
 
           if (!data) {
             data = new Treeview($(this), _options);
@@ -888,17 +843,16 @@
             data[config]();
           }
         });
-      };
+      }
 
-      return Treeview;
-    }();
+    }
     /**
      * Data API
      * ====================================================
      */
 
 
-    $(window).on(Event.LOAD_DATA_API, function () {
+    $(window).on(Event.LOAD_DATA_API, () => {
       $(Selector.DATA_WIDGET).each(function () {
         Treeview._jQueryInterface.call($(this), 'init');
       });
@@ -917,7 +871,7 @@
     };
 
     return Treeview;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -925,22 +879,22 @@
    * License MIT
    * --------------------------------------------
    */
-  var DirectChat = function ($) {
+  const DirectChat = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'DirectChat';
-    var DATA_KEY = 'lte.directchat';
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Event = {
-      TOGGLED: "toggled{EVENT_KEY}"
+    const NAME = 'DirectChat';
+    const DATA_KEY = 'lte.directchat';
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Event = {
+      TOGGLED: `toggled{EVENT_KEY}`
     };
-    var Selector = {
+    const Selector = {
       DATA_TOGGLE: '[data-widget="chat-pane-toggle"]',
       DIRECT_CHAT: '.direct-chat'
     };
-    var ClassName = {
+    const ClassName = {
       DIRECT_CHAT_OPEN: 'direct-chat-contacts-open'
     };
     /**
@@ -948,25 +902,21 @@
      * ====================================================
      */
 
-    var DirectChat =
-    /*#__PURE__*/
-    function () {
-      function DirectChat(element, config) {
+    class DirectChat {
+      constructor(element, config) {
         this._element = element;
       }
 
-      var _proto = DirectChat.prototype;
-
-      _proto.toggle = function toggle() {
+      toggle() {
         $(this._element).parents(Selector.DIRECT_CHAT).first().toggleClass(ClassName.DIRECT_CHAT_OPEN);
-        var toggledEvent = $.Event(Event.TOGGLED);
+        const toggledEvent = $.Event(Event.TOGGLED);
         $(this._element).trigger(toggledEvent);
       } // Static
-      ;
 
-      DirectChat._jQueryInterface = function _jQueryInterface(config) {
+
+      static _jQueryInterface(config) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          let data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new DirectChat($(this));
@@ -975,10 +925,9 @@
 
           data[config]();
         });
-      };
+      }
 
-      return DirectChat;
-    }();
+    }
     /**
      *
      * Data Api implementation
@@ -1005,7 +954,7 @@
     };
 
     return DirectChat;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -1013,25 +962,25 @@
    * License MIT
    * --------------------------------------------
    */
-  var TodoList = function ($) {
+  const TodoList = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'TodoList';
-    var DATA_KEY = 'lte.todolist';
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Selector = {
+    const NAME = 'TodoList';
+    const DATA_KEY = 'lte.todolist';
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Selector = {
       DATA_TOGGLE: '[data-widget="todo-list"]'
     };
-    var ClassName = {
+    const ClassName = {
       TODO_LIST_DONE: 'done'
     };
-    var Default = {
-      onCheck: function onCheck(item) {
+    const Default = {
+      onCheck: function (item) {
         return item;
       },
-      onUnCheck: function onUnCheck(item) {
+      onUnCheck: function (item) {
         return item;
       }
     };
@@ -1040,10 +989,8 @@
      * ====================================================
      */
 
-    var TodoList =
-    /*#__PURE__*/
-    function () {
-      function TodoList(element, config) {
+    class TodoList {
+      constructor(element, config) {
         this._config = config;
         this._element = element;
 
@@ -1051,9 +998,7 @@
       } // Public
 
 
-      var _proto = TodoList.prototype;
-
-      _proto.toggle = function toggle(item) {
+      toggle(item) {
         item.parents('li').toggleClass(ClassName.TODO_LIST_DONE);
 
         if (!$(item).prop('checked')) {
@@ -1062,31 +1007,31 @@
         }
 
         this.check(item);
-      };
+      }
 
-      _proto.check = function check(item) {
+      check(item) {
         this._config.onCheck.call(item);
-      };
+      }
 
-      _proto.unCheck = function unCheck(item) {
+      unCheck(item) {
         this._config.onUnCheck.call(item);
       } // Private
-      ;
 
-      _proto._init = function _init() {
+
+      _init() {
         var that = this;
         $(Selector.DATA_TOGGLE).find('input:checkbox:checked').parents('li').toggleClass(ClassName.TODO_LIST_DONE);
-        $(Selector.DATA_TOGGLE).on('change', 'input:checkbox', function (event) {
+        $(Selector.DATA_TOGGLE).on('change', 'input:checkbox', event => {
           that.toggle($(event.target));
         });
       } // Static
-      ;
 
-      TodoList._jQueryInterface = function _jQueryInterface(config) {
+
+      static _jQueryInterface(config) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          let data = $(this).data(DATA_KEY);
 
-          var _options = $.extend({}, Default, $(this).data());
+          const _options = $.extend({}, Default, $(this).data());
 
           if (!data) {
             data = new TodoList($(this), _options);
@@ -1097,17 +1042,16 @@
             data[config]();
           }
         });
-      };
+      }
 
-      return TodoList;
-    }();
+    }
     /**
      * Data API
      * ====================================================
      */
 
 
-    $(window).on('load', function () {
+    $(window).on('load', () => {
       TodoList._jQueryInterface.call($(Selector.DATA_TOGGLE));
     });
     /**
@@ -1124,7 +1068,7 @@
     };
 
     return TodoList;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -1132,23 +1076,23 @@
    * License MIT
    * --------------------------------------------
    */
-  var CardWidget = function ($) {
+  const CardWidget = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'CardWidget';
-    var DATA_KEY = 'lte.cardwidget';
-    var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Event = {
-      EXPANDED: "expanded" + EVENT_KEY,
-      COLLAPSED: "collapsed" + EVENT_KEY,
-      MAXIMIZED: "maximized" + EVENT_KEY,
-      MINIMIZED: "minimized" + EVENT_KEY,
-      REMOVED: "removed" + EVENT_KEY
+    const NAME = 'CardWidget';
+    const DATA_KEY = 'lte.cardwidget';
+    const EVENT_KEY = `.${DATA_KEY}`;
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Event = {
+      EXPANDED: `expanded${EVENT_KEY}`,
+      COLLAPSED: `collapsed${EVENT_KEY}`,
+      MAXIMIZED: `maximized${EVENT_KEY}`,
+      MINIMIZED: `minimized${EVENT_KEY}`,
+      REMOVED: `removed${EVENT_KEY}`
     };
-    var ClassName = {
+    const ClassName = {
       CARD: 'card',
       COLLAPSED: 'collapsed-card',
       COLLAPSING: 'collapsing-card',
@@ -1156,17 +1100,17 @@
       WAS_COLLAPSED: 'was-collapsed',
       MAXIMIZED: 'maximized-card'
     };
-    var Selector = {
+    const Selector = {
       DATA_REMOVE: '[data-card-widget="remove"]',
       DATA_COLLAPSE: '[data-card-widget="collapse"]',
       DATA_MAXIMIZE: '[data-card-widget="maximize"]',
-      CARD: "." + ClassName.CARD,
+      CARD: `.${ClassName.CARD}`,
       CARD_HEADER: '.card-header',
       CARD_BODY: '.card-body',
       CARD_FOOTER: '.card-footer',
-      COLLAPSED: "." + ClassName.COLLAPSED
+      COLLAPSED: `.${ClassName.COLLAPSED}`
     };
-    var Default = {
+    const Default = {
       animationSpeed: 'normal',
       collapseTrigger: Selector.DATA_COLLAPSE,
       removeTrigger: Selector.DATA_REMOVE,
@@ -1177,10 +1121,8 @@
       minimizeIcon: 'fa-compress'
     };
 
-    var CardWidget =
-    /*#__PURE__*/
-    function () {
-      function CardWidget(element, settings) {
+    class CardWidget {
+      constructor(element, settings) {
         this._element = element;
         this._parent = element.parents(Selector.CARD).first();
 
@@ -1191,54 +1133,48 @@
         this._settings = $.extend({}, Default, settings);
       }
 
-      var _proto = CardWidget.prototype;
-
-      _proto.collapse = function collapse() {
-        var _this = this;
-
-        this._parent.addClass(ClassName.COLLAPSING).children(Selector.CARD_BODY + ", " + Selector.CARD_FOOTER).slideUp(this._settings.animationSpeed, function () {
-          _this._parent.addClass(ClassName.COLLAPSED).removeClass(ClassName.COLLAPSING);
+      collapse() {
+        this._parent.addClass(ClassName.COLLAPSING).children(`${Selector.CARD_BODY}, ${Selector.CARD_FOOTER}`).slideUp(this._settings.animationSpeed, () => {
+          this._parent.addClass(ClassName.COLLAPSED).removeClass(ClassName.COLLAPSING);
         });
 
         this._parent.find('> ' + Selector.CARD_HEADER + ' ' + this._settings.collapseTrigger + ' .' + this._settings.collapseIcon).addClass(this._settings.expandIcon).removeClass(this._settings.collapseIcon);
 
-        var collapsed = $.Event(Event.COLLAPSED);
+        const collapsed = $.Event(Event.COLLAPSED);
 
         this._element.trigger(collapsed, this._parent);
-      };
+      }
 
-      _proto.expand = function expand() {
-        var _this2 = this;
-
-        this._parent.addClass(ClassName.EXPANDING).children(Selector.CARD_BODY + ", " + Selector.CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
-          _this2._parent.removeClass(ClassName.COLLAPSED).removeClass(ClassName.EXPANDING);
+      expand() {
+        this._parent.addClass(ClassName.EXPANDING).children(`${Selector.CARD_BODY}, ${Selector.CARD_FOOTER}`).slideDown(this._settings.animationSpeed, () => {
+          this._parent.removeClass(ClassName.COLLAPSED).removeClass(ClassName.EXPANDING);
         });
 
         this._parent.find('> ' + Selector.CARD_HEADER + ' ' + this._settings.collapseTrigger + ' .' + this._settings.expandIcon).addClass(this._settings.collapseIcon).removeClass(this._settings.expandIcon);
 
-        var expanded = $.Event(Event.EXPANDED);
+        const expanded = $.Event(Event.EXPANDED);
 
         this._element.trigger(expanded, this._parent);
-      };
+      }
 
-      _proto.remove = function remove() {
+      remove() {
         this._parent.slideUp();
 
-        var removed = $.Event(Event.REMOVED);
+        const removed = $.Event(Event.REMOVED);
 
         this._element.trigger(removed, this._parent);
-      };
+      }
 
-      _proto.toggle = function toggle() {
+      toggle() {
         if (this._parent.hasClass(ClassName.COLLAPSED)) {
           this.expand();
           return;
         }
 
         this.collapse();
-      };
+      }
 
-      _proto.maximize = function maximize() {
+      maximize() {
         this._parent.find(this._settings.maximizeTrigger + ' .' + this._settings.maximizeIcon).addClass(this._settings.minimizeIcon).removeClass(this._settings.maximizeIcon);
 
         this._parent.css({
@@ -1256,12 +1192,12 @@
           $(this).dequeue();
         });
 
-        var maximized = $.Event(Event.MAXIMIZED);
+        const maximized = $.Event(Event.MAXIMIZED);
 
         this._element.trigger(maximized, this._parent);
-      };
+      }
 
-      _proto.minimize = function minimize() {
+      minimize() {
         this._parent.find(this._settings.maximizeTrigger + ' .' + this._settings.minimizeIcon).addClass(this._settings.maximizeIcon).removeClass(this._settings.minimizeIcon);
 
         this._parent.css('cssText', 'height:' + this._parent[0].style.height + ' !important;' + 'width:' + this._parent[0].style.width + ' !important; transition: all .15s;').delay(10).queue(function () {
@@ -1279,12 +1215,12 @@
           $(this).dequeue();
         });
 
-        var MINIMIZED = $.Event(Event.MINIMIZED);
+        const MINIMIZED = $.Event(Event.MINIMIZED);
 
         this._element.trigger(MINIMIZED, this._parent);
-      };
+      }
 
-      _proto.toggleMaximize = function toggleMaximize() {
+      toggleMaximize() {
         if (this._parent.hasClass(ClassName.MAXIMIZED)) {
           this.minimize();
           return;
@@ -1292,28 +1228,26 @@
 
         this.maximize();
       } // Private
-      ;
 
-      _proto._init = function _init(card) {
-        var _this3 = this;
 
+      _init(card) {
         this._parent = card;
-        $(this).find(this._settings.collapseTrigger).click(function () {
-          _this3.toggle();
+        $(this).find(this._settings.collapseTrigger).click(() => {
+          this.toggle();
         });
-        $(this).find(this._settings.maximizeTrigger).click(function () {
-          _this3.toggleMaximize();
+        $(this).find(this._settings.maximizeTrigger).click(() => {
+          this.toggleMaximize();
         });
-        $(this).find(this._settings.removeTrigger).click(function () {
-          _this3.remove();
+        $(this).find(this._settings.removeTrigger).click(() => {
+          this.remove();
         });
       } // Static
-      ;
 
-      CardWidget._jQueryInterface = function _jQueryInterface(config) {
-        var data = $(this).data(DATA_KEY);
 
-        var _options = $.extend({}, Default, $(this).data());
+      static _jQueryInterface(config) {
+        let data = $(this).data(DATA_KEY);
+
+        const _options = $.extend({}, Default, $(this).data());
 
         if (!data) {
           data = new CardWidget($(this), _options);
@@ -1325,10 +1259,9 @@
         } else if (typeof config === 'object') {
           data._init($(this));
         }
-      };
+      }
 
-      return CardWidget;
-    }();
+    }
     /**
      * Data API
      * ====================================================
@@ -1370,7 +1303,7 @@
     };
 
     return CardWidget;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -1378,28 +1311,28 @@
    * License MIT
    * --------------------------------------------
    */
-  var CardRefresh = function ($) {
+  const CardRefresh = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'CardRefresh';
-    var DATA_KEY = 'lte.cardrefresh';
-    var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Event = {
-      LOADED: "loaded" + EVENT_KEY,
-      OVERLAY_ADDED: "overlay.added" + EVENT_KEY,
-      OVERLAY_REMOVED: "overlay.removed" + EVENT_KEY
+    const NAME = 'CardRefresh';
+    const DATA_KEY = 'lte.cardrefresh';
+    const EVENT_KEY = `.${DATA_KEY}`;
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Event = {
+      LOADED: `loaded${EVENT_KEY}`,
+      OVERLAY_ADDED: `overlay.added${EVENT_KEY}`,
+      OVERLAY_REMOVED: `overlay.removed${EVENT_KEY}`
     };
-    var ClassName = {
+    const ClassName = {
       CARD: 'card'
     };
-    var Selector = {
-      CARD: "." + ClassName.CARD,
+    const Selector = {
+      CARD: `.${ClassName.CARD}`,
       DATA_REFRESH: '[data-card-widget="card-refresh"]'
     };
-    var Default = {
+    const Default = {
       source: '',
       sourceSelector: '',
       params: {},
@@ -1409,16 +1342,14 @@
       loadOnInit: true,
       responseType: '',
       overlayTemplate: '<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>',
-      onLoadStart: function onLoadStart() {},
-      onLoadDone: function onLoadDone(response) {
+      onLoadStart: function () {},
+      onLoadDone: function (response) {
         return response;
       }
     };
 
-    var CardRefresh =
-    /*#__PURE__*/
-    function () {
-      function CardRefresh(element, settings) {
+    class CardRefresh {
+      constructor(element, settings) {
         this._element = element;
         this._parent = element.parents(Selector.CARD).first();
         this._settings = $.extend({}, Default, settings);
@@ -1433,9 +1364,7 @@
         }
       }
 
-      var _proto = CardRefresh.prototype;
-
-      _proto.load = function load() {
+      load() {
         this._addOverlay();
 
         this._settings.onLoadStart.call($(this));
@@ -1453,42 +1382,40 @@
 
           this._removeOverlay();
         }.bind(this), this._settings.responseType !== '' && this._settings.responseType);
-        var loadedEvent = $.Event(Event.LOADED);
+        const loadedEvent = $.Event(Event.LOADED);
         $(this._element).trigger(loadedEvent);
-      };
+      }
 
-      _proto._addOverlay = function _addOverlay() {
+      _addOverlay() {
         this._parent.append(this._overlay);
 
-        var overlayAddedEvent = $.Event(Event.OVERLAY_ADDED);
+        const overlayAddedEvent = $.Event(Event.OVERLAY_ADDED);
         $(this._element).trigger(overlayAddedEvent);
-      };
+      }
 
-      _proto._removeOverlay = function _removeOverlay() {
+      _removeOverlay() {
         this._parent.find(this._overlay).remove();
 
-        var overlayRemovedEvent = $.Event(Event.OVERLAY_REMOVED);
+        const overlayRemovedEvent = $.Event(Event.OVERLAY_REMOVED);
         $(this._element).trigger(overlayRemovedEvent);
-      };
+      }
 
       // Private
-      _proto._init = function _init(card) {
-        var _this = this;
-
-        $(this).find(this._settings.trigger).on('click', function () {
-          _this.load();
+      _init(card) {
+        $(this).find(this._settings.trigger).on('click', () => {
+          this.load();
         });
 
         if (this._settings.loadOnInit) {
           this.load();
         }
       } // Static
-      ;
 
-      CardRefresh._jQueryInterface = function _jQueryInterface(config) {
-        var data = $(this).data(DATA_KEY);
 
-        var _options = $.extend({}, Default, $(this).data());
+      static _jQueryInterface(config) {
+        let data = $(this).data(DATA_KEY);
+
+        const _options = $.extend({}, Default, $(this).data());
 
         if (!data) {
           data = new CardRefresh($(this), _options);
@@ -1500,10 +1427,9 @@
         } else {
           data._init($(this));
         }
-      };
+      }
 
-      return CardRefresh;
-    }();
+    }
     /**
      * Data API
      * ====================================================
@@ -1536,7 +1462,7 @@
     };
 
     return CardRefresh;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -1544,42 +1470,38 @@
    * License MIT
    * --------------------------------------------
    */
-  var Dropdown = function ($) {
+  const Dropdown = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'Dropdown';
-    var DATA_KEY = 'lte.dropdown';
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Selector = {
+    const NAME = 'Dropdown';
+    const DATA_KEY = 'lte.dropdown';
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Selector = {
       NAVBAR: '.navbar',
       DROPDOWN_MENU: '.dropdown-menu',
       DROPDOWN_MENU_ACTIVE: '.dropdown-menu.show',
       DROPDOWN_TOGGLE: '[data-toggle="dropdown"]'
     };
-    var ClassName = {
+    const ClassName = {
       DROPDOWN_HOVER: 'dropdown-hover',
       DROPDOWN_RIGHT: 'dropdown-menu-right'
     };
-    var Default = {};
+    const Default = {};
     /**
      * Class Definition
      * ====================================================
      */
 
-    var Dropdown =
-    /*#__PURE__*/
-    function () {
-      function Dropdown(element, config) {
+    class Dropdown {
+      constructor(element, config) {
         this._config = config;
         this._element = element;
       } // Public
 
 
-      var _proto = Dropdown.prototype;
-
-      _proto.toggleSubmenu = function toggleSubmenu() {
+      toggleSubmenu() {
         this._element.siblings().show().toggleClass("show");
 
         if (!this._element.next().hasClass('show')) {
@@ -1589,10 +1511,10 @@
         this._element.parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
           $('.dropdown-submenu .show').removeClass("show").hide();
         });
-      };
+      }
 
-      _proto.fixPosition = function fixPosition() {
-        var elm = $(Selector.DROPDOWN_MENU_ACTIVE);
+      fixPosition() {
+        let elm = $(Selector.DROPDOWN_MENU_ACTIVE);
 
         if (elm.length !== 0) {
           if (elm.hasClass(ClassName.DROPDOWN_RIGHT)) {
@@ -1603,10 +1525,10 @@
             elm.css('right', 'inherit');
           }
 
-          var offset = elm.offset();
-          var width = elm.width();
-          var windowWidth = $(window).width();
-          var visiblePart = windowWidth - offset.left;
+          let offset = elm.offset();
+          let width = elm.width();
+          let windowWidth = $(window).width();
+          let visiblePart = windowWidth - offset.left;
 
           if (offset.left < 0) {
             elm.css('left', 'inherit');
@@ -1619,13 +1541,13 @@
           }
         }
       } // Static
-      ;
 
-      Dropdown._jQueryInterface = function _jQueryInterface(config) {
+
+      static _jQueryInterface(config) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
+          let data = $(this).data(DATA_KEY);
 
-          var _config = $.extend({}, Default, $(this).data());
+          const _config = $.extend({}, Default, $(this).data());
 
           if (!data) {
             data = new Dropdown($(this), _config);
@@ -1636,10 +1558,9 @@
             data[config]();
           }
         });
-      };
+      }
 
-      return Dropdown;
-    }();
+    }
     /**
      * Data API
      * ====================================================
@@ -1672,7 +1593,7 @@
     };
 
     return Dropdown;
-  }(jQuery);
+  })(jQuery);
 
   /**
    * --------------------------------------------
@@ -1680,41 +1601,41 @@
    * License MIT
    * --------------------------------------------
    */
-  var Toasts = function ($) {
+  const Toasts = ($ => {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'Toasts';
-    var DATA_KEY = 'lte.toasts';
-    var EVENT_KEY = "." + DATA_KEY;
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    var Event = {
-      INIT: "init" + EVENT_KEY,
-      CREATED: "created" + EVENT_KEY,
-      REMOVED: "removed" + EVENT_KEY
+    const NAME = 'Toasts';
+    const DATA_KEY = 'lte.toasts';
+    const EVENT_KEY = `.${DATA_KEY}`;
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    const Event = {
+      INIT: `init${EVENT_KEY}`,
+      CREATED: `created${EVENT_KEY}`,
+      REMOVED: `removed${EVENT_KEY}`
     };
-    var Selector = {
+    const Selector = {
       BODY: 'toast-body',
       CONTAINER_TOP_RIGHT: '#toastsContainerTopRight',
       CONTAINER_TOP_LEFT: '#toastsContainerTopLeft',
       CONTAINER_BOTTOM_RIGHT: '#toastsContainerBottomRight',
       CONTAINER_BOTTOM_LEFT: '#toastsContainerBottomLeft'
     };
-    var ClassName = {
+    const ClassName = {
       TOP_RIGHT: 'toasts-top-right',
       TOP_LEFT: 'toasts-top-left',
       BOTTOM_RIGHT: 'toasts-bottom-right',
       BOTTOM_LEFT: 'toasts-bottom-left',
       FADE: 'fade'
     };
-    var Position = {
+    const Position = {
       TOP_RIGHT: 'topRight',
       TOP_LEFT: 'topLeft',
       BOTTOM_RIGHT: 'bottomRight',
       BOTTOM_LEFT: 'bottomLeft'
     };
-    var Default = {
+    const Default = {
       position: Position.TOP_RIGHT,
       fixed: true,
       autohide: false,
@@ -1736,22 +1657,18 @@
      * ====================================================
      */
 
-    var Toasts =
-    /*#__PURE__*/
-    function () {
-      function Toasts(element, config) {
+    class Toasts {
+      constructor(element, config) {
         this._config = config;
 
         this._prepareContainer();
 
-        var initEvent = $.Event(Event.INIT);
+        const initEvent = $.Event(Event.INIT);
         $('body').trigger(initEvent);
       } // Public
 
 
-      var _proto = Toasts.prototype;
-
-      _proto.create = function create() {
+      create() {
         var toast = $('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true"/>');
         toast.data('autohide', this._config.autohide);
         toast.data('animation', this._config.fade);
@@ -1805,21 +1722,21 @@
         }
 
         $(this._getContainerId()).prepend(toast);
-        var createdEvent = $.Event(Event.CREATED);
+        const createdEvent = $.Event(Event.CREATED);
         $('body').trigger(createdEvent);
         toast.toast('show');
 
         if (this._config.autoremove) {
           toast.on('hidden.bs.toast', function () {
             $(this).delay(200).remove();
-            var removedEvent = $.Event(Event.REMOVED);
+            const removedEvent = $.Event(Event.REMOVED);
             $('body').trigger(removedEvent);
           });
         }
       } // Static
-      ;
 
-      _proto._getContainerId = function _getContainerId() {
+
+      _getContainerId() {
         if (this._config.position == Position.TOP_RIGHT) {
           return Selector.CONTAINER_TOP_RIGHT;
         } else if (this._config.position == Position.TOP_LEFT) {
@@ -1829,9 +1746,9 @@
         } else if (this._config.position == Position.BOTTOM_LEFT) {
           return Selector.CONTAINER_BOTTOM_LEFT;
         }
-      };
+      }
 
-      _proto._prepareContainer = function _prepareContainer() {
+      _prepareContainer() {
         if ($(this._getContainerId()).length === 0) {
           var container = $('<div />').attr('id', this._getContainerId().replace('#', ''));
 
@@ -1854,11 +1771,11 @@
           $(this._getContainerId()).removeClass('fixed');
         }
       } // Static
-      ;
 
-      Toasts._jQueryInterface = function _jQueryInterface(option, config) {
+
+      static _jQueryInterface(option, config) {
         return this.each(function () {
-          var _options = $.extend({}, Default, config);
+          const _options = $.extend({}, Default, config);
 
           var toast = new Toasts($(this), _options);
 
@@ -1866,10 +1783,9 @@
             toast[option]();
           }
         });
-      };
+      }
 
-      return Toasts;
-    }();
+    }
     /**
      * jQuery API
      * ====================================================
@@ -1885,7 +1801,7 @@
     };
 
     return Toasts;
-  }(jQuery);
+  })(jQuery);
 
   exports.CardRefresh = CardRefresh;
   exports.CardWidget = CardWidget;
