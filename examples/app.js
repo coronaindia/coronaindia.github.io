@@ -22,8 +22,8 @@ am4core.ready(function() {
 
   var numberFormatter = new am4core.NumberFormatter();
 
-  var backgroundColor = am4core.color("#1e2128");
-  var activeColor = am4core.color("#ff8726");
+  var backgroundColor = am4core.color("#00000");
+  var activeColor = am4core.color("#cd5c5c");
   var confirmedColor = am4core.color("#d21a1a");
   var recoveredColor = am4core.color("#45d21a");
   var deathsColor = am4core.color("#1c5fe5");
@@ -31,11 +31,11 @@ am4core.ready(function() {
   // for an easier access by key
   var colors = { active: activeColor, confirmed: confirmedColor, recovered: recoveredColor, deaths: deathsColor };
 
-  var countryColor = am4core.color("#3b3b3b");
-  var countryStrokeColor = am4core.color("#000000");
-  var buttonStrokeColor = am4core.color("#ffffff");
-  var countryHoverColor = am4core.color("#1b1b1b");
-  var activeCountryColor = am4core.color("#0f0f0f");
+  var countryColor = am4core.color("#a1caf1");
+  var countryStrokeColor = am4core.color("#00008b");
+  var buttonStrokeColor = am4core.color("#00008b");
+  var countryHoverColor = am4core.color("#0000a5");
+  var activeCountryColor = am4core.color("#0000a5");
 
   var currentIndex;
   var currentCountry = "World";
