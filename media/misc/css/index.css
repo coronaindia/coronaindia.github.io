@@ -487,11 +487,25 @@
 
 		.fa-whatsapp {
 			background: #128C7E;
-			;
 			color: white;
 		}
 
 		[class*="col-"] {
 		 padding-left: 0;
 
+	}
+	
+	.card-header{
+		background-color:#edf4fb;
+		
+	
+	}
+	.small-box{
+		border-radius:10px;
+	}
+	.card{
+		border-radius:10px;
+	}
+	.navbar{
+		border-bottom: 1px solid black;
 	}
