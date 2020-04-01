@@ -532,7 +532,7 @@ function convert_date(date){
 	const months = ["January", "February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	date = date.split("T")[0];
 	date = date.split("-");
-	var new_date = date[2]+' '+months[parseInt(date[1])]+' '+date[0]
+	var new_date = date[2]+' '+months[parseInt(date[1])-1]+' '+date[0]
 	return(new_date);
 }
 
