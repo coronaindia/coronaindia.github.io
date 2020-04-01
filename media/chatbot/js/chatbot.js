@@ -517,7 +517,7 @@ $.ajax({
 			var title = result["articles"][key].title;
 			var url = result["articles"][key].url;
 			var img_url = result["articles"][key].urlToImage;
-			$('#newsfeed').append("<a href='"+url+"'class='list-group-item list-group-item-action' target='_blank'><img src="+img_url+" onerror=\"this.src='media/images/nia.jpg'\" width='193' height='130' hspace='10'>"+title+"</a>");
+			$('#newsfeed').append("<div class='card' style='width: 20rem;'><img class='card-img-top' src='"+img_url+"' alt='Card image cap'><div class='card-body'><h6 class='card-title'>"+title+"</h6><a href='"+url+"'class='btn btn-dark text-center'>Read More</a></div></div>&nbsp;");
 		}
 	},
 	error: function(results) {
@@ -530,3 +530,4 @@ $.ajax({
 document.addEventListener("DOMContentLoaded", function() {
 	newsfeed();
 });
+
