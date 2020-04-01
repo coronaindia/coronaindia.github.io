@@ -859,7 +859,7 @@ console.log(dublingCasesDateArr);
       datasets: [{
         label: "No. of days to double the total count",
         data: dublingCasesDayCountArr,
-        backgroundColor: '#75cdff',
+        backgroundColor: '#8bd1f7',
         borderColor: '#04A2B3',
         borderWidth: 2,
         fill: true
