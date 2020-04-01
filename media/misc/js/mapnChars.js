@@ -449,6 +449,7 @@ function generateMapMarkers(regionalData) {
   google.maps.event.addDomListener(window, 'load', initMap);
 }
 
+
 var randomColorGenerator = function () {
     return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
 };
