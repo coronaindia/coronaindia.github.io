@@ -508,7 +508,7 @@ function start_over() {
 function newsfeed() {
 // alert("Inside newsfeed");
 //var myurl = 'https://newsapi.org/v2/everything?qInTitle=+corona%20+india&pageSize=6&apiKey=db7f4ed8533240f39bafa44572908166';
-var myurl = 'https://newsapi.org/v2/top-headlines?country=in&category=health&q=+corona%20+india&pageSize=6&apiKey=db7f4ed8533240f39bafa44572908166'
+var myurl = 'https://newsapi.org/v2/top-headlines?country=in&category=health&q=+corona%20+india&pageSize=20&apiKey=db7f4ed8533240f39bafa44572908166'
 $.ajax({
 	type: "GET",
 	url: myurl,
@@ -518,7 +518,9 @@ $.ajax({
 			var title = result["articles"][key].title;
 			var url = result["articles"][key].url;
 			var img_url = result["articles"][key].urlToImage;
-			$('#newsfeed').append("<a href='"+url+"'class='list-group-item list-group-item-action' target='_blank'><img src="+img_url+" onerror=\"this.src='media/images/nia.jpg'\" width='193' height='130' hspace='10'>"+title+"</a>");
+			var date = convert_date(result["articles"][key].publishedAt);
+			//console.log(date);
+			$('#newsfeed').append("<div class='card' style='width: 20rem;'><img class='card-img-top' src='"+img_url+"' onerror=\"this.src='media/images/nia.jpg'\" alt='Card image cap'><div class='card-body'><h6 class='card-title'><span class='badge badge-secondary'>"+date+"</span><br>"+title+"</h6><a href='"+url+"'class='btn btn-dark text-center' target='_blank'>Read More</a></div></div>&nbsp;");
 		}
 	},
 	error: function(results) {
@@ -527,7 +529,16 @@ $.ajax({
 	},
 });
 }
+function convert_date(date){
+	const months = ["January", "February", "March","April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	date = date.split("T")[0];
+	date = date.split("-");
+	var new_date = date[2]+' '+months[parseInt(date[1])-1]+' '+date[0]
+	return(new_date);
+}
+
 // object.onload = function(){newsfeed()};
 document.addEventListener("DOMContentLoaded", function() {
 	newsfeed();
 });
+
