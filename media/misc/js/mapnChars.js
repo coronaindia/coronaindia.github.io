@@ -400,7 +400,9 @@ function setDashboardStats(statsSummary) {
   $('#discharged').html(JSON.stringify(statsSummary.discharged));
   $('#deaths').html(JSON.stringify(statsSummary.deaths));
   $('#clu').html(JSON.stringify(statsSummary.confirmedButLocationUnidentified));
+
 }
+
 
 //generate and set markers coordinate and marker html for map
 function generateMapMarkers(regionalData) {
