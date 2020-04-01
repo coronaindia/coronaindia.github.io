@@ -509,7 +509,8 @@ function newsfeed() {
 // alert("Inside newsfeed");
 //var myurl = 'https://newsapi.org/v2/everything?qInTitle=+corona%20+india&pageSize=6&apiKey=db7f4ed8533240f39bafa44572908166';
 //var myurl = 'https://newsapi.org/v2/top-headlines?country=in&category=health&q=+corona%20+india&pageSize=20&apiKey=db7f4ed8533240f39bafa44572908166'
-var myurl = 'https://newsapi.org/v2/top-headlines?q=corona%20india&pageSize=20&apiKey=db7f4ed8533240f39bafa44572908166'
+//var myurl = 'https://newsapi.org/v2/top-headlines?category=health&q=corona%20india&pageSize=20&apiKey=db7f4ed8533240f39bafa44572908166'
+var myurl = 'https://newsapi.org/v2/top-headlines?country=in&q=corona&pageSize=20&apiKey=db7f4ed8533240f39bafa44572908166'
 $.ajax({
 	type: "GET",
 	url: myurl,
