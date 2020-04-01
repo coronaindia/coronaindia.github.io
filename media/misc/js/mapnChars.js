@@ -526,7 +526,6 @@ var i=0;
   })
   $('#cic').html(JSON.stringify(sum));
 
-  console.log("Average is " + average);
   var ctx = document.getElementById("lineChart").getContext("2d");
   var lineChart = new Chart(ctx, {
     type: 'line',
