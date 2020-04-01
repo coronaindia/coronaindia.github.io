@@ -170,7 +170,7 @@ am4core.ready(function() {
 
   // https://www.amcharts.com/docs/v4/chart-types/map/#Map_data
   // you can use more accurate world map or map of any other country - a wide selection of maps available at: https://github.com/amcharts/amcharts4-geodata
-  mapChart.geodata = am4geodata_worldLow;
+  mapChart.geodata = am4geodata_worldIndiaLow;
 
   // Set projection
   // https://www.amcharts.com/docs/v4/chart-types/map/#Setting_projection
@@ -1584,5 +1584,3 @@ am4core.ready(function() {
     "ZW": "13061000"
   }
 });
-
-
