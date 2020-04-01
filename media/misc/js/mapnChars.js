@@ -391,13 +391,18 @@ function setDashboardStats(statsSummary) {
   var totalActive = statsSummary.total - statsSummary.discharged - statsSummary.deaths;
 
   $('#totalCases').html(JSON.stringify(statsSummary.total));
+  var fatalityRate = (statsSummary.deaths/statsSummary.total)*100;
+
   $('#totalActive').html(totalActive);
-  $('#cic').html(JSON.stringify(statsSummary.confirmedCasesIndian));
-  $('#cfc').html(JSON.stringify(statsSummary.confirmedCasesForeign));
+//  $('#cic').html(JSON.stringify(statsSummary.confirmedCasesIndian));
+  //$('#cfc').html(JSON.stringify(statsSummary.confirmedCasesForeign));
+  $('#cfc').html(fatalityRate.toFixed(2) + "%");
   $('#discharged').html(JSON.stringify(statsSummary.discharged));
   $('#deaths').html(JSON.stringify(statsSummary.deaths));
   $('#clu').html(JSON.stringify(statsSummary.confirmedButLocationUnidentified));
+
 }
+
 
 //generate and set markers coordinate and marker html for map
 function generateMapMarkers(regionalData) {
@@ -445,6 +450,7 @@ function generateMapMarkers(regionalData) {
   if(typeof google !== 'undefined')
   google.maps.event.addDomListener(window, 'load', initMap);
 }
+
 
 var randomColorGenerator = function () {
     return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
@@ -509,7 +515,19 @@ var i=0;
     dailyCaseCountData.push(dayCaseCount);
     i++;
   }
+
   totalCasesData.length = dateLable.length;
+
+  //By Siddharth, hackish for computing average of last 7 days
+  var countI = 0;
+  var sum = 0;
+  dailyCaseCountData.slice().reverse().forEach(function(x) {
+    if(countI < 7) {
+      sum += x;
+      countI++;
+    }
+  })
+  $('#cic').html(JSON.stringify(sum));
 
   var ctx = document.getElementById("lineChart").getContext("2d");
   var lineChart = new Chart(ctx, {
