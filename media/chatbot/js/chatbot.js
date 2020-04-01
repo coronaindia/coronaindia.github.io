@@ -506,31 +506,27 @@ function start_over() {
 }
 function newsfeed() {
 // alert("Inside newsfeed");
-var myurl = 'https://newsapi.org/v2/everything?qInTitle=+corona%20+india&pageSize=10&apiKey=db7f4ed8533240f39bafa44572908166';
+//var myurl = 'https://newsapi.org/v2/everything?qInTitle=+corona%20+india&pageSize=6&apiKey=db7f4ed8533240f39bafa44572908166';
+var myurl = 'https://newsapi.org/v2/top-headlines?country=in&category=health&q=+corona%20+india&pageSize=6&apiKey=db7f4ed8533240f39bafa44572908166'
 $.ajax({
 	type: "GET",
 	url: myurl,
 	dataType: "json",
 	success: function(result) {
 		for (key in result["articles"]) {
-			//console.log(result["articles"][key]["title"]);
-			//console.log(result["articles"][key]["url"]);
 			var title = result["articles"][key].title;
 			var url = result["articles"][key].url;
-			// console.log(title);
-			// console.log(url);
-			$('#newsfeed').append("<a href='" + url + "' class='list-group-item list-group-item-action'>" + title + "</a>");
+			var img_url = result["articles"][key].urlToImage;
+			$('#newsfeed').append("<a href='"+url+"'class='list-group-item list-group-item-action' target='_blank'><img src="+img_url+" onerror=\"this.src='media/images/nia.jpg'\" width='193' height='130' hspace='10'>"+title+"</a>");
 		}
-
-
 	},
 	error: function(results) {
-		alert("There is an error. " + results.stringfy);
+		console.log("There is an error in newsapi. " + results.stringfy);
 
 	},
 });
 }
-object.onload = function(){newsfeed()};
+// object.onload = function(){newsfeed()};
 document.addEventListener("DOMContentLoaded", function() {
 	newsfeed();
 });
