@@ -382,7 +382,7 @@
 							<!-- Custom tabs (Charts with tabs)-->
 
 
-							<div class="card bg-gradient-white shadow" style="color:black !important;" id="lineCard">
+								<div class="card bg-gradient-white shadow" style="color:black !important;" id="lineCard">
 								<div class="card-header border-0">
 									<h3 class="card-title">
 										<i class="fas fa-chart-line mr-1" style="color:red;"></i>
@@ -390,6 +390,10 @@
 									</h3>
 
 									<div class="card-tools">
+										<select id="stateList" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value)">
+											<option>Select State</option>
+										</select>
+										&nbsp;
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
 										</button>
@@ -397,7 +401,7 @@
 										<!-- </button> -->
 									</div>
 								</div>
-								<div class="card-body" style="height: 300px">
+								<div class="card-body" id="trendsOf2019" style="height: 300px">
 									<canvas id="lineChart"></canvas>
 								</div>
 								<!-- /.card-body -->
