@@ -4196,3 +4196,9 @@ File: Responsive
 a.accordion-toggle {
     color: lightsteelblue  !important;
 }
+
+
+/* google maps coro marker initial color before map loads*/
+.coronaGoogleMaps>div {
+  background:#323C48 !important;
+}

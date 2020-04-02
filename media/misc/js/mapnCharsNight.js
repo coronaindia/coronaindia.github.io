@@ -600,11 +600,14 @@ function setDashboardStats(statsSummary) {
 
   $('#totalCases').html(JSON.stringify(statsSummary.total));
   $('#totalActive').html(totalActive);
-  $('#cic').html(JSON.stringify(statsSummary.confirmedCasesIndian));
-  $('#cfc').html(JSON.stringify(statsSummary.confirmedCasesForeign));
+  //$('#cic').html(JSON.stringify(statsSummary.confirmedCasesIndian));
+  //$('#cfc').html(JSON.stringify(statsSummary.confirmedCasesForeign));
+  var fatalityRate = (statsSummary.deaths/statsSummary.total)*100;
+  $('#cfc').html(fatalityRate.toFixed(2) + "%");
   $('#discharged').html(JSON.stringify(statsSummary.discharged));
   $('#deaths').html(JSON.stringify(statsSummary.deaths));
   $('#clu').html(JSON.stringify(statsSummary.confirmedButLocationUnidentified));
+
 }
 
 //generate and set markers coordinate and marker html for map
@@ -631,7 +634,7 @@ function generateMapMarkers(regionalData) {
         mapMarkerCoord.push(mapMarkerCoordState);
 
         var mapMarkerHtmlState = [
-          '<div class="info_content">' +
+          '<div class="info_content googleCoronMarkerInfo" style="">' +
           '<h6>' + inStateName + '</h6>' +
           '<p><span class="badge badge-secondary">Total Indian cases </span><span class="badge badge-dark float-right ml-5">' + inConfCases + '</span>' +
           '<br><span class="badge badge-warning">Total Foreign cases </span><span class="badge badge-dark float-right ml-5">' + frnConfCases + '</span>' +
@@ -724,6 +727,17 @@ var i=0;
   }
   totalCasesData.length = dateLable.length;
 
+  //By Siddharth, hackish for computing average of last 7 days
+  var countI = 0;
+  var sum = 0;
+  dailyCaseCountData.slice().reverse().forEach(function(x) {
+    if(countI < 7) {
+      sum += x;
+      countI++;
+    }
+  })
+  $('#cic').html(JSON.stringify(sum));
+  
   var ctx = document.getElementById("lineChart").getContext("2d");
   var lineChart = new Chart(ctx, {
     type: 'line',

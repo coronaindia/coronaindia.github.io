@@ -171,7 +171,8 @@ function initMap() {
     scaleControl: false,
     fullscreenControl: true,
     //mapTypeId:google.maps.MapTypeId.ROADMAP
-    styles: [{
+    styles: [
+      {
         "featureType": "administrative.country",
         "stylers": [{
           "weight": 1
