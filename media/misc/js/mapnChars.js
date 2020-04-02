@@ -2,6 +2,7 @@
 var apiPrashantCall = null;
 var mapFinalMarkerCoords = null;
 var infoWindowContent = null;
+var dailyStatsData = null;
 var cordinatList = {
   indianState: {
     'Andaman and Nicobar Islands':{
@@ -171,8 +172,7 @@ function initMap() {
     scaleControl: false,
     fullscreenControl: true,
     //mapTypeId:google.maps.MapTypeId.ROADMAP
-    styles: [
-      {
+    styles: [{
         "featureType": "administrative.country",
         "stylers": [{
           "weight": 1
@@ -374,7 +374,11 @@ ajaxDailyStats = $.ajax({
   url: apiUrlDailyStats,
   dataType: "json",
   success: function(result) {
-    //generate line graph for corona Cases daywise
+    
+    //storing data in global variable for use in future
+    dailyStatsData = result.data;
+    //passing last result because it will have most recent cases
+    generateStateList(result.data[result.data.length-1]);
     generateLineGraph(result.data);
 
     $.when(ajaxLatestCases).then(function(){
@@ -530,8 +534,9 @@ var i=0;
   })
   $('#cic').html(JSON.stringify(sum));
 
+  resetCanvas();
   var ctx = document.getElementById("lineChart").getContext("2d");
-  var lineChart = new Chart(ctx, {
+   var lineChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: dateLable,
@@ -569,8 +574,13 @@ var i=0;
 
     }
   });
+  
 }
-
+//having problem after data reload, this was proper way I Found on internet
+var resetCanvas = function(){
+  $('#lineChart').remove(); // this is my <canvas> element
+  $('#trendsOf2019').append('<canvas id="lineChart"><canvas>');
+};
 
 //generate bar graph for doubling corona Cases daywise
 function generateLineDblGraph(statsSummary, dailyStats) {
@@ -668,4 +678,116 @@ console.log(dublingCasesDateArr);
 
     }
   });
+}
+function generateStateList(data){
+  
+  var stateList = [];
+  $("#stateList").find('option').remove();
+  $('<option/>', { value : "Select State" }).text("Select State").appendTo('#stateList');
+  
+  for(var i=0;i<data.regional.length;i++){
+    var state = data.regional[i].loc;
+    stateList.push(state);
+    $('<option/>', { value : state }).text(state).appendTo('#stateList');
+  }
+  //console.log("state list",stateList);
+
+}
+function filterDataStateWise(state){
+  
+  if(state == "Select State"){
+    generateLineGraph(dailyStatsData);
+  }
+  else{
+    //deep copy
+    var copiedObject = JSON.parse(JSON.stringify(dailyStatsData));
+    var filteredData = extractDataForGivenState(copiedObject,state);
+    generateLineGraph(filteredData);
+  }
+}
+
+function extractDataForGivenState(data,state){
+
+  //to be used where data is not available for any state on a given day
+  var blankSummaryObject = {
+    loc : state,
+    confirmedCasesIndian : 0,
+    discharged : 0,
+    deaths : 0,
+    confirmedCasesForeign : 0
+  };
+
+  for(var i=0;i<data.length;i++){
+     if(data[i].regional != null && typeof data[i].regional != "undefined"){
+         var stateData =  data[i].regional.filter(function(regional){
+            return regional.loc == state;
+          });
+         if(stateData.length !=0){
+            data[i].summary = stateData[0];
+            data[i].summary.total = getSumOfTheObjectKeys(data[i].summary);
+          }
+          else{
+            data[i].summary = blankSummaryObject;
+          }
+      }
+    }
+    
+    return data;
+}
+
+//expecting all the object keys , containing numeric data is no. of cases
+function getSumOfTheObjectKeys(localData){
+  
+  var keys = Object.keys(localData);
+  
+  var total = 0;
+  for(var i=0;i<keys.length;i++){
+    if(!isNaN(localData[keys[i]])){
+      total += localData[keys[i]];
+    }
+  }
+  return total;
+}
+
+
+////Object Keys local implementation, for low end browsers
+if (!Object.keys) {
+  Object.keys = (function() {
+    'use strict';
+    var hasOwnProperty = Object.prototype.hasOwnProperty,
+        hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
+        dontEnums = [
+          'toString',
+          'toLocaleString',
+          'valueOf',
+          'hasOwnProperty',
+          'isPrototypeOf',
+          'propertyIsEnumerable',
+          'constructor'
+        ],
+        dontEnumsLength = dontEnums.length;
+
+    return function(obj) {
+      if (typeof obj !== 'function' && (typeof obj !== 'object' || obj === null)) {
+        throw new TypeError('Object.keys called on non-object');
+      }
+
+      var result = [], prop, i;
+
+      for (prop in obj) {
+        if (hasOwnProperty.call(obj, prop)) {
+          result.push(prop);
+        }
+      }
+
+      if (hasDontEnumBug) {
+        for (i = 0; i < dontEnumsLength; i++) {
+          if (hasOwnProperty.call(obj, dontEnums[i])) {
+            result.push(dontEnums[i]);
+          }
+        }
+      }
+      return result;
+    };
+  }());
 }
