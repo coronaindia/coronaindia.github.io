@@ -522,7 +522,7 @@ $.ajax({
 			var img_url = result["articles"][key].urlToImage;
 			var date = convert_date(result["articles"][key].publishedAt);
 			//console.log(date);
-			$('#newsfeed').append("<div class='card' style='width: 20rem;'><img class='card-img-top' src='"+img_url+"' alt='Card image cap'><div class='card-body'><h6 class='card-title'><span class='badge badge-secondary'>"+date+"</span><br>"+title+"</h6><a href='"+url+"'class='btn btn-dark text-center' target='_blank'>Read More</a></div></div>&nbsp;");
+			$('#newsfeed').append("<div class='card' style='width: 20rem;'><img class='card-img-top' src='"+img_url+"' style='width: 100%;height: 20vh;object-fit:cover;' alt='Card image cap'><div class='card-body'><h6 class='card-title'><span class='badge badge-secondary'>"+date+"</span><br>"+title+"</h6><a href='"+url+"'class='btn btn-dark text-center' target='_blank'>Read More</a></div></div>&nbsp;");
 		}
 	},
 	error: function(results) {
