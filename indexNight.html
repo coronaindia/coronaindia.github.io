@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161859093-2"></script>
@@ -18,11 +17,8 @@
 			dataLayer.push(arguments);
 		}
 		gtag('js', new Date());
-
 		gtag('config', 'UA-161859093-2');
 	</script>
-
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="COVID-19 virus outbreak in INDIA">
@@ -32,100 +28,68 @@
 	<meta property="og:description" content="Dashboard for COVID-19 virus outbreak in INDIA">
 	<meta property="og:image" content="https://coronaindia.github.io/media/images/fsharevirus.png">
 	<meta name="theme-color" content="#1D2B3C" />
-
-
 	<title>COVID-19 INDIA Dashboard</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<!-- Theme style -->
 	<link rel="stylesheet" href="dist/css/dashboardTheme.css">
-
 	<!--JQueryUI -->
 	<link href="media/jquery-ui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-
 	<!--Bootstrap -->
 	<link href="media/bootstrap/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
 	<!--Bootstrap Datables -->
 	<link href="media/dataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
 	<!--Bootstrap Datables Responsive -->
 	<link href="media/dataTables/Responsive-2.2.2/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
 	<!--Fontawesome Icons---->
 	<link rel="stylesheet" href="media/fontawesome/5.10.1/css/all.css" />
-
 	<!-- OverlayScrollbars Plugin CSS -->
-	<link type="text/css" href="media/overlayScrollbars/css/OverlayScrollbars.css" rel="stylesheet"/>
-
+	<link type="text/css" href="media/overlayScrollbars/css/OverlayScrollbars.css" rel="stylesheet" />
 	<!--customBootstrap----->
 	<link rel="stylesheet" href="media/prashantUIUX/customBootstrap/css/customBootstrap.css" type="text/css" />
-
 	<!--Fonts--------------->
 	<link rel="stylesheet" href="media/prashantUIUX/fonts/webfontkit-averta-family/stylesheet.css" type="text/css" />
-
 	<!--Custom -->
 	<link rel="stylesheet" href="media/misc/css/indexNight.css" type="text/css" />
 	<link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
-	<link rel="stylesheet" href="media/misc/css/botFrame.css" type="text/css" />
-
-
+	<!-- <link rel="stylesheet" href="media/misc/css/botFrame.css" type="text/css" /> -->
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll">
 	<input type="text" name="themeTypeElm" id="themeTypeElm" class="d-none themeTypeElm" value="2">
-
 	<div class="wrapper">
-
 		<!-- Navbar -->
 		<nav class="main-header navbar navbar-expand navbar-light">
-			<!-- Left navbar links -->
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="nav-link" data-widget="pushmenu" href="#"><img class="img" src="media/images/menuWhite.svg" width="20px" height="20px">
 					</a>
 				</li>
-
 				<li class="nav-item mt-2  ">
-					<a href=""  class="navheading text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
-
-
-						<div class="form-group d-flex  text-nowrap  flex-nowrap">
-							Day Mode &nbsp;
-							<i class="fas fa-cloud-sun text-warning" style=""></i>
-							&nbsp;
-							<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input themeSwitchChkBox" id="customSwitch1" checked>
-  <label class="custom-control-label" for="customSwitch1"></label>
-</div>
-
-															<i class="fas fa-cloud-moon text-primary" style="">&nbsp;</i>
-															Night Mode
+					<a href="" class="navheading text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
+					<div class="form-group d-flex  text-nowrap  flex-nowrap">
+						Day Mode &nbsp;
+						<i class="fas fa-cloud-sun text-warning" style=""></i>
+						&nbsp;
+						<div class="custom-control custom-switch">
+							<input type="checkbox" class="custom-control-input themeSwitchChkBox" id="customSwitch1" checked>
+							<label class="custom-control-label" for="customSwitch1"></label>
 						</div>
+						<i class="fas fa-cloud-moon text-primary" style="">&nbsp;</i>
+						Night Mode
+					</div>
 				</li>
-
 			</ul>
-
-
-
-
-			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
-
 				<li class="nav-item">
 					<form class="form-inline">
-						<!-- <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><b>Ask Corona Bot</b> -->
 						<span style="cursor: pointer;"><span class="badge badge-secondary" data-widget="control-sidebar" data-slide="true">Ask Bot <i class="far fa-hand-point-right"></i></span><img class="direct-chat-img animated flip delay-0.2s"
 								data-widget="control-sidebar" data-slide="true" src="media/images/robot.svg" style="float: right;">
-							</span>
+						</span>
 					</form>
 				</li>
 			</ul>
 		</nav>
-
-		<!-- /.navbar -->
-
 		<!-- Main Sidebar Container -->
 		<aside class="main-sidebar elevation-4 shadow">
 			<!-- Brand Logo -->
@@ -133,11 +97,8 @@
 				<img src="media/images/virus.svg" alt="CoronaIndia Logo" class="brand-image img-circle elevation-3">
 				<span class="brand-text font-weight-bold text-shadow " style="color:white; text-shadow: 0.5px 0.5px #20EDE9;">COVID-19 INDIA</span>
 			</a>
-
 			<!-- Sidebar -->
 			<div class="sidebar">
-
-
 				<!-- Sidebar Menu -->
 				<nav class="mt-2 ">
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -148,7 +109,6 @@
 								<i class="nav-icon fas fa-home"></i>
 								<p>
 									Home
-									<!-- <span class="right badge badge-danger">New</span> -->
 								</p>
 							</a>
 						</li>
@@ -157,7 +117,6 @@
 								<i class="nav-icon fas fa-th"></i>
 								<p>
 									Stats- INDIA
-									<!-- <span class="right badge badge-danger">New</span> -->
 								</p>
 							</a>
 						</li>
@@ -166,7 +125,6 @@
 								<i class="nav-icon fas fa-globe"></i>
 								<p>
 									Stats- WORLD
-									<!-- <span class="right badge badge-danger">New</span> -->
 								</p>
 							</a>
 						</li>
@@ -175,12 +133,9 @@
 								<i class="nav-icon fas fa-rss-square"></i>
 								<p>
 									Guidelines
-									<!-- <span class="right badge badge-danger">New</span> -->
 								</p>
 							</a>
-
 						</li>
-
 						<li class="nav-item">
 							<a href="#faqCard" class="nav-link">
 								<i class="nav-icon far fa-question-circle"></i>
@@ -194,7 +149,6 @@
 								<i class="nav-icon fas fa-tty"></i>
 								<p>
 									Helpline
-									<!-- <span class="right badge badge-danger">New</span> -->
 								</p>
 							</a>
 						</li>
@@ -232,9 +186,7 @@
 									</a>
 								</li>
 							</ul>
-
 						</li>
-
 						<li class="nav-item">
 							<a href="#latestnewsCard" class="nav-link">
 								<i class="fas fa-rss nav-icon"></i>
@@ -243,39 +195,25 @@
 								</p>
 							</a>
 						</li>
-
 						<!-- <li class="nav-item ml-3"> -->
-							<!-- <a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw"> -->
-							<!-- </a> -->
-							<!-- &nbsp;&nbsp;&nbsp;<a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">#indiafightscorona</a> -->
+						<!-- <a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw"> -->
+						<!-- </a> -->
+						<!-- &nbsp;&nbsp;&nbsp;<a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">#indiafightscorona</a> -->
 						<!-- </li> -->
 						<!-- <li class="nav-item ml-3 mt-1 "> -->
-
-							<!-- <a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://coronaindia.github.io/&title=#indiafightscorona&source=https://coronaindia.github.io/"></a> -->
-
-
-
+						<!-- <a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://coronaindia.github.io/&title=#indiafightscorona&source=https://coronaindia.github.io/"></a> -->
 						<!-- </li> -->
 						<!-- <li class="nav-item ml-3 mt-1"> -->
-							<!-- <a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a> -->
-
+						<!-- <a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a> -->
 						<!-- </li> -->
 						<!-- <li class="nav-item ml-3 mt-1"> -->
-							<!-- <a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/sharer.php?u=https://coronaindia.github.io/"></a> -->
-
+						<!-- <a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/sharer.php?u=https://coronaindia.github.io/"></a> -->
 						<!-- </li> -->
 						<!-- <li class="nav-item ml-3 mt-1"> -->
-							<!-- <a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a> -->
-
+						<!-- <a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a> -->
 						<!-- </li> -->
-
-
-
-
 				</nav>
-				<!-- /.sidebar-menu -->
 			</div>
-			<!-- /.sidebar -->
 		</aside>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -286,150 +224,108 @@
 					<div class="row mb-2">
 						<div class="col-sm-6">
 							<h1 class="m-0">Dashboard
-
-						</div><!-- /.col -->
+						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="nav-item mr-1">
-							<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">
-							</a>
-						<!-- <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">#indiafightscorona</a> -->
-						</li>
-						<li class="nav-item mr-1">
-
-							<a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://coronaindia.github.io/&title=#indiafightscorona&source=https://coronaindia.github.io/"></a>
-
-
-
-						</li>
-						<li class="nav-item mr-1">
-							<a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a>
-
-						</li>
-						<li class="nav-item mr-1">
-							<a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/sharer.php?u=https://coronaindia.github.io/"></a>
-
-						</li>
-						<li class="nav-item mr-1">
-							<a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a>
-
-						</li>
+									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">
+									</a>
+									<!-- <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">#indiafightscorona</a> -->
+								</li>
+								<li class="nav-item mr-1">
+									<a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank"
+										href="https://www.linkedin.com/shareArticle?mini=true&url=https://coronaindia.github.io/&title=#indiafightscorona&source=https://coronaindia.github.io/"></a>
+								</li>
+								<li class="nav-item mr-1">
+									<a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a>
+								</li>
+								<li class="nav-item mr-1">
+									<a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/sharer.php?u=https://coronaindia.github.io/"></a>
+								</li>
+								<li class="nav-item mr-1">
+									<a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a>
+								</li>
 							</ol>
-						</div><!-- /.col -->
-					</div><!-- /.row -->
-				</div><!-- /.container-fluid -->
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- /.content-header -->
 
 			<!-- Main content -->
 			<section class="content" id="dashboardSection">
 				<div class="container-fluid">
-					<!-- Small boxes (Stat box) -->
 					<div class="row  ">
-
 						<div class="col-lg-2 col-sm-6 col-6 ">
 							<!-- small box -->
 							<div class="small-box border border-info  shadow-lg bg-gradient-info">
 								<div class="inner">
 									<h3 id="totalCases"></h3>
 									<img class="img float-right" src="media/images/totalcase.svg" width="42px" height="42px">
-
 									<p>Total Cases</p>
-
 								</div>
-
-
 							</div>
 						</div>
-
-
 						<div class="col-lg-2 col-sm-6 col-6">
 							<!-- small box -->
 							<div class="small-box border border-primary shadow-lg bg-gradient-primary">
 								<div class="inner">
 									<h3 id="totalActive"></h3>
 									<img class="img float-right" src="media/images/activecase.svg" width="42px" height="42px">
-
 									<p>Active Cases</p>
 								</div>
-
 							</div>
 						</div>
-						<!-- ./col -->
 						<div class="col-lg-2 col-sm-6 col-6">
-
 							<div class="small-box border border-success shadow-lg bg-gradient-success">
 								<div class="inner">
 									<h3 id="cic"></h3>
 									<img class="img float-right" src="media/images/india.svg" width="42px" height="42px">
-
 									<p>Last 7 days</p>
 								</div>
-
 							</div>
 						</div>
-
 						<div class="col-lg-2 col-sm-6 col-6">
 							<!-- small box -->
 							<div class="small-box border border-danger shadow-lg bg-gradient-danger">
 								<div class="inner">
 									<h3 id="deaths"></h3>
 									<img class="img float-right" src="media/images/nuclear.svg" width="42px" height="42px">
-
 									<p>Total Deaths</p>
 								</div>
-								<!-- <div class="icon"> -->
-								<!-- <i class="ion ion-pie-graph text-danger"></i> -->
-								<!-- </div> -->
 							</div>
 						</div>
-
-
 						<div class="col-lg-2 col-sm-6 col-6">
-
 							<div class="small-box border border-warning shadow-lg bg-gradient-warning text-white">
 								<div class="inner">
 									<h3 id="cfc"></h3>
 									<img class="img float-right" src="media/images/globe.svg" width="42px" height="42px">
-
 									<p>Fatality Rate</p>
 								</div>
-
 							</div>
 						</div>
-
 						<div class="col-lg-2 col-sm-6 col-6">
 							<!-- small box -->
 							<div class="small-box border border-secondary shadow-lg bg-gradient-secondary">
 								<div class="inner">
 									<h3 id="discharged"></h3>
 									<img class="img float-right" src="media/images/cured.svg" width="42px" height="42px">
-
 									<p>Cured/Migrated</p>
 								</div>
-								<!-- <div class="icon"> -->
-								<!-- <i class="ion ion-stats-bars text-secondary"></i> -->
-								<!-- </div> -->
 							</div>
-
 						</div>
-
 					</div>
-					<!-- /.row -->
+
 					<!-- Main row -->
 					<div class="row">
 						<!-- Left col -->
 						<section class="col-lg-6 connectedSortable">
 							<!-- Custom tabs (Charts with tabs)-->
-
-
 							<div class="card shadow" style="" id="lineCard">
 								<div class="card-header border-0">
 									<h3 class="card-title">
 										<i class="fas fa-chart-line mr-1" style="color:#20B4C4;"></i>
 										Trend of 2019-nCoV Cases
 									</h3>
-
 									<div class="card-tools">
 										<select id="stateList" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value)">
 											<option>Select State</option>
@@ -438,61 +334,39 @@
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
 										</button>
-
-										<!-- </button> -->
 									</div>
 								</div>
 								<div class="card-body" id="trendsOf2019" style="height: 300px">
 									<canvas id="lineChart"></canvas>
 								</div>
-								<!-- /.card-body -->
-
-								<!-- /.card-footer -->
 							</div>
-							<!-- DIRECT CHAT -->
-
-
-
 							<div class="card shadow" style="" id="lineCard2">
 								<div class="card-header border-0">
 									<h3 class="card-title">
 										<i class="fas fa-chart-line mr-1" style="color:#20B4C4;"></i>
 										Doubling rate 2019-nCoV Cases
 									</h3>
-
 									<div class="card-tools">
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
 										</button>
-
-										<!-- </button> -->
 									</div>
 								</div>
 								<div class="card-body">
 									<canvas id="lineChart2"></canvas>
 								</div>
-								<!-- /.card-body -->
-
-								<!-- /.card-footer -->
 							</div>
-
 							<div class="card shadow " id="newsCard">
 								<div class="card-header">
 									<h3 class="card-title"><i class="fas fa-rss-square mr-1" style="color:#20B4C4;"></i> Guidelines</h3>
-
 									<div class="card-tools">
 										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
 											<i class="fas fa-minus"></i>
 										</button>
-
-
 									</div>
 								</div>
-								<!-- /.card-header -->
 								<div class="card-body">
-									<!-- Conversations are loaded here -->
 									<div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:330px;">
-										<!-- Message. Default to the left -->
 										<div class="list-group advisoryLinks">
 											<a href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf" class="list-group-item list-group-item-action" target="_blank">Advisory - Social Distancing</a>
 											<a href="https://www.mohfw.gov.in/pdf/1584423700568_COVID19GuidelinesonDeadbodymanagement.pdf" class="list-group-item list-group-item-action" target="_blank">Guidelines on Dead Body Management</a>
@@ -501,22 +375,10 @@
 											<a href="https://www.mohfw.gov.in/pdf/advisoryformassgathering.pdf" class="list-group-item list-group-item-action" target="_blank">Advisory - Mass Gatherings</a>
 											<div class="list-group-item list-group-item-action ">
 												<h5><span class="badge badge-success"><a href="https://covid.icmr.org.in/index.php/testing-facilities" target="_blank" style="color:white">ICMR COVID-19 Testing Laboratories</a></span></h5>
-
-
-
-
-
-
-
 											</div>
-
-
 										</div>
-
 									</div>
-
 								</div>
-
 							</div>
 							<div class="card shadow" id="helplineCard">
 								<div class="card-header">
@@ -528,30 +390,17 @@
 										<i class="far fa-envelope mr-1" style="color:#20B4C4;"></i>
 										Helpline Email ID : <b style="color:#20B4C4;">ncov2019@gov.in</b> / <b style="color:#20B4C4;">ncov2019@gmail.com</b>
 									</h3>
-
 									<div class="card-tools">
 										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
 											<i class="fas fa-minus"></i>
 										</button>
-
-
-
-
 									</div>
-
 								</div>
-
 								<div class="card-body">
 									<div class="panel-collapse collapse show" aria-expanded="true">
-
-
-
 										<div id="hacker-list">
-
 											<input class="form-control search " type="search" placeholder="Search by State" aria-label="Search">&nbsp;
 											<div class="customScrollBar" style="max-height:590px;">
-
-
 												<ul class="list" id="newsscroll" style="list-style-type:none;">
 													<li data-id="1">
 														<i class="nav-icon fas fa-tty mr-1" style="color:aqua;"></i><span href="#!" class="place" style=" Color:white;">Andhra Pradesh </span>
@@ -560,15 +409,11 @@
 												</ul>
 											</div>
 										</div>
-
 									</div>
 								</div>
-
 							</div>
-
 						</section>
 						<section class="col-lg-6 connectedSortable">
-
 							<!-- Map card -->
 							<div class="card shadow" id="mapCard">
 								<div class="card-header border-0 mb-0">
@@ -576,44 +421,29 @@
 										<i class="fas fa-map-marker-alt mr-1" style="color:#20B4C4;"></i>
 										State Wise Case Information
 									</h3>
-
-									<!-- card tools -->
 									<div class="card-tools">
-
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
 										</button>
 									</div>
-									<!-- /.card-tools -->
 								</div>
 								<div class="card-body mt-0 mb-0">
 									<div id="map" class="coronaGoogleMaps" style="height: 550px; width: 100%; color:#323C48; background:#323C48;"></div>
 								</div>
-								<!-- /.card-body-->
 								<div class="card-footer bg-transparent">
-
-									<!-- /.row -->
 								</div>
 							</div>
-							<!-- /.card -->
-
 							<div class="card shadow" id="faqCard">
 								<div class="card-header">
 									<h3 class="card-title"> <img class="img mr-1" src="media/images/faqAqua.svg" height="22" width="22"> Frequently Asked Questions (FAQ's)</h3>
-
 									<div class="card-tools">
 										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
 											<i class="fas fa-minus"></i>
 										</button>
-
-
 									</div>
 								</div>
-								<!-- /.card-header -->
 								<div class="card-body" style="font-size:15px !important;">
 									<div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:375px;">
-
-										<!-- Conversations are loaded here -->
 										<div class="panel-group fqqDiv" id="accordion">
 											<div class="panel panel-default p-2">
 												<div class="panel-heading">
@@ -654,7 +484,6 @@
 													</div>
 												</div>
 											</div>
-
 											<div class="panel panel-default p-2">
 												<div class="panel-heading">
 													<h5 class="panel-title">
@@ -743,13 +572,10 @@
 															<li>Prectice frequent hand washing with soap.</li>
 															<li>Cover your mouth when coughing and sneezing.</li>
 															*The list of affected countries is available on WHO website (<a href="https://www.who.int" class="color-white">www.who.int</a>) and would be updated time to time.
-
-
 														</ul>
 													</div>
 												</div>
 											</div>
-
 											<div class="panel panel-default p-2">
 												<div class="panel-heading">
 													<h5 class="panel-title">
@@ -785,10 +611,8 @@
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
-
 							<div class="card shadow" id="doughnutCard">
 								<div class="card-header">
 									<h3 class="card-title">
@@ -799,27 +623,21 @@
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
 										</button>
-
 									</div>
 								</div>
 								<div class="card-body">
 									<canvas id="myChart"></canvas>
 								</div>
 							</div>
-
 							<div class="card shadow" id="tweet">
 								<div class="card-header">
 									<h3 class="card-title"><i class="fab fa-twitter mr-1"></i>Tweets-MoHFW INDIA</h3>
-
 									<div class="card-tools">
 										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
 											<i class="fas fa-minus"></i>
 										</button>
-
 									</div>
-
 								</div>
-
 								<div class="card-body">
 									<div class="panel-collapse collapse show p-0" aria-expanded="true">
 										<div class="direct-chat-messages  pr-3 m-0 customScrollBar" style="min-height:335px;">
@@ -829,7 +647,6 @@
 								</div>
 							</div>
 						</section>
-
 						<section class="col-lg-12 connectedSortable">
 							<div class="card shadow" id="latestnewsCard">
 								<div class="card-header border-0 mb-0">
@@ -847,40 +664,28 @@
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</section>
 					</div>
-
 				</div>
 			</section>
-
 		</div>
-
 		<footer class="main-footer">
 			<strong><img class="img" src="media/images/copyright.svg" width="15px" height="15px">2020 <a href="https://github.com/orgs/elComrades">elComrades</a></strong>
 			<strong class="float-right">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></strong>
 			<br>
 			<strong><i class="far fa-envelope text-danger"></i><span style="color:#20B4C4;"> elcomrades19@gmail.com</span></strong>
 			<strong class="float-right"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;"></i> Authors</a></strong>
-
-
 		</footer>
-
-		<aside class="control-sidebar"  id="newsscroll">
-
+		<aside class="control-sidebar" id="newsscroll">
 			<div id="frame">
-
-
 				<div class="content shadow">
 					<div class="contact-profile shadow rounded border border-light">
 						<img src="media/images/robot.svg" class="direct-chat-img animated flip delay-0.2s">
 						<h4><span class="animated fadeIn delay-0.2s ">Corona Bot</span></h4>
-
-							<h6><span class="badge badge-success mb-2" onclick="start_over();" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> Start Again</span>
+						<h6><span class="badge badge-success mb-2" onclick="start_over();" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> Start Again</span>
 							<span class="badge badge-danger mb-2" data-widget="control-sidebar" data-slide="true" style="cursor: pointer;"><i class="fas fa-times"></i> Close</span></h6>
-
 					</div>
 					<div class="messages shadow rounded border border-dark" id="mssg">
 						<ul>
@@ -896,79 +701,54 @@
 							</li>
 						</ul>
 					</div>
-
 		</aside>
-
 	</div>
-
-	<script>
-		//$.widget.bridge('uibutton', $.ui.button)
-	</script>
 
 	<!--JQuery -->
 	<script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
-
 	<!--JQueryUI -->
 	<script src="media/jquery-ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
-
 	<!--Bootstrap -->
 	<script src="media/bootstrap/bootstrap-4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
-
 	<!-- Json values and variables -->
 	<script src="media/misc/js/jsonNvars.js"> </script>
 	<!-- chart and map js -->
 	<script src="media/misc/js/themeSwitch.js"> </script>
-
 	<!--Bootstrap Datables -->
 	<script src="media/dataTables/DataTables-1.10.18/js/jquery.dataTables.min.js" type="text/javascript"></script>
 	<script src="media/dataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-
 	<!--Bootstrap Datables Responsive -->
 	<script src="media/dataTables/Responsive-2.2.2/js/dataTables.responsive.min.js" type="text/javascript"></script>
 	<script src="media/dataTables/Responsive-2.2.2/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
-
 	<!-- Datables api->processing -->
 	<script type="text/javascript" src="media/dataTables/api/processing().js"></script>
-
 	<!---moment.js dattimepicker---->
 	<script type="text/javascript" src="media/moment-js/moment.js"></script>
-
 	<!--highchart JS -->
 	<script src="media/highcharts/7.2.0/highcharts.js"></script>
 	<script src="media/highcharts/7.2.0/modules/exporting.js"></script>
 	<script src="media/highcharts/7.2.0/modules/export-data.js"></script>
-
 	<!--TextFit JS----->
 	<script type="text/javascript" src="media/textFit/2.4.0/textFit.min.js"></script>
-
 	<!-- ChartJS -->
 	<script src="media/chart.js/Chart.min.js"></script>
-
 	<!-- list.min.js-->
 	<script src="media/list.js/1.5.0/dist/list.min.js"></script>
-
 	<!-- mapnChars js -->
 	<script src="media/misc/js/mapNcharts.js"></script>
-
 	<!-- AdminLTE App -->
 	<script src="dist/js/adminlte.js"></script>
-
 	<!--OverlayScrollbars Plugin JS -->
 	<script type="text/javascript" src="media/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
-
 	<!--customBootstrap----->
 	<script type="text/javascript" src="media/prashantUIUX/customBootstrap/js/customBootstrap.js"></script>
-
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script async defer SameSite=None src="https://maps.google.co.in/maps/api/js?key=AIzaSyB9o2-H1VP2p3JwxC8f-yr_Le7UpuwovPE&callback=initMap"></script>
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 	<!-- Chat bot js -->
 	<script src="media/chatbot/js/chatbot.js"> </script>
-
 	<!-- govt. contact lis js -->
 	<script src="media/misc/js/govContact.js"> </script>
-
 </body>
 
 </html>
