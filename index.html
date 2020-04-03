@@ -53,6 +53,7 @@
 	<link rel="stylesheet" href="media/misc/css/indexDay.css" type="text/css" />
 	<link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
 	<!-- <link rel="stylesheet" href="media/misc/css/botFrame.css" type="text/css" /> -->
+	<link rel="manifest" href="media/pwa/manifest.json" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll">
@@ -757,7 +758,7 @@
 			// Use the window load event to keep the page load performant
 			window.addEventListener('load', () => {
 				console.log("Hello from service worker");
-			  navigator.serviceWorker.register('/sw.js');
+			  navigator.serviceWorker.register('media/pwa/sw.js');
 			});
 		  }
 		  
