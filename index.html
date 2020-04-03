@@ -56,12 +56,13 @@
 	<link rel="manifest" href="media/pwa/manifest.json" />
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="">
+<body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="" ng-cloak>
 	<input type="text" name="themeTypeElm" id="themeTypeElm" class="d-none themeTypeElm" value="1">
 	<div class="wrapper">
 		<!-- Navbar -->
-		<!--Common navbar ends here-->
 		<div ng-include="'common/menu.html'"></div>
+		<!--Common navbar ends here-->
+
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper bg-gradient-white">
 			<!-- Content Header (Page header) -->
