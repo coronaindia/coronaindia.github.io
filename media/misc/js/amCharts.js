@@ -21,7 +21,7 @@ chart.projection = new am4maps.projections.Miller();
 // Create map polygon series for world map
 var worldSeries = chart.series.push(new am4maps.MapPolygonSeries());
 worldSeries.useGeodata = true;
-worldSeries.geodata = am4geodata_worldLow;
+worldSeries.geodata = am4geodata_worldIndiaLow;
 worldSeries.exclude = ["AQ"];
 
 var worldPolygon = worldSeries.mapPolygons.template;
