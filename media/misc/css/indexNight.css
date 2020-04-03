@@ -4202,3 +4202,12 @@ a.accordion-toggle {
 .coronaGoogleMaps>div {
   background:#323C48 !important;
 }
+
+  .navheading{
+	color:white;
+	font-weight:bold;
+}
+
+.main-sidebar{
+	background-color:rgb(29,43,60);
+}
