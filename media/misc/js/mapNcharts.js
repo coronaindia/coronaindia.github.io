@@ -506,7 +506,7 @@ function generateStateList(data){
 
   var stateList = [];
   $("#stateList").find('option').remove();
-  $('<option/>', { value : "Select State" }).text("Select State").appendTo('#stateList');
+  $('<option/>', { value : "All States" }).text("All States").appendTo('#stateList');
 
   for(var i=0;i<data.regional.length;i++){
     var state = data.regional[i].loc;
@@ -518,7 +518,7 @@ function generateStateList(data){
 }
 function filterDataStateWise(state){
 
-  if(state == "Select State"){
+  if(state == "All States"){
     generateLineGraph(dailyStatsData);
   }
   else{
