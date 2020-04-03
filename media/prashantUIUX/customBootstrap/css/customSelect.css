@@ -178,7 +178,7 @@ html, body
 #options-view-button:checked ~ #options .label
 {
     display: block;
-    padding: 12px 14px;    
+    padding: 12px 14px;
 }
 
 .s-c
