@@ -1,14 +1,14 @@
 
 
-		.control-sidebar-content {
-			display: none !important;
-		}
+		
 
 		#frame .content {
 			float: right;
 
 			overflow: hidden;
 			position: relative;
+			height: 685px;
+			
 		}
 
 		@media screen and (max-width: 735px) {
@@ -511,3 +511,8 @@
 		border-bottom: 1px solid black;
 		
 	}
+	
+	.control-sidebar{
+	width:400px !important;
+	overflow-y:auto !important;
+}
