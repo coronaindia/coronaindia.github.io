@@ -2081,6 +2081,10 @@ textarea.form-control {
   display: block;
 }
 
+.custom-control-label{
+  cursor:pointer;
+}
+
 .was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label {
   color: #28a745;
 }
