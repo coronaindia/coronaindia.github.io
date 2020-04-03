@@ -614,3 +614,9 @@ if (!Object.keys) {
     };
   }());
 }
+
+// government contact list populator
+$(document).ready(function() {
+  var hackerList = new List('hacker-list', govConListJsoptions);
+  hackerList.add(govContactJson);
+});
