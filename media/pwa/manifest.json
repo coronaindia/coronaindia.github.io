@@ -4,19 +4,19 @@
   "description": "COVID-19 Virus Outbreak in INDIA",
   "icons": [
     {
-      "src": "/media/pwa/virus_192.png",
+      "src": "/coronaindia/media/pwa/virus_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/media/pwa/virus_512.png",
+      "src": "/coronaindia/media/pwa/virus_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/?source=pwa",
+  "start_url": "/coronaindia/?source=pwa",
   "background_color": "#1d2b3c",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/coronaindia/",
   "theme_color": "#1d2b3c"
 }
