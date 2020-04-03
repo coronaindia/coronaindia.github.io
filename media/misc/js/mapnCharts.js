@@ -3,146 +3,6 @@ var apiPrashantCall = null;
 var mapFinalMarkerCoords = null;
 var infoWindowContent = null;
 var dailyStatsData = null;
-var cordinatList = {
-  indianState: {
-    'Andaman and Nicobar Islands':{
-      lat: 11.7401,
-      long: 92.6586
-    },
-    'Delhi': {
-      lat: 28.6139,
-      long: 77.2090
-    },
-    'Andhra Pradesh': {
-      lat: 15.9129,
-      long: 79.7400
-    },
-    'Bihar': {
-      lat: 25.0961,
-      long: 85.3131
-    },
-    'Chhattisgarh': {
-      lat: 21.2787,
-      long: 81.8661
-    },
-    'Gujarat': {
-      lat: 22.2587,
-      long: 71.1924
-    },
-    'Haryana': {
-      lat: 29.0588,
-      long: 76.0856
-    },
-    'Himachal Pradesh': {
-      lat: 31.1048,
-      long: 77.1734
-    },
-    'Karnataka': {
-      lat: 15.3173,
-      long: 75.7139
-    },
-    'Kerala': {
-      lat: 10.8505,
-      long: 76.2711
-    },
-    'Madhya Pradesh': {
-      lat: 22.9734,
-      long: 78.6569
-    },
-    'Maharashtra': {
-      lat: 19.7515,
-      long: 75.7139
-    },
-    'Odisha': {
-      lat: 20.9517,
-      long: 85.0985
-    },
-    'Puducherry': {
-      lat: 11.9416,
-      long: 79.8083
-    },
-    'Punjab': {
-      lat: 31.1471,
-      long: 75.3412
-    },
-    'Rajasthan': {
-      lat: 27.0238,
-      long: 74.2179
-    },
-    'Tamil Nadu': {
-      lat: 11.1271,
-      long: 78.6569
-    },
-    'Telangana': {
-      lat: 18.1124,
-      long: 79.0193
-    },
-    'Chandigarh': {
-      lat: 30.7333,
-      long: 76.7794
-    },
-    'Jammu and Kashmir': {
-      lat: 33.7782,
-      long: 76.5762
-    },
-    'Ladakh': {
-      lat: 34.152588,
-      long: 77.577049
-    },
-    'Uttar Pradesh': {
-      lat: 26.8467,
-      long: 80.9462
-    },
-    'Uttarakhand': {
-      lat: 30.0668,
-      long: 79.0193
-    },
-    'West Bengal': {
-      lat: 22.9868,
-      long: 87.8550
-    },
-    'Goa': {
-      lat: 15.2993,
-      long: 74.1240
-    },
-    'Jharkhand': {
-      lat: 23.6102,
-      long: 85.2799
-    },
-    'Manipur': {
-      lat: 24.6637,
-      long: 93.9063
-    },
-    'Mizoram': {
-      lat: 23.1645,
-      long: 92.9376
-    },
-    'Assam': {
-      lat: 26.2006,
-      long: 92.9376
-    },
-    'Nagaland': {
-      lat: 26.1584,
-      long: 94.5624
-    },
-    'Tripura': {
-      lat: 23.9408,
-      long: 91.9882
-    },
-    'Meghalaya': {
-      lat: 25.4670,
-      long: 91.3662
-    },
-    'Sikkim': {
-      lat: 27.5330,
-      long: 88.5122
-    },
-    'Arunachal Pradesh': {
-      lat: 28.2180,
-      long: 94.7278
-    }
-  }
-};
 
 function initMap() {
   var indiaCenter = new google.maps.LatLng(20.5937, 78.9629);
@@ -172,77 +32,7 @@ function initMap() {
     scaleControl: false,
     fullscreenControl: true,
     //mapTypeId:google.maps.MapTypeId.ROADMAP
-    styles: [{
-        "featureType": "administrative.country",
-        "stylers": [{
-          "weight": 1
-        }]
-      },
-      {
-        "featureType": "administrative.locality",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "administrative.neighborhood",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "administrative.province",
-        "stylers": [{
-          "weight": 1.5
-        }]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "labels.text",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "poi.business",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "road",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels.icon",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "transit",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels.text",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }
-    ]
+    styles: googleMapStyles
   };
 
   // Display a map on the web page
@@ -293,7 +83,7 @@ function initMap() {
    // }
 
   var markerImage = {
-    url: "media/images/marker.svg",
+    url: mapMarkerIcon,
     scaledSize: new google.maps.Size(35, 35)
   }
   // Place each marker on the map
@@ -374,11 +164,12 @@ ajaxDailyStats = $.ajax({
   url: apiUrlDailyStats,
   dataType: "json",
   success: function(result) {
-    
+
     //storing data in global variable for use in future
     dailyStatsData = result.data;
     //passing last result because it will have most recent cases
     generateStateList(result.data[result.data.length-1]);
+    //generate line graph for corona Cases daywise
     generateLineGraph(result.data);
 
     $.when(ajaxLatestCases).then(function(){
@@ -394,20 +185,17 @@ ajaxDailyStats = $.ajax({
 //set values in dashboard tiles
 function setDashboardStats(statsSummary) {
   var totalActive = statsSummary.total - statsSummary.discharged - statsSummary.deaths;
-
   $('#totalCases').html(JSON.stringify(statsSummary.total));
-  var fatalityRate = (statsSummary.deaths/statsSummary.total)*100;
-
   $('#totalActive').html(totalActive);
-//  $('#cic').html(JSON.stringify(statsSummary.confirmedCasesIndian));
+  //$('#cic').html(JSON.stringify(statsSummary.confirmedCasesIndian));
   //$('#cfc').html(JSON.stringify(statsSummary.confirmedCasesForeign));
+  var fatalityRate = (statsSummary.deaths/statsSummary.total)*100;
   $('#cfc').html(fatalityRate.toFixed(2) + "%");
   $('#discharged').html(JSON.stringify(statsSummary.discharged));
   $('#deaths').html(JSON.stringify(statsSummary.deaths));
   $('#clu').html(JSON.stringify(statsSummary.confirmedButLocationUnidentified));
 
 }
-
 
 //generate and set markers coordinate and marker html for map
 function generateMapMarkers(regionalData) {
@@ -433,8 +221,8 @@ function generateMapMarkers(regionalData) {
         mapMarkerCoord.push(mapMarkerCoordState);
 
         var mapMarkerHtmlState = [
-          '<div class="info_content">' +
-          '<h6>' + inStateName + '</h6>' +
+          '<div class="info_content googleCoronMarkerInfo">' +
+          '<h6 style="color:'+markerInfoStateColor+'">' + inStateName + '</h6>' +
           '<p><span class="badge badge-secondary">Total Indian cases </span><span class="badge badge-dark float-right ml-5">' + inConfCases + '</span>' +
           '<br><span class="badge badge-warning">Total Foreign cases </span><span class="badge badge-dark float-right ml-5">' + frnConfCases + '</span>' +
           '<br><span class="badge badge-success">Total Cured </span><span class="badge badge-dark float-right ml-5">' + dischargedCont + '</span>' +
@@ -456,7 +244,6 @@ function generateMapMarkers(regionalData) {
   google.maps.event.addDomListener(window, 'load', initMap);
 }
 
-
 var randomColorGenerator = function () {
     return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
 };
@@ -474,21 +261,20 @@ function generateDonutChart(statsSummary) {
         label: 'Cases 2019-nCoV',
         data: dognutChartValArry,
         backgroundColor: [
-         // randomColorGenerator(),
+        // randomColorGenerator(),
         //randomColorGenerator(),
-          //randomColorGenerator()
+        //randomColorGenerator()
 		   'rgba(255,99,132,1)',
-           'rgba(144,238,144,1)',
-           'rgba(105,105,105, 1)'
+       'rgba(144,238,144,1)',
+       'rgba(105,105,105, 1)'
 
         ],
          borderColor: [
           'rgba(0,0,0,5)',
-		  'rgba(0,0,0,5)',
-		  'rgba(0,0,0,5)'
-        //   'rgba(144,238,144, 5)',
-        //   'rgba(105,105,105, 5)'
-        //
+		      'rgba(0,0,0,5)',
+		      'rgba(0,0,0,5)'
+          //'rgba(144,238,144, 5)',
+          //'rgba(105,105,105, 5)'
          ],
         borderWidth: 1
       }]
@@ -496,8 +282,13 @@ function generateDonutChart(statsSummary) {
     options: {
       //cutoutPercentage: 40,
       responsive: true,
-
+      legend: {
+      position: 'top',
+      labels: {
+        fontColor: graphsLabelsColor
     }
+  },
+  }
   });
 }
 
@@ -544,7 +335,7 @@ var i=0;
         label: "Total Cases ",
         data: totalCasesData,
         backgroundColor: ['rgba(0, 0, 0, 0.1)'],
-        borderColor: randomColorGenerator(),
+        borderColor: '#20EDE9',
         borderWidth: 2,
         fill: false
       },
@@ -552,7 +343,7 @@ var i=0;
         label: "Total Active Cases",
         data: totalActiveCasesData,
         backgroundColor: ['rgba(0, 0, 0, 0.1)'],
-        borderColor: randomColorGenerator(),
+        borderColor: '#ff0078',
         borderWidth: 2,
         fill: false
       },
@@ -560,21 +351,40 @@ var i=0;
         label: "Daily Increase",
         data: dailyCaseCountData,
         backgroundColor: ['rgba(0, 0, 0, 0.1)'],
-        borderColor: randomColorGenerator(),
+        borderColor: '#ffe900',
         borderWidth: 2,
         fill: false
       }
     ]
     },
     options: {
+      legend: {
+      position: 'top',
+      labels: {
+        fontColor: graphsLabelsColor
+      }
+    },
+
       //cutoutPercentage: 40,
       responsive: true,
       xAxisID: "dd",
     maintainAspectRatio: false
-
+    ,
+      scales: {
+      yAxes: [{
+        ticks: {
+          fontColor: graphsLabelsColor,
+    }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: graphsLabelsColor,
+        }
+      }]
+    }
     }
   });
-  
+
 }
 //having problem after data reload, this was proper way I Found on internet
 var resetCanvas = function(){
@@ -656,8 +466,8 @@ console.log(dublingCasesDateArr);
       datasets: [{
         label: "No. of days to double the total count",
         data: dublingCasesDayCountArr,
-        backgroundColor: randomColorGenerator(),
-        borderColor: randomColorGenerator(),
+        backgroundColor: '#8bd1f7',
+        borderColor: '#04A2B3',
         borderWidth: 2,
         fill: true
       }
@@ -667,11 +477,23 @@ console.log(dublingCasesDateArr);
       //cutoutPercentage: 40,
       responsive: true,
       xAxisID: "dd",
+      legend: {
+      position: 'top',
+      labels: {
+        fontColor: graphsLabelsColor
+      }
+    },
       scales: {
       yAxes: [{
         ticks: {
           beginAtZero: true,
+          fontColor: graphsLabelsColor,
           callback: function(value) {if (value % 1 === 0) {return value;}}
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: graphsLabelsColor,
         }
       }]
     }
@@ -679,12 +501,13 @@ console.log(dublingCasesDateArr);
     }
   });
 }
+
 function generateStateList(data){
-  
+
   var stateList = [];
   $("#stateList").find('option').remove();
   $('<option/>', { value : "Select State" }).text("Select State").appendTo('#stateList');
-  
+
   for(var i=0;i<data.regional.length;i++){
     var state = data.regional[i].loc;
     stateList.push(state);
@@ -694,7 +517,7 @@ function generateStateList(data){
 
 }
 function filterDataStateWise(state){
-  
+
   if(state == "Select State"){
     generateLineGraph(dailyStatsData);
   }
@@ -731,15 +554,15 @@ function extractDataForGivenState(data,state){
           }
       }
     }
-    
+
     return data;
 }
 
 //expecting all the object keys , containing numeric data is no. of cases
 function getSumOfTheObjectKeys(localData){
-  
+
   var keys = Object.keys(localData);
-  
+
   var total = 0;
   for(var i=0;i<keys.length;i++){
     if(!isNaN(localData[keys[i]])){
