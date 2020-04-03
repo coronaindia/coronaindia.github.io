@@ -24,7 +24,7 @@
 
 
 $(document).ready(function(){
-  $('.themeSwitchChkBox').on('click', function(){
+  $('body').on('click','.themeSwitchChkBox', function(){
     if($(".themeSwitchChkBox:checked").length){
       location.replace("https://coronaindia.github.io/indexNight.html")
     } else {
