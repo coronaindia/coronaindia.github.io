@@ -668,8 +668,8 @@
 										</button>
 									</div>
 								</div>
-								<div class="card-body">
-									<div id="chartdiv" style="width: 100%; height:100%;"></div>
+								<div class="card-body mt-0 mb-0 mr-0 ml-0">
+									<div id="chartdiv" style="width: 100%; height:500px;"></div>
 								</div>
 							</div>
 						</section>
@@ -783,13 +783,13 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
 	<script>
-		if ('serviceWorker' in navigator) {
-			// Use the window load event to keep the page load performant
-			window.addEventListener('load', () => {
-				console.log("Hello from service worker");
-			  navigator.serviceWorker.register('/coronaindia/sw.js');
-			});
-		  }
+		<!-- if ('serviceWorker' in navigator) { -->
+			<!-- // Use the window load event to keep the page load performant -->
+			<!-- window.addEventListener('load', () => { -->
+				<!-- console.log("Hello from service worker"); -->
+			  <!-- navigator.serviceWorker.register('/coronaindia/sw.js'); -->
+			<!-- }); -->
+		  <!-- } -->
 		  
 		  
 		  //State & UTs Chart
@@ -804,22 +804,22 @@ var chart = am4core.create("chartdiv", am4charts.XYChart);
 
 // Add data
 chart.data = [{
-  "State": "Madhya Pradesh ",
-  "Active": 104,
-  "Deaths": 0,
-  "Cured": 6 
+  "State":"Madhya Pradesh ",
+  "Active":104,
+  "Deaths":0,
+  "Cured":6 
 },
 {
-  "State": "Delhi ",
- "Active": 444,
-  "Deaths": 15,
-  "Cured": 6
+  "State":"Delhi ",
+ "Active":444,
+  "Deaths":15,
+  "Cured":6
 }, 
 {
-  "State": "Maharashtra ",
-  "Active": 487,
-  "Deaths": 42,
-  "Cured": 24
+  "State":"Maharashtra ",
+  "Active":487,
+  "Deaths":42,
+  "Cured":24
 }];
 
 chart.legend = new am4charts.Legend();
