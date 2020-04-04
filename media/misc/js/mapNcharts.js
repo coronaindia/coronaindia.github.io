@@ -169,6 +169,8 @@ ajaxDailyStats = $.ajax({
     dailyStatsData = result.data;
     //passing last result because it will have most recent cases
     generateStateList(result.data[result.data.length-1]);
+
+    drawChartStateWise(result.data[result.data.length-1]);
     //generate line graph for corona Cases daywise
     generateLineGraph(result.data);
 
@@ -572,6 +574,80 @@ function getSumOfTheObjectKeys(localData){
   return total;
 }
 
+
+function drawChartStateWise( data){
+  console.log("for am charts",data);
+  // Themes begin
+    am4core.useTheme(am4themes_material);
+  // Themes end
+  var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+// Add data
+data.regional = sortDataByTotalNo(data.regional);
+chart.data = data.regional;
+//  [{
+//   "State": "Madhya Pradesh ",
+//   "Active": 104,
+//   "Deaths": 0,
+//   "Cured": 6 
+// },
+// {
+//   "State": "Delhi ",
+//  "Active": 444,
+//   "Deaths": 15,
+//   "Cured": 6
+// }, 
+// {
+//   "State": "Maharashtra ",
+//   "Active": 487,
+//   "Deaths": 42,
+//   "Cured": 24
+// }];
+
+chart.legend = new am4charts.Legend();
+chart.legend.position = "bottom";
+
+// Create axes
+var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "loc";
+categoryAxis.renderer.grid.template.opacity = 0;
+
+var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+valueAxis.min = 0;
+valueAxis.renderer.grid.template.opacity = 0;
+valueAxis.renderer.ticks.template.strokeOpacity = 0.5;
+valueAxis.renderer.ticks.template.stroke = am4core.color("#495C43");
+valueAxis.renderer.ticks.template.length = 10;
+valueAxis.renderer.line.strokeOpacity = 0.5;
+valueAxis.renderer.baseGrid.disabled = true;
+valueAxis.renderer.minGridDistance = 100;
+
+// Create series
+
+function createSeries(field, name) {
+  var series = chart.series.push(new am4charts.ColumnSeries());
+  series.dataFields.valueX = field;
+  series.dataFields.categoryY = "loc";
+  series.stacked = true;
+  series.name = name;
+  
+  var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+  labelBullet.locationX = 0.5;
+  labelBullet.label.text = "{valueX}";
+  labelBullet.label.fill = am4core.color("#ffffff");
+}
+
+createSeries("confirmedCasesIndian","Confirmed Case Indian");
+createSeries("confirmedCasesForeign","Confirmed Case Foreign");
+createSeries("deaths", "Deaths");
+createSeries("discharged", "Cured");
+
+}
+function sortDataByTotalNo(data){
+
+  return data.sort(function(a, b){return getSumOfTheObjectKeys(a) - getSumOfTheObjectKeys(b)});
+
+}
 
 ////Object Keys local implementation, for low end browsers
 if (!Object.keys) {
