@@ -99,3 +99,7 @@ homeButton.parent = chart.zoomControl;
 homeButton.insertBefore(chart.zoomControl.plusButton);
 
 }); // end am4core.ready()
+
+
+
+
