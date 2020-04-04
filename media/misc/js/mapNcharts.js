@@ -583,6 +583,7 @@ function drawChartStateWise( data){
   var chart = am4core.create("chartdiv", am4charts.XYChart);
 
 // Add data
+addTotalField(data.regional);
 data.regional = sortDataByTotalNo(data.regional);
 chart.data = data.regional;
 //  [{
@@ -645,8 +646,14 @@ createSeries("discharged", "Cured");
 }
 function sortDataByTotalNo(data){
 
-  return data.sort(function(a, b){return getSumOfTheObjectKeys(a) - getSumOfTheObjectKeys(b)});
+  return data.sort(function(a, b){return a.total - b.total});
 
+}
+
+function addTotalField(data){
+  for(var i=0;i<data.length;i++){
+    data[i].total = getSumOfTheObjectKeys(data[i]);
+  }
 }
 
 ////Object Keys local implementation, for low end browsers
