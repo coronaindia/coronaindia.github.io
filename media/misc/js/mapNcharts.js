@@ -621,7 +621,7 @@ valueAxis.renderer.ticks.template.stroke = am4core.color("#495C43");
 valueAxis.renderer.ticks.template.length = 10;
 valueAxis.renderer.line.strokeOpacity = 0.5;
 valueAxis.renderer.baseGrid.disabled = true;
-valueAxis.renderer.minGridDistance = 100;
+valueAxis.renderer.minGridDistance = 25;
 
 // Create series
 
@@ -631,6 +631,10 @@ function createSeries(field, name) {
   series.dataFields.categoryY = "loc";
   series.stacked = true;
   series.name = name;
+  series.columns.template.propertyFields.fill = "color";
+  series.columns.template.tooltipText = "{valueX}";
+  
+
   
   var labelBullet = series.bullets.push(new am4charts.LabelBullet());
   labelBullet.locationX = 0.5;
@@ -638,8 +642,7 @@ function createSeries(field, name) {
   labelBullet.label.fill = am4core.color("#ffffff");
 }
 
-createSeries("confirmedCasesIndian","Confirmed Case Indian");
-createSeries("confirmedCasesForeign","Confirmed Case Foreign");
+createSeries("confirmedCasesIndian","Active");
 createSeries("deaths", "Deaths");
 createSeries("discharged", "Cured");
 
