@@ -581,6 +581,7 @@ function drawChartStateWise( data){
     am4core.useTheme(am4themes_material);
   // Themes end
   var chart = am4core.create("chartdiv", am4charts.XYChart);
+  
 
 // Add data
 addTotalField(data.regional);
@@ -613,6 +614,10 @@ var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "loc";
 categoryAxis.renderer.grid.template.opacity = 0;
 
+chart.exporting.menu = new am4core.ExportMenu();
+chart.exporting.menu.align = "right";
+chart.exporting.menu.verticalAlign = "top";
+
 var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
 valueAxis.min = 0;
 valueAxis.renderer.grid.template.opacity = 0;
@@ -621,7 +626,7 @@ valueAxis.renderer.ticks.template.stroke = am4core.color("#495C43");
 valueAxis.renderer.ticks.template.length = 10;
 valueAxis.renderer.line.strokeOpacity = 0.5;
 valueAxis.renderer.baseGrid.disabled = true;
-valueAxis.renderer.minGridDistance = 25;
+valueAxis.renderer.minGridDistance = 20;
 
 // Create series
 
@@ -631,10 +636,6 @@ function createSeries(field, name) {
   series.dataFields.categoryY = "loc";
   series.stacked = true;
   series.name = name;
-  series.columns.template.propertyFields.fill = "color";
-  series.columns.template.tooltipText = "{valueX}";
-  
-
   
   var labelBullet = series.bullets.push(new am4charts.LabelBullet());
   labelBullet.locationX = 0.5;
@@ -642,7 +643,7 @@ function createSeries(field, name) {
   labelBullet.label.fill = am4core.color("#ffffff");
 }
 
-createSeries("confirmedCasesIndian","Active");
+createSeries("confirmedCasesIndian","Active Cases");
 createSeries("deaths", "Deaths");
 createSeries("discharged", "Cured");
 

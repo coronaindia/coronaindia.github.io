@@ -516,3 +516,14 @@
 	width:400px !important;
 	overflow-y:auto !important;
 }
+
+.amcharts-amexport-item {
+  border: 2px solid #777;
+  color:white;
+  background-color:gray;
+}
+
+.amcharts-amexport-top .amcharts-amexport-item > .amcharts-amexport-menu {
+  top: -3px!important;
+  right: 2px!important;
+}
