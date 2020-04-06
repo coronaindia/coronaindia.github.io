@@ -171,14 +171,14 @@ ajaxDailyStats = $.ajax({
     //storing data in global variable for use in future
     dailyStatsData = result.data;
     //passing last result because it will have most recent cases
-    generateStateList(result.data[result.data.length-1]);
+    generateStateList(getCopyOfJSONObject(result.data[result.data.length-1]));
 
-    drawChartStateWise(result.data[result.data.length-1]);
+    drawChartStateWise(getCopyOfJSONObject(result.data[result.data.length-1]));
     //generate line graph for corona Cases daywise
-    generateLineGraph(result.data);
-
+    generateLineGraph(getCopyOfJSONObject(result.data));
+    setLastSevenDayData(getCopyOfJSONObject(result.data));
     $.when(ajaxLatestCases).then(function(){
-        generateLineDblGraph(coronaCasesSummary, result.data);
+        generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(result.data));
     });
 
   },
@@ -342,16 +342,16 @@ var i=0;
 
   totalCasesData.length = dateLable.length;
 
-  //By Siddharth, hackish for computing average of last 7 days
-  var countI = 0;
-  var sum = 0;
-  dailyCaseCountData.slice().reverse().forEach(function(x) {
-    if(countI < 7) {
-      sum += x;
-      countI++;
-    }
-  })
-  $('#cic').html(JSON.stringify(sum));
+  //moved to other function because of state filter
+  // //By Siddharth, hackish for computing average of last 7 days
+  // var countI = 0;
+  // var sum = 0;
+  // dailyCaseCountData.slice().reverse().forEach(function(x) {
+  //   if(countI < 7) {
+  //     sum += x;
+  //     countI++;
+  //   }
+  // })
 
   resetCanvas();
   var ctx = document.getElementById("lineChart").getContext("2d");
@@ -414,6 +414,38 @@ var i=0;
   });
 
 }
+
+function setLastSevenDayData(dailyStats){
+  var i=0;
+  var dateLable = [];
+  var totalCasesData = [];
+  var totalActiveCasesData = [];
+  var dailyCaseCountData = [];
+  for (dayIndex in dailyStats) {
+    var dayStats = dailyStats[dayIndex];
+    dateLable.push(dayStats.day);
+    totalCasesData.push(dayStats.summary.total);
+    totalActiveCasesData.push(dayStats.summary.total - dayStats.summary.deaths - dayStats.summary.discharged);
+    var dayCaseCount = totalCasesData[i]-totalCasesData[i-1];
+    dayCaseCount = dayCaseCount<0?0:dayCaseCount;
+    dailyCaseCountData.push(dayCaseCount);
+    i++;
+  }
+
+  totalCasesData.length = dateLable.length;
+
+  //By Siddharth, hackish for computing average of last 7 days
+  var countI = 0;
+  var sum = 0;
+  dailyCaseCountData.slice().reverse().forEach(function(x) {
+    if(countI < 7) {
+      sum += x;
+      countI++;
+    }
+  })
+  $('#cic').html(JSON.stringify(sum));
+}
+
 //having problem after data reload, this was proper way I Found on internet
 var resetCanvas = function(){
   $('#lineChart').remove(); // this is my <canvas> element
@@ -559,6 +591,7 @@ function filterDataStateWise(state){
 
 function extractDataForGivenState(data,state){
 
+  //console.log("data i got",JSON.parse(JSON.stringify(data)));
   //to be used where data is not available for any state on a given day
   var blankSummaryObject = {
     loc : state,
@@ -582,7 +615,7 @@ function extractDataForGivenState(data,state){
           }
       }
     }
-
+    //console.log("data i am sending back",JSON.parse(JSON.stringify(data)));
     return data;
 }
 
@@ -603,6 +636,7 @@ function getSumOfTheObjectKeys(localData){
 
 function drawChartStateWise( data){
   console.log("for am charts",data);
+  am4core.ready(function() {
   // Themes begin
     am4core.useTheme(am4themes_material);
   // Themes end
@@ -672,7 +706,7 @@ function createSeries(field, name) {
 createSeries("confirmedCasesIndian","Active Cases");
 createSeries("deaths", "Deaths");
 createSeries("discharged", "Cured");
-
+  });
 }
 function sortDataByTotalNo(data){
 
@@ -680,10 +714,15 @@ function sortDataByTotalNo(data){
 
 }
 
+//utility functions
 function addTotalField(data){
   for(var i=0;i<data.length;i++){
     data[i].total = getSumOfTheObjectKeys(data[i]);
   }
+}
+//deep copy
+function getCopyOfJSONObject(data){
+  return JSON.parse(JSON.stringify(data));
 }
 
 ////Object Keys local implementation, for low end browsers
