@@ -756,7 +756,7 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
 */
 
   // Default map
-  var defaultMap = "indiaLow";
+  var defaultMap = "india2019High";
   // calculate which map to be used
   var currentMap = defaultMap;
   var title = "";
