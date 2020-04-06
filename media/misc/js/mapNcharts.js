@@ -4,6 +4,8 @@ var apiPrashantCall = null;
 var mapFinalMarkerCoords = null;
 var infoWindowContent = null;
 var dailyStatsData = null;
+//check for night mode
+var isNightMode = document.getElementById("customSwitch1").checked;
 
 function initMap() {
   var indiaCenter = new google.maps.LatLng(20.5937, 78.9629);
@@ -643,7 +645,8 @@ function drawChartStateWise( data){
   // Themes end
   var chart = am4core.create("chartdiv", am4charts.XYChart);
 
-
+//deciding color
+var labelColor = isNightMode?am4core.color("#ffffff"):am4core.color("#000000");
 // Add data
 addTotalField(data.regional);
 data.regional = sortDataByTotalNo(data.regional);
@@ -651,25 +654,30 @@ chart.data = data.regional;
 
 chart.legend = new am4charts.Legend();
 chart.legend.position = "bottom";
+chart.legend.labels.template.fill = labelColor;
 
+chart.maskBullets = false;
 // Create axes
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "loc";
 categoryAxis.renderer.grid.template.opacity = 0;
+categoryAxis.renderer.labels.template.fill = labelColor;
 
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "right";
 chart.exporting.menu.verticalAlign = "top";
 
+
 var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
 valueAxis.min = 0;
 valueAxis.renderer.grid.template.opacity = 0;
 valueAxis.renderer.ticks.template.strokeOpacity = 0.5;
-valueAxis.renderer.ticks.template.stroke = am4core.color("#495C43");
+valueAxis.renderer.ticks.template.stroke = am4core.color("#4572A7");
 valueAxis.renderer.ticks.template.length = 10;
 valueAxis.renderer.line.strokeOpacity = 0.5;
 valueAxis.renderer.baseGrid.disabled = true;
 valueAxis.renderer.minGridDistance = 100;
+valueAxis.renderer.labels.template.fill = labelColor;
 
 // Create series
 
@@ -681,9 +689,13 @@ function createSeries(field, name) {
   series.name = name;
 
   var labelBullet = series.bullets.push(new am4charts.LabelBullet());
-  labelBullet.locationX = 0.5;
-  labelBullet.label.text = "{valueX}";
-  labelBullet.label.fill = am4core.color("#ffffff");
+  //labelBullet.locationX = -0.1;
+  labelBullet.label.horizontalCenter = "left";
+  labelBullet.label.dx = 10;
+  labelBullet.label.text = isNightMode?"{valueX}":"[bold]{valueX}[/]";
+  labelBullet.label.fill = labelColor;
+  labelBullet.label.truncate = false;
+  //valueLabel.label.hideOversized = false;
 }
 
 createSeries("total","Total Cases");
