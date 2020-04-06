@@ -769,9 +769,7 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   chart.geodataSource.url = "media/amCharts/geodata/json/" + currentMap + ".json";
   chart.geodataSource.events.on("parseended", function(ev) {
     /* for(var i = 0; i < ev.target.data.features.length; i++) { polygonSeries.data.push(); } */
-    console.log(ev.target.data.features);
     $.when( gentAmChartCovCasSeriesDiffObj ).then(function( status ) {
-      console.log(status);
       polygonSeries.data = amChartSateCovCasSeries;
     });
   });
@@ -790,8 +788,10 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   polygonSeries.heatRules.push({
     property: "fill",
     target: polygonSeries.mapPolygons.template,
-    min: chart.colors.getIndex(1).brighten(1),
-    max: chart.colors.getIndex(1).brighten(-0.3)
+    //min: chart.colors.getIndex(1).brighten(1),
+    //max: chart.colors.getIndex(1).brighten(-0.6)
+    "min": am4core.color("#e3f2fd"),
+    "max": am4core.color("#1a237e")
   });
 
   // Make map load polygon data (state shapes and names) from GeoJSON
@@ -810,10 +810,10 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   // Set up custom heat map legend labels using axis ranges
   var minRange = heatLegend.valueAxis.axisRanges.create();
   minRange.value = heatLegend.minValue;
-  minRange.label.text = "Little";
+  minRange.label.text = "COVID19 Cases Scale";
   var maxRange = heatLegend.valueAxis.axisRanges.create();
   maxRange.value = heatLegend.maxValue;
-  maxRange.label.text = "A lot!";
+  maxRange.label.text = "";
 
   // Blank out internal heat legend value axis labels
   heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function(labelText) {
@@ -825,6 +825,7 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   polygonTemplate.tooltipText = "{name}: {value}";
   polygonTemplate.nonScalingStroke = true;
   polygonTemplate.strokeWidth = 0.5;
+  polygonTemplate.fill = am4core.color("#673ab7");
 
   // Create hover state and set alternative fill color
   var hs = polygonTemplate.states.create("hover");
