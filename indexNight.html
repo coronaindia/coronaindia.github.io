@@ -24,10 +24,10 @@
 	<meta name="description" content="COVID-19 virus outbreak in INDIA">
 	<meta property="og:url" content="https://coronaindia.github.io/" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Dashboard" />
+	<meta property="og:title" content="COVID-19 INDIA Dashboard" />
 	<meta property="og:description" content="Dashboard for COVID-19 virus outbreak in INDIA">
 	<meta property="og:image" content="https://coronaindia.github.io/media/images/fsharevirus.png">
-	<meta name="theme-color" content="#1D2B3C" />
+	<meta name="theme-color" content="#FFFFFF" />
 	<title>COVID-19 INDIA Dashboard</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,6 +80,7 @@
 					</div>
 				</li>
 			</ul>
+			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<form class="form-inline">
@@ -221,6 +222,7 @@
 				</nav>
 			</div>
 		</aside>
+		<!--Common navbar ends here-->
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -236,7 +238,6 @@
 								<li class="nav-item mr-1">
 									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">
 									</a>
-									<!-- <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">#indiafightscorona</a> -->
 								</li>
 								<li class="nav-item mr-1">
 									<a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank"
@@ -256,10 +257,10 @@
 					</div>
 				</div>
 			</div>
-
 			<!-- Main content -->
 			<section class="content" id="dashboardSection">
 				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
 					<div class="row  ">
 						<div class="col-lg-2 col-sm-6 col-6 ">
 							<!-- small box -->
@@ -783,10 +784,20 @@
 	<script src="media/chatbot/js/chatbot.js"> </script>
 	<!-- common js -->
 	<script src="media/misc/js/common.js"> </script>
-	<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<script>
+	// 	if ('serviceWorker' in navigator) {
+	// 	// Use the window load event to keep the page load performant
+	// 	window.addEventListener('load', () => {
+	// 	console.log("Hello from service worker");
+	// 	navigator.serviceWorker.register('/coronaindia/sw.js');
+	// 	});
+	// }
+
+	</script>
+
+
 </body>
 
 </html>
