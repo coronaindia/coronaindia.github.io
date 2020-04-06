@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  $('.nav-link-menuBtn').click();
+});
+
 //Map code start here
 var apiPrashantCall = null;
 var mapFinalMarkerCoords = null;
