@@ -804,6 +804,7 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
     /* for(var i = 0; i < ev.target.data.features.length; i++) { polygonSeries.data.push(); } */
     $.when( gentAmChartCovCasSeriesDiffObj ).then(function( status ) {
       polygonSeries.data = amChartSateCovCasSeries;
+      console.log("data for india map",amChartSateCovCasSeries);
     });
   });
 
