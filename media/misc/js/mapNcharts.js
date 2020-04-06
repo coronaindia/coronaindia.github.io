@@ -1,6 +1,3 @@
-$(document).ready(function () {
-  $('.nav-link-menuBtn').click();
-});
 
 //Map code start here
 var apiPrashantCall = null;
@@ -180,7 +177,8 @@ ajaxDailyStats = $.ajax({
     drawChartStateWise(getCopyOfJSONObject(result.data[result.data.length-1]));
     //generate line graph for corona Cases daywise
     generateLineGraph(getCopyOfJSONObject(result.data));
-
+    setLastSevenDayData(getCopyOfJSONObject(result.data));
+    
     $.when(ajaxLatestCases).then(function(){
         generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(result.data));
     });
