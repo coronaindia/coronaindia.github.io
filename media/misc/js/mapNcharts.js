@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  $('.nav-link-menuBtn').click();
+});
+
 //Map code start here
 var apiPrashantCall = null;
 var mapFinalMarkerCoords = null;
@@ -169,16 +173,16 @@ ajaxDailyStats = $.ajax({
   success: function(result) {
 
     //storing data in global variable for use in future
-    dailyStatsData = result.data;
+    dailyStatsData = getCopyOfJSONObject(result.data);
     //passing last result because it will have most recent cases
-    generateStateList(result.data[result.data.length-1]);
+    generateStateList(getCopyOfJSONObject(result.data[result.data.length-1]));
 
-    drawChartStateWise(result.data[result.data.length-1]);
+    drawChartStateWise(getCopyOfJSONObject(result.data[result.data.length-1]));
     //generate line graph for corona Cases daywise
-    generateLineGraph(result.data);
+    generateLineGraph(getCopyOfJSONObject(result.data));
 
     $.when(ajaxLatestCases).then(function(){
-        generateLineDblGraph(coronaCasesSummary, result.data);
+        generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(result.data));
     });
 
   },
@@ -342,16 +346,17 @@ var i=0;
 
   totalCasesData.length = dateLable.length;
 
-  //By Siddharth, hackish for computing average of last 7 days
-  var countI = 0;
-  var sum = 0;
-  dailyCaseCountData.slice().reverse().forEach(function(x) {
-    if(countI < 7) {
-      sum += x;
-      countI++;
-    }
-  })
-  $('#cic').html(JSON.stringify(sum));
+  //  //moved to other function because of state filter
+  // //By Siddharth, hackish for computing average of last 7 days
+  // var countI = 0;
+  // var sum = 0;
+  // dailyCaseCountData.slice().reverse().forEach(function(x) {
+  //   if(countI < 7) {
+  //     sum += x;
+  //     countI++;
+  //   }
+  // })
+  // $('#cic').html(JSON.stringify(sum));
 
   resetCanvas();
   var ctx = document.getElementById("lineChart").getContext("2d");
@@ -413,6 +418,36 @@ var i=0;
     }
   });
 
+}
+function setLastSevenDayData(dailyStats){
+  var i=0;
+  var dateLable = [];
+  var totalCasesData = [];
+  var totalActiveCasesData = [];
+  var dailyCaseCountData = [];
+  for (dayIndex in dailyStats) {
+    var dayStats = dailyStats[dayIndex];
+    dateLable.push(dayStats.day);
+    totalCasesData.push(dayStats.summary.total);
+    totalActiveCasesData.push(dayStats.summary.total - dayStats.summary.deaths - dayStats.summary.discharged);
+    var dayCaseCount = totalCasesData[i]-totalCasesData[i-1];
+    dayCaseCount = dayCaseCount<0?0:dayCaseCount;
+    dailyCaseCountData.push(dayCaseCount);
+    i++;
+  }
+
+  totalCasesData.length = dateLable.length;
+
+  //By Siddharth, hackish for computing average of last 7 days
+  var countI = 0;
+  var sum = 0;
+  dailyCaseCountData.slice().reverse().forEach(function(x) {
+    if(countI < 7) {
+      sum += x;
+      countI++;
+    }
+  })
+  $('#cic').html(JSON.stringify(sum));
 }
 //having problem after data reload, this was proper way I Found on internet
 var resetCanvas = function(){
@@ -592,17 +627,19 @@ function getSumOfTheObjectKeys(localData){
   var keys = Object.keys(localData);
 
   var total = 0;
-  for(var i=0;i<keys.length;i++){
-    if(!isNaN(localData[keys[i]])){
-      total += localData[keys[i]];
-    }
-  }
+  // for(var i=0;i<keys.length;i++){
+  //   if(!isNaN(localData[keys[i]])){
+  //     total += localData[keys[i]];
+  //   }
+  // }
+  total = localData.confirmedCasesIndian + localData.confirmedCasesForeign;
   return total;
 }
 
 
 function drawChartStateWise( data){
   console.log("for am charts",data);
+  am4core.ready(function() {
   // Themes begin
     am4core.useTheme(am4themes_material);
   // Themes end
@@ -613,24 +650,6 @@ function drawChartStateWise( data){
 addTotalField(data.regional);
 data.regional = sortDataByTotalNo(data.regional);
 chart.data = data.regional;
-//  [{
-//   "State": "Madhya Pradesh ",
-//   "Active": 104,
-//   "Deaths": 0,
-//   "Cured": 6
-// },
-// {
-//   "State": "Delhi ",
-//  "Active": 444,
-//   "Deaths": 15,
-//   "Cured": 6
-// },
-// {
-//   "State": "Maharashtra ",
-//   "Active": 487,
-//   "Deaths": 42,
-//   "Cured": 24
-// }];
 
 chart.legend = new am4charts.Legend();
 chart.legend.position = "bottom";
@@ -669,10 +688,10 @@ function createSeries(field, name) {
   labelBullet.label.fill = am4core.color("#ffffff");
 }
 
-createSeries("confirmedCasesIndian","Active Cases");
-createSeries("deaths", "Deaths");
-createSeries("discharged", "Cured");
-
+createSeries("total","Total Cases");
+//createSeries("deaths", "Deaths");
+//createSeries("discharged", "Cured");
+  });
 }
 function sortDataByTotalNo(data){
 
@@ -680,12 +699,16 @@ function sortDataByTotalNo(data){
 
 }
 
+//utility function
 function addTotalField(data){
   for(var i=0;i<data.length;i++){
     data[i].total = getSumOfTheObjectKeys(data[i]);
   }
 }
-
+//deep copy
+function getCopyOfJSONObject(data){
+  return JSON.parse(JSON.stringify(data));
+}
 ////Object Keys local implementation, for low end browsers
 if (!Object.keys) {
   Object.keys = (function() {
