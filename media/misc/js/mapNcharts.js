@@ -669,7 +669,7 @@ valueAxis.renderer.ticks.template.stroke = am4core.color("#495C43");
 valueAxis.renderer.ticks.template.length = 10;
 valueAxis.renderer.line.strokeOpacity = 0.5;
 valueAxis.renderer.baseGrid.disabled = true;
-valueAxis.renderer.minGridDistance = 20;
+valueAxis.renderer.minGridDistance = 100;
 
 // Create series
 
