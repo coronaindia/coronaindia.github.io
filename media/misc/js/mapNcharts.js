@@ -825,7 +825,7 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   polygonTemplate.tooltipText = "{name}: {value}";
   polygonTemplate.nonScalingStroke = true;
   polygonTemplate.strokeWidth = 0.5;
-  polygonTemplate.fill = am4core.color("#673ab7");
+  polygonTemplate.fill = am4core.color("#00e676");
   //#74B266
 
   // Create hover state and set alternative fill color
