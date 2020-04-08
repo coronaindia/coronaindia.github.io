@@ -58,7 +58,6 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "serviceWorker": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -75,8 +74,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build",
-            "disableHostCheck": true
+            "browserTarget": "app:build"
           },
           "configurations": {
             "production": {
@@ -99,15 +97,8 @@
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              {
-                "input": "src/theme/variables.scss"
-              },
-              {
-                "input": "src/global.scss"
-              }
-            ],
+            "karmaConfig": "karma.conf.js",
+            "styles": [],
             "scripts": [],
             "assets": [
               {

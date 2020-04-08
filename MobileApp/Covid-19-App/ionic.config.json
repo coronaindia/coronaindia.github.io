@@ -1,7 +1,7 @@
 {
-  "name": "ionic-conference-app",
-  "type": "angular",
+  "name": "Covid-19-App",
   "integrations": {
-    "cordova": {}
-  }
+    "capacitor": {}
+  },
+  "type": "angular"
 }
