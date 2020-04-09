@@ -14,8 +14,3 @@
     For Android: Follow https://ionicframework.com/docs/developing/android	  
                                                                                          
     For iOS : Follow https://ionicframework.com/docs/developing/ios
-    
-**Screenshots**
-
-![Light](Screenshots/light.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Dark](Screenshots/dark.png)
-
