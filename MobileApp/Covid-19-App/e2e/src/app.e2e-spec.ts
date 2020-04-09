@@ -7,8 +7,18 @@ describe('new App', () => {
     page = new AppPage();
   });
 
-  it('should be blank', () => {
+  it('should display the menu', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toContain('Start with Ionic UI Components');
+    expect(page.getMenu()).toBeTruthy();
+  });
+
+  it('should get the slides text', () => {
+    page.navigateTo();
+    expect(page.getFirstSlide()).toBe('ion-slide');
+  });
+
+  it('should create a router outlet', () => {
+    page.navigateTo();
+    expect(page.getRouter()).toBeTruthy();
   });
 });
