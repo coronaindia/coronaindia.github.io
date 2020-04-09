@@ -1,0 +1,11 @@
+.teamImg{
+  width: 180px ;
+  height: 180px ;
+}
+
+.users-list-name {
+    overflow: visible;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-weight: bold;
+}

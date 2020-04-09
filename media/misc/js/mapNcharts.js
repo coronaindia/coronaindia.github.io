@@ -4,8 +4,6 @@ var apiPrashantCall = null;
 var mapFinalMarkerCoords = null;
 var infoWindowContent = null;
 var dailyStatsData = null;
-//check for night mode
-var isNightMode = document.getElementById("customSwitch1").checked;
 
 function initMap() {
   var indiaCenter = new google.maps.LatLng(20.5937, 78.9629);
@@ -180,7 +178,7 @@ ajaxDailyStats = $.ajax({
     //generate line graph for corona Cases daywise
     generateLineGraph(getCopyOfJSONObject(result.data));
     setLastSevenDayData(getCopyOfJSONObject(result.data));
-    
+
     $.when(ajaxLatestCases).then(function(){
         generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(result.data));
     });
@@ -645,8 +643,6 @@ function drawChartStateWise( data){
   // Themes end
   var chart = am4core.create("chartdiv", am4charts.XYChart);
 
-//deciding color
-var labelColor = isNightMode?am4core.color("#ffffff"):am4core.color("#000000");
 // Add data
 addTotalField(data.regional);
 data.regional = sortDataByTotalNo(data.regional);
@@ -654,14 +650,14 @@ chart.data = data.regional;
 
 chart.legend = new am4charts.Legend();
 chart.legend.position = "bottom";
-chart.legend.labels.template.fill = labelColor;
+chart.legend.labels.template.fill = graphsLabelsColor;
 
 chart.maskBullets = false;
 // Create axes
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "loc";
 categoryAxis.renderer.grid.template.opacity = 0;
-categoryAxis.renderer.labels.template.fill = labelColor;
+categoryAxis.renderer.labels.template.fill = graphsLabelsColor;
 
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "right";
@@ -677,7 +673,7 @@ valueAxis.renderer.ticks.template.length = 10;
 valueAxis.renderer.line.strokeOpacity = 0.5;
 valueAxis.renderer.baseGrid.disabled = true;
 valueAxis.renderer.minGridDistance = 100;
-valueAxis.renderer.labels.template.fill = labelColor;
+valueAxis.renderer.labels.template.fill = graphsLabelsColor;
 
 // Create series
 
@@ -692,8 +688,8 @@ function createSeries(field, name) {
   //labelBullet.locationX = -0.1;
   labelBullet.label.horizontalCenter = "left";
   labelBullet.label.dx = 10;
-  labelBullet.label.text = isNightMode?"{valueX}":"[bold]{valueX}[/]";
-  labelBullet.label.fill = labelColor;
+  labelBullet.label.text = themeTypeVal=="2"?"{valueX}":"[bold]{valueX}[/]";
+  labelBullet.label.fill = graphsLabelsColor;
   labelBullet.label.truncate = false;
   //valueLabel.label.hideOversized = false;
 }

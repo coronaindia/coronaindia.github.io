@@ -1,6 +1,6 @@
 
 
-		
+
 
 		#frame .content {
 			float: right;
@@ -8,7 +8,7 @@
 			overflow: hidden;
 			position: relative;
 			height: 685px;
-			
+
 		}
 
 		@media screen and (max-width: 735px) {
@@ -479,6 +479,11 @@
 			color: white;
 		}
 
+		.fa-github-square {
+			background: #007bb5;
+			color: white;
+		}
+
 
 		.fa-instagram {
 			background: #eb4924;
@@ -494,11 +499,11 @@
 		 padding-left: 0;
 
 	}
-	
+
 	.card-header{
 		background-color:#edf4fb;
-		
-	
+
+
 	}
 	.small-box{
 		border-radius:10px;
@@ -509,9 +514,9 @@
 	}
 	.navbar{
 		border-bottom: 1px solid black;
-		
+
 	}
-	
+
 	.control-sidebar{
 	width:400px !important;
 	overflow-y:auto !important;
