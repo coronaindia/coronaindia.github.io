@@ -17,5 +17,5 @@
     
 **Screenshots**
 
-![Light](Screenshots/light.png)&nbsp;&nbsp;&nbsp;&nbsp;![Dark](Screenshots/dark.png)
+![Light](Screenshots/light.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Dark](Screenshots/dark.png)
 
