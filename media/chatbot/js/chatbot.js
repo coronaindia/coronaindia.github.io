@@ -541,6 +541,12 @@ function convert_date(date){
 // object.onload = function(){newsfeed()};
 document.addEventListener("DOMContentLoaded", function() {
 	newsfeed();
+
+	$("#questionList li").on("click",function(){
+		var question = $(this).html();
+		$("#question").val(question);
+		searchAnswer();
+	})
 });
 var questionData = [];
 function searchAnswer() {
@@ -549,10 +555,14 @@ function searchAnswer() {
 	if($.trim(question.value) == ""){
 		alert("Please enter your question");
 		$(question).focus();
+		("#answerFeed").hide();
+		$("#aboutAnswerContent").show();
 		return;
 	}
 	console.log("question in ",question.value);
-	$("#answerFeed").html("");
+	$("#answerFeed").hide();
+	$("#aboutAnswerContent").hide();
+	$("#loading").show();
 	var myurl = 'https://www.menggabungkanpdf.id/faq1.php?query='+encodeURI(question.value);
 	console.log("url is",myurl);
 	
@@ -562,7 +572,8 @@ function searchAnswer() {
 		dataType: "json",
 		success: function(results) {
 			console.log("response", results);
-			questionData = results;
+			questionData = results.response;
+			results = results.response;
 			for (data in results) {
 				var abstractedText = getHighlightedText(results[data]);
 				var title = results[data].title;
@@ -571,12 +582,16 @@ function searchAnswer() {
 				console.log("title",title); 
 				//console.log(date);
 
-				$('#answerFeed').append("<div class='card' style='width: 80rem;'><h6 class='card-title'><br><b>"+title+"</b></h6><div class='card-body'><p class='text-justify'>"+abstractedText+"</p><button type='button' onclick=\"openAllDetails('"+data+"')\" class='btn btn-dark text-center' target='_blank'>Read More</button></div></div>&nbsp;");
+				$('#answerFeed').append("<div class='card mr-2 ml-2' style='width: 80rem;'><h6 class='card-title'><br><b>"+title+"</b></h6><div class='card-body'><p class='text-justify'>"+abstractedText+"</p><button type='button' onclick=\"openAllDetails('"+data+"')\" class='btn btn-dark text-center' target='_blank'>Read More</button></div></div>&nbsp;");
 			}
-			var questArray = tokenize(question);
+			$("#answerFeed").unhighlight();
+			var questArray = tokenize(question.value);
 			for(var i=0;i<questArray.length;i++){
 				$("#answerFeed").highlight(questArray[i]);
+				console.log("tokens are",questArray);
 			}
+			$("#loading").hide();
+			$("#answerFeed").show();
 		},
 		error: function(results) {
 			console.log("There is an error in newsapi. " + results.stringfy);
@@ -586,40 +601,94 @@ function searchAnswer() {
 	
 	}
 	function getHighlightedText(data){
-		
+		console.log("data",data);
 		var isHighlight = data['highlighted_abstract'];
-		var highlight = data["highlights"];
+		var highlightAbs = null; data["highlights"][0];
+		var highlightPara = null;
 		var abstractedText = "";
 
-		for(var i=0;i<highlight.length;i++){
-			var temphighlight = highlight[i];
-			if(isHighlight){
+		if(isHighlight){
+			highlightAbs = data["highlights"][0];
+			highlightPara = data["highlights"][1];
+		}
+		else{
+			highlightPara = data["highlights"][0];
+		}
+
+		if(isHighlight){
+			for(var i=0;i<highlightAbs.length;i++){
+				var temphighlight = highlightAbs[i];
+				console.log("highlights are",temphighlight);
+				
+				console.log("inside abs");
+				//console.log("complete text",data.abstract)
+				console.log("temphighlight[0]",temphighlight[0]);
+				console.log("temphighlight[0]",temphighlight[1]);
 				abstractedText += "..."+data.abstract.substring(temphighlight[0],temphighlight[1]);
 			}
-			else{
-				abstractedText += "..."+data.paragraphs[i].substring(temphighlight[0],temphighlight[1]);
-			}
-			return abstractedText;
-
 		}
-	}
+		
+		if(typeof highlightPara != 'undefined'){
+
+			for(var i=0;i<highlightPara.length;i++){
+				var temphighlight = highlightPara[i];
+				if(typeof data.paragraphs[i] !='undefined'){
+
+					console.log("highlights are",temphighlight);
+					console.log("complete text",data.paragraphs[i]);
+					//console.log("data should be",data.paragraphs[i].substring(temphighlight[0],temphighlight[1]));
+					abstractedText += "..."+data.paragraphs[i].substring(temphighlight[0],temphighlight[1]);
+				}
+				else{
+					abstractedText += "..."+data.paragraphs[i-1].substring(temphighlight[0],temphighlight[1]);
+				}
+				
+				
+			}
+		}
+
+			return abstractedText;
+		}
+	
 	function getHighlightedTextArray(data){
 		
+		console.log("data",data);
 		var isHighlight = data['highlighted_abstract'];
-		var highlight = data["highlights"];
+		var highlightAbs = null; data["highlights"][0];
+		var highlightPara = null;
 		var abstractedText = [];
-		
-		for(var i=0;i<highlight.length;i++){
-			var temphighlight = highlight[i];
-			if(isHighlight){
+
+		if(isHighlight){
+			highlightAbs = data["highlights"][0];
+			highlightPara = data["highlights"][1];
+		}
+		else{
+			highlightPara = data["highlights"][0];
+		}
+
+		if(isHighlight){
+			for(var i=0;i<highlightAbs.length;i++){
+				var temphighlight = highlightAbs[i];
 				abstractedText.push(data.abstract.substring(temphighlight[0],temphighlight[1]));
 			}
-			else{
-				abstractedText.push(data.paragraphs[i].substring(temphighlight[0],temphighlight[1]));
-			}
-			return abstractedText;
-
 		}
+		
+		if(typeof highlightPara != 'undefined'){
+
+			for(var i=0;i<highlightPara.length;i++){
+				var temphighlight = highlightPara[i];
+				if(typeof data.paragraphs[i] !='undefined'){
+					abstractedText.push(data.paragraphs[i].substring(temphighlight[0],temphighlight[1]));
+				}
+				else{
+					abstractedText.push(data.paragraphs[i-1].substring(temphighlight[0],temphighlight[1]));
+				}
+				
+				
+			}
+		}
+
+			return abstractedText;
 	}
 
 
@@ -650,11 +719,12 @@ function searchAnswer() {
 		$("#paragraphs").html(paragraphHtml);
 
 		for(var i=0;i<abstractedTextArr.length;i++){
-			//$("#questionModal").highlight(abstractedTextArr[i]);
+			$("#questionModal").highlight(abstractedTextArr[i]);
 
 		}
 		
 		var questArray = tokenize(question);
+		$("#questionModal").unhighlight();
 		for(var i=0;i<questArray.length;i++){
 			$("#questionModal").highlight(questArray[i]);
 		}

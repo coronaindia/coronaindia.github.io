@@ -331,7 +331,13 @@
 							</div>
 						</div>
 					</div>
-
+					<div class="row">
+						<div class="col-12">
+							<div class="alert alert-danger" style="border-width: 2px;border-style: dashed;border-color: red;">
+								We have added	<strong><a style="color:#721c24" href="#searchFnQ"> A.I. Based Answersing Tool </a></strong> For <strong>Covid-19</strong>
+							  </div>
+						</div>
+					</div>
 					<!-- Main row -->
 					<div class="row">
 						<!-- Left col -->
@@ -701,7 +707,7 @@
 								</div>
 							</div>
 						</section>
-						<!-- <section class="col-lg-12 connectedSortable">
+						 <section class="col-lg-12 connectedSortable">
 							<div class="card bg-gradient-white shadow" id="searchFnQ">
 								<div class="card-header border-0 mb-0">
 									<h3 class="card-title"><i class="fas fa-rss mr-1" style="color:red;"></i>Get Corona Related Answers : Powered By AI</h3>
@@ -721,17 +727,43 @@
 											<button type="button" class='btn btn-danger btn-lg' onclick="searchAnswer()">Search Answers</button>
 										  </div>
 										</div>
-										<div class="direct-chat-messages customScrollBar" id="answerScroll" style="min-height:500px;">
+										<div class="direct-chat-messages customScrollBar" id="answerScroll" >
 											<div class="container">
+												<div id="loading" style="display:none; text-align: center; position: absolute; right: 0; left: 0; top: 50%; ">
+													<img src="loading.gif"></img>
+												</div>
+												<br><br>
+													<div id="aboutAnswerContent" class="mr-2" style='text-align:left;font-weight: 600;'>
+													<p class="text-justify">
+														It uses state-of-the-art neural intelligence (AI) 
+														network models for answering questions using the COVID
+														Open Research Dataset (CORD-19) provided by the Allen 
+														Institute for AI (April 3, 2020 data release) ).
+														Currently containing more than 47,000 scholarly publications, 
+														including more than 36,000 full-text publications, 
+														on COVID-19 and coronavirus-related studies, from a variety of sources
+														 including PubMed, a curated list of papers from the WHO,
+														  as well as bioRxiv and medRxiv preprints.
+												 </p>
+												 Try some of the example questions below:
+												 <ol id="questionList">
+													<li>What is the incubation period of COVID-19?</li>
+													<li>What's the effectiveness of chloroquine for COVID-19?</li>
+													<li>Are there cases of asymptomatic transmission of COVID-19?</li>
+													<li>How do weather conditions affect the transmission of COVID-19?</li>
+													<li>Tell me about IgG and IgM tests for covid-19.</li>
+													<li>What is the prognostic value of IL-6 levels in covid-19?</li>
+												</ol>
+												</div>
 												<div class="row justify-content-center text-center" id="answerFeed">
-													<p class="text-justify">It uses state-of-the-art neural intelligence (AI) network models for answering questions using the COVID-19 Open Research Dataset (CORD-19) provided by the Allen Institute for AI (April 3, 2020 data release) ). </p>
+													
 												</div>
 											</div>
 										</div>
 
 								</div>
 							</div>
-						</section> -->
+						</section> 
 					</div>
 				</div>
 			</section>
@@ -877,6 +909,11 @@
 }
 .highlight {
     background-color: yellow;
+}
+#questionList li{
+	color:blue;
+	text-decoration: underline;
+	cursor: pointer;
 }
 </style>
 </html>
