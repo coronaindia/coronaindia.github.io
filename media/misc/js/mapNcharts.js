@@ -684,13 +684,20 @@ function createSeries(field, name) {
   series.stacked = true;
   series.name = name;
 
-  var labelBullet = series.bullets.push(new am4charts.LabelBullet());
-  //labelBullet.locationX = -0.1;
-  labelBullet.label.horizontalCenter = "left";
-  labelBullet.label.dx = 10;
-  labelBullet.label.text = themeTypeVal=="2"?"{valueX}":"[bold]{valueX}[/]";
-  labelBullet.label.fill = graphsLabelsColor;
-  labelBullet.label.truncate = false;
+  var valueLabel = series.columns.template.createChild(am4core.Label);
+  valueLabel.text = "{valueX}";
+  valueLabel.fontSize = 20;
+  valueLabel.valign = "middle";
+  valueLabel.dx = 10;
+  valueLabel.strokeWidth = 0;
+  valueLabel.paddingLeft = 20;
+  // var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+  // //labelBullet.locationX = -0.1;
+  // labelBullet.label.horizontalCenter = "left";
+  // labelBullet.label.dx = 10;
+  // labelBullet.label.text = themeTypeVal=="2"?"{valueX}":"[bold]{valueX}[/]";
+  // labelBullet.label.fill = graphsLabelsColor;
+  // labelBullet.label.truncate = false;
   //valueLabel.label.hideOversized = false;
 }
 
