@@ -118,10 +118,9 @@ function chk() {
 }
 
 function start() {
-	$('.messages ul .risk-analyzer-q').remove();
-	$('<li class="replies risk-analyzer-q"><p>' + "Your age?" + '</p></li>').appendTo($('.messages ul'));
-	$('<li class="risk-analyzer-q"><input class="form-control-sm bot-q-input" type="number" id="age" name="age" value="0" min="1" max="120" required placeholder="Age" style="background-color:#dae0e5 !important;color:darkblue;"></li>').appendTo($('.messages ul'));
-	$('<li class="sent risk-analyzer-q"><button type="button" class="btn btn-primary text-white"  onclick="update_age()">Done</button></li>').appendTo($('.messages ul'));
+	$('<li class="replies"><p>' + "Your age?" + '</p></li>').appendTo($('.messages ul'));
+	$('<li class=""><input class="form-control-sm" type="number" id="age" name="age" value="0" min="1" max="120" required placeholder="Age" style="background-color:#dae0e5 !important;color:darkblue;"></li>').appendTo($('.messages ul'));
+	$('<li class="sent"><button type="button" class="btn btn-primary" onclick="update_age()">Done</button></li>').appendTo($('.messages ul'));
 	$(".messages").animate({
 		scrollTop: $(document).height()
 	}, "fast");
