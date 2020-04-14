@@ -9,3 +9,16 @@
     white-space: normal;
     font-weight: bold;
 }
+
+
+.modal-backdrop {
+z-index: -1;
+}
+.highlight {
+  background-color: yellow;
+}
+#questionList li{
+color:blue;
+text-decoration: underline;
+cursor: pointer;
+}
