@@ -686,7 +686,7 @@ function createSeries(field, name) {
 
   var valueLabel = series.columns.template.createChild(am4core.Label);
   valueLabel.text = "{valueX}";
-  valueLabel.fontSize = 20;
+  valueLabel.fontSize = 15;
   valueLabel.valign = "middle";
   valueLabel.dx = 10;
   valueLabel.strokeWidth = 0;
