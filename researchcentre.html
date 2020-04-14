@@ -13,6 +13,7 @@
 <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
 <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <style>
 .highcharts-figure, .highcharts-data-table table {
@@ -63,114 +64,46 @@
 
 
 <script>
-Highcharts.chart('container', {
-
+function visitorData (actual_arr, predict_arr, date_arr) {
+   Highcharts.chart('container', {
     chart: {
-        scrollablePlotArea: {
-            minWidth: 700
-        }
+        type: 'line'
     },
-
-    data: {
-        csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
-        beforeParse: function (csv) {
-            return csv.replace(/\n\n/g, '\n');
-        }
-    },
-
     title: {
-        text: 'Daily sessions at www.highcharts.com'
+        text: 'Corona Cases Prediction'
     },
-
-    subtitle: {
-        text: 'Source: Google Analytics'
-    },
-
     xAxis: {
-        tickInterval: 7 * 24 * 3600 * 1000, // one week
-        tickWidth: 0,
-        gridLineWidth: 1,
-        labels: {
-            align: 'left',
-            x: 3,
-            y: -3
+    categories: date_arr
+	},
+    yAxis: {
+        title: {
+            text: 'Number of visitors'
         }
     },
-
-    yAxis: [{ // left y axis
-        title: {
-            text: null
-        },
-        labels: {
-            align: 'left',
-            x: 3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }, { // right y axis
-        linkedTo: 0,
-        gridLineWidth: 0,
-        opposite: true,
-        title: {
-            text: null
-        },
-        labels: {
-            align: 'right',
-            x: -3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }],
-
-    legend: {
-        align: 'left',
-        verticalAlign: 'top',
-        borderWidth: 0
-    },
-
-    tooltip: {
-        shared: true,
-        crosshairs: true
-    },
-
-    plotOptions: {
-        series: {
-            cursor: 'pointer',
-            point: {
-                events: {
-                    click: function (e) {
-                        hs.htmlExpand(null, {
-                            pageOrigin: {
-                                x: e.pageX || e.clientX,
-                                y: e.pageY || e.clientY
-                            },
-                            headingText: this.series.name,
-                            maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-                                this.y + ' sessions',
-                            width: 200
-                        });
-                    }
-                }
-            },
-            marker: {
-                lineWidth: 1
-            }
-        }
-    },
-
     series: [{
-        name: 'All sessions',
-        lineWidth: 4,
-        marker: {
-            radius: 4
-        }
+        name: 'Prediction',
+        data: predict_arr
     }, {
-        name: 'New users'
-    }]
-});
+        name: 'Actual',
+        data: actual_arr
+    }, ],
+  });
+}
 
+$(document).ready(function(){
+var myurl='https://elcomrades-corona-api.herokuapp.com/getdata?n=7&cap=30000&key=whyshoulditellyou';
+$.ajax({
+	type: "get",
+	url: myurl,
+	dataType: 'json',
+	success: function(results){
+		visitorData(results["actual"], results["predict"], results["date"]);
+	},
+	error: function(request, error) {
+		console.log("There is an error. "+error);
+	},
+});
+});
 </script>
 </body>
 
