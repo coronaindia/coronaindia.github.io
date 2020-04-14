@@ -61,10 +61,26 @@
         be clicked to display more information.
     </p>
 </figure>
+<br>
+<figure class="highcharts-figure">
+    <div id="container2"></div>
+    <p class="highcharts-description">
+        Chart showing data loaded dynamically. The individual data points can
+        be clicked to display more information.
+    </p>
+</figure>
+<br>
+<figure class="highcharts-figure">
+    <div id="container3"></div>
+    <p class="highcharts-description">
+        Chart showing data loaded dynamically. The individual data points can
+        be clicked to display more information.
+    </p>
+</figure>
 
 
 <script>
-function visitorData (actual_arr, predict_arr, date_arr) {
+function cases (actual_arr, predict_arr, date_arr) {
    Highcharts.chart('container', {
     chart: {
         type: 'line'
@@ -77,7 +93,59 @@ function visitorData (actual_arr, predict_arr, date_arr) {
 	},
     yAxis: {
         title: {
-            text: 'Number of visitors'
+            text: 'Number of Cases'
+        }
+    },
+    series: [{
+        name: 'Prediction',
+        data: predict_arr
+    }, {
+        name: 'Actual',
+        data: actual_arr
+    }, ],
+  });
+}
+
+function cured (actual_arr, predict_arr, date_arr) {
+   Highcharts.chart('container2', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Cured Patients Prediction'
+    },
+    xAxis: {
+    categories: date_arr
+	},
+    yAxis: {
+        title: {
+            text: 'Patients Cured'
+        }
+    },
+    series: [{
+        name: 'Prediction',
+        data: predict_arr
+    }, {
+        name: 'Actual',
+        data: actual_arr
+    }, ],
+  });
+}
+
+function deaths (actual_arr, predict_arr, date_arr) {
+   Highcharts.chart('container3', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Corona Deaths Prediction'
+    },
+    xAxis: {
+    categories: date_arr
+	},
+    yAxis: {
+        title: {
+            text: 'Number of Death'
         }
     },
     series: [{
@@ -97,7 +165,9 @@ $.ajax({
 	url: myurl,
 	dataType: 'json',
 	success: function(results){
-		visitorData(results["actual"], results["predict"], results["date"]);
+		cases(results["cases"]["actual"], results["cases"]["predict"], results["cases"]["date"]);
+		cured(results["cured"]["actual"], results["cured"]["predict"], results["cured"]["date"]);
+		deaths(results["deaths"]["actual"], results["deaths"]["predict"], results["deaths"]["date"]);
 	},
 	error: function(request, error) {
 		console.log("There is an error. "+error);
