@@ -53,6 +53,7 @@
 	<link rel="stylesheet" href="media/misc/css/indexNight.css" type="text/css" />
 	<link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
 	<!-- <link rel="stylesheet" href="media/misc/css/botFrame.css" type="text/css" /> -->
+	<link rel="manifest" href="media/pwa/manifest.json" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll">
@@ -101,7 +102,7 @@
 			<!-- Sidebar -->
 			<div class="sidebar">
 				<!-- Sidebar Menu -->
-				<nav class="mt-2 ">
+				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class
 				 with font-awesome or any other icon font library -->
@@ -244,7 +245,7 @@
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="nav-item mr-1">
-									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">
+									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/elcomrades">
 									</a>
 								</li>
 								<li class="nav-item mr-1">
@@ -255,7 +256,7 @@
 									<a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a>
 								</li>
 								<li class="nav-item mr-1">
-									<a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/sharer.php?u=https://coronaindia.github.io/"></a>
+									<a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/elcomrades"></a>
 								</li>
 								<li class="nav-item mr-1">
 									<a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a>
@@ -329,7 +330,13 @@
 							</div>
 						</div>
 					</div>
-
+					<div class="row">
+						<div class="col-12">
+							<div class="alert alert-danger" style="border-width: 2px;border-style: dashed;border-color: red;">
+								We have added	<strong><a style="color:#721c24" href="#searchFnQ"> A.I. Based Answersing Tool </a></strong> For <strong>Covid-19</strong>
+							  </div>
+						</div>
+					</div>
 					<!-- Main row -->
 					<div class="row">
 						<!-- Left col -->
@@ -446,7 +453,7 @@
 									<!-- <div id="googleMapNcovCas" class="coronaGoogleMaps" style="height: 550px; width: 100%; color:#323C48; background:#323C48;"></div> -->
 									<div id="amMapdiv" style="width: 100%; height: 400px; "></div>
 								</div>
-								<div class="card-footer bg-transparent">
+								<div class="card-footer bg-transparent  d-none">
 								</div>
 							</div>
 							<div class="card shadow" id="faqCard">
@@ -464,7 +471,7 @@
 											<div class="panel panel-default p-2">
 												<div class="panel-heading">
 													<h5 class="panel-title hover">
-														<a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is 2019 Novel Coronavirus ?</a>
+														<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is 2019 Novel Coronavirus ?</a>
 													</h5>
 												</div>
 												<div id="collapseOne" class="panel-collapse collapse in">
@@ -681,7 +688,7 @@
 						<section class="col-lg-12 connectedSortable">
 							<div class="card shadow" id="latestnewsCard">
 								<div class="card-header border-0 mb-0">
-									<h3 class="card-title"><i class="fas fa-rss mr-1" style="color:#20B4C4;"></i> Latest Feeds</h3>
+									<h3 class="card-title"><i class="fas fa-rss mr-1" style="color:#20B4C4;"></i> News Center</h3>
 									<div class="card-tools">
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
@@ -698,7 +705,64 @@
 								</div>
 							</div>
 						</section>
+						 <section class="col-lg-12 connectedSortable">
+							<div class="card shadow" id="searchFnQ">
+								<div class="card-header border-0 mb-0">
+									<h3 class="card-title"><i class="fas fa-rss mr-1" style="color:red;"></i>Get Corona Related Answers : Powered By AI</h3>
+									<div class="card-tools">
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
 					</div>
+				</div>
+								<div class="card-body mt-0 mb-0 mr-0 ml-0">
+
+									  <div class="row ml-2 mr-2">
+										  <div class=" col-12 col-md-9">
+											<input type="text" class="form-control input-lg" id="question" placeholder="Enter Question" name="question">
+										  </div>
+										  <div class="col-12 col-md-2">
+											<button type="button" class='btn btn-danger btn-lg' onclick="searchAnswer()">Search Answers</button>
+										  </div>
+										</div>
+										<div class="direct-chat-messages customScrollBar" id="answerScroll" >
+											<div class="container">
+												<div id="loading" style="display:none; text-align: center; position: absolute; right: 0; left: 0; top: 50%; ">
+													<img src="loading.gif"></img>
+												</div>
+												<br><br>
+													<div id="aboutAnswerContent" class="mr-2" style='text-align:left;font-weight: 600;'>
+													<p class="text-justify">
+														It uses state-of-the-art neural intelligence (AI)
+														network models for answering questions using the COVID
+														Open Research Dataset (CORD-19) provided by the Allen
+														Institute for AI (April 3, 2020 data release) ).
+														Currently containing more than 47,000 scholarly publications,
+														including more than 36,000 full-text publications,
+														on COVID-19 and coronavirus-related studies, from a variety of sources
+														 including PubMed, a curated list of papers from the WHO,
+														  as well as bioRxiv and medRxiv preprints.
+												 </p>
+												 Try some of the example questions below:
+												 <ol id="questionList">
+													<li>What is the incubation period of COVID-19?</li>
+													<li>What's the effectiveness of chloroquine for COVID-19?</li>
+													<li>Are there cases of asymptomatic transmission of COVID-19?</li>
+													<li>How do weather conditions affect the transmission of COVID-19?</li>
+													<li>Tell me about IgG and IgM tests for covid-19.</li>
+													<li>What is the prognostic value of IL-6 levels in covid-19?</li>
+												</ol>
+												</div>
+												<div class="row justify-content-center text-center" id="answerFeed">
+
+												</div>
+											</div>
+										</div>
+
+								</div>
+							</div>
+			</section>
+		</div>
 				</div>
 			</section>
 		</div>
@@ -734,6 +798,33 @@
 					</div>
 		</aside>
 	</div>
+
+	<div class="modal" id="questionModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="questionTitle">Modal title</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <h5>Authors</h5>
+			  <div id="authors"></div>
+			  <br/>
+			  <h5>Abstract</h5>
+			  <p class="text-justify" id="abstract"></p>
+			  <br/>
+			  <h5>Full-Text Excerpt</h5>
+			  <div class="text-justify" id="paragraphs"></div>
+
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 
 	<!--JQuery -->
 	<script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
