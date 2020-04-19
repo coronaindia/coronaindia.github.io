@@ -259,12 +259,13 @@
 
         $(document).ready(function () {
             console.log("now running");
-            var myurl = 'https://elcomrades-corona-api.herokuapp.com/getdata?n=7&cap=30000&key=whyshoulditellyou';
+            var myurl = 'https://www.menggabungkanpdf.id/get_prediction.php';
             $.ajax({
                 type: "get",
                 url: myurl,
                 dataType: 'json',
                 success: function (results) {
+                    results = JSON.parse(results.response);
                     console.log("results are", results);
                     $(".waiting").hide();
                     cases(results["cases"]["actual"], results["cases"]["predict"], results["cases"]["date"]);
