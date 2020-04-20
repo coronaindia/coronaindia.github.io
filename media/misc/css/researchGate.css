@@ -45,7 +45,13 @@
     }
 
   }
-
+  @media only screen and (min-width: 768px) {
+  .rightRotatingImgText {
+    position: absolute;
+    right: 51%;
+    top: 39%;
+}
+  }
 
 .rotateImg {
     -webkit-animation: rotation 2s infinite linear;
@@ -81,4 +87,7 @@
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+}
+.modal-backdrop {
+    z-index: -1;
 }
