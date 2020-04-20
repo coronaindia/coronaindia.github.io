@@ -88,3 +88,6 @@
     text-decoration: underline;
     cursor: pointer;
 }
+.modal-backdrop {
+    z-index: -1;
+}
