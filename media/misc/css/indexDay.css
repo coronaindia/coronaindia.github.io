@@ -532,3 +532,7 @@
   top: -3px!important;
   right: 2px!important;
 }
+.new-text{
+	border-radius: 18%;
+	font-size: 12px;
+}
