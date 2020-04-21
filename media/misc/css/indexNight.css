@@ -3367,7 +3367,7 @@ File: Menu
 .nav > li > a i {
   font-size: 20px;
 }
-
+/* 
 .nav > li > a .badge {
   position: absolute;
   right: 8px;
@@ -3377,7 +3377,7 @@ File: Menu
   width: 7px;
   padding: 0;
   min-width: 1px;
-}
+} */
 
 .profile {
   padding-top: 17px !important;
@@ -4431,4 +4431,9 @@ a.accordion-toggle {
 
 		#frame .content .message-input .wrap button:focus {
 			outline: none;
-		}
+    }
+    
+    .new-text{
+      border-radius: 18%;
+      font-size: 12px;
+    }
