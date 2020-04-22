@@ -376,6 +376,11 @@
       }
 
       $(document).ready(function() {
+
+        $.get("common-config.html", function(data){
+          ("#commonfile").html(data);
+        });
+
         console.log("now running");
         var myurl = 'https://www.menggabungkanpdf.id/get_prediction.php';
         $.ajax({
@@ -789,6 +794,7 @@
       ];
       /*automatic question ends here*/
     </script>
+    <div id="commonfile"></div>
 </body>
 
 </html>
