@@ -5,7 +5,7 @@ $(function() {
     $("body").overlayScrollbars({className : bodyCutomScrollThemeClass });
     //common file load
     $.get("common-config.html", function(data){
-        ("#commonfile").html(data);
+        $("#commonfile").html(data);
     });
 });
 //initialize plugin with custom options on all div elements and return all instances as array
