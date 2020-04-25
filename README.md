@@ -1,0 +1,1 @@
+<div><img src="public/images/coivid19.gif"></div>
