@@ -70,7 +70,7 @@
 				</li>
 				<li class="nav-item mt-2 ">
 					<a href="" style="color:black;" class="text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
-					<div class="form-group d-flex text-nowrap flex-nowrap">
+					<!-- <div class="form-group d-flex text-nowrap flex-nowrap">
 						Day Mode &nbsp;
 						<i class="fas fa-cloud-sun text-warning" style=""></i>
 						&nbsp;
@@ -80,7 +80,7 @@
 						</div>
 						<i class="fas fa-cloud-moon text-primary" style="">&nbsp;</i>
 						Night Mode
-					</div>
+					</div> -->
 				</li>
 			</ul>
 			<!-- Right navbar links -->
@@ -164,7 +164,7 @@
 								</p>
 							</a>
 						</li>
-						<li class="nav-item has-treeview">
+						<!-- <li class="nav-item has-treeview">
 							<a href="#" class="nav-link">
 								<i class="nav-icon far fa-chart-bar"></i>
 								<p>
@@ -204,15 +204,15 @@
 									</a>
 								</li>
 							</ul>
-						</li>
-						<li class="nav-item">
+						</li> -->
+						<!-- <li class="nav-item">
 							<a href="#latestnewsCard" class="nav-link">
 								<i class="fas fa-rss nav-icon"></i>
 								<p>
 									News Center
 								</p>
 							</a>
-						</li>
+						</li> -->
 						<li class="nav-item">
 							<a href="about.html" class="nav-link">
 								<i class="fa fa-info-circle nav-icon"></i>
@@ -254,6 +254,11 @@
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
+								<li>
+								<select id="stateList" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value, 1)">
+									<option>Select State</option>
+								</select>
+								</li>
 								<li class="nav-item mr-1">
 									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/elcomrades">
 									</a>
@@ -302,15 +307,6 @@
 							</div>
 						</div>
 						<div class="col-lg-2 col-sm-6 col-6">
-							<div class="small-box border border-success shadow-lg bg-gradient-success">
-								<div class="inner">
-									<h3 id="cic"></h3>
-									<img class="img float-right" src="media/images/india.svg" width="42px" height="42px">
-									<p>Last 7 days</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-2 col-sm-6 col-6">
 							<!-- small box -->
 							<div class="small-box border border-danger shadow-lg bg-gradient-danger">
 								<div class="inner">
@@ -325,7 +321,7 @@
 								<div class="inner">
 									<h3 id="cfc"></h3>
 									<img class="img float-right" src="media/images/globe.svg" width="42px" height="42px">
-									<p>Fatality Rate</p>
+									<p>Death Rate</p>
 								</div>
 							</div>
 						</div>
@@ -339,8 +335,17 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-lg-2 col-sm-6 col-6">
+							<div class="small-box border border-success shadow-lg bg-gradient-success">
+								<div class="inner">
+									<h3 id="cic"></h3>
+									<img class="img float-right" src="media/images/india.svg" width="42px" height="42px">
+									<p>Recovery Rate</p>
+								</div>
+							</div>
+						</div>
 					</div>
-					
+
 					<!-- Main row -->
 					<div class="row">
 						<!-- Left col -->
@@ -353,9 +358,9 @@
 										Trend of 2019-nCoV Cases
 									</h3>
 									<div class="card-tools">
-										<select id="stateList" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value)">
+										<!-- <select id="stateList" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value, 1)">
 											<option>Select State</option>
-										</select>
+										</select> -->
 										&nbsp;
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
@@ -366,6 +371,268 @@
 									<canvas id="lineChart"></canvas>
 								</div>
 							</div>
+							<div class="card bg-gradient-white shadow" style="color:black !important;" id="lineCard2">
+								<div class="card-header border-0">
+									<h3 class="card-title">
+										<i class="fas fa-chart-line mr-1" style="color:red;"></i>
+										How many cases are expected in India ? (<a href="researchcentre.html"> From our Research Centre</a>)
+									</h3>
+									<div class="card-tools">
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body">
+									<!-- <canvas id="lineChart3"></canvas> -->
+									<figure class="highcharts-figure">
+				            <div id="container" style="border-right: 1px  black;" class="chartContainer">
+				              <div id="loading1" class="waiting">
+				                <img src="loading.gif"></img>
+				              </div>
+				            </div>
+				          </figure>
+								</div>
+							</div>
+
+														<div class="card bg-gradient-white shadow" id="faqCard">
+															<div class="card-header">
+																<h3 class="card-title"> <img class="img mr-1" src="media/images/faq.png"> Frequently Asked Questions (FAQ's)</h3>
+																<div class="card-tools">
+																	<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
+																		<i class="fas fa-minus"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="card-body" style="font-size:15px !important;">
+																<div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:365px;">
+																	<div class="panel-group" id="accordion">
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title hover">
+																					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is 2019 Novel Coronavirus ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseOne" class="panel-collapse collapse in">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					2019 Novel Coronavirus, or 2019-nCoV, is a new virus first identified in Wuhan, Hubie Province, China. It is named novel as it has not been previously identified.
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is the source of 2019 Novel
+																						Coronavirus ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseTen" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					At present exact source of infection of 2019 novel Corona virus has not need identified. Coronaviruses are a large family of virus, some causing illness in people and others that circulate among animals. Initially, many of
+																					the patients in the outbreak in Wuhan, China reportedly had some link to large seafood and aimal market, suggesting the virus likely emerged from an animal source.
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What are the initial symptoms of
+																						Novel Coronavirus ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseEleven" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					Current symptoms reported for patients with 2019-nCoV include acute onset of fever, cough, and difficulty in breathing.
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> How does the virus spread ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseTwo" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					The specific modes of transmission of the virus is not clear yet since it is a novel virus. The virus probably orignally emerged from an animal source but now seems to be spreading from person-to-person. It's not clear yet
+																					how easily 2019-nCoV spreads from person-to-person. It is thought to have happened mainly when a infected person coughs or sneezes, similar to how influenza and other respiratory pathogens spread.
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is GoI doing about 2019-nCoV
+																						?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseThree" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					A 24*7 helpline has been setup by the GoI at NCDC, New Delhi to answer all queries regarding the diseases. The GoI is closely monitoring the situation and has ascertained the level of preparedness in every State of India.
+																					As this is an emerging, rapidly evolving the GoI will continue to provide updated information as it becomes available.
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> Is there a vaccine to get protection
+																						from 2019 novel Corona Virus ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseFive" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					Currently, there is no vaccine available to protect against 2019-novel Corona Virus.
+																					<br />
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> Is it safe to travel to Wuhan, China or
+																						other countries where 2019-nCoV 2019 cases have occured ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseSix" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					All nonessential travel to China is to be avoided. If the travel is unavoidable- At all times follow the simple public health measures:
+																					<ul>
+																						<li>Obeserve good personel hygiene.</li>
+																						<li>Monitor your health closely.</li>
+																						<li>Seek medical attention promptly if you feel sick.</li>
+																						<li>If you feel sick during travel, inform airline crew about your illness and seek mask from the airline crew</li>
+																						<li>For futher detials kindly check Travel advisory issued by MoHFW, GoI available on website (<a class="color-white" href="https://www.mohfw.gov.in">www.mohfw.gov.in</a>).</li>
+																					</ul>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What are the treatments ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseEight" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					There is no specific antiviral treatment available for 2019-novel Corona Virus infection. People infected with 2019-novel Corona Virus should receive supportive care to help relieve symptoms.
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> How can I help protect myself ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseNine" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					There is currently no vaccine to prevent 2019-nCoV infection. The best way to prevent infection is to avoid being exposed to this virus.
+																					<ul>
+																						<li>All non-essential travel to China or affected countaries* to be avoided.</li>
+																						<li>Observe good personal hygiene.</li>
+																						<li>Prectice frequent hand washing with soap.</li>
+																						<li>Cover your mouth when coughing and sneezing.</li>
+																						*The list of affected countries is available on WHO website (<a href="https://www.who.int" class="color-white">www.who.int</a>) and would be updated time to time.
+																					</ul>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What should I do if I had close contact
+																						with someone who is confirmed case of 2019-nCoV ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseFour" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					Self monitor your health starting from the day of last contact with such a case and continue for 28 days. Watch for the development of acute onset of signs and symptoms.
+																					<ul>
+																						<li>Fever</li>
+																						<li>Cough</li>
+																						<li>Shortness of breath or difficulty in breathing</li>
+																						If you observe any of the above symptoms visit the nearest health facility for further advice and treatment. Further you must furnish the details of exposure of such patient to your health care worker.
+																					</ul>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="panel panel-default p-2">
+																			<div class="panel-heading">
+																				<h5 class="panel-title">
+																					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> Should I be tested for 2019-novel
+																						Corona Virus ?</a>
+																				</h5>
+																			</div>
+																			<div id="collapseSeven" class="panel-collapse collapse">
+																				<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
+																					If you develop acute onset of fever and symptoms of respiratory illness, such as cough or shortness of breath, you should visit nearest health facility and the doctor's will decide if you need to tested for 2019-novel
+																					Corona Virus depending upon your history of travel to China/ affected countries or contact with any suspected/ lab confirmed case.
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="card bg-gradient-white shadow " id="newsCard">
+														  <div class="card-header">
+														    <h3 class="card-title"><i class="fas fa-rss-square mr-1" style="color:red;"></i> Guidelines</h3>
+														    <div class="card-tools">
+														      <button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
+														        <i class="fas fa-minus"></i>
+														      </button>
+														    </div>
+														  </div>
+														  <div class="card-body">
+														    <div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:330px;">
+														      <div class="list-group">
+														        <a href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf" class="list-group-item list-group-item-action" target="_blank">Advisory - Social Distancing</a>
+														        <a href="https://www.mohfw.gov.in/pdf/1584423700568_COVID19GuidelinesonDeadbodymanagement.pdf" class="list-group-item list-group-item-action" target="_blank">Guidelines on Dead Body Management</a>
+														        <a href="https://www.mohfw.gov.in/pdf/Guidelinesforhomequarantine.pdf" class="list-group-item list-group-item-action" target="_blank">Guidelines for home quarantine</a>
+														        <a href="https://www.mohfw.gov.in/pdf/Useofmaskbypublic.pdf" class="list-group-item list-group-item-action" target="_blank">Guidelines on use of masks by public</a>
+														        <a href="https://www.mohfw.gov.in/pdf/advisoryformassgathering.pdf" class="list-group-item list-group-item-action" target="_blank">Advisory - Mass Gatherings</a>
+														        <div class="list-group-item list-group-item-action ">
+														          <h5><span class="badge badge-success"><a href="https://covid.icmr.org.in/index.php/testing-facilities" target="_blank" style="color:white">ICMR COVID-19 Testing Laboratories</a></span></h5>
+														        </div>
+														      </div>
+														    </div>
+														  </div>
+														</div>
+														<div class="card bg-gradient-white shadow" id="helplineCard">
+														  <div class="card-header">
+														    <h3 class="card-title">
+														      <i class="fas fa-tty mr-1" style="color:red;"></i>
+														      Central Helpline Number: <b style="color:red;">1075 </b> / <b style="color:red;">+91-11-23978046</b>
+														    </h3>
+														    <h3 class="card-title">
+														      <i class="far fa-envelope mr-1" style="color:red;"></i>
+														      Helpline Email ID : <b style="color:blue;">ncov2019@gov.in</b> / <b style="color:blue;">ncov2019@gmail.com</b>
+														    </h3>
+														    <div class="card-tools">
+														      <button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
+														        <i class="fas fa-minus"></i>
+														      </button>
+														    </div>
+														  </div>
+														  <div class="card-body">
+														    <div class="panel-collapse collapse show" aria-expanded="true">
+														      <div id="hacker-list">
+														        <input class="form-control search " type="search" placeholder="Search by State" aria-label="Search">&nbsp;
+														        <div class="customScrollBar" style="max-height:420px;">
+														          <ul class="list" id="newsscroll" style="list-style-type:none;">
+														            <li data-id="1">
+														              <i class="nav-icon fas fa-tty mr-1" style="color:#007BB5; font-weight:bold;"></i><span href="#!" class="place" style="font-weight:bold; Color:black">Andhra Pradesh </span>
+														              <span class="phoneNo timestamp " data-timestamp="1234" style="color:royalblue;font-weight:bold;"> 0866-2410978</span>
+														            </li>
+														          </ul>
+														        </div>
+														      </div>
+														    </div>
+														  </div>						</div>
+						</section>
+						<section class="col-lg-6 connectedSortable">
+							<!-- Map card -->
 							<div class="card bg-gradient-white shadow" style="color:black !important;" id="lineCard2">
 								<div class="card-header border-0">
 									<h3 class="card-title">
@@ -382,297 +649,58 @@
 									<canvas id="lineChart2"></canvas>
 								</div>
 							</div>
-							<div class="card bg-gradient-white shadow " id="newsCard">
-								<div class="card-header">
-									<h3 class="card-title"><i class="fas fa-rss-square mr-1" style="color:red;"></i> Guidelines</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body">
-									<div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:330px;">
-										<div class="list-group">
-											<a href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf" class="list-group-item list-group-item-action" target="_blank">Advisory - Social Distancing</a>
-											<a href="https://www.mohfw.gov.in/pdf/1584423700568_COVID19GuidelinesonDeadbodymanagement.pdf" class="list-group-item list-group-item-action" target="_blank">Guidelines on Dead Body Management</a>
-											<a href="https://www.mohfw.gov.in/pdf/Guidelinesforhomequarantine.pdf" class="list-group-item list-group-item-action" target="_blank">Guidelines for home quarantine</a>
-											<a href="https://www.mohfw.gov.in/pdf/Useofmaskbypublic.pdf" class="list-group-item list-group-item-action" target="_blank">Guidelines on use of masks by public</a>
-											<a href="https://www.mohfw.gov.in/pdf/advisoryformassgathering.pdf" class="list-group-item list-group-item-action" target="_blank">Advisory - Mass Gatherings</a>
-											<div class="list-group-item list-group-item-action ">
-												<h5><span class="badge badge-success"><a href="https://covid.icmr.org.in/index.php/testing-facilities" target="_blank" style="color:white">ICMR COVID-19 Testing Laboratories</a></span></h5>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card bg-gradient-white shadow" id="helplineCard">
-								<div class="card-header">
+							<div class="card bg-gradient-white shadow" style="color:black !important;" id="lineCard">
+								<div class="card-header border-0">
 									<h3 class="card-title">
-										<i class="fas fa-tty mr-1" style="color:red;"></i>
-										Central Helpline Number: <b style="color:red;">1075 </b> / <b style="color:red;">+91-11-23978046</b>
-									</h3>
-									<h3 class="card-title">
-										<i class="far fa-envelope mr-1" style="color:red;"></i>
-										Helpline Email ID : <b style="color:blue;">ncov2019@gov.in</b> / <b style="color:blue;">ncov2019@gmail.com</b>
+										<i class="fas fa-chart-line mr-1" style="color:red;"></i>
+										Recovery and deaths of 2019-nCoV Cases
 									</h3>
 									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body">
-									<div class="panel-collapse collapse show" aria-expanded="true">
-										<div id="hacker-list">
-											<input class="form-control search " type="search" placeholder="Search by State" aria-label="Search">&nbsp;
-											<div class="customScrollBar" style="max-height:420px;">
-												<ul class="list" id="newsscroll" style="list-style-type:none;">
-													<li data-id="1">
-														<i class="nav-icon fas fa-tty mr-1" style="color:#007BB5; font-weight:bold;"></i><span href="#!" class="place" style="font-weight:bold; Color:black">Andhra Pradesh </span>
-														<span class="phoneNo timestamp " data-timestamp="1234" style="color:royalblue;font-weight:bold;"> 0866-2410978</span>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section class="col-lg-6 connectedSortable">
-							<!-- Map card -->
-							<div class="card bg-gradient-white shadow" id="mapCard">
-								<div class="card-header border-0 mb-0">
-									<h3 class="card-title">
-										<i class="fas fa-map-marker-alt mr-1" style="color:red;"></i>
-										State Wise Case Information
-									</h3>
-									<div class="card-tools">
+										<!-- <select id="stateList1" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value, 2)">
+											<option>Select State</option>
+										</select> -->
+										&nbsp;
 										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
 											<i class="fas fa-minus"></i>
 										</button>
 									</div>
 								</div>
-								<div class="card-body mt-0 mb-0">
-									<!-- <div id="googleMapNcovCas" style="height: 550px; width: 100%; display none;"></div> -->
-									<div id="amMapdiv" style="width: 100%; height: 400px; "></div>
-								</div>
-								<div class="card-footer bg-transparent d-none">
-
-								</div>
-							</div>
-							<div class="card bg-gradient-white shadow" id="faqCard">
-								<div class="card-header">
-									<h3 class="card-title"> <img class="img mr-1" src="media/images/faq.png"> Frequently Asked Questions (FAQ's)</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body" style="font-size:15px !important;">
-									<div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:365px;">
-										<div class="panel-group" id="accordion">
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title hover">
-														<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is 2019 Novel Coronavirus ?</a>
-													</h5>
-												</div>
-												<div id="collapseOne" class="panel-collapse collapse in">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														2019 Novel Coronavirus, or 2019-nCoV, is a new virus first identified in Wuhan, Hubie Province, China. It is named novel as it has not been previously identified.
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is the source of 2019 Novel
-															Coronavirus ?</a>
-													</h5>
-												</div>
-												<div id="collapseTen" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														At present exact source of infection of 2019 novel Corona virus has not need identified. Coronaviruses are a large family of virus, some causing illness in people and others that circulate among animals. Initially, many of
-														the patients in the outbreak in Wuhan, China reportedly had some link to large seafood and aimal market, suggesting the virus likely emerged from an animal source.
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What are the initial symptoms of
-															Novel Coronavirus ?</a>
-													</h5>
-												</div>
-												<div id="collapseEleven" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														Current symptoms reported for patients with 2019-nCoV include acute onset of fever, cough, and difficulty in breathing.
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> How does the virus spread ?</a>
-													</h5>
-												</div>
-												<div id="collapseTwo" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														The specific modes of transmission of the virus is not clear yet since it is a novel virus. The virus probably orignally emerged from an animal source but now seems to be spreading from person-to-person. It's not clear yet
-														how easily 2019-nCoV spreads from person-to-person. It is thought to have happened mainly when a infected person coughs or sneezes, similar to how influenza and other respiratory pathogens spread.
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What is GoI doing about 2019-nCoV
-															?</a>
-													</h5>
-												</div>
-												<div id="collapseThree" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														A 24*7 helpline has been setup by the GoI at NCDC, New Delhi to answer all queries regarding the diseases. The GoI is closely monitoring the situation and has ascertained the level of preparedness in every State of India.
-														As this is an emerging, rapidly evolving the GoI will continue to provide updated information as it becomes available.
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> Is there a vaccine to get protection
-															from 2019 novel Corona Virus ?</a>
-													</h5>
-												</div>
-												<div id="collapseFive" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														Currently, there is no vaccine available to protect against 2019-novel Corona Virus.
-														<br />
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> Is it safe to travel to Wuhan, China or
-															other countries where 2019-nCoV 2019 cases have occured ?</a>
-													</h5>
-												</div>
-												<div id="collapseSix" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														All nonessential travel to China is to be avoided. If the travel is unavoidable- At all times follow the simple public health measures:
-														<ul>
-															<li>Obeserve good personel hygiene.</li>
-															<li>Monitor your health closely.</li>
-															<li>Seek medical attention promptly if you feel sick.</li>
-															<li>If you feel sick during travel, inform airline crew about your illness and seek mask from the airline crew</li>
-															<li>For futher detials kindly check Travel advisory issued by MoHFW, GoI available on website (<a class="color-white" href="https://www.mohfw.gov.in">www.mohfw.gov.in</a>).</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What are the treatments ?</a>
-													</h5>
-												</div>
-												<div id="collapseEight" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														There is no specific antiviral treatment available for 2019-novel Corona Virus infection. People infected with 2019-novel Corona Virus should receive supportive care to help relieve symptoms.
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> How can I help protect myself ?</a>
-													</h5>
-												</div>
-												<div id="collapseNine" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														There is currently no vaccine to prevent 2019-nCoV infection. The best way to prevent infection is to avoid being exposed to this virus.
-														<ul>
-															<li>All non-essential travel to China or affected countaries* to be avoided.</li>
-															<li>Observe good personal hygiene.</li>
-															<li>Prectice frequent hand washing with soap.</li>
-															<li>Cover your mouth when coughing and sneezing.</li>
-															*The list of affected countries is available on WHO website (<a href="https://www.who.int" class="color-white">www.who.int</a>) and would be updated time to time.
-														</ul>
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> What should I do if I had close contact
-															with someone who is confirmed case of 2019-nCoV ?</a>
-													</h5>
-												</div>
-												<div id="collapseFour" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														Self monitor your health starting from the day of last contact with such a case and continue for 28 days. Watch for the development of acute onset of signs and symptoms.
-														<ul>
-															<li>Fever</li>
-															<li>Cough</li>
-															<li>Shortness of breath or difficulty in breathing</li>
-															If you observe any of the above symptoms visit the nearest health facility for further advice and treatment. Further you must furnish the details of exposure of such patient to your health care worker.
-														</ul>
-													</div>
-												</div>
-											</div>
-											<div class="panel panel-default p-2">
-												<div class="panel-heading">
-													<h5 class="panel-title">
-														<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" style="font-size:16px !important;"><i class="fas fa-angle-right left"></i> Should I be tested for 2019-novel
-															Corona Virus ?</a>
-													</h5>
-												</div>
-												<div id="collapseSeven" class="panel-collapse collapse">
-													<div class="panel-body bg-secondary color-white shadow ml-1 " style="border-radius:3px;">
-														If you develop acute onset of fever and symptoms of respiratory illness, such as cough or shortness of breath, you should visit nearest health facility and the doctor's will decide if you need to tested for 2019-novel
-														Corona Virus depending upon your history of travel to China/ affected countries or contact with any suspected/ lab confirmed case.
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+								<div class="card-body" id="DandRTrend" style="height: 300px">
+									<canvas id="lineChart1"></canvas>
 								</div>
 							</div>
 							<div class="card bg-gradient-white shadow" id="doughnutCard">
-								<div class="card-header">
-									<h3 class="card-title">
-										<i class="fas fa-chart-pie mr-1" style="color:red;"></i>
-										Cases 2019-nCoV
-									</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body">
-									<canvas id="myChart"></canvas>
-								</div>
+							  <div class="card-header">
+							    <h3 class="card-title">
+							      <i class="fas fa-chart-pie mr-1" style="color:red;"></i>
+							      Cases 2019-nCoV
+							    </h3>
+							    <div class="card-tools">
+							      <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+							        <i class="fas fa-minus"></i>
+							      </button>
+							    </div>
+							  </div>
+							  <div class="card-body">
+							    <canvas id="myChart"></canvas>
+							  </div>
 							</div>
 							<div class="card bg-gradient-white shadow" id="tweet">
-								<div class="card-header">
-									<h3 class="card-title"><i class="fab fa-twitter mr-1"></i>Tweets-MoHFW INDIA</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body">
-									<div class="panel-collapse collapse show p-0" aria-expanded="true">
-										<div class="direct-chat-messages  pr-3 m-0 customScrollBar" style="min-height:316px;">
-											<a class="twitter-timeline" href="https://twitter.com/MoHFW_INDIA?ref_src=twsrc%5Etfw&theme=light"></a>
-										</div>
-									</div>
-								</div>
+							  <div class="card-header">
+							    <h3 class="card-title"><i class="fab fa-twitter mr-1"></i>Tweets-MoHFW INDIA</h3>
+							    <div class="card-tools">
+							      <button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
+							        <i class="fas fa-minus"></i>
+							      </button>
+							    </div>
+							  </div>
+							  <div class="card-body">
+							    <div class="panel-collapse collapse show p-0" aria-expanded="true">
+							      <div class="direct-chat-messages  pr-3 m-0 customScrollBar" style="min-height:316px;">
+							        <a class="twitter-timeline" href="https://twitter.com/MoHFW_INDIA?ref_src=twsrc%5Etfw&theme=light"></a>
+							      </div>
+							    </div>
+							  </div>
 							</div>
 						</section>
 						<section class="col-lg-12 connectedSortable">
@@ -691,23 +719,25 @@
 							</div>
 						</section>
 						<section class="col-lg-12 connectedSortable">
-							<div class="card bg-gradient-white shadow" id="latestnewsCard">
-								<div class="card-header border-0 mb-0">
-									<h3 class="card-title"><i class="fas fa-rss mr-1" style="color:red;"></i>News Center</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body mt-0 mb-0 mr-0 ml-0">
-									<div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:500px;">
-										<div class="container">
-											<div class="row justify-content-center text-center" id="newsfeed">
-											</div>
-										</div>
-									</div>
-								</div>
+							<div class="card bg-gradient-white shadow" id="mapCard">
+							  <div class="card-header border-0 mb-0">
+							    <h3 class="card-title">
+							      <i class="fas fa-map-marker-alt mr-1" style="color:red;"></i>
+							      State Wise Case Information
+							    </h3>
+							    <div class="card-tools">
+							      <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+							        <i class="fas fa-minus"></i>
+							      </button>
+							    </div>
+							  </div>
+							  <div class="card-body mt-0 mb-0">
+							    <!-- <div id="googleMapNcovCas" style="height: 550px; width: 100%; display none;"></div> -->
+							    <div id="amMapdiv" style="width: 100%; height: 600px; "></div>
+							  </div>
+							  <div class="card-footer bg-transparent d-none">
+
+							  </div>
 							</div>
 						</section>
 					</div>
@@ -749,7 +779,7 @@
 		</aside>
 	</div>
 
-	
+
 
 	<!--JQuery -->
 	<script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
@@ -820,6 +850,8 @@
 	// }
 
 	</script>
+	<script src="media/misc/js/research.js"/>
+
 <div id="commonfile"></div>
 
 </body>
