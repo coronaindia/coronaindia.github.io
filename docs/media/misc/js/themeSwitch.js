@@ -26,7 +26,7 @@
 $(document).ready(function(){
   $('body').on('click','.themeSwitchChkBox', function(){
     if($(".themeSwitchChkBox:checked").length){
-      location.replace("https://coronaindia.github.io/indexNight.html")
+      location.replace("https://coronaindia.github.io/docs/indexNight.html")
     } else {
       location.replace("https://coronaindia.github.io/")
     }
