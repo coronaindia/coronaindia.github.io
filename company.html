@@ -293,15 +293,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-2 col-sm-6 col-6">
-							<div class="small-box border border-success shadow-lg bg-gradient-success">
-								<div class="inner">
-									<h3 id="cic"></h3>
-									<img class="img float-right" src="media/images/india.svg" width="42px" height="42px">
-									<p>Last 7 days</p>
-								</div>
-							</div>
-						</div>
+
 						<div class="col-lg-2 col-sm-6 col-6">
 							<!-- small box -->
 							<div class="small-box border border-danger shadow-lg bg-gradient-danger">
@@ -317,7 +309,7 @@
 								<div class="inner">
 									<h3 id="cfc"></h3>
 									<img class="img float-right" src="media/images/globe.svg" width="42px" height="42px">
-									<p>Fatality Rate</p>
+									<p>Death Rate</p>
 								</div>
 							</div>
 						</div>
@@ -328,6 +320,15 @@
 									<h3 id="discharged"></h3>
 									<img class="img float-right" src="media/images/cured.svg" width="42px" height="42px">
 									<p>Cured/Migrated</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-sm-6 col-6">
+							<div class="small-box border border-success shadow-lg bg-gradient-success">
+								<div class="inner">
+									<h3 id="cic"></h3>
+									<img class="img float-right" src="media/images/india.svg" width="42px" height="42px">
+									<p>Recovery Rate</p>
 								</div>
 							</div>
 						</div>
@@ -372,6 +373,26 @@
 								</div>
 								<div class="card-body">
 									<canvas id="lineChart2"></canvas>
+								</div>
+							</div>
+							<div class="card bg-gradient-white shadow" style="color:black !important;" id="lineCard">
+								<div class="card-header border-0">
+									<h3 class="card-title">
+										<i class="fas fa-chart-line mr-1" style="color:red;"></i>
+										Recovery and deaths of 2019-nCoV Cases
+									</h3>
+									<div class="card-tools">
+										<!-- <select id="stateList1" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value, 2)">
+											<option>Select State</option>
+										</select> -->
+										&nbsp;
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body" id="DandRTrend" style="height: 300px">
+									<canvas id="lineChart1"></canvas>
 								</div>
 							</div>
 								<div class="card bg-gradient-white shadow" id="doughnutCard">
@@ -556,7 +577,7 @@
 	<!-- list.min.js-->
 	<script src="media/list.js/1.5.0/dist/list.min.js"></script>
 	<!-- mapnChars js -->
-	<script src="media/misc/js/mapNcharts.js?v=1.1"></script>
+	<script src="media/misc/js/mapNcharts.js?v=1.2"></script>
 	<!-- AdminLTE App -->
 	<script src="dist/js/adminlte.js"></script>
 	<!--OverlayScrollbars Plugin JS -->
