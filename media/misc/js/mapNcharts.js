@@ -135,7 +135,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 var coronaCasesSummary=null;
-
+var coronaCasesAll = null;
 var apiUrlLatestCases = 'https://api.rootnet.in/covid19-in/stats/latest';
 var ajaxLatestCases = $.ajax({
   type: "GET",
@@ -143,7 +143,7 @@ var ajaxLatestCases = $.ajax({
   dataType: "json",
   success: function(result) {
     coronaCasesSummary=result.data.summary;
-
+    coronaCasesAll = result.data;
     //set values in dashboard tiles
       setDashboardStats(result.data.summary);
 
@@ -176,7 +176,7 @@ ajaxDailyStats = $.ajax({
 
     drawChartStateWise(getCopyOfJSONObject(result.data[result.data.length-1]));
     //generate line graph for corona Cases daywise
-    generateLineGraph(getCopyOfJSONObject(result.data));
+    generateLineGraph(getCopyOfJSONObject(result.data), 3);
     setLastSevenDayData(getCopyOfJSONObject(result.data));
 
     $.when(ajaxLatestCases).then(function(){
@@ -197,12 +197,15 @@ function setDashboardStats(statsSummary) {
   //$('#cic').html(JSON.stringify(statsSummary.confirmedCasesIndian));
   //$('#cfc').html(JSON.stringify(statsSummary.confirmedCasesForeign));
   var fatalityRate = (statsSummary.deaths/statsSummary.total)*100;
+  var recoveryRate = (statsSummary.discharged/statsSummary.total)*100;
   $('#cfc').html(fatalityRate.toFixed(2) + "%");
+  $('#cic').html(recoveryRate.toFixed(2) + "%");
   $('#discharged').html(JSON.stringify(statsSummary.discharged));
   $('#deaths').html(JSON.stringify(statsSummary.deaths));
   $('#clu').html(JSON.stringify(statsSummary.confirmedButLocationUnidentified));
 
 }
+
 
 //generate am chart series for covid19 satewise cases
 function generateAmChartCovCasSeries (regionalData) {
@@ -324,17 +327,21 @@ function generateDonutChart(statsSummary) {
 
 
 //generate line graph for corona Cases daywise
-function generateLineGraph(dailyStats) {
+function generateLineGraph(dailyStats, flag) {
   var dateLable = [];
   var totalCasesData = [];
   var totalActiveCasesData = [];
   var dailyCaseCountData = [];
+  var totalDeathData = [];
+  var totalRecoveryData = [];
 
 var i=0;
   for (dayIndex in dailyStats) {
     var dayStats = dailyStats[dayIndex];
     dateLable.push(dayStats.day);
     totalCasesData.push(dayStats.summary.total);
+    totalDeathData.push(dayStats.summary.deaths);
+    totalRecoveryData.push(dayStats.summary.discharged);
     totalActiveCasesData.push(dayStats.summary.total - dayStats.summary.deaths - dayStats.summary.discharged);
     var dayCaseCount = totalCasesData[i]-totalCasesData[i-1];
     dayCaseCount = dayCaseCount<0?0:dayCaseCount;
@@ -355,8 +362,10 @@ var i=0;
   //   }
   // })
   // $('#cic').html(JSON.stringify(sum));
-
   resetCanvas();
+  var ctx = null;
+
+
   var ctx = document.getElementById("lineChart").getContext("2d");
    var lineChart = new Chart(ctx, {
     type: 'line',
@@ -416,6 +425,57 @@ var i=0;
     }
   });
 
+  var ctx1 = document.getElementById("lineChart1").getContext("2d");
+   var lineChart = new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: dateLable,
+      datasets: [{
+        label: "Total Deaths ",
+        data: totalDeathData,
+        backgroundColor: ['rgba(0, 0, 0, 0.1)'],
+        borderColor: '#ff6361',
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: "Total Recovered ",
+        data: totalRecoveryData,
+        backgroundColor: ['rgba(0, 0, 0, 0.1)'],
+        borderColor: '#003f5c',
+        borderWidth: 2,
+        fill: false
+      }
+    ]
+    },
+    options: {
+      legend: {
+      position: 'top',
+      labels: {
+        fontColor: graphsLabelsColor
+      }
+    },
+
+      //cutoutPercentage: 40,
+      responsive: true,
+      xAxisID: "dd",
+    maintainAspectRatio: false
+    ,
+      scales: {
+      yAxes: [{
+        ticks: {
+          fontColor: graphsLabelsColor,
+    }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: graphsLabelsColor,
+        }
+      }]
+    }
+    }
+  });
+
 }
 function setLastSevenDayData(dailyStats){
   var i=0;
@@ -423,10 +483,15 @@ function setLastSevenDayData(dailyStats){
   var totalCasesData = [];
   var totalActiveCasesData = [];
   var dailyCaseCountData = [];
+  var totalDeathData = [];
+  var totalRecoveryData = [];
+
   for (dayIndex in dailyStats) {
     var dayStats = dailyStats[dayIndex];
     dateLable.push(dayStats.day);
     totalCasesData.push(dayStats.summary.total);
+    totalDeathData.push(dayStats.summary.deaths);
+    totalRecoveryData.push(dayStats.summary.discharged);
     totalActiveCasesData.push(dayStats.summary.total - dayStats.summary.deaths - dayStats.summary.discharged);
     var dayCaseCount = totalCasesData[i]-totalCasesData[i-1];
     dayCaseCount = dayCaseCount<0?0:dayCaseCount;
@@ -437,25 +502,30 @@ function setLastSevenDayData(dailyStats){
   totalCasesData.length = dateLable.length;
 
   //By Siddharth, hackish for computing average of last 7 days
-  var countI = 0;
-  var sum = 0;
-  dailyCaseCountData.slice().reverse().forEach(function(x) {
-    if(countI < 7) {
-      sum += x;
-      countI++;
-    }
-  })
-  $('#cic').html(JSON.stringify(sum));
+  // var countI = 0;
+  // var sum = 0;
+  // dailyCaseCountData.slice().reverse().forEach(function(x) {
+  //   if(countI < 7) {
+  //     sum += x;
+  //     countI++;
+  //   }
+  // })
+  // $('#cic').html(JSON.stringify(sum));
 }
 //having problem after data reload, this was proper way I Found on internet
 var resetCanvas = function(){
   $('#lineChart').remove(); // this is my <canvas> element
   $('#trendsOf2019').append('<canvas id="lineChart"><canvas>');
+
+  $('#lineChart1').remove(); // this is my <canvas> element
+  $('#DandRTrend').append('<canvas id="lineChart1"><canvas>');
 };
 
 //generate bar graph for doubling corona Cases daywise
 function generateLineDblGraph(statsSummary, dailyStats) {
 
+console.log(dailyStats);
+console.log(statsSummary);
 var dublingCasesDateArr =[];
 var dublingCasesDayCountArr =[];
 var dublingCasesValArr =[];
@@ -569,25 +639,71 @@ function generateStateList(data){
   $("#stateList").find('option').remove();
   $('<option/>', { value : "All States" }).text("All States").appendTo('#stateList');
 
+  // $("#stateList1").find('option').remove();
+  // $('<option/>', { value : "All States" }).text("All States").appendTo('#stateList1');
+
   for(var i=0;i<data.regional.length;i++){
     var state = data.regional[i].loc;
     stateList.push(state);
     $('<option/>', { value : state }).text(state).appendTo('#stateList');
+    // $('<option/>', { value : state }).text(state).appendTo('#stateList1');
   }
   //console.log("state list",stateList);
 
 }
-function filterDataStateWise(state){
+function filterDataStateWise(state, flag){
 
   if(state == "All States"){
-    generateLineGraph(dailyStatsData);
+      generateLineGraph(getCopyOfJSONObject(dailyStatsData), flag);
+      setDashboardStats(coronaCasesSummary);
+      generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(dailyStatsData));
+      generateDonutChart(coronaCasesSummary);
+
+
   }
   else{
     //deep copy
     var copiedObject = JSON.parse(JSON.stringify(dailyStatsData));
     var filteredData = extractDataForGivenState(copiedObject,state);
-    generateLineGraph(filteredData);
+    var filteredTotalData = extractDataForGivenStateTotal(coronaCasesAll,state);
+    generateLineGraph(filteredData, flag);
+    setDashboardStats(filteredTotalData);
+    generateLineDblGraph(filteredTotalData, getCopyOfJSONObject(filteredData));
+    generateDonutChart(filteredTotalData);
   }
+}
+
+function extractDataForGivenStateTotal(data,state){
+
+// console.log(data);
+  //to be used where data is not available for any state on a given day
+  var summaryObject = {
+    loc : state,
+    confirmedCasesIndian : 0,
+    discharged : 0,
+    deaths : 0,
+    confirmedCasesForeign : 0
+  };
+
+   for(var i=0;i<data.regional.length;i++){
+     var stateData = data.regional[i];
+     if(stateData != null && typeof stateData != "undefined"){
+         if(stateData.loc == state) {
+
+         if(stateData.length !=0){
+
+            summaryObject.total = stateData.totalConfirmed;
+            summaryObject.deaths =stateData.deaths;
+            summaryObject.discharged =stateData.discharged;
+          }
+          else{
+            summaryObject = blankSummaryObject;
+          }
+        }
+      }
+     }
+    // console.log(data.summary);
+    return summaryObject;
 }
 
 function extractDataForGivenState(data,state){
@@ -609,6 +725,9 @@ function extractDataForGivenState(data,state){
          if(stateData.length !=0){
             data[i].summary = stateData[0];
             data[i].summary.total = getSumOfTheObjectKeys(data[i].summary);
+            data[i].summary.deaths =getSumOfTheRequiredObjects(data[i].summary, 1);
+            data[i].summary.discharged =getSumOfTheRequiredObjects(data[i].summary, 2);
+            data[i].summary.active = data[i].summary.total - data[i].summary.deaths - data[i].summary.discharged;
           }
           else{
             data[i].summary = blankSummaryObject;
@@ -617,6 +736,27 @@ function extractDataForGivenState(data,state){
     }
 
     return data;
+}
+
+function getSumOfTheRequiredObjects(localData, flag){
+// hackish, iterating over keys may be better
+
+
+  var total = 0;
+  // for(var i=0;i<keys.length;i++){
+  //   if(!isNaN(localData[keys[i]])){
+  //     total += localData[keys[i]];
+  //   }
+  // }
+  if (flag == 1)
+  {
+    total = localData.deaths;
+  }
+  else if (flag == 2)
+  {
+    total = localData.discharged;
+  }
+  return total;
 }
 
 //expecting all the object keys , containing numeric data is no. of cases

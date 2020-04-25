@@ -7,6 +7,23 @@ $(function() {
     $.get("common-config.html", function(data){
         $("#commonfile").html(data);
     });
+
+    //visitor count
+    var myurl = 'https://www.menggabungkanpdf.id/fetch_count.php?key=mysecret';
+    $.ajax({
+      type: "get",
+      url: myurl,
+      dataType: 'json',
+      success: function(results) {
+        //results = JSON.parse(results.response);
+        $("#visitorCount").html(results.count);
+      },
+      error: function(request, error) {
+        console.log("There is an error. " + error);
+      },
+    });
+
+
 });
 //initialize plugin with custom options on all div elements and return all instances as array
 var instances = $('.customScrollBar').overlayScrollbars({className : cutomScrollThemeClassTyp1 }).overlayScrollbars();
