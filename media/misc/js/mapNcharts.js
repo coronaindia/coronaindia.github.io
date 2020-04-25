@@ -524,6 +524,8 @@ var resetCanvas = function(){
 //generate bar graph for doubling corona Cases daywise
 function generateLineDblGraph(statsSummary, dailyStats) {
 
+console.log(dailyStats);
+console.log(statsSummary);
 var dublingCasesDateArr =[];
 var dublingCasesDayCountArr =[];
 var dublingCasesValArr =[];
@@ -652,10 +654,10 @@ function generateStateList(data){
 function filterDataStateWise(state, flag){
 
   if(state == "All States"){
-      generateLineGraph(dailyStatsData, flag);
-      setDashboardStats(coronaCasesSummary.summary);
-      generateLineDblGraph(coronaCasesSummary.summary, dailyStatsData);
-      generateDonutChart(coronaCasesSummary.summary);
+      generateLineGraph(getCopyOfJSONObject(dailyStatsData), flag);
+      setDashboardStats(coronaCasesSummary);
+      generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(dailyStatsData));
+      generateDonutChart(coronaCasesSummary);
 
 
   }
@@ -666,7 +668,7 @@ function filterDataStateWise(state, flag){
     var filteredTotalData = extractDataForGivenStateTotal(coronaCasesAll,state);
     generateLineGraph(filteredData, flag);
     setDashboardStats(filteredTotalData);
-    generateLineDblGraph(filteredTotalData, filteredData);
+    generateLineDblGraph(filteredTotalData, getCopyOfJSONObject(filteredData));
     generateDonutChart(filteredTotalData);
   }
 }
@@ -685,7 +687,6 @@ function extractDataForGivenStateTotal(data,state){
 
    for(var i=0;i<data.regional.length;i++){
      var stateData = data.regional[i];
-     console.log(stateData);
      if(stateData != null && typeof stateData != "undefined"){
          if(stateData.loc == state) {
 
