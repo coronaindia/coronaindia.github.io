@@ -5,11 +5,13 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  //res.render('index', { title: 'Express' });
+  res.sendFile(path.join(__dirname+'index.html'));
 });
 
 router.get('/index', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  //res.render('index', { title: 'Express' });
+  res.sendFile(path.join(__dirname+'index.html'));
 });
 
 //var pt=path.join(__dirname, '../')+"views\\json"+"data.json";
