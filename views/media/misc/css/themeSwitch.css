@@ -19,6 +19,15 @@ body-light-theme {
   color: white !important;
 }
 
+.card-dark-theme.list-group-item:hover {
+  background: #3B4654 !important;
+  color: white !important;
+}
+
+.card-light-theme.list-group-item:hover  {
+  background: #F7F7F7 !important;
+  
+}
 
 
 .bg-dark-theme {
@@ -43,4 +52,21 @@ color:black;text-shadow: 0.5px 0.5px #FF0000;
 
 .brand-text-dark {
 color:white; text-shadow: 0.5px 0.5px #20EDE9;
+}
+
+
+.textRow-dark-theme a.accordion-toggle {
+    color: lightsteelblue !important;
+}
+
+.textRow-dark-theme a.accordion-toggle:hover {
+    background: #3B4654 !important;
+}
+
+.textRow-light-theme a.accordion-toggle {
+    color: #6C757D !important;
+}
+
+.textRow-light-theme a.accordion-toggle:hover {
+    background: #F4F4F4 !important;
 }

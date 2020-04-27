@@ -1,6 +1,7 @@
 
 var themeTypeVal= '1';
 graphsLabelsColor='#6C757D';
+amInnerColumnLabelsColor ='#000000';
 mapMarkerIcon=mapMarkerIconRed;
 googleMapStyles=googleMapStanderedStyles;
 bodyCutomScrollThemeClass="os-theme-dark";
@@ -12,6 +13,7 @@ function setDayTheme(){
   //$("#dayThemeCss").attr("disabled", "disabled");
 
   graphsLabelsColor='#6C757D';
+  amInnerColumnLabelsColor ='#000000';
   mapMarkerIcon=mapMarkerIconRed;
   googleMapStyles=googleMapStanderedStyles;
   bodyCutomScrollThemeClass="os-theme-dark"
@@ -46,7 +48,8 @@ function setDayTheme(){
   $(".bot-header-thsw").removeClass("bg-dark-theme");
   $(".bot-header-thsw").addClass("bg-white");
 
-
+  $(".faqDiv-thsw").removeClass("textRow-dark-theme");
+  $(".faqDiv-thsw").addClass("textRow-light-theme");
 
 }
 
@@ -57,6 +60,7 @@ function setNightTheme(){
   //$("#nightThemeCss").removeAttr("disabled");
 
   graphsLabelsColor='white';
+  amInnerColumnLabelsColor ='#fff';
   mapMarkerIcon=mapMarkerIconBlue;
   googleMapStyles=googleMapDarkStyles;
   bodyCutomScrollThemeClass="os-theme-light"
@@ -90,6 +94,9 @@ function setNightTheme(){
 
   $(".bot-header-thsw").addClass("bg-dark-theme");
   $(".bot-header-thsw").removeClass("bg-white");
+
+  $(".faqDiv-thsw").addClass("textRow-dark-theme");
+  $(".faqDiv-thsw").removeClass("textRow-light-theme");
 }
 
 function updateLineChartConfig() {
@@ -133,8 +140,8 @@ function updateLineChartConfig() {
   ncovDoughnut.update();
 
   nCoVSatesCasesAmChart.legend.labels.template.fill = am4core.color(graphsLabelsColor);;
-  nCoVSatesCasesAmChart.yAxes.values[0].renderer.labels.template.fill = am4core.color(graphsLabelsColor);
-  nCoVSatesCasesAmChart.xAxes.values[0].renderer.labels.template.fill = am4core.color(graphsLabelsColor);;
+  nCoVSatesCasesAmChart.yAxes.values[0].renderer.labels.template.fill = am4core.color(amInnerColumnLabelsColor);
+  nCoVSatesCasesAmChart.xAxes.values[0].renderer.labels.template.fill = am4core.color(graphsLabelsColor);
   //nCoVSatesCasesAmChart.series.values[0].columns.template.valueLabel.fill = am4core.color(graphsLabelsColor);
   nCoVSatesCasesAmChart.validateData();
 

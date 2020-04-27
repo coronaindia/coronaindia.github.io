@@ -796,7 +796,7 @@ chart.maskBullets = false;
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "amChartLabel";
 categoryAxis.renderer.grid.template.opacity = 0;
-categoryAxis.renderer.labels.template.fill = am4core.color(graphsLabelsColor);
+categoryAxis.renderer.labels.template.fill = am4core.color(amInnerColumnLabelsColor);
 categoryAxis.renderer.labels.template.fontSize = 15;
 //categoryAxis.renderer.labels.template.valign = "";
 categoryAxis.renderer.labels.template.align = "left";
@@ -872,7 +872,7 @@ function sortDataByTotalNo(data){
 function addTotalField(data){
   for(var i=0;i<data.length;i++){
     data[i].total = getSumOfTheObjectKeys(data[i]);
-     data[i].amChartLabel = data[i].loc+"  "+data[i].total;
+    data[i].amChartLabel = data[i].loc+' ('+data[i].total+')';
   }
 }
 //deep copy
