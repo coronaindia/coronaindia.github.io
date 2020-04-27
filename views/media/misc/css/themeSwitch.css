@@ -1,5 +1,5 @@
 body-dark-theme {
-  background: #2A323C !important;
+  background: #282C34 !important;
   color: #2A323C !important;
 }
 
@@ -9,15 +9,20 @@ body-light-theme {
   color: white !important;
 }
 
-.card-dark-theme {
+.card-header-dark-theme {
   background: #303A46 !important;
+  color: white !important;
+}
+
+.card-dark-theme {
+  background: #323C48 !important;
   color: white !important;
 }
 
 
 
 .bg-dark-theme {
-  background: #303A46 !important;
+  background: #282C34 !important;
   color: white;
 }
 

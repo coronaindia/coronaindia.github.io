@@ -22,11 +22,8 @@ function setDayTheme(){
 
   $(".menu-img-thsw").attr("src","views/media/images/open-menu.svg");
 
-  $(".main-header-thsw").removeClass("navbar-dark");
-  $(".main-header-thsw").addClass("navbar-light");
-
-  $(".main-Sidebar-thsw").removeClass("bg-dark-theme");
-  $(".main-Sidebar-thsw").addClass("bg-white");
+  $(".main-header-thsw, .main-Sidebar-thsw").removeClass("navbar-dark");
+  $(".main-header-thsw, .main-Sidebar-thsw").addClass("navbar-light");
 
   $(".brand-text-thsw").removeClass("brand-text-dark");
   $(".brand-text-thsw").addClass("brand-text-light");
@@ -37,11 +34,11 @@ function setDayTheme(){
   $(".content-wrapper").removeClass("bg-dark-theme");
   $(".content-wrapper").addClass("bg-white");
 
-  $(".card-body").removeClass("card-dark-theme");
-  $(".card-body").addClass("bg-white");
-
-  $(".card-header").removeClass("card-dark-theme");
+  $(".card-header").removeClass("card-header-dark-theme");
   $(".card-header").addClass("bg-white");
+
+  $(".card-body, .list-group-item-thsw").removeClass("card-dark-theme");
+  $(".card-body, .list-group-item-thsw").addClass("bg-white");
 
   $(".control-sidebar-thsw").removeClass("bg-dark-theme");
   $(".control-sidebar-thsw").addClass("bg-white");
@@ -68,28 +65,25 @@ function setNightTheme(){
   $("body").addClass("body-light-theme");
   $("body").removeClass("bg-white");
 
-  $(".menu-imgthsw").attr("src","media/images/menuWhite.svg");
+  $(".menu-img-thsw").attr("src","views/media/images/menuWhite.svg");
 
-  $(".main-header-thsw").addClass("navbar-dark");
-  $(".main-header-thsw").removeClass("navbar-light");
-
-  $(".main-Sidebar-thsw").addClass("bg-dark-theme");
-  $(".main-Sidebar-thsw").removeClass("bg-white");
+  $(".main-header-thsw, .main-Sidebar-thsw").addClass("navbar-dark");
+  $(".main-header-thsw, .main-Sidebar-thsw").removeClass("navbar-light");
 
   $(".brand-text-thsw").addClass("brand-text-dark");
   $(".brand-text-thsw").removeClass("brand-text-light");
 
-  $(".nav-link").addClass("text-secondary");
-  $(".nav-link").removeClass("text-light");
+  $(".nav-link").addClass("text-white");
+  $(".nav-link").removeClass("text-secondary");
 
   $(".content-wrapper").addClass("bg-dark-theme");
   $(".content-wrapper").removeClass("bg-white");
 
-  $(".card-body").addClass("card-dark-theme");
-  $(".card-body").removeClass("bg-white");
-
-  $(".card-header").addClass("card-dark-theme");
+  $(".card-header").addClass("card-header-dark-theme");
   $(".card-header").removeClass("bg-white");
+
+  $(".card-body, .list-group-item-thsw").addClass("card-dark-theme");
+  $(".card-body, .list-group-item-thsw").removeClass("bg-white");
 
   $(".control-sidebar-thsw").addClass("bg-dark-theme");
   $(".control-sidebar-thsw").removeClass("bg-white");
