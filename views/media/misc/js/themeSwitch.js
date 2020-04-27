@@ -22,8 +22,8 @@ function setDayTheme(){
 
   $(".menu-img-thsw").attr("src","views/media/images/open-menu.svg");
 
-  $(".main-header-thsw, .main-Sidebar-thsw").removeClass("navbar-dark");
-  $(".main-header-thsw, .main-Sidebar-thsw").addClass("navbar-light");
+  $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").removeClass("navbar-dark");
+  $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").addClass("navbar-light");
 
   $(".brand-text-thsw").removeClass("brand-text-dark");
   $(".brand-text-thsw").addClass("brand-text-light");
@@ -40,8 +40,8 @@ function setDayTheme(){
   $(".card-body, .list-group-item-thsw").removeClass("card-dark-theme");
   $(".card-body, .list-group-item-thsw").addClass("bg-white");
 
-  $(".control-sidebar-thsw").removeClass("bg-dark-theme");
-  $(".control-sidebar-thsw").addClass("bg-white");
+  $(".chatbot-frame-thsw").removeClass("bg-dark-theme");
+  $(".chatbot-frame-thsw").addClass("bg-white");
 
   $(".bot-header-thsw").removeClass("bg-dark-theme");
   $(".bot-header-thsw").addClass("bg-white");
@@ -67,8 +67,8 @@ function setNightTheme(){
 
   $(".menu-img-thsw").attr("src","views/media/images/menuWhite.svg");
 
-  $(".main-header-thsw, .main-Sidebar-thsw").addClass("navbar-dark");
-  $(".main-header-thsw, .main-Sidebar-thsw").removeClass("navbar-light");
+  $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").addClass("navbar-dark");
+  $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").removeClass("navbar-light");
 
   $(".brand-text-thsw").addClass("brand-text-dark");
   $(".brand-text-thsw").removeClass("brand-text-light");
@@ -85,8 +85,8 @@ function setNightTheme(){
   $(".card-body, .list-group-item-thsw").addClass("card-dark-theme");
   $(".card-body, .list-group-item-thsw").removeClass("bg-white");
 
-  $(".control-sidebar-thsw").addClass("bg-dark-theme");
-  $(".control-sidebar-thsw").removeClass("bg-white");
+  $(".chatbot-frame-thsw").addClass("bg-dark-theme");
+  $(".chatbot-frame-thsw").removeClass("bg-white");
 
   $(".bot-header-thsw").addClass("bg-dark-theme");
   $(".bot-header-thsw").removeClass("bg-white");
