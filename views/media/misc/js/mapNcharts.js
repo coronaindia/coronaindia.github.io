@@ -544,7 +544,7 @@ var expectedDublingArr=[totalCaseCount];
     //dublingCasesValArr.push(dailyStats[dailyStats.length-1].summary.total);
 
     var casValTemp = dailyStats[dailyStats.length-1].summary.total;
-    casValTemp+="("+dailyStats[dailyStats.length-1].day+")"
+    casValTemp+=" |"+moment(dailyStats[dailyStats.length-1].day).format('DD-MMM');
     dublingCasesValArr.push(casValTemp);
 
     var dayIndex = dailyStats.length-1;
@@ -559,7 +559,7 @@ var expectedDublingArr=[totalCaseCount];
           {
             tempDate=dayStats.day;
             tempVal=dayStats.summary.total;
-            tempVal+=" ("+tempDate+")";
+            tempVal+=" |"+moment(tempDate).format('DD-MMM');
 
             if(dayIndex==0)
             break;
