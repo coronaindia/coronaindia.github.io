@@ -880,3 +880,9 @@ var govContactJson=  [
 var bodyCutomScrollThemeClass=null;
 
 var cutomScrollThemeClassTyp1=null;
+
+var lineChart1=null;
+var lineChart2=null;
+var lineChart3=null;
+var ncovDoughnut=null;
+var nCoVSatesCasesAmChart =null;

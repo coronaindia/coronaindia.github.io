@@ -159,24 +159,24 @@ var getDashBoardData = function(){
       console.log("data after conversion",data);
       coronaCasesSummary=data;
 
-  
+
       //set values in dashboard tiles
         setDashboardStats(data);
-  
+
       //generate and set donut Chart for covi19 cases
-        
+
         generateDonutChart(data);
         dailyStatsData = getCopyOfJSONObject(result);
-   
 
-      
+
+
       //generate line graph for corona Cases daywise
       generateLineGraph(getCopyOfJSONObject(result));
       setLastSevenDayData(getCopyOfJSONObject(result));
-  
+
       //generate and set markers coordinate and marker html for map
         //generateMapMarkers(result.data.regional);
-  
+
       //generate am chart series for covid19 satewise cases
        // generateAmChartCovCasSeries(result.data.regional);
     },
@@ -232,7 +232,7 @@ ajaxDailyStats = $.ajax({
     //generate line graph for corona Cases daywise
     generateLineGraph(getCopyOfJSONObject(result.data));
     setLastSevenDayData(getCopyOfJSONObject(result.data));
-    
+
     $.when(ajaxLatestCases).then(function(){
         generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(result.data));
     });
@@ -787,7 +787,7 @@ function convertToOldJSONFormat(data){
 
         data[i]["total"] = data[i]["Confirmed"];
         data[i]["discharged"] = data[i]["Recovered"];
-        data[i]["deaths"] = data[i]["Deaths"]; 
+        data[i]["deaths"] = data[i]["Deaths"];
         data[i]["summary"] = {
           total : data[i]["total"],
           discharged : data[i]["discharged"],
@@ -877,7 +877,7 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   chart.titles.create().text = title;
 
   // Set map definition
-  chart.geodataSource.url = "media/amCharts/geodata/json/" + currentMap + ".json";
+  chart.geodataSource.url = "views/media/amCharts/geodata/json/" + currentMap + ".json";
   chart.geodataSource.events.on("parseended", function(ev) {
     /* for(var i = 0; i < ev.target.data.features.length; i++) { polygonSeries.data.push(); } */
     $.when( gentAmChartCovCasSeriesDiffObj ).then(function( status ) {

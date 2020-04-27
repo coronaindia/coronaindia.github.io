@@ -285,8 +285,8 @@ var randomColorGenerator = function () {
 function generateDonutChart(statsSummary) {
   var dognutChartValArry = [statsSummary.total, statsSummary.discharged, statsSummary.deaths];
 
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
+  var ctx = document.getElementById("ncovDoughnut");
+  ncovDoughnut = new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: ['Total Active Cases', 'Total Cured', 'Total Deaths'],
@@ -309,7 +309,7 @@ function generateDonutChart(statsSummary) {
           //'rgba(144,238,144, 5)',
           //'rgba(105,105,105, 5)'
          ],
-        borderWidth: 1
+        borderWidth: 0
       }]
     },
     options: {
@@ -324,7 +324,6 @@ function generateDonutChart(statsSummary) {
   }
   });
 }
-
 
 //generate line graph for corona Cases daywise
 function generateLineGraph(dailyStats, flag) {
@@ -366,8 +365,8 @@ var i=0;
   var ctx = null;
 
 
-  var ctx = document.getElementById("lineChart").getContext("2d");
-   var lineChart = new Chart(ctx, {
+  var ctx = document.getElementById("lineChart1").getContext("2d");
+   lineChart1 = new Chart(ctx, {
     type: 'line',
     data: {
       labels: dateLable,
@@ -425,8 +424,8 @@ var i=0;
     }
   });
 
-  var ctx1 = document.getElementById("lineChart1").getContext("2d");
-   var lineChart = new Chart(ctx1, {
+  var ctx1 = document.getElementById("lineChart2").getContext("2d");
+   lineChart2 = new Chart(ctx1, {
     type: 'line',
     data: {
       labels: dateLable,
@@ -434,7 +433,7 @@ var i=0;
         label: "Total Deaths ",
         data: totalDeathData,
         backgroundColor: ['rgba(0, 0, 0, 0.1)'],
-        borderColor: '#ff6361',
+        borderColor: '#FF0078',
         borderWidth: 2,
         fill: false
       },
@@ -442,7 +441,7 @@ var i=0;
         label: "Total Recovered ",
         data: totalRecoveryData,
         backgroundColor: ['rgba(0, 0, 0, 0.1)'],
-        borderColor: '#003f5c',
+        borderColor: '#00DF14',
         borderWidth: 2,
         fill: false
       }
@@ -514,11 +513,11 @@ function setLastSevenDayData(dailyStats){
 }
 //having problem after data reload, this was proper way I Found on internet
 var resetCanvas = function(){
-  $('#lineChart').remove(); // this is my <canvas> element
-  $('#trendsOf2019').append('<canvas id="lineChart"><canvas>');
-
   $('#lineChart1').remove(); // this is my <canvas> element
-  $('#DandRTrend').append('<canvas id="lineChart1"><canvas>');
+  $('#trendsOf2019').append('<canvas id="lineChart1"><canvas>');
+
+  $('#lineChart2').remove(); // this is my <canvas> element
+  $('#DandRTrend').append('<canvas id="lineChart2"><canvas>');
 };
 
 //generate bar graph for doubling corona Cases daywise
@@ -589,8 +588,8 @@ console.log(expectedDublingArr);
 console.log(dublingCasesValArr);
 console.log(dublingCasesDateArr);
 
-  var ctx = document.getElementById("lineChart2").getContext("2d");
-  var lineChart = new Chart(ctx, {
+  var ctx = document.getElementById("lineChart3").getContext("2d");
+  lineChart3 = new Chart(ctx, {
     type: 'line',
     data: {
       labels: dublingCasesValArr ,
@@ -781,7 +780,7 @@ function drawChartStateWise( data){
   // Themes begin
     am4core.useTheme(am4themes_material);
   // Themes end
-  var chart = am4core.create("chartdiv", am4charts.XYChart);
+  var chart = am4core.create("nCoVSatesCasesAmChart", am4charts.XYChart);
 
 // Add data
 addTotalField(data.regional);
@@ -795,9 +794,16 @@ chart.legend.labels.template.fill = graphsLabelsColor;
 chart.maskBullets = false;
 // Create axes
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "loc";
+categoryAxis.dataFields.category = "amChartLabel";
 categoryAxis.renderer.grid.template.opacity = 0;
-categoryAxis.renderer.labels.template.fill = graphsLabelsColor;
+categoryAxis.renderer.labels.template.fill = am4core.color(graphsLabelsColor);
+categoryAxis.renderer.labels.template.fontSize = 15;
+//categoryAxis.renderer.labels.template.valign = "";
+categoryAxis.renderer.labels.template.align = "left";
+categoryAxis.renderer.inside = true;
+categoryAxis.renderer.minGridDistance = 0;
+//categoryAxis.renderer.cellStartLocation = 0;
+categoryAxis.renderer.cellEndLocation = 0.8;
 
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "right";
@@ -813,24 +819,31 @@ valueAxis.renderer.ticks.template.length = 10;
 valueAxis.renderer.line.strokeOpacity = 0.5;
 valueAxis.renderer.baseGrid.disabled = true;
 valueAxis.renderer.minGridDistance = 100;
-valueAxis.renderer.labels.template.fill = graphsLabelsColor;
+valueAxis.renderer.labels.template.fill = am4core.color(graphsLabelsColor);
 
 // Create series
 
 function createSeries(field, name) {
   var series = chart.series.push(new am4charts.ColumnSeries());
   series.dataFields.valueX = field;
-  series.dataFields.categoryY = "loc";
+  series.dataFields.categoryY = "amChartLabel";
   series.stacked = true;
   series.name = name;
+  series.stroke = am4core.color("#f66");
+  series.fill = am4core.color("#f66");
+  //series.columns.template.width = am4core.percent(5);
+  series.columns.template.height = am4core.percent(100);
 
+  //commented as total cases value is commbined with sate name
   var valueLabel = series.columns.template.createChild(am4core.Label);
-  valueLabel.text = "{valueX}";
-  valueLabel.fontSize = 15;
+  //valueLabel.text = "{valueX}";
+  valueLabel.fontSize = 12;
   valueLabel.valign = "middle";
-  valueLabel.dx = 10;
+  valueLabel.align = "center";
   valueLabel.strokeWidth = 0;
-  valueLabel.paddingLeft = 20;
+  valueLabel.paddingLeft = 50;
+
+  //valueLabel.dx = 10;
   // var labelBullet = series.bullets.push(new am4charts.LabelBullet());
   // //labelBullet.locationX = -0.1;
   // labelBullet.label.horizontalCenter = "left";
@@ -844,7 +857,10 @@ function createSeries(field, name) {
 createSeries("total","Total Cases");
 //createSeries("deaths", "Deaths");
 //createSeries("discharged", "Cured");
+nCoVSatesCasesAmChart = chart;
+
   });
+
 }
 function sortDataByTotalNo(data){
 
@@ -856,6 +872,7 @@ function sortDataByTotalNo(data){
 function addTotalField(data){
   for(var i=0;i<data.length;i++){
     data[i].total = getSumOfTheObjectKeys(data[i]);
+     data[i].amChartLabel = data[i].loc+"  "+data[i].total;
   }
 }
 //deep copy

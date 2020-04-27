@@ -92,13 +92,63 @@ function setNightTheme(){
   $(".bot-header-thsw").removeClass("bg-white");
 }
 
+function updateLineChartConfig() {
+    newOptions={
+      legend: {
+        labels: {
+          fontColor: graphsLabelsColor
+        }
+      },
+      scales: {
+      yAxes: [{
+        ticks: {
+          fontColor: graphsLabelsColor,
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: graphsLabelsColor,
+        }
+      }]
+    }
+  };
+
+  lineChart1.options.legend.labels.fontColor = graphsLabelsColor;
+  lineChart1.options.scales.xAxes[0].ticks.fontColor = graphsLabelsColor;
+  lineChart1.options.scales.yAxes[0].ticks.fontColor = graphsLabelsColor;
+
+  lineChart2.options.legend.labels.fontColor = graphsLabelsColor;
+  lineChart2.options.scales.xAxes[0].ticks.fontColor = graphsLabelsColor;
+  lineChart2.options.scales.yAxes[0].ticks.fontColor = graphsLabelsColor;
+
+  lineChart3.options.legend.labels.fontColor = graphsLabelsColor;
+  lineChart3.options.scales.xAxes[0].ticks.fontColor = graphsLabelsColor;
+  lineChart3.options.scales.yAxes[0].ticks.fontColor = graphsLabelsColor;
+
+  ncovDoughnut.options.legend.labels.fontColor = graphsLabelsColor;
+
+  lineChart1.update();
+  lineChart2.update();
+  lineChart3.update();
+  ncovDoughnut.update();
+
+  nCoVSatesCasesAmChart.legend.labels.template.fill = am4core.color(graphsLabelsColor);;
+  nCoVSatesCasesAmChart.yAxes.values[0].renderer.labels.template.fill = am4core.color(graphsLabelsColor);
+  nCoVSatesCasesAmChart.xAxes.values[0].renderer.labels.template.fill = am4core.color(graphsLabelsColor);;
+  //nCoVSatesCasesAmChart.series.values[0].columns.template.valueLabel.fill = am4core.color(graphsLabelsColor);
+  nCoVSatesCasesAmChart.validateData();
+
+}
+
 $(document).ready(function(){
   $('body').on('click','.themeSwitchChkBox', function(){
     if($(".themeSwitchChkBox:checked").length){
     setNightTheme();
+    updateLineChartConfig();
     //  location.replace("https://coronaindia.github.io/docs/indexNight.html")
     } else {
     setDayTheme();
+   updateLineChartConfig();
       //location.replace("https://coronaindia.github.io/")
     }
 
