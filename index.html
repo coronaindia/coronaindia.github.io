@@ -352,9 +352,7 @@
 					</div>
 					<!-- Main row -->
 					<div class="row">
-						<!-- Left col -->
 						<section class="col-lg-6 connectedSortable">
-							<!-- Custom tabs (Charts with tabs)-->
 							<div class="card  shadow" style="" id="lineCard">
 								<div class="card-header border-0">
 									<h3 class="card-title">
@@ -375,6 +373,103 @@
 									<canvas id="lineChart1"></canvas>
 								</div>
 							</div>
+							<div class="card shadow" style="" id="lineCard2">
+								<div class="card-header border-0">
+									<h3 class="card-title">
+										<i class="fas fa-chart-line mr-1" style="color:#20B4C4;"></i>
+										Doubling rate 2019-nCoV Cases
+									</h3>
+									<div class="card-tools">
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body" style="height: 280px">
+									<canvas id="lineChart3"></canvas>
+								</div>
+							</div>
+						</section>
+
+						<section class="col-lg-6 connectedSortable">
+							<div class="card shadow" id="mapCard">
+								<div class="card-header border-0 mb-0">
+									<h3 class="card-title">
+										<i class="fas fa-map-marker-alt mr-1" style="color:#20B4C4;"></i>
+										State Wise Case Information
+									</h3>
+									<div class="card-tools">
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body mt-0 mb-0">
+									<!-- <div id="googleMapNcovCas" style="height: 550px; width: 100%; display none;"></div> -->
+									<div id="amMapdiv" style="width: 100%; height: 610px; "></div>
+								</div>
+								<div class="card-footer bg-transparent d-none">
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<div class="row  ">
+						<section class="col-lg-6 connectedSortable">
+							<div class="card shadow" id="bargraph">
+								<div class="card-header border-0 mb-0">
+									<h3 class="card-title"><i class="fas fa-chart-bar mr-1" style="color:#20B4C4;"></i>State & UTs</h3>
+									<div class="card-tools">
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body mt-0 mb-0 mr-0 ml-0">
+									<div id="nCoVSatesCasesAmChart" style="width: 100%; height:900px;"></div>
+								</div>
+							</div>
+						</section>
+
+						<section class="col-lg-6 connectedSortable">
+							<div class="card  shadow" style="" id="lineCard">
+								<div class="card-header border-0">
+									<h3 class="card-title">
+										<i class="fas fa-chart-line mr-1" style="color:#20B4C4;"></i>
+										Recovery and deaths of 2019-nCoV Cases
+									</h3>
+									<div class="card-tools">
+										<!-- <select id="stateList1" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value, 2)">
+											<option>Select State</option>
+										</select> -->
+										&nbsp;
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body" id="DandRTrend" style="height: 300px">
+									<canvas id="lineChart2"></canvas>
+								</div>
+							</div>
+
+							<div class="card shadow" id="doughnutCard">
+								<div class="card-header">
+									<h3 class="card-title">
+										<i class="fas fa-chart-pie mr-1" style="color:#20B4C4;"></i>
+										Cases 2019-nCoV
+									</h3>
+									<div class="card-tools">
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body">
+									<canvas id="ncovDoughnut"></canvas>
+								</div>
+							</div>
+
 							<!-- Jatin please look -- start -->
 							<!-- <div class="card  shadow" style="" id="lineCard2">
 								<div class="card-header border-0">
@@ -399,22 +494,46 @@
 								</div>
 							</div> -->
 							<!-- Jatin please look end -->
-							<div class="card shadow" id="doughnutCard">
+						</section>
+					</div>
+
+					<div class="row  ">
+						<section class="col-lg-6 connectedSortable">
+							<div class="card  shadow" id="helplineCard">
 								<div class="card-header">
 									<h3 class="card-title">
-										<i class="fas fa-chart-pie mr-1" style="color:#20B4C4;"></i>
-										Cases 2019-nCoV
+										<i class="fas fa-tty mr-1" style="color:#20B4C4;"></i>
+										Central Helpline Number: <b style="color:#20B4C4;">1075 </b> / <b style="color:#20B4C4;">+91-11-23978046</b>
+									</h3>
+									<h3 class="card-title">
+										<i class="far fa-envelope mr-1" style="color:#20B4C4;"></i>
+										Helpline Email ID : <b style="color:#20B4C4;">ncov2019@gov.in</b> / <b style="color:#20B4C4;">ncov2019@gmail.com</b>
 									</h3>
 									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
 											<i class="fas fa-minus"></i>
 										</button>
 									</div>
 								</div>
 								<div class="card-body">
-									<canvas id="ncovDoughnut"></canvas>
+									<div class="panel-collapse collapse show" aria-expanded="true">
+										<div id="hacker-list">
+											<input class="form-control search " type="search" placeholder="Search by State" aria-label="Search">&nbsp;
+											<div class="customScrollBar" style="height:250px;">
+												<ul class="list" id="newsscroll" style="list-style-type:none;">
+													<li data-id="1">
+														<i class="nav-icon fas fa-tty mr-1" style="color:#20B4C4;"></i><span href="#!" class="place" style="font-weight:bold; ">Andhra Pradesh </span>
+														<span class="phoneNo timestamp " data-timestamp="1234" style="color:royalblue;font-weight:bold;"> 0866-2410978</span>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
+						</section>
+
+						<section class="col-lg-6 connectedSortable">
 							<div class="card shadow " id="newsCard">
 								<div class="card-header">
 									<h3 class="card-title"><i class="fas fa-rss-square mr-1" style="color:#20B4C4;"></i> Guidelines</h3>
@@ -439,77 +558,11 @@
 									</div>
 								</div>
 							</div>
-							<div class="card  shadow" id="helplineCard">
-								<div class="card-header">
-									<h3 class="card-title">
-										<i class="fas fa-tty mr-1" style="color:#20B4C4;"></i>
-										Central Helpline Number: <b style="color:#20B4C4;">1075 </b> / <b style="color:#20B4C4;">+91-11-23978046</b>
-									</h3>
-									<h3 class="card-title">
-										<i class="far fa-envelope mr-1" style="color:#20B4C4;"></i>
-										Helpline Email ID : <b style="color:#20B4C4;">ncov2019@gov.in</b> / <b style="color:#20B4C4;">ncov2019@gmail.com</b>
-									</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body">
-									<div class="panel-collapse collapse show" aria-expanded="true">
-										<div id="hacker-list">
-											<input class="form-control search " type="search" placeholder="Search by State" aria-label="Search">&nbsp;
-											<div class="customScrollBar" style="max-height:420px;">
-												<ul class="list" id="newsscroll" style="list-style-type:none;">
-													<li data-id="1">
-														<i class="nav-icon fas fa-tty mr-1" style="color:#20B4C4;"></i><span href="#!" class="place" style="font-weight:bold; ">Andhra Pradesh </span>
-														<span class="phoneNo timestamp " data-timestamp="1234" style="color:royalblue;font-weight:bold;"> 0866-2410978</span>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</section>
+					</div>
+
+					<div class="row  ">
 						<section class="col-lg-6 connectedSortable">
-							<!-- Map card -->
-							<div class="card shadow" style="" id="lineCard2">
-								<div class="card-header border-0">
-									<h3 class="card-title">
-										<i class="fas fa-chart-line mr-1" style="color:#20B4C4;"></i>
-										Doubling rate 2019-nCoV Cases
-									</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body">
-									<canvas id="lineChart3"></canvas>
-								</div>
-							</div>
-							<div class="card  shadow" style="" id="lineCard">
-								<div class="card-header border-0">
-									<h3 class="card-title">
-										<i class="fas fa-chart-line mr-1" style="color:#20B4C4;"></i>
-										Recovery and deaths of 2019-nCoV Cases
-									</h3>
-									<div class="card-tools">
-										<!-- <select id="stateList1" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value, 2)">
-											<option>Select State</option>
-										</select> -->
-										&nbsp;
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body" id="DandRTrend" style="height: 300px">
-									<canvas id="lineChart2"></canvas>
-								</div>
-							</div>
 							<div class="card  shadow" id="faqCard">
 								<div class="card-header">
 									<h3 class="card-title"> <img class="img mr-1" src="views/media/images/faqAqua.svg" height="22" width="22"> Frequently Asked Questions (FAQ's)</h3>
@@ -520,7 +573,7 @@
 									</div>
 								</div>
 								<div class="card-body" style="font-size:15px !important;">
-									<div class="direct-chat-messages customScrollBar" id="newsscroll" style="min-height:365px;">
+									<div class="direct-chat-messages customScrollBar" id="newsscroll" style="height:300px;">
 										<div class="faqDiv-thsw panel-group fqqDiv" id="accordion">
 											<div class="panel panel-default p-2">
 												<div class="panel-heading">
@@ -690,6 +743,9 @@
 									</div>
 								</div>
 							</div>
+						</section>
+
+						<section class="col-lg-6 connectedSortable">
 							<div class="card  shadow" id="tweet">
 								<div class="card-header">
 									<h3 class="card-title"><i class="fab fa-twitter mr-1" style="color:#20B4C4;"></i>Tweets-MoHFW INDIA</h3>
@@ -701,50 +757,15 @@
 								</div>
 								<div class="card-body">
 									<div class="panel-collapse collapse show p-0" aria-expanded="true">
-										<div class="direct-chat-messages  pr-3 m-0 customScrollBar" style="min-height:316px;">
+										<div class="direct-chat-messages  pr-3 m-0 customScrollBar" style="height:290px;">
 											<a class="twitter-timeline" href="https://twitter.com/MoHFW_INDIA?ref_src=twsrc%5Etfw&theme=light"></a>
 										</div>
 									</div>
 								</div>
 							</div>
 						</section>
-						<section class="col-lg-12 connectedSortable">
-							<div class="card shadow" id="bargraph">
-								<div class="card-header border-0 mb-0">
-									<h3 class="card-title"><i class="fas fa-chart-bar mr-1" style="color:#20B4C4;"></i>State & UTs</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body mt-0 mb-0 mr-0 ml-0">
-									<div id="nCoVSatesCasesAmChart" style="width: 100%; height:900px;"></div>
-								</div>
-							</div>
-						</section>
-						<section class="col-lg-12 connectedSortable">
-							<div class="card shadow" id="mapCard">
-								<div class="card-header border-0 mb-0">
-									<h3 class="card-title">
-										<i class="fas fa-map-marker-alt mr-1" style="color:#20B4C4;"></i>
-										State Wise Case Information
-									</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body mt-0 mb-0">
-									<!-- <div id="googleMapNcovCas" style="height: 550px; width: 100%; display none;"></div> -->
-									<div id="amMapdiv" style="width: 100%; height: 600px; "></div>
-								</div>
-								<div class="card-footer bg-transparent d-none">
-								</div>
-							</div>
-						</section>
 					</div>
+
 				</div>
 			</section>
 		</div>
