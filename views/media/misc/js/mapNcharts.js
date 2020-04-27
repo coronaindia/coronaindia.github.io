@@ -596,16 +596,17 @@ console.log(dublingCasesDateArr);
       datasets: [{
         label: "No. of days to double the total count",
         data: dublingCasesDayCountArr,
-        backgroundColor: '#8bd1f7',
+        //backgroundColor: '#8bd1f7',
         borderColor: '#04A2B3',
         borderWidth: 2,
-        fill: true
+        fill: false
       }
     ]
     },
     options: {
       //cutoutPercentage: 40,
       responsive: true,
+      maintainAspectRatio: false,
       xAxisID: "dd",
       legend: {
       position: 'top',
@@ -617,6 +618,7 @@ console.log(dublingCasesDateArr);
       yAxes: [{
         ticks: {
           beginAtZero: true,
+          reverse: true,
           fontColor: graphsLabelsColor,
           callback: function(value) {if (value % 1 === 0) {return value;}}
         }
@@ -630,6 +632,7 @@ console.log(dublingCasesDateArr);
 
     }
   });
+  //ctx[0].height=400;
 }
 
 function generateStateList(data){
