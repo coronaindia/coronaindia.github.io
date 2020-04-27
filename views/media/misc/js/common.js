@@ -2,7 +2,7 @@
 
 $(function() {
 	//The passed argument has to be at least a empty object or a object with your desired options
-    $("body").overlayScrollbars({className : bodyCutomScrollThemeClass });
+  bodyOverlayScrollbarsInstances = $("body").overlayScrollbars({className : bodyCutomScrollThemeClass }).overlayScrollbars();;
     //common file load
     $.get("common-config.html", function(data){
         $("#commonfile").html(data);
@@ -26,7 +26,7 @@ $(function() {
 
 });
 //initialize plugin with custom options on all div elements and return all instances as array
-var instances = $('.customScrollBar').overlayScrollbars({className : cutomScrollThemeClassTyp1 }).overlayScrollbars();
+  divOverlayScrollbarsInstances = $('.customScrollBar').overlayScrollbars({className : cutomScrollThemeClassTyp1 }).overlayScrollbars();
 
 //get the instance information of all elements on your page and store it into a variable
 //the array can contain undefined entries
@@ -40,4 +40,3 @@ $.each(instances, function(index, instance) {
     }
 });
 */
-

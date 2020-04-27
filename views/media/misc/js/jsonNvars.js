@@ -886,3 +886,5 @@ var lineChart2=null;
 var lineChart3=null;
 var ncovDoughnut=null;
 var nCoVSatesCasesAmChart =null;
+var divOverlayScrollbarsInstances = null;
+var bodyOverlayScrollbarsInstances = null;

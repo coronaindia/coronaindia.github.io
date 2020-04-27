@@ -18,6 +18,12 @@ function setDayTheme(){
   googleMapStyles=googleMapStanderedStyles;
   bodyCutomScrollThemeClass="os-theme-dark"
   cutomScrollThemeClassTyp1="os-theme-round-dark"
+  if(bodyOverlayScrollbarsInstances!=null)
+  bodyOverlayScrollbarsInstances.options({ className : bodyCutomScrollThemeClass });
+  if(divOverlayScrollbarsInstances!=null && divOverlayScrollbarsInstances.length>0)
+  $.each(divOverlayScrollbarsInstances, function (index, instance){
+    instance.options({ className : cutomScrollThemeClassTyp1 });
+  })
 
   $("body").removeClass("body-light-theme");
   $("body").addClass("bg-white");
@@ -65,6 +71,13 @@ function setNightTheme(){
   googleMapStyles=googleMapDarkStyles;
   bodyCutomScrollThemeClass="os-theme-light"
   cutomScrollThemeClassTyp1="os-theme-round-light"
+  if(bodyOverlayScrollbarsInstances!=null)
+  bodyOverlayScrollbarsInstances.options({ className : bodyCutomScrollThemeClass });
+  if(divOverlayScrollbarsInstances!=null && divOverlayScrollbarsInstances.length>0)
+  $.each(divOverlayScrollbarsInstances, function (index, instance){
+    instance.options({ className : cutomScrollThemeClassTyp1 });
+  })
+
 
   $("body").addClass("body-light-theme");
   $("body").removeClass("bg-white");
