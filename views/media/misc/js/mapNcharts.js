@@ -942,7 +942,7 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   chart.titles.create().text = title;
 
   // Set map definition
-  chart.geodataSource.url = "media/amCharts/geodata/json/" + currentMap + ".json";
+  chart.geodataSource.url = "views/media/amCharts/geodata/json/" + currentMap + ".json";
   chart.geodataSource.events.on("parseended", function(ev) {
     /* for(var i = 0; i < ev.target.data.features.length; i++) { polygonSeries.data.push(); } */
     $.when( gentAmChartCovCasSeriesDiffObj ).then(function( status ) {
