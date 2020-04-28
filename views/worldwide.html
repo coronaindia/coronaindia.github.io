@@ -8,75 +8,68 @@
 <html>
 
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161859093-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161859093-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-161859093-2');
-</script>
-
-
-
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content=" Dashboard for COVID-19 virus outbreak in INDIA">
-	<meta property="og:url" content="https://coronaindia.github.io/" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="COVID-19 INDIA Dashboard"/>
-	<meta property="og:description" content="Dashboard for COVID-19 virus outbreak in INDIA">
-	<meta property="og:image" content="https://coronaindia.github.io//media/images/fsharevirus.png">
-
-
-	<title>COVID-19 INDIA Dashboard</title>
-	<!-- Tell the browser to be responsive to screen width -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" href="dist/css/dashboardTheme.css">
-	<!--JQueryUI -->
-	<link href="media/jquery-ui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-	<!--Bootstrap -->
-	<link href="media/bootstrap/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<!--Bootstrap Datables -->
-	<link href="media/dataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-	<!--Bootstrap Datables Responsive -->
-	<link href="media/dataTables/Responsive-2.2.2/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-	<!-- Datables select -->
-	<link rel="stylesheet" media="all" href="media/dataTables/DataTables-1.10.18/css/select.dataTables.min.css" />
-	<!--Fontawesome Icons---->
-	<link rel="stylesheet" href="media/fontawesome/5.10.1/css/all.css" />
-	<!-- OverlayScrollbars Plugin CSS -->
-	<link type="text/css" href="media/overlayScrollbars/css/OverlayScrollbars.css" rel="stylesheet" />
-	<!--customBootstrap----->
-	<link rel="stylesheet" href="media/prashantUIUX/customBootstrap/css/customBootstrap.css" type="text/css" />
-	<!--Fonts--------------->
-	<link rel="stylesheet" href="media/prashantUIUX/fonts/webfontkit-averta-family/stylesheet.css" type="text/css" />
-	<!--Custom -->
-	<link rel="stylesheet" href="media/misc/css/indexDay.css" type="text/css" />
-	<link rel="stylesheet" href="media/misc/css/common.css" type="text/css"> </link>
-	<link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
-
-
-
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-161859093-2');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content=" Dashboard for COVID-19 virus outbreak in INDIA">
+  <meta property="og:url" content="https://coronaindia.github.io/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="COVID-19 INDIA Dashboard" />
+  <meta property="og:description" content="Dashboard for COVID-19 virus outbreak in INDIA">
+  <meta property="og:image" content="https://coronaindia.github.io//media/images/fsharevirus.png">
+  <title>COVID-19 INDIA Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dist/css/dashboardTheme.css">
+  <!--JQueryUI -->
+  <link href="media/jquery-ui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+  <!--Bootstrap -->
+  <link href="media/bootstrap/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!--Bootstrap Datables -->
+  <link href="media/dataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+  <!--Bootstrap Datables Responsive -->
+  <link href="media/dataTables/Responsive-2.2.2/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+  <!-- Datables select -->
+  <link rel="stylesheet" href="media/dataTables/DataTables-1.10.18/css/select.dataTables.min.css" />
+  <!--Fontawesome Icons---->
+  <link rel="stylesheet" href="media/fontawesome/5.10.1/css/all.css" />
+  <!-- OverlayScrollbars Plugin CSS -->
+  <link type="text/css" href="media/overlayScrollbars/css/OverlayScrollbars.css" rel="stylesheet" />
+  <!--customBootstrap----->
+  <link rel="stylesheet" href="media/prashantUIUX/customBootstrap/css/customBootstrap.css" type="text/css" />
+  <!--Fonts--------------->
+  <link rel="stylesheet" href="media/prashantUIUX/fonts/webfontkit-averta-family/stylesheet.css" type="text/css" />
+  <!--Custom -->
+  <link rel="stylesheet" href="media/misc/css/indexDay.css" type="text/css" />
+  <link rel="stylesheet" href="media/misc/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="media/misc/css/themeSwitch.css" type="text/css" />
+  <link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
 </head>
 
-
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="" ng-cloak>
+  <input type="text" name="themeTypeElm" id="themeTypeElm" class="d-none themeTypeElm" value="1">
 	<div class="wrapper">
-
 		<!-- Navbar -->
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+		<nav class="main-header-thsw main-header navbar navbar-expand navbar-light" id="">
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" data-widget="pushmenu" href="#"><img class="img" src="media/images/open-menu.svg" width="20px" height="20px">
+					<a class="nav-link nav-link-menuBtn" data-widget="pushmenu" href="#"><img class="img menu-img-thsw" src="media/images/open-menu.svg" width="20px" height="20px">
 					</a>
 				</li>
 				<li class="nav-item mt-2 ">
-					<a href="" style="color:black;" class="text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
+					<a href="" class="text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
 					<div class="form-group d-flex text-nowrap flex-nowrap">
 						Day Mode &nbsp;
 						<i class="fas fa-cloud-sun text-warning" style=""></i>
@@ -102,11 +95,11 @@
 			</ul>
 		</nav>
 		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar bg-white elevation-4 shadow">
+		<aside class="main-Sidebar-thsw navbar-light main-sidebar elevation-4 shadow">
 			<!-- Brand Logo -->
 			<a href="" class="brand-link">
 				<img src="media/images/virus.svg" alt="CoronaIndia Logo" class="brand-image img-circle elevation-3">
-				<span class="brand-text font-weight-bold text-shadow " style="color:black;text-shadow: 0.5px 0.5px #FF0000;">COVID-19 INDIA</span>
+				<span class="brand-text-thsw brand-text font-weight-bold text-shadow brand-text-light" style="">COVID-19 INDIA</span>
 			</a>
 			<!-- Sidebar -->
 			<div class="sidebar">
@@ -116,7 +109,7 @@
 						<!-- Add icons to the links using the .nav-icon class
 				 with font-awesome or any other icon font library -->
 						<li class="nav-item">
-							<a href="https://coronaindia.github.io/" class="nav-link">
+							<a href="" class="nav-link">
 								<i class="nav-icon fas fa-home"></i>
 								<p>
 									Home
@@ -140,7 +133,15 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="https://coronaindia.github.io/" class="nav-link">
+							<a href="researchcentre.html" class="nav-link">
+								<i class="nav-icon fas fa-flask"></i>
+								<p>
+									Research Centre &nbsp; <span class="badge badge-danger new-text">New</span>
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#newsCard" class="nav-link">
 								<i class="nav-icon fas fa-rss-square"></i>
 								<p>
 									Guidelines
@@ -148,7 +149,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="https://coronaindia.github.io/" class="nav-link">
+							<a href="#faqCard" class="nav-link">
 								<i class="nav-icon far fa-question-circle"></i>
 								<p>
 									FAQs
@@ -156,14 +157,14 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="https://coronaindia.github.io/" class="nav-link">
+							<a href="#helplineCard" class="nav-link">
 								<i class="nav-icon fas fa-tty"></i>
 								<p>
 									Helpline
 								</p>
 							</a>
 						</li>
-						<li class="nav-item has-treeview">
+						<!-- <li class="nav-item has-treeview">
 							<a href="#" class="nav-link">
 								<i class="nav-icon far fa-chart-bar"></i>
 								<p>
@@ -173,45 +174,45 @@
 							</a>
 							<ul class="nav nav-treeview">
 								<li class="nav-item">
-									<a href="https://coronaindia.github.io/" class="nav-link">
+									<a href="#mapCard" class="nav-link">
 										<i class="fas fa-map-marker-alt nav-icon"></i>
 										<p>State Wise Cases Map</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="https://coronaindia.github.io/" class="nav-link">
+									<a href="#doughnutCard" class="nav-link">
 										<i class="fas fa-chart-pie nav-icon"></i>
 										<p>Cases 2019-nCoV</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="https://coronaindia.github.io/" class="nav-link">
+									<a href="#lineCard" class="nav-link">
 										<i class="fas fa-chart-line nav-icon"></i>
 										<p>Trend of 2019-nCoV</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="https://coronaindia.github.io/" class="nav-link">
+									<a href="#lineCard2" class="nav-link">
 										<i class="fas fa-chart-line nav-icon"></i>
 										<p>Doubling rate 2019-nCoV</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="https://coronaindia.github.io/" class="nav-link">
+									<a href="#bargraph" class="nav-link">
 										<i class="fas fa-chart-bar nav-icon"></i>
 										<p>State & UTs</p>
 									</a>
 								</li>
 							</ul>
-						</li>
-						<li class="nav-item">
-							<a href="https://coronaindia.github.io/" class="nav-link">
+						</li> -->
+						<!-- <li class="nav-item">
+							<a href="#latestnewsCard" class="nav-link">
 								<i class="fas fa-rss nav-icon"></i>
 								<p>
 									News Center
 								</p>
 							</a>
-						</li>
+						</li> -->
 						<li class="nav-item">
 							<a href="about.html" class="nav-link">
 								<i class="fa fa-info-circle nav-icon"></i>
@@ -237,26 +238,27 @@
 						<!-- <li class="nav-item ml-3 mt-1"> -->
 						<!-- <a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a> -->
 						<!-- </li> -->
+					</ul>
 				</nav>
 			</div>
 		</aside>
 		<!--Common navbar ends here-->
 		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper bg-gradient-white">
+		<div class="content-wrapper bg-white">
 			<!-- Content Header (Page header) -->
 			<div class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-sm-6">
-							<h1 class="m-0 text-dark">Dashboard</h1>
-
-						</div><!-- /.col -->
-						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
+						<div class="col-5 col-md-5">
+							<h1 class="">Dashboard </h1>
+						</div>
+						<div class="col-7 col-md-3">
+						</div>
+						<div class="col-12 col-md-4">
+							<ol class="breadcrumb d-flex flex-row-reverse pt-3 pt-md-0">
 								<li class="nav-item mr-1">
-									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">
+									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/elcomrades">
 									</a>
-									<!-- <a target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw">#indiafightscorona</a> -->
 								</li>
 								<li class="nav-item mr-1">
 									<a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank"
@@ -266,107 +268,92 @@
 									<a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a>
 								</li>
 								<li class="nav-item mr-1">
-									<a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/sharer.php?u=https://coronaindia.github.io/"></a>
+									<a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/elcomrades"></a>
 								</li>
 								<li class="nav-item mr-1">
 									<a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a>
 								</li>
 							</ol>
-						</div><!-- /.col -->
-					</div><!-- /.row -->
-				</div><!-- /.container-fluid -->
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- /.content-header -->
-
-			<!-- Main content -->
-			<section class="content" id="dashboardSection">
-				<div class="container-fluid">
-
-					<!-- Main row -->
-					<div class="row">
-						<!-- Left col -->
-						<section class="col-lg-12 connectedSortable">
-
-
-
-
-					<div class="card bg-gradient-white shadow" id="mapCard">
-								<div class="card-header border-0 mb-0">
-									<h3 class="card-title">
-										<i class="fas fa-globe mr-1" style="color:red;"></i>
-										Worldwide Cases Information
-									</h3>
-
-									<!-- card tools -->
-									<div class="card-tools">
-
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-									<!-- /.card-tools -->
-								</div>
-								<div class="card-body mt-0 mb-0">
-									<div class="flexbox">
-      <div id="chartdiv"></div>
-      <div id="list">
-        <table id="areas" class="compact hover order-column row-border">
-          <thead>
-            <tr>
-              <th>Country/State</th>
-              <th>Confirmed</th>
-              <th>Deaths</th>
-              <th>Recovered</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
+      <!-- Main content -->
+      <section class="content" id="dashboardSection">
+        <div class="container-fluid">
+          <!-- Main row -->
+          <div class="row">
+            <section class="col-lg-12 connectedSortable">
+              <div class="card shadow" id="mapCard">
+                <div class="card-header border-0 mb-0">
+                  <h3 class="card-title">
+                    <i class="fas fa-globe mr-1" style="color:#20B4C4;"></i>
+                    Worldwide Cases Information
+                  </h3>
+                  <!-- card tools -->
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                  <!-- /.card-tools -->
+                </div>
+                <div class="card-body mt-0 mb-0" >
+                  <div class="flexbox" >
+                    <div id="chartdiv"></div>
+                    <div id="list">
+                      <table id="areas" class="compact hover order-column row-border" >
+                        <thead>
+                          <tr>
+                            <th>Country/State</th>
+                            <th>Confirmed</th>
+                            <th>Deaths</th>
+                            <th>Recovered</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body-->
+              </div>
+              <div align="right">
+                Source: <a href="https://github.com/CSSEGISandData/COVID-19">John Hopkins University</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
     </div>
-								</div>
-								<!-- /.card-body-->
-								<div class="card-footer bg-transparent">
-
-									<!-- /.row -->
-								</div>
-							</div>
-
-
-<div align="right">
-Source: <a href="https://github.com/CSSEGISandData/COVID-19">John Hopkins University</a>
-  </div>
-						</section>
-
+    <footer class="main-footer ">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-6 col-md-4">
+						<span class="flex-nowrap "><i class="far fa-envelope text-danger"></i><span style="color:#20B4C4;"> elcomrades19@gmail.com</span></span>
+					</div>
+					<div class="col-6 col-md-2">
+						<span class="flex-nowrap ">Visitor Count : <span class="badge badge-danger" id="visitorCount"><i class='fa fa-spinner fa-spin'></i></span></span>
+					</div>
+					<div class="col-8 col-md-4 pt-md-0 pt-2">
+						<span class="flex-nowrap">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></span>
+					</div>
+					<div class="col-4 col-md-2">
+						<span class="flex-nowrap"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;"></i> Authors</a></span>
+					</div>
+				</div>
 			</div>
-		</div>
-		</section>
-		</div>
-		<!-- /.content-wrapper -->
-		<footer class="main-footer">
-			<strong><img class="img" src="media/images/copyright.svg" width="15px" height="15px">2020 <a href="https://github.com/orgs/elComrades">elComrades</a></strong>
-			<strong class="float-right">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></strong>
-			<br>
-			<strong><i class="far fa-envelope text-danger"></i><span style="color:blue;"> elcomrades19@gmail.com</span></strong>
-			<strong class="float-right"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;" ></i> Authors</a></strong>
-
-
 		</footer>
-
-		<!-- Control Sidebar -->
-		<!-- Control Sidebar -->
-		<aside class="control-sidebar bg-white" style="width:400px !important;overflow-y:auto !important;">
-			<!-- Control sidebar content goes here -->
+    <aside class="control-sidebar" style="" id="newsscroll">
 			<div id="frame">
-
-
-				<div class="content shadow" style="    height: 685px;">
-					<div class="contact-profile shadow rounded border border-dark">
+				<div class="chatbot-frame-thsw content bg-white shadow" style="">
+					<div class="bot-header-thsw contact-profile shadow rounded ">
 						<img src="media/images/robot.svg" class="img animated flip delay-0.2s">
 						<h4><span class="animated fadeIn delay-0.2s ">Corona Bot</span></h4>
 						<div>
-							<h6 style="float:left"><span class="badge badge-success" onclick="start_over();" style="cursor: pointer;" ><i class="fas fa-sync-alt"></i> Start Again</span></h6>
-							<h6 ><span class="badge badge-danger" data-widget="control-sidebar" data-slide="true" style="cursor: pointer;"><i class="fas fa-times"></i> Close</span></h6>
+							<h6 style="float:left;"><span class="badge badge-success" onclick="start_over();" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> Start Again</span></h6>
+							<h6><span class="badge badge-danger" data-widget="control-sidebar" data-slide="true" style="cursor: pointer;"><i class="fas fa-times"></i> Close</span></h6>
 						</div>
 					</div>
 					<div class="messages shadow rounded border border-dark" id="mssg">
@@ -383,97 +370,76 @@ Source: <a href="https://github.com/CSSEGISandData/COVID-19">John Hopkins Univer
 							</li>
 						</ul>
 					</div>
-
-					<!-- <div class="content shadow" style="    height: 685px;"> -->
-						<!-- <div class="contact-profile shadow rounded border border-dark"> -->
-							<!-- <img src="media/images/bot.svg" class="img animated flip delay-0.2s"> -->
-							<!-- <h4><span class="animated fadeIn delay-0.2s ">Corona Bot</span></h4> -->
-							<!-- <h6><span class="badge badge-success" onclick="start_over();" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> Start Again</span></h6> -->
-						<!-- </div> -->
+				</div>
+			</div>
 		</aside>
-
-	<!-- </div> -->
-
-
-
-	<!--JQuery -->
-	<script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
-	<!--JQueryUI -->
-	<script src="media/jquery-ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
-	<!--Bootstrap -->
-	<script src="media/bootstrap/bootstrap-4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
-	<!-- list.min.js-->
-	<script src="media/list.js/1.5.0/dist/list.min.js"></script>
-	<!-- Json values and variables -->
-	<script src="media/misc/js/jsonNvars.js"> </script>
-	<!-- chart and map js -->
-	<script src="media/misc/js/themeSwitch.js"> </script>
-	<!--Bootstrap Datables -->
-	<script src="media/dataTables/DataTables-1.10.18/js/jquery.dataTables.min.js" type="text/javascript"></script>
-	<script src="media/dataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-	<!--Bootstrap Datables Responsive -->
-	<script src="media/dataTables/Responsive-2.2.2/js/dataTables.responsive.min.js" type="text/javascript"></script>
-	<script src="media/dataTables/Responsive-2.2.2/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
-	<!-- Datables api->processing -->
-	<script type="text/javascript" src="media/dataTables/api/processing().js"></script>
-	<!-- Datables select -->
-	<script src="media/dataTables/DataTables-1.10.18/js/dataTables.select.min.js"></script>
-	<!---moment.js dattimepicker---->
-	<script type="text/javascript" src="media/moment-js/moment.js"></script>
-	<!--highchart JS -->
-	<script src="media/highcharts/7.2.0/highcharts.js"></script>
-	<script src="media/highcharts/7.2.0/modules/exporting.js"></script>
-	<script src="media/highcharts/7.2.0/modules/export-data.js"></script>
-	<!--TextFit JS----->
-	<script type="text/javascript" src="media/textFit/2.4.0/textFit.min.js"></script>
-	<!-- ChartJS -->
-	<script src="media/chart.js/Chart.min.js"></script>
-
-	<!-- Am chart core -->
-	<script src="media/amCharts/amcharts4/core.js"></script>
-	<!-- Am chart charts -->
-	<script src="media/amCharts/amcharts4/charts.js"></script>
-	<script src="media/amCharts/amcharts4/themes/animated.js"></script>
-	<script src="media/amCharts/amcharts4/themes/material.js"></script>
-	<!-- Am chart maps -->
-	<script src="media/amCharts/amcharts4/maps.js"></script>
-	<script src="media/amCharts/geodata/data/countries2.js"></script>
-	<script src="media/amCharts/geodata/worldIndiaLow.js"></script>
-	<!-- amCharts includes -->
-	<script src="media/amCharts/amcharts4/themes/dark.js"></script>
-	<!-- Set am charts js -->
-	<script src="media/misc/js/amCharts.js"></script>
-
-  	<!-- AdminLTE App -->
-  	<script src="dist/js/adminlte.js"></script>
-<!--OverlayScrollbars Plugin JS -->
-	<script type="text/javascript" src="media/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
-	<!--customBootstrap----->
-	<script type="text/javascript" src="media/prashantUIUX/customBootstrap/js/customBootstrap.js"></script>
-	<!-- Chat bot js -->
-	<script src="media/chatbot/js/chatbot.js"> </script>
-	
-
-
-
-	 
-
-	 <!-- Data  -->
-	 <!-- <script src="data/js/world_timeline.js"></script>
+  </div>
+    <!--JQuery -->
+    <script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <!--JQueryUI -->
+    <script src="media/jquery-ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <!--Bootstrap -->
+    <script src="media/bootstrap/bootstrap-4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- list.min.js-->
+    <script src="media/list.js/1.5.0/dist/list.min.js"></script>
+    <!-- Json values and variables -->
+    <script src="media/misc/js/jsonNvars.js"> </script>
+    <!-- chart and map js -->
+    <script src="media/misc/js/themeSwitch.js"> </script>
+    <!--Bootstrap Datables -->
+    <script src="media/dataTables/DataTables-1.10.18/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="media/dataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+    <!--Bootstrap Datables Responsive -->
+    <script src="media/dataTables/Responsive-2.2.2/js/dataTables.responsive.min.js" type="text/javascript"></script>
+    <script src="media/dataTables/Responsive-2.2.2/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
+    <!-- Datables api->processing -->
+    <script type="text/javascript" src="media/dataTables/api/processing().js"></script>
+    <!-- Datables select -->
+    <script src="media/dataTables/DataTables-1.10.18/js/dataTables.select.min.js"></script>
+    <!---moment.js dattimepicker---->
+    <script type="text/javascript" src="media/moment-js/moment.js"></script>
+    <!--highchart JS -->
+    <script src="media/highcharts/7.2.0/highcharts.js"></script>
+    <script src="media/highcharts/7.2.0/modules/exporting.js"></script>
+    <script src="media/highcharts/7.2.0/modules/export-data.js"></script>
+    <!--TextFit JS----->
+    <script type="text/javascript" src="media/textFit/2.4.0/textFit.min.js"></script>
+    <!-- ChartJS -->
+    <script src="media/chart.js/Chart.min.js"></script>
+    <!-- Am chart core -->
+    <script src="media/amCharts/amcharts4/core.js"></script>
+    <!-- Am chart charts -->
+    <script src="media/amCharts/amcharts4/charts.js"></script>
+    <script src="media/amCharts/amcharts4/themes/animated.js"></script>
+    <script src="media/amCharts/amcharts4/themes/material.js"></script>
+    <!-- Am chart maps -->
+    <script src="media/amCharts/amcharts4/maps.js"></script>
+    <script src="media/amCharts/geodata/data/countries2.js"></script>
+    <script src="media/amCharts/geodata/worldIndiaLow.js"></script>
+    <!-- amCharts includes -->
+    <script src="media/amCharts/amcharts4/themes/dark.js"></script>
+    <!-- Set am charts js -->
+    <script src="media/misc/js/amCharts.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!--OverlayScrollbars Plugin JS -->
+    <script type="text/javascript" src="media/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
+    <!--customBootstrap----->
+    <script type="text/javascript" src="media/prashantUIUX/customBootstrap/js/customBootstrap.js"></script>
+    <!-- Chat bot js -->
+    <script src="media/chatbot/js/chatbot.js"> </script>
+    <!-- Data  -->
+    <!-- <script src="data/js/world_timeline.js"></script>
 	 <script src="data/js/total_timeline.js"></script> -->
-	 <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/world_timeline.js"></script>
-	 <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/total_timeline.js"></script>
-
-	 <!-- Stylesheet -->
-	 <link rel="stylesheet" media="all" href="media/amCharts/custom/dark.css" />
-	 <!-- Main app -->
-	 <script src="media/amCharts/custom/app.js"></script>
-
-		<script>
-		//	$.widget.bridge('uibutton', $.ui.button)
-		</script>
-
-
+    <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/world_timeline.js"></script>
+    <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/total_timeline.js"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" media="all" href="media/amCharts/custom/dark.css" />
+    <!-- Main app -->
+    <script src="media/amCharts/custom/app.js"></script>
+    <script>
+      //	$.widget.bridge('uibutton', $.ui.button)
+    </script>
 </body>
 
 </html>

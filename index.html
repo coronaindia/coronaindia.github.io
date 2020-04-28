@@ -254,16 +254,16 @@
 			<div class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-sm-6">
-							<h1 class="m-0 ">Dashboard </h1>
+						<div class="col-5 col-md-5">
+							<h1 class="">Dashboard </h1>
 						</div>
-						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
-								<li>
-									<select id="stateList" class="form-control" style="display:inline;width:75%;" onchange="filterDataStateWise(this.value, 1)">
-										<option>Select State</option>
-									</select>
-								</li>
+						<div class="col-7 col-md-3">
+							<select id="stateList" class="form-control" style="" onchange="filterDataStateWise(this.value, 1)">
+								<option>Select State</option>
+							</select>
+						</div>
+						<div class="col-12 col-md-4">
+							<ol class="breadcrumb d-flex flex-row-reverse pt-3 pt-md-0">
 								<li class="nav-item mr-1">
 									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/elcomrades">
 									</a>
@@ -406,7 +406,7 @@
 								</div>
 								<div class="card-body mt-0 mb-0">
 									<!-- <div id="googleMapNcovCas" style="height: 550px; width: 100%; display none;"></div> -->
-									<div id="amMapdiv" style="width: 100%; height: 630px; "></div>
+									<div id="amMapdiv" class="amMapdiv" style="width: 100%;"></div>
 								</div>
 								<div class="card-footer bg-transparent d-none">
 								</div>
@@ -748,7 +748,7 @@
 						<section class="col-lg-6 connectedSortable">
 							<div class="card  shadow" id="tweet">
 								<div class="card-header">
-									<h3 class="card-title"><i class="fab fa-twitter mr-1" style="color:#20B4C4;"></i>Tweets-MoHFW INDIA</h3>
+									<h3 class="card-title"><i class="fab fa-twitter mr-1" style=""></i>Tweets-MoHFW INDIA</h3>
 									<div class="card-tools">
 										<button type="button" class="btn btn-dark btn-tool" data-card-widget="collapse">
 											<i class="fas fa-minus"></i>
@@ -778,7 +778,7 @@
 					<div class="col-6 col-md-2">
 						<span class="flex-nowrap ">Visitor Count : <span class="badge badge-danger" id="visitorCount"><i class='fa fa-spinner fa-spin'></i></span></span>
 					</div>
-					<div class="col-8 col-md-4">
+					<div class="col-8 col-md-4 pt-md-0 pt-2">
 						<span class="flex-nowrap">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></span>
 					</div>
 					<div class="col-4 col-md-2">
@@ -786,8 +786,6 @@
 					</div>
 				</div>
 			</div>
-
-
 		</footer>
 		<aside class="control-sidebar" style="" id="newsscroll">
 			<div id="frame">
