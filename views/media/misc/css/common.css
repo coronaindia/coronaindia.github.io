@@ -23,3 +23,16 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 460px) {
+	.amMapdiv {
+	    height: 350px !important;
+	}
+}
+
+@media screen and (min-width: 460px) {
+	.amMapdiv {
+	    height: 630px !important;
+	}
+}
