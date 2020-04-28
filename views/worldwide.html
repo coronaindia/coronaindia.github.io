@@ -55,6 +55,141 @@
   <link rel="stylesheet" href="media/misc/css/common.css" type="text/css" />
   <link rel="stylesheet" href="media/misc/css/themeSwitch.css" type="text/css" />
   <link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <link rel="stylesheet" type = "text/css" href = "https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+  <script src="media/misc/js/pace.js"></script>
+  <style>
+  .pace.pace-inactive {
+    display: none;
+  }
+
+  .pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+
+    z-index: 2000;
+    position: fixed;
+    height: 60px;
+    width: 100px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .pace .pace-progress {
+    z-index: 2000;
+    position: absolute;
+    height: 60px;
+    width: 100px;
+
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    -ms-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  .pace .pace-progress:before {
+    content: attr(data-progress-text);
+    text-align: center;
+    color: #fff;
+    background: #29d;
+    border-radius: 50%;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 1;
+    padding: 20% 0 7px;
+    width: 50%;
+    height: 40%;
+    margin: 10px 0 0 30px;
+    display: block;
+    z-index: 999;
+    position: absolute;
+  }
+
+  .pace .pace-activity {
+    font-size: 15px;
+    line-height: 1;
+    z-index: 2000;
+    position: absolute;
+    height: 60px;
+    width: 100px;
+
+    display: block;
+    -webkit-animation: pace-theme-center-atom-spin 2s linear infinite;
+    -moz-animation: pace-theme-center-atom-spin 2s linear infinite;
+    -o-animation: pace-theme-center-atom-spin 2s linear infinite;
+    animation: pace-theme-center-atom-spin 2s linear infinite;
+  }
+
+  .pace .pace-activity {
+    border-radius: 50%;
+    border: 5px solid #29d;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100px;
+  }
+
+  .pace .pace-activity:after {
+    border-radius: 50%;
+    border: 5px solid #29d;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    height: 60px;
+    width: 100px;
+
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    transform: rotate(60deg);
+  }
+
+  .pace .pace-activity:before {
+    border-radius: 50%;
+    border: 5px solid #29d;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    height: 60px;
+    width: 100px;
+
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    transform: rotate(120deg);
+  }
+
+  @-webkit-keyframes pace-theme-center-atom-spin {
+    0%   { -webkit-transform: rotate(0deg) }
+    100% { -webkit-transform: rotate(359deg) }
+  }
+  @-moz-keyframes pace-theme-center-atom-spin {
+    0%   { -moz-transform: rotate(0deg) }
+    100% { -moz-transform: rotate(359deg) }
+  }
+  @-o-keyframes pace-theme-center-atom-spin {
+    0%   { -o-transform: rotate(0deg) }
+    100% { -o-transform: rotate(359deg) }
+  }
+  @keyframes pace-theme-center-atom-spin {
+    0%   { transform: rotate(0deg) }
+    100% { transform: rotate(359deg) }
+  }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="" ng-cloak>
@@ -320,7 +455,42 @@
                 <!-- /.card-body-->
               </div>
               <div align="right">
-                Source: <a href="https://github.com/CSSEGISandData/COVID-19">John Hopkins University</a>
+                Source: <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section class="content" id="dashboardSection">
+        <div class="container-fluid">
+          <!-- Main row -->
+          <div class="row">
+            <section class="col-lg-12 connectedSortable">
+              <div class="card shadow" id="mapCard">
+                <div class="card-header border-0 mb-0">
+                  <h3 class="card-title">
+                    <i class="fas fa-globe mr-1" style="color:#20B4C4;"></i>
+                    Statistics on World Data
+                  </h3>
+                  <!-- card tools -->
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                  <!-- /.card-tools -->
+                </div>
+                <div class="card-body mt-0 mb-0" >
+                  <div class="flexbox" >
+                    <div id="container">
+
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body-->
+              </div>
+              <div align="right">
+                Source: <a href="https://github.com/CSSEGISandData/COVID-19">Our World Data</a>
               </div>
             </section>
           </div>
@@ -440,6 +610,110 @@
     <script>
       //	$.widget.bridge('uibutton', $.ui.button)
     </script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+    <script>
+
+    $.get('https://covid.ourworldindata.org/data/owid-covid-data.csv', function(data) {
+    	var countries = null;
+
+
+    	$.ajax({
+    	    url : "https://covid.ourworldindata.org/data/ecdc/locations.csv",
+    	    type : "get",
+    	    async: false,
+    	    success : function(data) {
+    	       countries = data;
+    	    },
+    	    error: function() {
+    	       connectionError();
+    	    }
+    	 });
+    	// start the table
+    	var html = '<table id ="table_id" class="table table-bordered">';
+
+    	// split into lines
+
+    	var rows = data.split("\n");
+    	var rows1 = countries.split("\n");
+    	html += "<thead><tr><th>Country</th><th>Population</th><th>Date</th><th>Total Cases</th><th>Total Deaths</th><th>Total cases per million (tpm)</th><th>Death per million(dpm)</th><th>DPM/TPM</th></tr></thead>"
+    	// parse lines
+    	var today = new Date();
+    	var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+          dd = '0' + dd;
+      }
+      if (mm < 10) {
+          mm = '0' + mm;
+      }
+    	dd = dd-1;
+      var today = yyyy + '-' + mm + '-' + dd;
+    	rows.forEach( function getvalues(ourrow) {
+    		var columns = ourrow.split(",");
+    		var date = new Date(columns[2]);
+    		var t = new Date(today);
+    	if(date < t) {
+    	}
+    	else{
+    		html += "<tr>";
+    		html += "<td>" + columns[1] + "</td>";
+    		var x = 0;
+
+    		rows1.forEach( function getvalues(ourrow1) {
+    			var str = columns[1];
+    			var columns1 = ourrow1.split(",");
+    			if(x == 0){
+            var str1 = columns1[1];
+
+    				if(str1 == str){
+    					html += "<td>" + columns1[4] + "</td>";
+    					x = 1;
+    				}
+    			}
+    		})
+    		if( x == 0)
+    		{
+    			html += "<td>" + "-" + "</td>";
+    		}
+    		html += "<td>" + columns[2] + "</td>";
+    		html += "<td>" + columns[3] + "</td>";
+    		html += "<td>" + columns[5] + "</td>";
+    		html += "<td>" + columns[7] + "</td>";
+    		html += "<td>" + columns[9] + "</td>";
+    	  html += "<td>" + (columns[9]/columns[7]).toFixed(3) + "</td>";
+    					// close row
+    					html += "</tr>";
+    		}
+
+    	})
+    	// close table
+    	html += "</table>";
+
+    	// insert into div
+    	$('#container').append(html);
+      // $('#table_id').DataTable();
+    	$('#table_id').DataTable( {
+    			 dom: 'Bfrtip',
+    			 buttons: [
+    					 'copy', 'csv', 'excel', 'pdf', 'print'
+    			 ]
+    	 } );
+
+
+    });
+    </script>
+
 </body>
 
 </html>
