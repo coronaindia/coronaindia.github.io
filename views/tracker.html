@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel History</title>
+
+    
+<link rel="stylesheet" href="media/static/ctrack/css/bootstrap.min.css" type="text/css" />
+
+<link rel="stylesheet" href="media/static/ctrack/css/leaflet.css" type="text/css" />
+<link rel="stylesheet" href="media/static/ctrack/css/style.css" type="text/css" />
+<link rel="stylesheet" href="media/static/ctrack/css/bootstrap.min.css" type="text/css" />
+
+<link rel="stylesheet" href="media/static/ctrack/css/sticky-footer-navbar.css" type="text/css" />
+<link rel="stylesheet" href="media/static/ctrack/css/font-awesome.min.css" type="text/css" />
+
+
+
+ <script type="text/javascript" src="media/static/ctrack/js/jquery-3.4.1.min.js"></script>
+
+ <script type="text/javascript" src="media/static/ctrack/js/leaflet.js"></script>
+  <script type="text/javascript" src="media/static/ctrack/js/Chart.min.js"></script>
+
+  
+
+    <style>
+        #mapid {
+            margin: 20px;
+            height: 100vh;
+        }
+        .details {
+            font-size: 16px;
+            border: 1px solid #eaeaea;
+            padding: 5px;
+            margin: 3px 0 3px 0;
+        }
+        .details:hover {
+            background-color: #fcfcfc;
+        }
+    </style>
+    <!-- <script src="/js/moment.js"></script> -->
+</head>
+
+<body class="d-flex flex-column h-100">
+     <div class="bg-primary"> <div class="container">
+        <!-- Fixed navbar -->
+       <nav class="navbar navbar-expand-md navbar-dark">
+            <a class="navbar-brand" href=""> 
+                <img height="40" weight="40" src="media/images/virus.svg" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">                   
+                </ul>
+
+          
+        </nav>
+    </div> </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+
+
+                <div class="form-inline mt-4"> 
+                    Select Patient: <select id="patient-selector"></select>
+                Select date: <select id="date-selector"></select>
+ <button id="ak-reset" class="btn btn-primary ml-2">Reset</button>
+                </div>
+
+
+                <div id="mapid"></div>
+            </div>
+            <div class="col-md-4">
+                <h2 class="mt-5">Patient travel history</h2>
+                <div id="details" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer mt-4 py-3">
+        <div class="container">
+           
+                <span class="text-muted" style="font-size:12px;font-style: italic;">
+                    
+                </span>
+            <span class="text-muted pull-right">
+                
+            </span>
+
+           
+
+        </div>
+    </footer>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Disclaimer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    The data analysis, correlation and visualization relies on the accuracy of data sourced from multiple online feeds, hence we strive to provide the service on the reliability of the data received assuming the data are accurate.
+
+The data we analysed for affected region were as received from the external sources, the authenticity of the suspected individual holds valid only upon confirmation by the local health department and hence we do not commit accuracy. The visualization is for indicative purpose only.
+
+Contact us for any variation observed.
+<h3> Data Sources </h3>
+                <ul>
+                    <li>
+                        Ministry of Health and family welfare - https://www.mohfw.gov.in/
+                    </li>
+                    <li>
+                        World meters covid19 updates - https://www.worldometers.info/coronavirus/
+                    </li>
+                    <li>
+                        India coronavirus by city &  state from pharmaceutical technology.  -
+ https://www.pharmaceutical-technology.com/
+                    </li>
+                    <li> 
+                        Patient Travel history - crowd sourced data from covid19india -
+                        https://www.covid19india.org/
+                    </li>
+                    <li>
+                        Patient full details  - crowd sourced data from covid19india -
+                        https://www.covid19india.org/
+                    </li>
+                </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+
+
+        //let apiRoot = "http://14.139.180.57:8000";
+
+        let api = "media/static/ctrack/js/travelhist.json";
+
+        // let api = "https://api.rootnet.in/covid19-in/unofficial/covid19india.org/travelhistory";
+
+        markerIconUrl = "media/static/ctrack/images/marker-icon.png";
+        /* OR */
+        // let markerIconUrl = "https://unpkg.com/leaflet@1.6.0/dist/images/marker-icon.png"
+
+        let th = null;
+
+
+        let markers = [];
+
+        let pathLine;
+
+        let uniqueElements = (value, index, self) => self.indexOf(value) === index
+
+        var map = L.map('mapid').setView([21.106825, 79.918830], 5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 'attribution': ' ' }).addTo(map);
+
+        var MarkerIcon = L.Icon.extend({
+            options: {
+                iconSize: [30, 45],
+                //shadowSize: [50, 64],
+                //iconAnchor: [22, 94],
+                //shadowAnchor: [4, 62],
+                //popupAnchor: [-3, -76]
+            }
+        });
+
+        var markerIcon = new MarkerIcon({ iconUrl: markerIconUrl });
+
+        function clearAll() {
+
+            if (markers.length) {
+
+                markers.forEach((marker) => {
+
+                    map.removeLayer(marker);
+                });
+            }
+
+            if (pathLine) {
+
+                map.removeLayer(pathLine)
+            }
+        }
+
+        function addStringArrayToSelect(selectId, stringArray) {
+
+            let options = '';
+
+            for (let i = 0; i < stringArray.length; i++) {
+
+                options += '<option value="' + stringArray[i] + '">' + stringArray[i] + '</option>';
+            }
+            $(selectId).prepend("<option value='' selected='selected' disabled></option>");
+
+            $(selectId).append(options);
+        }
+
+        function findBounds(latlngs) {
+
+            if (latlngs.length == 0 || latlngs.length == 1) return null;
+
+            latmin = latlngs[0][0];
+            latmax = latlngs[0][0];
+            lngmin = latlngs[0][1];
+            lngmax = latlngs[0][1];
+
+            for (let i = 1; i < latlngs.length - 2; i++) {
+
+                if (latmin > latlngs[i + 1][0]) latmin = latlngs[i + 1][0]
+
+                if (latmax < latlngs[i + 1][0]) latmax = latlngs[i + 1][0]
+
+                if (lngmin > latlngs[i + 1][1]) lngmin = latlngs[i + 1][1]
+
+                if (lngmax < latlngs[i + 1][1]) lngmax = latlngs[i + 1][1]
+            }
+
+            return [
+                [latmin, lngmin],
+                [latmax, lngmax]
+            ];
+
+        }
+
+        /* The below function executes onload */
+
+        $.get(api, function (res) {
+
+            th = res.travel_history;
+
+            let patientIDs = th.map(ele => ele.pid).filter(uniqueElements);
+
+            addStringArrayToSelect('#patient-selector', patientIDs);
+
+        });
+
+        $.get(api, function (res) {
+
+            thd = res.travel_history;
+
+            let dates = thd.map(ele => ele.time_from.split(' ')[0]).filter(uniqueElements);
+
+            addStringArrayToSelect('#date-selector', dates);
+
+        });
+
+        $('#date-selector').on('change', function () {
+
+            $("#patient-selector").prop('selectedIndex',0);
+
+            var data = thd.filter(ele => ele.time_from.split(' ')[0] == this.value);
+
+            clearAll();
+
+            var latlngs = [];
+
+            $('#details').empty();
+
+            $.each(data, function (index, value) {
+
+                var latlng = value.latlong.split(',');
+
+                if (!isNaN(latlng[0]) && !isNaN(latlng[1])) {
+
+                    latlngs.push([latlng[0].replace(/ /g, ''), latlng[1].replace(/ /g, '')]);
+
+                    let popupData = '<div class="details">' + value.pid + ' | ' + value.address + ' on ' + value.time_from + '</div>'
+
+                    markers.push(L.marker(latlng, { icon: markerIcon }).addTo(map).bindPopup(popupData));
+                }
+
+                if (index + 1 == data.length) {
+
+                    let bounds = findBounds(latlngs);
+
+                    if (bounds) {
+
+                        map.fitBounds(bounds);
+                    }
+
+                }
+
+            })
+        });
+
+
+        /* The below function executes on load */
+
+        $('#patient-selector').on('change', function () {
+
+            $("#date-selector").prop('selectedIndex',0);
+
+            var data = th.filter(ele => ele.pid == this.value);
+
+            clearAll();
+
+            var latlngs = [];
+
+            var pointList = [];
+
+            strp = '';
+
+            $('#details').empty();
+
+            $.each(data, function (index, value) {
+
+                var latlng = value.latlong.split(',');
+
+                if (!isNaN(latlng[0]) && !isNaN(latlng[1])) {
+
+                    latlngs.push([latlng[0].replace(/ /g, ''), latlng[1].replace(/ /g, ''), value.time_from]);
+
+                    let popupData = '<div class="details">' + value.address + ' on ' + value.time_from + '</div>'
+
+                    strp += popupData;
+
+                    markers.push(L.marker(latlng, { icon: markerIcon }).addTo(map).bindPopup(popupData));
+                }
+
+                if (index + 1 == data.length) {
+
+                    let bounds = findBounds(latlngs);
+
+                    latlngs.sort(function (a, b) {
+
+                        var dateA = new Date(a[2]), dateB = new Date(b[2]);
+
+                        return dateA - dateB;
+                    })
+
+                    console.log('bounds', bounds)
+
+                    if (bounds) {
+
+                        // map.setZoom (4)
+
+                        map.fitBounds(bounds);
+
+                        console.log('latlngs', latlngs)
+
+                        pathLine = L.polyline(latlngs).addTo(map)
+
+                        $('#details').html(strp);
+                    }
+                }
+            })
+        })
+
+        $('#ak-reset').on('click', function () {
+
+            map.setZoom(5);
+
+            map.fitBounds([
+                [23.63936, 68.14712],
+                [28.20453, 97.34466]
+            ]);
+
+            clearAll();
+
+            $('#details').empty();
+        })
+
+        let geojson;
+
+        $.get('media/static/ctrack/geojson/india.json', function (statesData) {
+
+            if (geojson) geojson.clearLayers();
+
+            geojson = L.geoJson(statesData, { style: indiaStyle, onEachFeature: function () { } }).addTo(map);
+        });
+
+        function indiaStyle(feature) {
+
+            return { weight: 2, opacity: 1, color: '#888', dashArray: '3', fillOpacity: 0, fillColor: '#fff' };
+        }
+
+    </script>
+
+
+     <script type="text/javascript" src="media/static/ctrack/js/popper.min.js"></script>
+
+     <script type="text/javascript" src="media/static/ctrack/js/bootstrap.min.js"></script>
+    
+
+</body>
+
+</html>
+<!-- https://api.rootnet.in/covid19-in/unofficial/covid19india.org/travelhistory -->

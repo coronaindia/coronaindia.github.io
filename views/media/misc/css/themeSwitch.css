@@ -1,0 +1,72 @@
+body-dark-theme {
+  background: #282C34 !important;
+  color: #2A323C !important;
+}
+
+
+body-light-theme {
+  background: white !important;
+  color: white !important;
+}
+
+.card-header-dark-theme {
+  background: #303A46 !important;
+  color: white !important;
+}
+
+.card-dark-theme {
+  background: #323C48 !important;
+  color: white !important;
+}
+
+.card-dark-theme.list-group-item:hover {
+  background: #3B4654 !important;
+  color: white !important;
+}
+
+.card-light-theme.list-group-item:hover  {
+  background: #F7F7F7 !important;
+  
+}
+
+
+.bg-dark-theme {
+  background: #282C34 !important;
+  color: white;
+}
+
+.navbar-light {
+    background: white !important;
+    color: black !important;
+}
+
+.navbar-dark {
+    background: #1d2b3c !important;
+    color: white !important;
+}
+
+
+.brand-text-light {
+color:black;text-shadow: 0.5px 0.5px #FF0000;
+}
+
+.brand-text-dark {
+color:white; text-shadow: 0.5px 0.5px #20EDE9;
+}
+
+
+.textRow-dark-theme a.accordion-toggle {
+    color: lightsteelblue !important;
+}
+
+.textRow-dark-theme a.accordion-toggle:hover {
+    background: #3B4654 !important;
+}
+
+.textRow-light-theme a.accordion-toggle {
+    color: #6C757D !important;
+}
+
+.textRow-light-theme a.accordion-toggle:hover {
+    background: #F4F4F4 !important;
+}
