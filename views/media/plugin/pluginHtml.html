@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Corona Data</title>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link data-brackets-id="117" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,500,900">
+    <link rel="stylesheet" type="text/css" href="swiper.min.css" />
+    <script src="/coronaindia/views/media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: bold 12px/15px 'Roboto', sans-serif;
+        }
+
+        ul li {
+            list-style: none
+        }
+
+        .swiper-container .swiper-wrapper li {
+            border-radius: 5px;
+            background: #fff
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active {
+            box-shadow: 0 3px 15px #666;
+            border: 1px solid #ffffff;
+        }
+
+        .swiper-container {
+            padding: 5px;
+            width: 130px;
+            height: 135px;
+            position: absolute;
+            box-sizing: border-box;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+
+        .elecbox-center {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .elecbox ul,
+        .keycandbox ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            min-height: 75px
+        }
+
+        .keycandbox,
+        .elecbox {
+            min-height: 116px;
+        }
+
+        .topHead {
+            border-radius: 4px 4px 0px 0px;
+            padding: 0px 4px;
+        }
+
+        .topHead,
+        .zoneName {
+            font-weight: 300;
+            background: #fff;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        .partydetail {
+            display: inline-block;
+            width: 100%;
+            background: #e9e9e9;
+            margin-bottom: 2px;
+            border-radius: 3px;
+        }
+
+        .partydetail h4,
+        .partydetail span {
+            display: inline-block;
+        }
+
+        .zoneName {
+            font-size: 12px;
+            text-align: center
+        }
+
+        .seatsno {
+            width: 45%;
+        }
+
+        .leadwin {
+            width: 19%;
+            text-align: center;
+            padding: 0px 3px;
+            background: #fff;
+            border-radius: 4px 4px 0px 0px;
+            color: #000;
+            font-size: 13px;
+            line-height: 16px;
+            display: inline-block;
+        }
+
+        .seats span:first-child,
+        .seats span:nth-child(2) {
+            margin-right: 3px;
+        }
+
+        .partydetail .partyname {
+            width: 35%;
+            font-size: 13px;
+            color: #fff;
+            padding-left: 3px;
+            margin-left: 2px;
+            border-radius: 3px 0px 0px 3px;
+            line-height: 18px
+        }
+
+        .partydetail .winseat,
+        .partydetail .lostseat {
+            width: 27%;
+            text-align: center;
+        }
+
+        .partylistupdate li:first-child div.partydetail {
+            margin-top: 3px;
+        }
+
+        .congcol {
+            background: #0090ff;
+        }
+
+        .bjpcol {
+            background: #ff6c00
+        }
+
+        .jdscol {
+            background: #027f29;
+        }
+
+        .othcol {
+            background: #0018ff;
+        }
+
+        .elecbox {
+            border-radius: 4px;
+            box-shadow: 0 4px 0px #cf000f;
+        }
+
+        .keycandbox {
+            border-radius: 4px;
+            box-shadow: 0 4px 0px #cf000f;
+        }
+
+        .partylistupdate li:last-child .partydetail {
+            margin-bottom: 2px
+        }
+
+        .txtcenter {
+            text-align: center;
+        }
+
+        .keycandidat {
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .leftimg {
+            border: 1px solid #000;
+            border-radius: 50%;
+            margin: 1px 3px 0px;
+            width: 51px
+        }
+
+        .rightimg {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: -3px;
+            bottom: 0;
+            right: 7px;
+            margin: auto
+        }
+
+        .keycand-inform {
+            margin: -4px 0px 0px 0px;
+            display: table;
+            width: 100%;
+            height: 32px;
+            overflow: hidden;
+            table-layout: fixed
+        }
+
+        div.winner-candidate {
+            display: inline-block;
+        }
+
+        .candi-name {
+            font-weight: 500;
+            line-height: 12px;
+            display: table-cell;
+            text-align: center;
+            padding-top: 6px;
+            vertical-align: middle;
+            /*position: absolute;*/
+            overflow: hidden;
+            height: 25px;
+            width: 130px
+        }
+
+        .party-name {
+            font-weight: 300;
+            display: block;
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            bottom: 29px;
+            right: 10px;
+            margin: auto
+        }
+
+        .svgcenter {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .svgcenter img {
+            width: 100%;
+            height: 77px;
+        }
+
+        .electionstat {
+            font-size: 10px;
+            padding: 5px 0px;
+            font-weight: 300;
+        }
+
+        .topHead {
+            background: #fff;
+            padding: 0;
+        }
+
+        .zoneName.zon1 {
+            font-size: 11px;
+            color: #cf000f !important
+        }
+
+        .zoneName {
+            color: #000 !important;
+            font-size: 10px
+        }
+
+        .seats {
+            background-color: #cf000f;
+        }
+
+        .seatsno {
+            color: #fff;
+            font-size: 11px;
+            margin-left: 2px;
+            font-weight: normal
+        }
+
+        .leadwin {
+            background: #cf000f;
+            color: #fff;
+        }
+
+        .partydetail {
+            background: #fff;
+        }
+
+        .swiper-container .swiper-wrapper li {
+            border-bottom: 1px solid #ebebeb;
+            border-radius: 0;
+        }
+
+        .leadwin {
+            font-size: 11px;
+            font-weight: 500px !Important;
+        }
+
+        .seats span:first-child,
+        .seats span:nth-child(2) {
+            padding-left: 3px;
+        }
+
+        .partydetail .partyname {
+            width: 41%;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active {
+            border-radius: 3px
+        }
+
+        .elecbox {
+            border-radius: none;
+            box-shadow: none;
+        }
+
+        .swiper-container .swiper-wrapper li:last-child {
+            border-bottom: none
+        }
+
+        .swiper-container {
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active {
+            border: 1px solid #989797;
+        }
+
+        .swiper-wrapper {
+            height: auto !important
+        }
+
+        .covid-19 {
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .covid-19.theme-red {
+            border: 1px solid #ce3826;
+        }
+
+        .covid-19.theme-green {
+            border: 1px solid #02ab50;
+        }
+
+        .covid-19 .covid-head {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            height: 29px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .covid-19.theme-red .covid-head {
+            background-color: #ce3826;
+        }
+
+        .covid-19.theme-green .covid-head {
+            background-color: #02ab50;
+        }
+
+        .covid-body {
+            height: 90px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .covid-title,
+        .covid-value {
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #000;
+            width: 100%;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .covid-title {
+            margin-bottom: 6px;
+        }
+
+        .cube-ad {
+            background-color: #fff;
+            padding: 3px;
+        }
+
+        .cube-ad img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ckey {
+            font-size: 11px;
+            padding: 2px 0;
+            border-bottom: 1px solid #eae8e8;
+            font-weight: normal;
+        }
+
+        .ckey b {
+            width: 49px;
+            display: inline-block;
+            float: right;
+            font-weight: normal;
+            /* border: 1px solid red; */
+            margin-left: 3px;
+        }
+
+        < !--https: //indiatoday.woxo.tech/   https://www.indiatoday.in/coronavirus-covid-19-outbreak-->
+    </style>
+</head>
+
+<body>
+    <a href="https://www.indiatoday.in/coronavirus" style="text-decoration:none;color:#000;" target="_blank">
+        <div class="swiper-container" id="flip3dSlider">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide front">
+                    <div class="covid-19 theme-red">
+                        <div class="covid-head">Covid-19 </div>
+                        <div class="covid-body">
+                            <div class="covid-body-inner">
+                                <div class="covid-title">INDIA</div>
+                                <div class="ckey b">Total: <span id="totalCases"></span></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide front">
+                    <div class="covid-19 theme-red">
+                        <div class="covid-head">Covid-19</div>
+                        <div class="covid-body">
+                            <div class="covid-body-inner">
+                                <div class="covid-title">INDIA</div>
+                                <div class="ckey b">Active Cases: <span id="activeCases"></span></div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide front">
+                    <div class="covid-19 theme-red">
+                        <div class="covid-head">Covid-19</div>
+                        <div class="covid-body">
+                            <div class="covid-body-inner">
+                                <div class="covid-title">INDIA</div>
+                                <div class="ckey b">Total Deaths: <span id="totalDeaths"></span></div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide front">
+                    <div class="covid-19 theme-red">
+                        <div class="covid-head">Covid-19</div>
+                        <div class="covid-body">
+                            <div class="covid-body-inner">
+                                <div class="covid-title">INDIA</div>
+                                <div class="ckey b">Death Rate: <span id="deathRate"></span></div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide front">
+                    <div class="covid-19 theme-red">
+                        <div class="covid-head">Covid-19</div>
+                        <div class="covid-body">
+                            <div class="covid-body-inner">
+                                <div class="covid-title">INDIA</div>
+                                <div class="ckey b">Total Cured: <span id="cured"></span></div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide front">
+                    <div class="covid-19 theme-red">
+                        <div class="covid-head">Covid-19</div>
+                        <div class="covid-body">
+                            <div class="covid-body-inner">
+                                <div class="covid-title">INDIA</div>
+                                <div class="ckey b">Recovery Rate: <span id="recoveryRate"></span></div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </a>
+    <script src="swiper.min.js"></script>
+    <script type="text/javascript">
+        
+        var swiper = new Swiper('#flip3dSlider.swiper-container', {
+            effect: 'cube',
+            grabCursor: true,
+            autoplay: true,
+            speed: 1000,
+            loop: true,
+            observer: false,
+            cubeEffect: {
+                shadow: true,
+                slideShadows: true,
+                shadowOffset: 8,
+                shadowScale: 0.65,
+            }
+
+        });
+
+        
+
+        function loadCoronaData() {
+            console.log("calling load data");
+            var apiUrlLatestCases = 'https://api.rootnet.in/covid19-in/stats/latest';
+            console.log("apiurl",apiUrlLatestCases);
+            $.ajax({
+                type: "GET",
+                url: apiUrlLatestCases,
+                dataType: "json",
+                success: function(result) {
+                    
+                    coronaCasesSummary=result.data.summary;
+                    coronaCasesAll = result.data;
+                    setDashboardStats(result.data.summary);
+
+                },
+                error: function(results) {
+                    alert("There is an error. " + results.stringfy);
+                }
+            });
+
+        }
+        function setDashboardStats(statsSummary) {
+            var totalActive = statsSummary.total - statsSummary.discharged - statsSummary.deaths;
+          //  $('#totalCases').html(JSON.stringify(statsSummary.total));
+          $("#totalCases").html(new Date().getSeconds());
+            $('#totalActive').html(totalActive);
+           
+            var fatalityRate = (statsSummary.deaths/statsSummary.total)*100;
+            var recoveryRate = (statsSummary.discharged/statsSummary.total)*100;
+            $('#deathRate').html(fatalityRate.toFixed(2) + "%");
+            $('#recoveryRate').html(recoveryRate.toFixed(2) + "%");
+            $('#cured').html(JSON.stringify(statsSummary.discharged));
+            $('#totalDeaths').html(JSON.stringify(statsSummary.deaths));
+            //$('#clu').html(JSON.stringify(statsSummary.confirmedButLocationUnidentified));
+
+        }
+
+        loadCoronaData();
+
+    </script>
+</body>
+
+</html>
