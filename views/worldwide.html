@@ -59,11 +59,7 @@
   <link rel="stylesheet" type = "text/css" href = "https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
   <script src="media/misc/js/pace.js"></script>
   <style>
-  .pace.pace-inactive {
-    display: none;
-  }
-
-  .pace {
+    .pace {
     -webkit-pointer-events: none;
     pointer-events: none;
 
@@ -73,121 +69,46 @@
 
     z-index: 2000;
     position: fixed;
-    height: 60px;
-    width: 100px;
     margin: auto;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    height: 5px;
+    width: 200px;
+    background: #fff;
+    border: 1px solid #29d;
+
+    overflow: hidden;
   }
 
   .pace .pace-progress {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    max-width: 200px;
+    position: fixed;
     z-index: 2000;
-    position: absolute;
-    height: 60px;
-    width: 100px;
-
-    -webkit-transform: translate3d(0, 0, 0) !important;
-    -ms-transform: translate3d(0, 0, 0) !important;
-    transform: translate3d(0, 0, 0) !important;
-  }
-
-  .pace .pace-progress:before {
-    content: attr(data-progress-text);
-    text-align: center;
-    color: #fff;
-    background: #29d;
-    border-radius: 50%;
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 14px;
-    font-weight: 100;
-    line-height: 1;
-    padding: 20% 0 7px;
-    width: 50%;
-    height: 40%;
-    margin: 10px 0 0 30px;
-    display: block;
-    z-index: 999;
-    position: absolute;
-  }
-
-  .pace .pace-activity {
-    font-size: 15px;
-    line-height: 1;
-    z-index: 2000;
-    position: absolute;
-    height: 60px;
-    width: 100px;
-
-    display: block;
-    -webkit-animation: pace-theme-center-atom-spin 2s linear infinite;
-    -moz-animation: pace-theme-center-atom-spin 2s linear infinite;
-    -o-animation: pace-theme-center-atom-spin 2s linear infinite;
-    animation: pace-theme-center-atom-spin 2s linear infinite;
-  }
-
-  .pace .pace-activity {
-    border-radius: 50%;
-    border: 5px solid #29d;
-    content: ' ';
     display: block;
     position: absolute;
     top: 0;
-    left: 0;
-    height: 60px;
-    width: 100px;
+    right: 100%;
+    height: 100%;
+    width: 100%;
+    background: #29d;
   }
 
-  .pace .pace-activity:after {
-    border-radius: 50%;
-    border: 5px solid #29d;
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    height: 60px;
-    width: 100px;
-
-    -webkit-transform: rotate(60deg);
-    -moz-transform: rotate(60deg);
-    -o-transform: rotate(60deg);
-    transform: rotate(60deg);
-  }
-
-  .pace .pace-activity:before {
-    border-radius: 50%;
-    border: 5px solid #29d;
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    height: 60px;
-    width: 100px;
-
-    -webkit-transform: rotate(120deg);
-    -moz-transform: rotate(120deg);
-    -o-transform: rotate(120deg);
-    transform: rotate(120deg);
-  }
-
-  @-webkit-keyframes pace-theme-center-atom-spin {
-    0%   { -webkit-transform: rotate(0deg) }
-    100% { -webkit-transform: rotate(359deg) }
-  }
-  @-moz-keyframes pace-theme-center-atom-spin {
-    0%   { -moz-transform: rotate(0deg) }
-    100% { -moz-transform: rotate(359deg) }
-  }
-  @-o-keyframes pace-theme-center-atom-spin {
-    0%   { -o-transform: rotate(0deg) }
-    100% { -o-transform: rotate(359deg) }
-  }
-  @keyframes pace-theme-center-atom-spin {
-    0%   { transform: rotate(0deg) }
-    100% { transform: rotate(359deg) }
+  .pace.pace-inactive {
+    display: none;
   }
   </style>
 </head>
@@ -366,7 +287,7 @@
                 <!-- /.card-body-->
               </div>
               <div align="right">
-                Source: <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University</a>
+                Data: <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University</a>
               </div>
             </section>
           </div>
@@ -401,7 +322,7 @@
                 <!-- /.card-body-->
               </div>
               <div align="right">
-                Source: <a href="https://github.com/CSSEGISandData/COVID-19">Our World Data</a>
+                Data: <a href="#">Our World Data</a>, Idea Courtesy: Prof. Dr. TS Ravikumar, AIIMS Mangalagiri
               </div>
             </section>
           </div>
@@ -524,13 +445,14 @@
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
-    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
-    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+    <!-- <script src = "https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script> -->
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
     <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+
     <script>
 
     $.get('https://covid.ourworldindata.org/data/owid-covid-data.csv', function(data) {
@@ -570,8 +492,16 @@
       }
     	dd = dd-1;
       var today = yyyy + '-' + mm + '-' + dd;
+      var count = 0;
     	rows.forEach( function getvalues(ourrow) {
     		var columns = ourrow.split(",");
+        if(typeof columns[2] == "undefined") {
+            // do nothing
+        }
+        else if(count == 0) {
+          count++; //ignore first row
+        }
+        else {
     		var date = new Date(columns[2]);
     		var t = new Date(today);
     	if(date < t) {
@@ -598,6 +528,7 @@
     			html += "<td>" + "-" + "</td>";
     		}
     		html += "<td>" + columns[2] + "</td>";
+
     		html += "<td>" + columns[3] + "</td>";
     		html += "<td>" + columns[5] + "</td>";
     		html += "<td>" + columns[7] + "</td>";
@@ -606,8 +537,9 @@
     					// close row
     					html += "</tr>";
     		}
-
+      }
     	})
+
     	// close table
     	html += "</table>";
 
@@ -616,6 +548,7 @@
       // $('#table_id').DataTable();
     	$('#table_id').DataTable( {
     			 dom: 'Bfrtip',
+           responsive:true,
     			 buttons: [
     					 'copy', 'csv', 'excel', 'pdf', 'print'
     			 ]
