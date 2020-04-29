@@ -56,195 +56,195 @@
   <link rel="stylesheet" href="media/misc/css/themeSwitch.css" type="text/css" />
   <link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-  <link rel="stylesheet" type = "text/css" href = "https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
   <script src="media/misc/js/pace.js"></script>
   <style>
     .pace {
-    -webkit-pointer-events: none;
-    pointer-events: none;
+      -webkit-pointer-events: none;
+      pointer-events: none;
 
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
 
-    z-index: 2000;
-    position: fixed;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 5px;
-    width: 200px;
-    background: #fff;
-    border: 1px solid #29d;
+      z-index: 2000;
+      position: fixed;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      width: 200px;
+      background: #fff;
+      border: 1px solid #29d;
 
-    overflow: hidden;
-  }
+      overflow: hidden;
+    }
 
-  .pace .pace-progress {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
+    .pace .pace-progress {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
 
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
 
-    max-width: 200px;
-    position: fixed;
-    z-index: 2000;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 100%;
-    height: 100%;
-    width: 100%;
-    background: #29d;
-  }
+      max-width: 200px;
+      position: fixed;
+      z-index: 2000;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 100%;
+      height: 100%;
+      width: 100%;
+      background: #29d;
+    }
 
-  .pace.pace-inactive {
-    display: none;
-  }
+    .pace.pace-inactive {
+      display: none;
+    }
   </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="" ng-cloak>
   <input type="text" name="themeTypeElm" id="themeTypeElm" class="d-none themeTypeElm" value="1">
-	<div class="wrapper">
-		<!-- Navbar -->
-		<nav class="main-header-thsw main-header navbar navbar-expand navbar-light" id="">
-			<!-- Left navbar links -->
-			<ul class="navbar-nav">
-				<li class="nav-item">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header-thsw main-header navbar navbar-expand navbar-light" id="">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
           <a class="nav-link nav-link-menuBtn" data-widget="pushmenu" href="#">
-						<i class="menu-thsw fas fa-bars text-danger" style="font-size:20px; font-weight: bold;"></i>
-					</a>
-				</li>
-				<li class="nav-item mt-2 ">
-					<a href="" class="text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
-					<div class="form-group d-flex text-nowrap flex-nowrap">
-						Day Mode &nbsp;
-						<i class="fas fa-cloud-sun text-warning" style=""></i>
-						&nbsp;
-						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input themeSwitchChkBox" id="customSwitch1">
-							<label class="custom-control-label" for="customSwitch1"></label>
-						</div>
-						<i class="fas fa-cloud-moon text-primary" style="">&nbsp;</i>
-						Night Mode
-					</div>
-				</li>
-			</ul>
-			<!-- Right navbar links -->
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<form class="form-inline">
-						<span style="cursor: pointer;"><span class="badge badge-secondary" data-widget="control-sidebar" data-slide="true">Ask Bot <i class="far fa-hand-point-right"></i></span><img class="direct-chat-img animated flip delay-0.2s"
-								data-widget="control-sidebar" data-slide="true" src="media/images/robot.svg" style="float: right;">
-						</span>
-					</form>
-				</li>
-			</ul>
-		</nav>
-		<!-- Main Sidebar Container -->
-		<aside class="main-Sidebar-thsw navbar-light main-sidebar elevation-4 shadow">
-			<!-- Brand Logo -->
-			<a href="" class="brand-link">
-				<img src="media/images/virus.svg" alt="CoronaIndia Logo" class="brand-image img-circle elevation-3">
-				<span class="brand-text-thsw brand-text font-weight-bold text-shadow brand-text-light" style="">COVID-19 INDIA</span>
-			</a>
-			<!-- Sidebar -->
-			<div class="sidebar">
-				<!-- Sidebar Menu -->
-				<nav class="mt-2">
-					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-						<!-- Add icons to the links using the .nav-icon class
+            <i class="menu-thsw fas fa-bars text-danger" style="font-size:20px; font-weight: bold;"></i>
+          </a>
+        </li>
+        <li class="nav-item mt-2 ">
+          <a href="" class="text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
+          <div class="form-group d-flex text-nowrap flex-nowrap">
+            Day Mode &nbsp;
+            <i class="fas fa-cloud-sun text-warning" style=""></i>
+            &nbsp;
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input themeSwitchChkBox" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1"></label>
+            </div>
+            <i class="fas fa-cloud-moon text-primary" style="">&nbsp;</i>
+            Night Mode
+          </div>
+        </li>
+      </ul>
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <form class="form-inline">
+            <span style="cursor: pointer;"><span class="badge badge-secondary" data-widget="control-sidebar" data-slide="true">Ask Bot <i class="far fa-hand-point-right"></i></span><img class="direct-chat-img animated flip delay-0.2s"
+                data-widget="control-sidebar" data-slide="true" src="media/images/robot.svg" style="float: right;">
+            </span>
+          </form>
+        </li>
+      </ul>
+    </nav>
+    <!-- Main Sidebar Container -->
+    <aside class="main-Sidebar-thsw navbar-light main-sidebar elevation-4 shadow">
+      <!-- Brand Logo -->
+      <a href="" class="brand-link">
+        <img src="media/images/virus.svg" alt="CoronaIndia Logo" class="brand-image img-circle elevation-3">
+        <span class="brand-text-thsw brand-text font-weight-bold text-shadow brand-text-light" style="">COVID-19 INDIA</span>
+      </a>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
 				 with font-awesome or any other icon font library -->
-						<li class="nav-item">
-							<a href="" class="nav-link">
-								<i class="nav-icon fas fa-home"></i>
-								<p>
-									Home
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="../index.html" class="nav-link">
-								<i class="nav-icon fas fa-th"></i>
-								<p>
-									Stats- INDIA
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="worldwide.html" class="nav-link">
-								<i class="nav-icon fas fa-globe"></i>
-								<p>
-									Stats- WORLD
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="researchcentre.html" class="nav-link">
-								<i class="nav-icon fas fa-flask"></i>
-								<p>
-									Research Centre &nbsp; <span class="badge badge-danger new-text">New</span>
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="about.html" class="nav-link">
-								<i class="fa fa-info-circle nav-icon"></i>
-								<p>
-									About
-								</p>
-							</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</aside>
-		<!--Common navbar ends here-->
-		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper bg-white">
-			<!-- Content Header (Page header) -->
-			<div class="content-header">
-				<div class="container-fluid">
-					<div class="row mb-2">
-						<div class="col-5 col-md-5">
-							<h1 class="">Dashboard </h1>
-						</div>
-						<div class="col-7 col-md-3">
-						</div>
-						<div class="col-12 col-md-4">
-							<ol class="breadcrumb d-flex flex-row-reverse pt-3 pt-md-0">
-								<li class="nav-item mr-1">
-									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/elcomrades">
-									</a>
-								</li>
-								<li class="nav-item mr-1">
-									<a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank"
-										href="https://www.linkedin.com/shareArticle?mini=true&url=https://coronaindia.github.io/&title=#indiafightscorona&source=https://coronaindia.github.io/"></a>
-								</li>
-								<li class="nav-item mr-1">
-									<a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a>
-								</li>
-								<li class="nav-item mr-1">
-									<a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/elcomrades"></a>
-								</li>
-								<li class="nav-item mr-1">
-									<a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a>
-								</li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                  Home
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Stats- INDIA
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="worldwide.html" class="nav-link">
+                <i class="nav-icon fas fa-globe"></i>
+                <p>
+                  Stats- WORLD
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="researchcentre.html" class="nav-link">
+                <i class="nav-icon fas fa-flask"></i>
+                <p>
+                  Research Centre &nbsp; <span class="badge badge-danger new-text">New</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">
+                <i class="fa fa-info-circle nav-icon"></i>
+                <p>
+                  About
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <!--Common navbar ends here-->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper bg-white">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-5 col-md-5">
+              <h1 class="">Dashboard </h1>
+            </div>
+            <div class="col-7 col-md-3">
+            </div>
+            <div class="col-12 col-md-4">
+              <ol class="breadcrumb d-flex flex-row-reverse pt-3 pt-md-0">
+                <li class="nav-item mr-1">
+                  <a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/elcomrades">
+                  </a>
+                </li>
+                <li class="nav-item mr-1">
+                  <a class="fab fa-linkedin shadow" title="Share via Linkedin" target="_blank"
+                    href="https://www.linkedin.com/shareArticle?mini=true&url=https://coronaindia.github.io/&title=#indiafightscorona&source=https://coronaindia.github.io/"></a>
+                </li>
+                <li class="nav-item mr-1">
+                  <a href="https://www.instagram.com/?url=https://coronaindia.github.io/" title="Share via Instagram" target="_blank" class="fab fa-instagram shadow"></a>
+                </li>
+                <li class="nav-item mr-1">
+                  <a class="fab fa-facebook shadow" target="_blank" title="Share via Facebook" href="https://www.facebook.com/elcomrades"></a>
+                </li>
+                <li class="nav-item mr-1">
+                  <a target="_blank" title="Share via Whatsapp" href="whatsapp://send?&text= COVID-19 INDIA Dashboard https://coronaindia.github.io/" class="fab fa-whatsapp shadow"></a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Main content -->
       <section class="content" id="dashboardSection">
         <div class="container-fluid">
@@ -265,11 +265,11 @@
                   </div>
                   <!-- /.card-tools -->
                 </div>
-                <div class="card-body mt-0 mb-0" >
-                  <div class="flexbox" >
+                <div class="card-body mt-0 mb-0">
+                  <div class="flexbox">
                     <div id="chartdiv"></div>
                     <div id="list">
-                      <table id="areas" class="compact hover order-column row-border" >
+                      <table id="areas" class="compact hover order-column row-border">
                         <thead>
                           <tr>
                             <th>Country/State</th>
@@ -312,8 +312,8 @@
                   </div>
                   <!-- /.card-tools -->
                 </div>
-                <div class="card-body mt-0 mb-0" >
-                  <div class="flexbox" >
+                <div class="card-body mt-0 mb-0">
+                  <div class="flexbox">
                     <div id="container">
 
                     </div>
@@ -330,233 +330,235 @@
       </section>
     </div>
     <footer class="main-footer ">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-6 col-md-4">
-						<span class="flex-nowrap "><i class="far fa-envelope text-danger"></i><span style="color:#20B4C4;"> elcomrades19@gmail.com</span></span>
-					</div>
-					<div class="col-6 col-md-2">
-						<span class="flex-nowrap ">Visitor Count : <span class="badge badge-danger" id="visitorCount"><i class='fa fa-spinner fa-spin'></i></span></span>
-					</div>
-					<div class="col-8 col-md-4 pt-md-0 pt-2">
-						<span class="flex-nowrap">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></span>
-					</div>
-					<div class="col-4 col-md-2">
-						<span class="flex-nowrap"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;"></i> Authors</a></span>
-					</div>
-				</div>
-			</div>
-		</footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 col-md-4">
+            <span class="flex-nowrap "><i class="far fa-envelope text-danger"></i><span style="color:#20B4C4;"> elcomrades19@gmail.com</span></span>
+          </div>
+          <div class="col-6 col-md-2">
+            <span class="flex-nowrap ">Visitor Count : <span class="badge badge-danger" id="visitorCount"><i class='fa fa-spinner fa-spin'></i></span></span>
+          </div>
+          <div class="col-8 col-md-4 pt-md-0 pt-2">
+            <span class="flex-nowrap">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></span>
+          </div>
+          <div class="col-4 col-md-2">
+            <span class="flex-nowrap"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;"></i> Authors</a></span>
+          </div>
+        </div>
+      </div>
+    </footer>
     <aside class="control-sidebar" style="" id="newsscroll">
-			<div id="frame">
-				<div class="chatbot-frame-thsw content bg-white shadow" style="">
-					<div class="bot-header-thsw contact-profile shadow rounded ">
-						<img src="media/images/robot.svg" class="img animated flip delay-0.2s">
-						<h4><span class="animated fadeIn delay-0.2s ">Corona Bot</span></h4>
-						<div>
-							<h6 style="float:left;"><span class="badge badge-success" onclick="start_over();" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> Start Again</span></h6>
-							<h6><span class="badge badge-danger" data-widget="control-sidebar" data-slide="true" style="cursor: pointer;"><i class="fas fa-times"></i> Close</span></h6>
-						</div>
-					</div>
-					<div class="messages shadow rounded border border-dark" id="mssg">
-						<ul>
-							<li class="replies">
-								<p>Hello I am Corona Bot. And I am here to help you during novel corona virus outbreak.</p>
-							</li>
-							<li class="replies">
-								<p>Warning: Do not take this as medical advise. Consult your doctor if you feel sick.</p>
-							</li>
-							<li class="sent">
-								<button type="button" class="btn btn-success" onclick="start()">Risk Analyzer. &#129298;</button>
-								<button type="button" class="btn btn-danger" onclick="quiz()">Take Quiz. &#129299;</button>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</aside>
+      <div id="frame">
+        <div class="chatbot-frame-thsw content bg-white shadow" style="">
+          <div class="bot-header-thsw contact-profile shadow rounded ">
+            <img src="media/images/robot.svg" class="img animated flip delay-0.2s">
+            <h4><span class="animated fadeIn delay-0.2s ">Corona Bot</span></h4>
+            <div>
+              <h6 style="float:left;"><span class="badge badge-success" onclick="start_over();" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> Start Again</span></h6>
+              <h6><span class="badge badge-danger" data-widget="control-sidebar" data-slide="true" style="cursor: pointer;"><i class="fas fa-times"></i> Close</span></h6>
+            </div>
+          </div>
+          <div class="messages shadow rounded border border-dark" id="mssg">
+            <ul>
+              <li class="replies">
+                <p>Hello I am Corona Bot. And I am here to help you during novel corona virus outbreak.</p>
+              </li>
+              <li class="replies">
+                <p>Warning: Do not take this as medical advise. Consult your doctor if you feel sick.</p>
+              </li>
+              <li class="sent">
+                <button type="button" class="btn btn-success" onclick="start()">Risk Analyzer. &#129298;</button>
+                <button type="button" class="btn btn-danger" onclick="quiz()">Take Quiz. &#129299;</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
   </div>
-    <!--JQuery -->
-    <script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
-    <!--JQueryUI -->
-    <script src="media/jquery-ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
-    <!--Bootstrap -->
-    <script src="media/bootstrap/bootstrap-4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- list.min.js-->
-    <script src="media/list.js/1.5.0/dist/list.min.js"></script>
-    <!-- Json values and variables -->
-    <script src="media/misc/js/jsonNvars.js"> </script>
-    <!-- chart and map js -->
-    <script src="media/misc/js/themeSwitch.js"> </script>
-    <!--Bootstrap Datables -->
-    <script src="media/dataTables/DataTables-1.10.18/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="media/dataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-    <!--Bootstrap Datables Responsive -->
-    <script src="media/dataTables/Responsive-2.2.2/js/dataTables.responsive.min.js" type="text/javascript"></script>
-    <script src="media/dataTables/Responsive-2.2.2/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
-    <!-- Datables api->processing -->
-    <script type="text/javascript" src="media/dataTables/api/processing().js"></script>
-    <!-- Datables select -->
-    <script src="media/dataTables/DataTables-1.10.18/js/dataTables.select.min.js"></script>
-    <!---moment.js dattimepicker---->
-    <script type="text/javascript" src="media/moment-js/moment.js"></script>
-    <!--highchart JS -->
-    <script src="media/highcharts/7.2.0/highcharts.js"></script>
-    <script src="media/highcharts/7.2.0/modules/exporting.js"></script>
-    <script src="media/highcharts/7.2.0/modules/export-data.js"></script>
-    <!--TextFit JS----->
-    <script type="text/javascript" src="media/textFit/2.4.0/textFit.min.js"></script>
-    <!-- ChartJS -->
-    <script src="media/chart.js/Chart.min.js"></script>
-    <!-- Am chart core -->
-    <script src="media/amCharts/amcharts4/core.js"></script>
-    <!-- Am chart charts -->
-    <script src="media/amCharts/amcharts4/charts.js"></script>
-    <script src="media/amCharts/amcharts4/themes/animated.js"></script>
-    <script src="media/amCharts/amcharts4/themes/material.js"></script>
-    <!-- Am chart maps -->
-    <script src="media/amCharts/amcharts4/maps.js"></script>
-    <script src="media/amCharts/geodata/data/countries2.js"></script>
-    <script src="media/amCharts/geodata/worldIndiaLow.js"></script>
-    <!-- amCharts includes -->
-    <script src="media/amCharts/amcharts4/themes/dark.js"></script>
-    <!-- Set am charts js -->
-    <script src="media/misc/js/amCharts.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
-    <!--OverlayScrollbars Plugin JS -->
-    <script type="text/javascript" src="media/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
-    <!--customBootstrap----->
-    <script type="text/javascript" src="media/prashantUIUX/customBootstrap/js/customBootstrap.js"></script>
-    <!-- Chat bot js -->
-    <script src="media/chatbot/js/chatbot.js"> </script>
-    <!-- Data  -->
-    <!-- <script src="data/js/world_timeline.js"></script>
+  <!--JQuery -->
+  <script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <!--JQueryUI -->
+  <script src="media/jquery-ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+  <!--Bootstrap -->
+  <script src="media/bootstrap/bootstrap-4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+  <!-- list.min.js-->
+  <script src="media/list.js/1.5.0/dist/list.min.js"></script>
+  <!-- Json values and variables -->
+  <script src="media/misc/js/jsonNvars.js"> </script>
+  <!-- chart and map js -->
+  <script src="media/misc/js/themeSwitch.js"> </script>
+  <!--Bootstrap Datables -->
+  <script src="media/dataTables/DataTables-1.10.18/js/jquery.dataTables.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+  <!--Bootstrap Datables Responsive -->
+  <script src="media/dataTables/Responsive-2.2.2/js/dataTables.responsive.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/Responsive-2.2.2/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
+  <!-- Datables api->processing -->
+  <script type="text/javascript" src="media/dataTables/api/processing().js"></script>
+  <!-- Datables select -->
+  <script src="media/dataTables/DataTables-1.10.18/js/dataTables.select.min.js"></script>
+  <!---moment.js dattimepicker---->
+  <script type="text/javascript" src="media/moment-js/moment.js"></script>
+  <!--highchart JS -->
+  <script src="media/highcharts/7.2.0/highcharts.js"></script>
+  <script src="media/highcharts/7.2.0/modules/exporting.js"></script>
+  <script src="media/highcharts/7.2.0/modules/export-data.js"></script>
+  <!--TextFit JS----->
+  <script type="text/javascript" src="media/textFit/2.4.0/textFit.min.js"></script>
+  <!-- ChartJS -->
+  <script src="media/chart.js/Chart.min.js"></script>
+  <!-- Am chart core -->
+  <script src="media/amCharts/amcharts4/core.js"></script>
+  <!-- Am chart charts -->
+  <script src="media/amCharts/amcharts4/charts.js"></script>
+  <script src="media/amCharts/amcharts4/themes/animated.js"></script>
+  <script src="media/amCharts/amcharts4/themes/material.js"></script>
+  <!-- Am chart maps -->
+  <script src="media/amCharts/amcharts4/maps.js"></script>
+  <script src="media/amCharts/geodata/data/countries2.js"></script>
+  <script src="media/amCharts/geodata/worldIndiaLow.js"></script>
+  <!-- amCharts includes -->
+  <script src="media/amCharts/amcharts4/themes/dark.js"></script>
+  <!-- Set am charts js -->
+  <script src="media/misc/js/amCharts.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
+  <!--OverlayScrollbars Plugin JS -->
+  <script type="text/javascript" src="media/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
+  <!--customBootstrap----->
+  <script type="text/javascript" src="media/prashantUIUX/customBootstrap/js/customBootstrap.js"></script>
+  <!-- Chat bot js -->
+  <script src="media/chatbot/js/chatbot.js"> </script>
+  <!-- Data  -->
+  <!-- <script src="data/js/world_timeline.js"></script>
 	 <script src="data/js/total_timeline.js"></script> -->
-    <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/world_timeline.js"></script>
-    <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/total_timeline.js"></script>
-    <!-- Stylesheet -->
-    <link rel="stylesheet" media="all" href="media/amCharts/custom/dark.css" />
-    <!-- Main app -->
-    <script src="media/amCharts/custom/app.js"></script>
-    <script>
-      //	$.widget.bridge('uibutton', $.ui.button)
-    </script>
+  <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/world_timeline.js"></script>
+  <script type="text/javascript" src="https://combinatronics.com/amcharts/covid-charts/master/data/js/total_timeline.js"></script>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" media="all" href="media/amCharts/custom/dark.css" />
+  <!-- Main app -->
+  <script src="media/amCharts/custom/app.js"></script>
+  <script>
+    //	$.widget.bridge('uibutton', $.ui.button)
+  </script>
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
-    <!-- <script src = "https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
-    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script> -->
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
-    <script src = "https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
 
-    <script>
-
+  <script>
     $.get('https://covid.ourworldindata.org/data/owid-covid-data.csv', function(data) {
-    	var countries = null;
+      var countries = null;
 
+      var countryDict  = {};
 
-    	$.ajax({
-    	    url : "https://covid.ourworldindata.org/data/ecdc/locations.csv",
-    	    type : "get",
-    	    async: false,
-    	    success : function(data) {
-    	       countries = data;
-    	    },
-    	    error: function() {
-    	       connectionError();
-    	    }
-    	 });
-    	// start the table
-    	var html = '<table id ="table_id" class="table table-bordered">';
+      $.ajax({
+        url: "https://covid.ourworldindata.org/data/ecdc/locations.csv",
+        type: "get",
+        async: false,
+        success: function(data) {
+          countries = data;
+        },
+        error: function() {
+          connectionError();
+        }
+      });
+      // start the table
+      var html = '<table id ="table_id" class="table table-bordered">';
 
-    	// split into lines
+      // split into lines
 
-    	var rows = data.split("\n");
-    	var rows1 = countries.split("\n");
-    	html += "<thead><tr><th>Country</th><th>Population</th><th>Date</th><th>Total Cases</th><th>Total Deaths</th><th>Total cases per million (tpm)</th><th>Death per million(dpm)</th><th>DPM/TPM</th></tr></thead>"
-    	// parse lines
-    	var today = new Date();
-    	var dd = today.getDate();
+      var rows = data.split("\n");
+      var rows1 = countries.split("\n");
+      html += "<thead><tr><th>Country</th><th>Population</th><th>Date</th><th>Total Cases</th><th>Total Deaths</th><th>Total cases per million (tpm)</th><th>Death per million(dpm)</th><th>DPM/TPM</th></tr></thead>"
+      // parse lines
+      var today = new Date();
+      var dd = today.getDate();
       var mm = today.getMonth() + 1;
 
       var yyyy = today.getFullYear();
       if (dd < 10) {
-          dd = '0' + dd;
+        dd = '0' + dd;
       }
       if (mm < 10) {
-          mm = '0' + mm;
+        mm = '0' + mm;
       }
-    	dd = dd-1;
+      dd = dd - 1;
       var today = yyyy + '-' + mm + '-' + dd;
       var count = 0;
-    	rows.forEach( function getvalues(ourrow) {
-    		var columns = ourrow.split(",");
-        if(typeof columns[2] == "undefined") {
+      rows.forEach(function getvalues(ourrow) {
+        var columns = ourrow.split(",");
+        if (count == 0) {
+          count = 1; //ignore first row
+        //  alert("ignored first row");
+        } else {
+          if (typeof columns[1] == "undefined") {
             // do nothing
+        //    alert("undefined");
+          } else {
+            if(!(columns[1] in countryDict)) 
+            { //repeating countries, quick fix
+            var date = new Date(columns[2]);
+            var t = new Date(today);
+            if (date < t) {} else {
+              html += "<tr>";
+              html += "<td>" + columns[1] + "</td>";
+              var x = 0;
+              countryDict[columns[1]] = "true";
+              rows1.forEach(function getvalues(ourrow1) {
+                var str = columns[1];
+                var columns1 = ourrow1.split(",");
+                if (x == 0) {
+                  var str1 = columns1[1];
+                  if (str1 == str) {
+                    html += "<td>" + columns1[4] + "</td>";
+
+                    x = 1;
+                  }
+                }
+              })
+              if (x == 0) {
+                html += "<td>" + "-" + "</td>";
+              }
+              html += "<td>" + columns[2] + "</td>";
+
+              html += "<td>" + columns[3] + "</td>";
+              html += "<td>" + columns[5] + "</td>";
+              html += "<td>" + columns[7] + "</td>";
+              html += "<td>" + columns[9] + "</td>";
+              html += "<td>" + (columns[9] / columns[7]).toFixed(3) + "</td>";
+              // close row
+              html += "</tr>";
+            }
+          }
         }
-        else if(count == 0) {
-          count++; //ignore first row
         }
-        else {
-    		var date = new Date(columns[2]);
-    		var t = new Date(today);
-    	if(date < t) {
-    	}
-    	else{
-    		html += "<tr>";
-    		html += "<td>" + columns[1] + "</td>";
-    		var x = 0;
+      })
 
-    		rows1.forEach( function getvalues(ourrow1) {
-    			var str = columns[1];
-    			var columns1 = ourrow1.split(",");
-    			if(x == 0){
-            var str1 = columns1[1];
+      // close table
+      html += "</table>";
 
-    				if(str1 == str){
-    					html += "<td>" + columns1[4] + "</td>";
-    					x = 1;
-    				}
-    			}
-    		})
-    		if( x == 0)
-    		{
-    			html += "<td>" + "-" + "</td>";
-    		}
-    		html += "<td>" + columns[2] + "</td>";
-
-    		html += "<td>" + columns[3] + "</td>";
-    		html += "<td>" + columns[5] + "</td>";
-    		html += "<td>" + columns[7] + "</td>";
-    		html += "<td>" + columns[9] + "</td>";
-    	  html += "<td>" + (columns[9]/columns[7]).toFixed(3) + "</td>";
-    					// close row
-    					html += "</tr>";
-    		}
-      }
-    	})
-
-    	// close table
-    	html += "</table>";
-
-    	// insert into div
-    	$('#container').append(html);
+      // insert into div
+      $('#container').append(html);
       // $('#table_id').DataTable();
-    	$('#table_id').DataTable( {
-    			 dom: 'Bfrtip',
-           responsive:true,
-    			 buttons: [
-    					 'copy', 'csv', 'excel', 'pdf', 'print'
-    			 ]
-    	 } );
+      $('#table_id').DataTable({
+        dom: 'Bfrtip',
+        responsive: true,
+        buttons: [
+          'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+      });
 
 
     });
-    </script>
+  </script>
 
 </body>
 
