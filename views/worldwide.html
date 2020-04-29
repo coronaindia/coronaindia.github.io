@@ -446,128 +446,118 @@
   <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
   <script>
     $.get('https://covid.ourworldindata.org/data/owid-covid-data.csv', function(data) {
-      var countries = null;
-      var countryDict = {};
-      $.ajax({
-        url: "https://covid.ourworldindata.org/data/ecdc/locations.csv",
-        type: "get",
-        async: false,
-        success: function(data) {
-          countries = data;
-        },
-        error: function() {
-          connectionError();
-        }
-      });
-      // start the table
-      var html = '<table id ="table_id" class="ncovWorldStat-thsw table table-bordered">';
-      // split into lines
-      var rows = data.split("\n");
-      var rows1 = countries.split("\n");
-      html += "<thead><tr><th>Country</th><th>Population</th><th>Date</th><th>Total Cases</th><th>Total Deaths</th><th>Total cases per million (tpm)</th><th>Death per million(dpm)</th><th>DPM/TPM</th></tr></thead>"
-      // parse lines
-      var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth() + 1;
-      var yyyy = today.getFullYear();
-      if (dd < 10) {
-        dd = '0' + dd;
-      }
-      if (mm < 10) {
-        mm = '0' + mm;
-      }
-      dd = dd - 1;
-      var today = yyyy + '-' + mm + '-' + dd;
-      var count = 0;
-      rows.forEach(function getvalues(ourrow) {
-        var columns = ourrow.split(",");
-        if (count == 0) {
-          count = 1; //ignore first row
-          //  alert("ignored first row");
-        } else {
-          if (typeof columns[1] == "undefined") {
-            // do nothing
-            //    alert("undefined");
-          } else {
-            if(!(columns[1] in countryDict))
-            { //repeating countries, quick fix
-            var date = new Date(columns[2]);
-            var t = new Date(today);
-            if (date < t) {} else {
-              html += "<tr>";
-              html += "<td>" + columns[1] + "</td>";
-              var x = 0;
-              countryDict[columns[1]] = "true";
-              rows1.forEach(function getvalues(ourrow1) {
-                var str = columns[1];
-                var columns1 = ourrow1.split(",");
-                if (x == 0) {
-                  var str1 = columns1[1];
-                  if (str1 == str) {
-                    var population = columns1[4];
-                    if(columns[1] == "Jersey")
-                    {
-                        population =  "97857";
-                        x = 1;
-                    }
-                    else if (columns[1] == "Guernsey") {
-                      population = "67052";
-                    }
-
-                    html += "<td>" + population + "</td>";
-
-                    x = 1;
-                  }
-                })
-                if (x == 0) {
-                  html += "<td>" + "-" + "</td>";
-                }
-              })
-
-              if (x == 0) {
-                html += "<td>" + "-" + "</td>";
-              }
-              html += "<td>" + columns[2] + "</td>";
-
-              html += "<td>" + columns[3] + "</td>";
-              html += "<td>" + columns[5] + "</td>";
-              var tpm = columns[7];
-              var dpm = columns[9];
-              if (columns[1] == "Jersey")
-              {
-                tpm = (columns[3]/97857)*1000000;
-                tpm = tpm.toFixed(2);
-                dpm = (columns[5]/97857)*1000000;
-                dpm = dpm.toFixed(2);
-              }
-              else if (columns[1] = "Guernsey"){
-                tpm = (columns[3]/67052)*1000000;
-                tpm = tpm.toFixed(2);
-                dpm = (columns[5]/67052)*1000000;
-                dpm = dpm.toFixed(2);
-              }
-              html += "<td>" + tpm + "</td>";
-              html += "<td>" + dpm  + "</td>";
-              html += "<td>" + (dpm / tpm).toFixed(3) + "</td>";
-              // close row
-              html += "</tr>";
+          var countries = null;
+          var countryDict = {};
+          $.ajax({
+            url: "https://covid.ourworldindata.org/data/ecdc/locations.csv",
+            type: "get",
+            async: false,
+            success: function(data) {
+              countries = data;
+            },
+            error: function() {
+              connectionError();
             }
+          });
+          // start the table
+          var html = '<table id ="table_id" class="ncovWorldStat-thsw table table-bordered">';
+          // split into lines
+          var rows = data.split("\n");
+          var rows1 = countries.split("\n");
+          html += "<thead><tr><th>Country</th><th>Population</th><th>Date</th><th>Total Cases</th><th>Total Deaths</th><th>Total cases per million (tpm)</th><th>Death per million(dpm)</th><th>DPM/TPM</th></tr></thead>"
+          // parse lines
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth() + 1;
+          var yyyy = today.getFullYear();
+          if (dd < 10) {
+            dd = '0' + dd;
           }
-        }
-      })
-      // close table
-      html += "</table>";
-      // insert into div
-      $('#container').append(html);
-      // $('#table_id').DataTable();
-      $('#table_id').DataTable({
-        dom: 'Bfrtip',
-        responsive: true,
-        buttons: [
-          'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-      });
-    });
+          if (mm < 10) {
+            mm = '0' + mm;
+          }
+          dd = dd - 1;
+          var today = yyyy + '-' + mm + '-' + dd;
+          var count = 0;
+          rows.forEach(function getvalues(ourrow) {
+            var columns = ourrow.split(",");
+            if (count == 0) {
+              count = 1; //ignore first row
+              //  alert("ignored first row");
+            } else {
+              if (typeof columns[1] == "undefined") {
+                // do nothing
+                //    alert("undefined");
+              } else {
+                if (!(columns[1] in countryDict)) { //repeating countries, quick fix
+                  var date = new Date(columns[2]);
+                  var t = new Date(today);
+                  if (date < t) {} else {
+                    html += "<tr>";
+                    html += "<td>" + columns[1] + "</td>";
+                    var x = 0;
+                    countryDict[columns[1]] = "true";
+                    rows1.forEach(function getvalues(ourrow1) {
+                        var str = columns[1];
+                        var columns1 = ourrow1.split(",");
+                        if (x == 0) {
+                          var str1 = columns1[1];
+                          if (str1 == str) {
+                            var population = columns1[4];
+                            if (columns[1] == "Jersey") {
+                              population = "97857";
+                              x = 1;
+                            } else if (columns[1] == "Guernsey") {
+                              population = "67052";
+                            }
+
+                            html += "<td>" + population + "</td>";
+
+                            x = 1;
+                          }
+                          }
+                        })
+
+                      if (x == 0) {
+                        html += "<td>" + "-" + "</td>";
+                      }
+                      html += "<td>" + columns[2] + "</td>";
+
+                      html += "<td>" + columns[3] + "</td>"; html += "<td>" + columns[5] + "</td>";
+                      var tpm = columns[7];
+                      var dpm = columns[9];
+                      if (columns[1] == "Jersey") {
+                        tpm = (columns[3] / 97857) * 1000000;
+                        tpm = tpm.toFixed(2);
+                        dpm = (columns[5] / 97857) * 1000000;
+                        dpm = dpm.toFixed(2);
+                      } else if (columns[1] = "Guernsey") {
+                        tpm = (columns[3] / 67052) * 1000000;
+                        tpm = tpm.toFixed(2);
+                        dpm = (columns[5] / 67052) * 1000000;
+                        dpm = dpm.toFixed(2);
+                      }
+                      html += "<td>" + tpm + "</td>"; html += "<td>" + dpm + "</td>"; html += "<td>" + (dpm / tpm).toFixed(3) + "</td>";
+                      // close row
+                      html += "</tr>";
+                    }
+                  }
+                }
+              }
+              })
+            // close table
+            html += "</table>";
+            // insert into div
+            $('#container').append(html);
+            // $('#table_id').DataTable();
+            $('#table_id').DataTable({
+              dom: 'Bfrtip',
+              responsive: true,
+              buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+              ]
+            });
+          });
   </script>
   <link rel="stylesheet" href="media/misc/css/themeSwitch.css" type="text/css" />
 </body>
