@@ -26,7 +26,7 @@ body-light-theme {
 
 .card-light-theme.list-group-item:hover  {
   background: #F7F7F7 !important;
-  
+
 }
 
 
@@ -69,4 +69,22 @@ color:white; text-shadow: 0.5px 0.5px #20EDE9;
 
 .textRow-light-theme a.accordion-toggle:hover {
     background: #F4F4F4 !important;
+}
+
+
+
+.datatableTr-dark tbody tr {
+  background: #323C48 !important;
+}
+
+.datatableTr-light tbody tr {
+  background: white !important;
+}
+
+.datatableTools-wrapper-dark .dataTables_filter, .datatableTools-wrapper-dark .dataTables_info, .datatableTools-wrapper-dark .dataTables_paginate .paginate_button {
+  color: black !important;
+}
+
+.datatableTools-wrapper-light .dataTables_filter, .datatableTools-wrapper-light .dataTables_info, .datatableTools-wrapper-light .dataTables_paginate .paginate_button {
+  color: white !important;
 }

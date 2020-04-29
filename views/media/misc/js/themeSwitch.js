@@ -61,6 +61,12 @@ function setDayTheme(){
   $(".faqDiv-thsw").removeClass("textRow-dark-theme");
   $(".faqDiv-thsw").addClass("textRow-light-theme");
 
+  $(".ncovWorldAmTable-thsw, .ncovWorldStat-thsw").removeClass("datatableTr-dark");
+  $(".ncovWorldAmTable-thsw, .ncovWorldStat-thsw").addClass("datatableTr-light");
+
+  $(".ncovWorldAmTable-div-thsw, .ncovWorldStat-div-thsw").removeClass("datatableTools-wrapper-light");
+  $(".ncovWorldAmTable-div-thsw, .ncovWorldStat-div-thsw").addClass("datatableTools-wrapper-dark");
+
 }
 
 
@@ -118,6 +124,13 @@ function setNightTheme(){
 
   $(".faqDiv-thsw").addClass("textRow-dark-theme");
   $(".faqDiv-thsw").removeClass("textRow-light-theme");
+
+  $(".ncovWorldAmTable-thsw, .ncovWorldStat-thsw").addClass("datatableTr-dark");
+  $(".ncovWorldAmTable-thsw, .ncovWorldStat-thsw").removeClass("datatableTr-light");
+
+  $(".ncovWorldAmTable-div-thsw, .ncovWorldStat-div-thsw").addClass("datatableTools-wrapper-light");
+  $(".ncovWorldAmTable-div-thsw, .ncovWorldStat-div-thsw").removeClass("datatableTools-wrapper-dark");
+
 
 }
 
