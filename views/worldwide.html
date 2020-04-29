@@ -503,7 +503,7 @@
             // do nothing
         //    alert("undefined");
           } else {
-            if(!(columns[1] in countryDict)) 
+            if(!(columns[1] in countryDict))
             { //repeating countries, quick fix
             var date = new Date(columns[2]);
             var t = new Date(today);
@@ -518,12 +518,23 @@
                 if (x == 0) {
                   var str1 = columns1[1];
                   if (str1 == str) {
-                    html += "<td>" + columns1[4] + "</td>";
+                    var population = columns1[4];
+                    if(columns[1] == "Jersey")
+                    {
+                        population =  "97857";
+                        x = 1;
+                    }
+                    else if (columns[1] == "Guernsey") {
+                      population = "67052";
+                    }
+
+                    html += "<td>" + population + "</td>";
 
                     x = 1;
                   }
                 }
               })
+
               if (x == 0) {
                 html += "<td>" + "-" + "</td>";
               }
@@ -531,9 +542,24 @@
 
               html += "<td>" + columns[3] + "</td>";
               html += "<td>" + columns[5] + "</td>";
-              html += "<td>" + columns[7] + "</td>";
-              html += "<td>" + columns[9] + "</td>";
-              html += "<td>" + (columns[9] / columns[7]).toFixed(3) + "</td>";
+              var tpm = columns[7];
+              var dpm = columns[9];
+              if (columns[1] == "Jersey")
+              {
+                tpm = (columns[3]/97857)*1000000;
+                tpm = tpm.toFixed(2);
+                dpm = (columns[5]/97857)*1000000;
+                dpm = dpm.toFixed(2);
+              }
+              else if (columns[1] = "Guernsey"){
+                tpm = (columns[3]/67052)*1000000;
+                tpm = tpm.toFixed(2);
+                dpm = (columns[5]/67052)*1000000;
+                dpm = dpm.toFixed(2);
+              }
+              html += "<td>" + tpm + "</td>";
+              html += "<td>" + dpm  + "</td>";
+              html += "<td>" + (dpm / tpm).toFixed(3) + "</td>";
               // close row
               html += "</tr>";
             }
