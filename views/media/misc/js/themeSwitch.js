@@ -28,7 +28,11 @@ function setDayTheme(){
   $("body").removeClass("body-light-theme");
   $("body").addClass("bg-white");
 
-  $(".menu-img-thsw").attr("src","views/media/images/open-menu.svg");
+  $(".menu-thsw").removeClass("text-light");
+  $(".menu-thsw").addClass("text-danger");
+
+  $(".users-list-name-thsw").removeClass("text-light");
+  $(".users-list-name-thsw").addClass("text-dark");
 
   $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").removeClass("navbar-dark");
   $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").addClass("navbar-light");
@@ -42,8 +46,8 @@ function setDayTheme(){
   $(".content-wrapper").removeClass("bg-dark-theme");
   $(".content-wrapper").addClass("bg-white");
 
-  $(".card-header").removeClass("card-header-dark-theme");
-  $(".card-header").addClass("bg-white");
+  $(".card-header, .card-footer").removeClass("card-header-dark-theme");
+  $(".card-header, .card-footer").addClass("bg-white");
 
   $(".card-body, .list-group-item-thsw").removeClass("card-dark-theme");
   $(".card-body, .list-group-item-thsw").addClass("bg-white");
@@ -82,7 +86,11 @@ function setNightTheme(){
   $("body").addClass("body-light-theme");
   $("body").removeClass("bg-white");
 
-  $(".menu-img-thsw").attr("src","views/media/images/menuWhite.svg");
+  $(".menu-thsw").addClass("text-light");
+  $(".menu-thsw").removeClass("text-danger");
+
+  $(".users-list-name-thsw").addClass("text-light");
+  $(".users-list-name-thsw").removeClass("text-dark");
 
   $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").addClass("navbar-dark");
   $(".main-header-thsw, .main-Sidebar-thsw, .main-footer").removeClass("navbar-light");
@@ -96,8 +104,8 @@ function setNightTheme(){
   $(".content-wrapper").addClass("bg-dark-theme");
   $(".content-wrapper").removeClass("bg-white");
 
-  $(".card-header").addClass("card-header-dark-theme");
-  $(".card-header").removeClass("bg-white");
+  $(".card-header, .card-footer").addClass("card-header-dark-theme");
+  $(".card-header, .card-footer").removeClass("bg-white");
 
   $(".card-body, .list-group-item-thsw").addClass("card-dark-theme");
   $(".card-body, .list-group-item-thsw").removeClass("bg-white");
@@ -110,6 +118,7 @@ function setNightTheme(){
 
   $(".faqDiv-thsw").addClass("textRow-dark-theme");
   $(".faqDiv-thsw").removeClass("textRow-light-theme");
+
 }
 
 function updateLineChartConfig() {
