@@ -1,0 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:700);
+
+body{
+
+}
+
+.botAnime{
+
+/*position: absolute;
+    top: 500;
+    right: 0;
+    z-index: 100;
+*/}
+
+.dg.ac {
+    display: none;
+}
+
+#contact {
+	font-family: 'dancing script', sans-serif;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	margin: 0 auto;
+	width: 280px;
+	text-align: center;
+	font-size: 12px;
+}
+
+#contact a, #loading {
+	font-family: 'open sans', sans-serif;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+#contact span {
+	color: #4e285f;
+	font-size: 22px;
+	margin: 0 5px
+}
+
+#loading {
+	font-size: 14px;	
+}

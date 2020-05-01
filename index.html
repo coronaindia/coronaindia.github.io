@@ -58,13 +58,17 @@
 	<link rel="stylesheet" href="views/media/misc/css/themeSwitch.css" type="text/css" />
 	<link rel="stylesheet" href="views/media/misc/css/allAnimation.css" type="text/css" />
 	<!-- <link rel="stylesheet" href="views/media/misc/css/botFrame.css" type="text/css" /> -->
+	<link rel="stylesheet" href="views/robot/style.css">
+
 	<link rel="manifest" href="views/media/pwa/manifest.json" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="" ng-cloak>
+
 	<input type="text" name="themeTypeElm" id="themeTypeElm" class="d-none themeTypeElm" value="1">
 	<div class="wrapper">
 		<!-- Navbar -->
+
 		<nav class="main-header-thsw main-header navbar navbar-expand navbar-light" id="">
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
@@ -95,6 +99,7 @@
 						<span style="cursor: pointer;"><span class="badge badge-secondary" data-widget="control-sidebar" data-slide="true">Ask Bot <i class="far fa-hand-point-right"></i></span><img class="direct-chat-img animated flip delay-0.2s"
 								data-widget="control-sidebar" data-slide="true" src="views/media/images/robot.svg" style="float: right;">
 						</span>
+						
 					</form>
 				</li>
 			</ul>
@@ -225,6 +230,11 @@
 									About
 								</p>
 							</a>
+						</li>
+						<li>
+							
+							<div class="botAnime d-none"> </div>
+
 						</li>
 						<!-- <li class="nav-item ml-3"> -->
 						<!-- <a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=indiafightscorona&ref_src=twsrc%5Etfw"> -->
@@ -816,6 +826,7 @@
 			</div>
 		</aside>
 	</div>
+
 	<!--JQuery -->
 	<script src="views/media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<!--JQueryUI -->
@@ -873,6 +884,12 @@
 	<script src="views/media/misc/js/common.js"> </script>
 	<script src="views/media/plugin/plugin.js"> </script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<script src='views/robot/three.min.js'></script>
+	<script src='views/robot/gsap.min.js'></script>
+	<script src='views/robot/dat.gui.min.js'></script>
+	<script src='views/robot/colladaLoader2.min.js'></script>
+	<script  src="views/robot/script.js"></script>
 	<script>
 		// 	if ('serviceWorker' in navigator) {
 		// 	// Use the window load event to keep the page load performant
