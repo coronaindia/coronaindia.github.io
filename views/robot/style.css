@@ -6,12 +6,14 @@ body{
 }
 
 .botAnime{
-
-/*position: absolute;
-    top: 500;
-    right: 0;
-    z-index: 100;
-*/}
+float: right;
+    position: fixed;
+   /* position: -webkit-sticky; 
+  position: sticky;*/
+    top: 1px !important;
+    right: 5px;
+    z-index: 10;
+    }
 
 .dg.ac {
     display: none;

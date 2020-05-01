@@ -1,13 +1,13 @@
-var bgWidth = 100;
-    var bgHeight = 200;
+var bgWidth = 80;
+    var bgHeight = 160;
 
 class Robot {
   constructor() {
     //this.windowWidth = window.innerWidth;
     //this.windowHeight = window.innerHeight;
     
-    this.windowWidth = 100;
-    this.windowHeight = 200;
+    this.windowWidth = 80;
+    this.windowHeight = 160;
     
 
     this.animation = {
@@ -96,13 +96,38 @@ class Robot {
      * New ground.
      */
   newGround() {
-    const geometry = new THREE.PlaneGeometry(45, 45);
-    const material = new THREE.MeshLambertMaterial({ }); //color: 0x9555b0
+//     var planeGeometry = new THREE.PlaneBufferGeometry( 45, 45 );
+// planeGeometry.rotateX( - Math.PI / 2 );
+
+// var planeMaterial = new THREE.ShadowMaterial();
+// planeMaterial.opacity = 0.2;
+
+// var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+// plane.position.y = -200;
+// plane.receiveShadow = true;
+// scene.add( plane );
+
+    const geometry = new THREE.PlaneBufferGeometry(45, 45);
+    //geometry.rotateX( - Math.PI / 2 );
+
+    const material = new THREE.ShadowMaterial();
+    material.opacity = 0.2;
+
     this.ground = new THREE.Mesh(geometry, material);
     this.ground.rotation.x = THREE.Math.degToRad(-90);
     this.ground.position.y = -7;
     this.ground.receiveShadow = true;
     this.scene.add(this.ground);
+
+    // const geometry = new THREE.PlaneGeometry(45, 45);
+    // const material = new THREE.MeshLambertMaterial({ color: 0x9555b0, alpha:0}); //color: 0x9555b0
+    // // .lerpHSL ( color : Color, alpha : Float ) : Color
+    // // material.transparent = true;
+    // this.ground = new THREE.Mesh(geometry, material);
+    // this.ground.rotation.x = THREE.Math.degToRad(-90);
+    // this.ground.position.y = -7;
+    // this.ground.receiveShadow = true;
+    // this.scene.add(this.ground);
   }
 
   /**
@@ -131,9 +156,13 @@ class Robot {
   newRobot() {
     const url = {
       
-      texture1: 'https://elcomrades.github.io/coronaindia/views/robot/face.jpg',
-      texture2: 'https://elcomrades.github.io/coronaindia/views/robot/texture.jpg',
-      object: 'https://elcomrades.github.io/coronaindia/views/robot/boule.DAE'
+      // texture1: 'https://elcomrades.github.io/coronaindia/views/robot/face.jpg',
+      // texture2: 'https://elcomrades.github.io/coronaindia/views/robot/texture.jpg',
+      // object: 'https://elcomrades.github.io/coronaindia/views/robot/boule.DAE'
+
+      texture1: '/views/robot/face.jpg',
+      texture2: '/views/robot/texture.jpg',
+      object: '/views/robot/boule.DAE'
        };
 
     const loader = new THREE.ColladaLoader();

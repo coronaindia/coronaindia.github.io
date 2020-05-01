@@ -11008,7 +11008,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 
 .main-header {
   border-bottom: 1px solid #dee2e6;
-  z-index: 1034;
+  z-index: 5;
 }
 
 .main-header .nav-link {
@@ -12579,7 +12579,7 @@ html.control-sidebar-animate {
   bottom: calc(3.5rem + 1px);
   position: absolute;
   top: calc(3.5rem + 1px);
-  z-index: 1031;
+  z-index: 5;
 }
 
 .control-sidebar, .control-sidebar::before {
@@ -12595,14 +12595,14 @@ html.control-sidebar-animate {
     transition: none;
   }
 }
-
-.control-sidebar::before {
+/*pm comment*/
+/*.control-sidebar::before {
   content: '';
   display: block;
   position: fixed;
   top: 0;
   z-index: -1;
-}
+}*/
 
 body.text-sm .control-sidebar {
   bottom: calc(2.9365rem + 1px);
