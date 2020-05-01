@@ -130,9 +130,9 @@ class Robot {
      */
   newRobot() {
     const url = {
-      object: '/boule.DAE',
-      texture1: '/face.jpg',
-      texture2: '/texture.jpg' };
+      object: 'boule.DAE',
+      texture1: 'face.jpg',
+      texture2: 'texture.jpg' };
 
     const loader = new THREE.ColladaLoader();
     loader.load(url.object, collada => {
