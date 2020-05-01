@@ -156,13 +156,13 @@ class Robot {
   newRobot() {
     const url = {
       
-      // texture1: 'https://elcomrades.github.io/coronaindia/views/robot/face.jpg',
-      // texture2: 'https://elcomrades.github.io/coronaindia/views/robot/texture.jpg',
-      // object: 'https://elcomrades.github.io/coronaindia/views/robot/boule.DAE'
+      texture1: 'https://elcomrades.github.io/coronaindia/views/robot/face.jpg',
+      texture2: 'https://elcomrades.github.io/coronaindia/views/robot/texture.jpg',
+      object: 'https://elcomrades.github.io/coronaindia/views/robot/boule.DAE'
 
-      texture1: '/views/robot/face.jpg',
-      texture2: '/views/robot/texture.jpg',
-      object: '/views/robot/boule.DAE'
+      // texture1: '/views/robot/face.jpg',
+      // texture2: '/views/robot/texture.jpg',
+      // object: '/views/robot/boule.DAE'
        };
 
     const loader = new THREE.ColladaLoader();
