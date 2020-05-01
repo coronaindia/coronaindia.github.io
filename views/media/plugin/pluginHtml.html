@@ -6,9 +6,13 @@
     <title>Corona Data</title>
     <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <link data-brackets-id="117" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,500,900">
+    <link data-brackets-id="117" rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500,900">
     <link rel="stylesheet" type="text/css" href="swiper.min.css" />
     <script src="/coronaindia/views/media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/coronaindia/views/media/prashantUIUX/fonts/webfontkit-averta-family/stylesheet.css"
+        type="text/css" />
+    <link rel="stylesheet" href="/coronaindia/views/dist/css/dashboardTheme.css">
     <style>
         * {
             margin: 0;
@@ -373,12 +377,13 @@
 
         .covid-title,
         .covid-value {
-            font-size: 18px;
-            text-transform: uppercase;
-            color: #000;
+            font-size: 16px;
+            /* text-transform: uppercase; */
+            /* color: #000; */
             width: 100%;
             text-align: center;
             font-weight: 500;
+            font-family: 'averta-regularuploaded_file';
         }
 
         .covid-title {
@@ -411,82 +416,176 @@
             margin-left: 3px;
         }
 
-        < !--https: //indiatoday.woxo.tech/   https://www.indiatoday.in/coronavirus-covid-19-outbreak-->
+        .text-right {
+            text-align: right;
+            font-family: 'averta-regularuploaded_file';
+            font-weight: 600;
+        }
+
+        .covid-19.theme-primary {
+            border: 1px solid #007bff !important;
+
+        }
+
+        .covid-19 .covid-head-primary {
+            background-color: #007bff !important;
+        }
+
+
+        .covid-19.theme-info {
+            border: 1px solid #17a2b8 !important;
+
+        }
+
+        .covid-19 .covid-head-info {
+            background-color: #17a2b8 !important;
+        }
+
+        .covid-19 .covid-new {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            height: 29px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .covid-19.theme-danger {
+            border: 1px solid #dc3545 !important;
+
+        }
+
+        .covid-19 .covid-head-danger {
+            background-color: #dc3545 !important
+        }
+
+        .covid-19.theme-warning {
+            border: 1px solid #ffc107 !important;
+
+        }
+
+        .covid-19 .covid-head-warning {
+            background-color: #ffc107 !important;
+        }
+
+        .covid-19.theme-success {
+            border: 1px solid #28a745 !important;
+
+        }
+
+        .covid-19 .covid-head-success {
+            background-color: #28a745 !important;
+        }
+
+        .covid-19.theme-secondary {
+            border: 1px solid #6c757d !important;
+
+        }
+
+        .covid-19 .covid-head-secondary {
+            background-color: #6c757d !important
+        }
+
+        .covid-body-inner {
+            margin: 8px;
+        }
+
+        .plugin-img{
+            width: 28px;height: 28px;
+            margin: 6px 0px 0px 0px;
+        }
+
     </style>
 </head>
 
 <body>
-    <a href="https://www.indiatoday.in/coronavirus" style="text-decoration:none;color:#000;" target="_blank">
+    <a href="https://coronaindia.github.io/" style="text-decoration:none;color:#000;" target="_blank">
         <div class="swiper-container" id="flip3dSlider">
             <ul class="swiper-wrapper">
                 <li class="swiper-slide front">
-                    <div class="covid-19 theme-red">
-                        <div class="covid-head">Covid-19 </div>
-                        <div class="covid-body">
+                    <div class="covid-19 theme-info">
+                        <div class="covid-head-info covid-new">Covid-19 </div>
+                        <div class="covid-body border-info  shadow-lg bg-gradient-info">
                             <div class="covid-body-inner">
-                                <div class="covid-title">INDIA</div>
-                                <div class="ckey b">Total: <span id="totalCases"></span></div>
-                                
+                                <div class="covid-title">Total Cases</div>
+                                <div class="covid-title text-right " id="totalCases"></div>
+                                <div style="width: 100%;">
+                                    <img class="img float-right plugin-img" src="/coronaindia/views/media/images/totalcase.svg">
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="swiper-slide front">
-                    <div class="covid-19 theme-red">
-                        <div class="covid-head">Covid-19</div>
-                        <div class="covid-body">
+                    <div class="covid-19 theme-primary">
+                        <div class="covid-head-primary covid-new">Covid-19</div>
+                        <div class="covid-body border-primary  shadow-lg bg-gradient-primary">
                             <div class="covid-body-inner">
-                                <div class="covid-title">INDIA</div>
-                                <div class="ckey b">Active Cases: <span id="activeCases"></span></div>
-                               
+                                <div class="covid-title">Active Cases</div>
+                                <div class="covid-title text-right" id="totalActive"></div>
+                                <div style="width: 100%;">
+                                    <img class="img float-right plugin-img" src="/coronaindia/views/media/images/activecase.svg">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="swiper-slide front">
-                    <div class="covid-19 theme-red">
-                        <div class="covid-head">Covid-19</div>
-                        <div class="covid-body">
+                    <div class="covid-19 theme-danger">
+                        <div class="covid-head-danger covid-new">Covid-19</div>
+                        <div class="covid-body  border-danger border-danger  bg-gradient-danger">
                             <div class="covid-body-inner">
-                                <div class="covid-title">INDIA</div>
-                                <div class="ckey b">Total Deaths: <span id="totalDeaths"></span></div>
-                               
+                                <div class="covid-title">Total Deaths</div>
+                                <div class="covid-title text-right" id="totalDeaths"></div>
+                                <div style="width: 100%;">
+                                    <img class="img float-right plugin-img" src="/coronaindia/views/media/images/nuclear.svg">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="swiper-slide front">
-                    <div class="covid-19 theme-red">
-                        <div class="covid-head">Covid-19</div>
-                        <div class="covid-body">
+                    <div class="covid-19 theme-warning">
+                        <div class="covid-head-warning covid-new">Covid-19</div>
+                        <div class="covid-body border-warning shadow-lg bg-gradient-warning text-white">
                             <div class="covid-body-inner">
-                                <div class="covid-title">INDIA</div>
-                                <div class="ckey b">Death Rate: <span id="deathRate"></span></div>
-                               
+                                <div class="covid-title">Death Rate</div>
+                                <div class="covid-title text-right" id="deathRate"></div>
+                                <div style="width: 100%;">
+                                    <img class="img float-right plugin-img" src="/coronaindia/views/media/images/globe.svg">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="swiper-slide front">
-                    <div class="covid-19 theme-red">
-                        <div class="covid-head">Covid-19</div>
-                        <div class="covid-body">
+                    <div class="covid-19 theme-secondary">
+                        <div class="covid-head-secondary covid-new">Covid-19</div>
+                        <div class="covid-body border-secondary shadow-lg bg-gradient-secondary">
                             <div class="covid-body-inner">
-                                <div class="covid-title">INDIA</div>
-                                <div class="ckey b">Total Cured: <span id="cured"></span></div>
-                               
+                                <div class="covid-title">Total Cured</div>
+                                <div class="covid-title text-right" id="cured"></div>
+                                <div style="width: 100%;">
+                                    <img class="img float-right plugin-img" src="/coronaindia/views/media/images/cured.svg">
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="swiper-slide front">
-                    <div class="covid-19 theme-red">
-                        <div class="covid-head">Covid-19</div>
-                        <div class="covid-body">
+                    <div class="covid-19 theme-success">
+                        <div class="covid-head-success covid-new">Covid-19</div>
+                        <div class="covid-body border-warning shadow-lg bg-gradient-success">
                             <div class="covid-body-inner">
-                                <div class="covid-title">INDIA</div>
-                                <div class="ckey b">Recovery Rate: <span id="recoveryRate"></span></div>
-                               
+                                <div class="covid-title">Recovery Rate</div>
+                                <div class="covid-title text-right" id="recoveryRate"></div>
+                                <div style="width: 100%;">
+                                    <img class="img float-right plugin-img" src="/coronaindia/views/media/images/india.svg">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -496,54 +595,41 @@
     </a>
     <script src="swiper.min.js"></script>
     <script type="text/javascript">
-        
-        var swiper = new Swiper('#flip3dSlider.swiper-container', {
-            effect: 'cube',
-            grabCursor: true,
-            autoplay: true,
-            speed: 1000,
-            loop: true,
-            observer: false,
-            cubeEffect: {
-                shadow: true,
-                slideShadows: true,
-                shadowOffset: 8,
-                shadowScale: 0.65,
-            }
 
-        });
 
-        
+
+
 
         function loadCoronaData() {
             console.log("calling load data");
             var apiUrlLatestCases = 'https://api.rootnet.in/covid19-in/stats/latest';
-            console.log("apiurl",apiUrlLatestCases);
+            console.log("apiurl", apiUrlLatestCases);
             $.ajax({
                 type: "GET",
                 url: apiUrlLatestCases,
                 dataType: "json",
-                success: function(result) {
-                    
-                    coronaCasesSummary=result.data.summary;
+                success: function (result) {
+
+                    coronaCasesSummary = result.data.summary;
                     coronaCasesAll = result.data;
                     setDashboardStats(result.data.summary);
 
                 },
-                error: function(results) {
+                error: function (results) {
                     alert("There is an error. " + results.stringfy);
                 }
             });
 
         }
         function setDashboardStats(statsSummary) {
+            console.log("statsSummary", statsSummary);
             var totalActive = statsSummary.total - statsSummary.discharged - statsSummary.deaths;
-          //  $('#totalCases').html(JSON.stringify(statsSummary.total));
-          $("#totalCases").html(new Date().getSeconds());
+            $('#totalCases').html(statsSummary.total);
+            //$("#totalCases").html(new Date().getSeconds());
             $('#totalActive').html(totalActive);
-           
-            var fatalityRate = (statsSummary.deaths/statsSummary.total)*100;
-            var recoveryRate = (statsSummary.discharged/statsSummary.total)*100;
+
+            var fatalityRate = (statsSummary.deaths / statsSummary.total) * 100;
+            var recoveryRate = (statsSummary.discharged / statsSummary.total) * 100;
             $('#deathRate').html(fatalityRate.toFixed(2) + "%");
             $('#recoveryRate').html(recoveryRate.toFixed(2) + "%");
             $('#cured').html(JSON.stringify(statsSummary.discharged));
@@ -552,7 +638,30 @@
 
         }
 
-        loadCoronaData();
+        $(function () {
+
+            var swiper = new Swiper('#flip3dSlider.swiper-container', {
+                effect: 'cube',
+                grabCursor: true,
+                autoplay: true,
+                speed: 1000,
+                loop: true,
+                observer: false,
+                cubeEffect: {
+                    shadow: true,
+                    slideShadows: true,
+                    shadowOffset: 8,
+                    shadowScale: 0.65,
+                }
+
+            });
+
+            setTimeout(function () {
+                loadCoronaData();
+            }, 1000);
+
+        });
+
 
     </script>
 </body>
