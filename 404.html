@@ -1,0 +1,276 @@
+<!--
+#Project   : COVID19
+#Team      : https://github.com/orgs/elComrades/people
+#Author    : github.com/prashantmi, github.com/deepandu
+						 github.com/abhijatchaturvedi, github.com/siddharthsrivastava
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161859093-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-161859093-2');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content=" Dashboard for COVID-19 virus outbreak in INDIA">
+  <meta property="og:url" content="https://coronaindia.github.io/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="COVID-19 INDIA Dashboard" />
+  <meta property="og:description" content="Dashboard for COVID-19 virus outbreak in INDIA">
+  <meta property="og:image" content="https://coronaindia.github.io//media/images/fsharevirus.png">
+  <title>COVID-19 INDIA Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/dashboardTheme.min.css">
+  <!--JQueryUI -->
+  <link href="media/jquery-ui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+  <!--Bootstrap -->
+  <link href="media/bootstrap/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!--Bootstrap Datables -->
+  <link href="media/dataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+  <!--Bootstrap Datables Responsive -->
+  <link href="media/dataTables/Responsive-2.2.2/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+  <!--Fontawesome Icons---->
+  <link rel="stylesheet" href="media/fontawesome/5.10.1/css/all.css" />
+  <!--customBootstrap----->
+  <link rel="stylesheet" href="media/prashantUIUX/customBootstrap/css/customBootstrap.css" type="text/css" />
+  <!--Fonts--------------->
+  <link rel="stylesheet" href="media/prashantUIUX/fonts/webfontkit-averta-family/stylesheet.css" type="text/css" />
+  <!--Custom -->
+  <link rel="stylesheet" href="media/misc/css/indexDay.css" id="dayThemeCss" type="text/css" />
+  <link rel="stylesheet" href="media/misc/css/common.css" type="text/css">
+  <link rel="stylesheet" href="media/misc/css/themeSwitch.css" type="text/css" />
+  <link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="" ng-cloak>
+  <input type="text" name="themeTypeElm" id="themeTypeElm" class="d-none themeTypeElm" value="1">
+	<div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header-thsw main-header navbar navbar-expand navbar-light" id="">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link nav-link-menuBtn" data-widget="pushmenu" href="#">
+						<i class="menu-thsw fas fa-bars text-danger" style="font-size:20px; font-weight: bold;"></i>
+					</a>
+        </li>
+        <li class="nav-item mt-2 ">
+					<a href="" class="text-nowrap"><b>COVID-19 Virus Outbreak in INDIA </b><img class="img" src="media/images/indianflag.svg" width="20px" height="20px"></a>
+					<div class="form-group d-flex text-nowrap flex-nowrap">
+						Day Mode &nbsp;
+						<i class="fas fa-cloud-sun text-warning" style=""></i>
+						&nbsp;
+						<div class="custom-control custom-switch">
+							<input type="checkbox" class="custom-control-input themeSwitchChkBox" id="customSwitch1">
+							<label class="custom-control-label" for="customSwitch1"></label>
+						</div>
+						<i class="fas fa-cloud-moon text-primary" style="">&nbsp;</i>
+						Night Mode
+					</div>
+				</li>
+      </ul>
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<form class="form-inline">
+						<span style="cursor: pointer;"><span class="badge badge-secondary" data-widget="control-sidebar" data-slide="true">Ask Bot <i class="far fa-hand-point-right"></i></span><img class="direct-chat-img animated flip delay-0.2s"
+								data-widget="control-sidebar" data-slide="true" src="media/images/robot.svg" style="float: right;">
+						</span>
+					</form>
+				</li>
+			</ul>
+    </nav>
+    <!-- Main Sidebar Container -->
+    <aside class="main-Sidebar-thsw navbar-light main-sidebar elevation-4 shadow">
+      <!-- Brand Logo -->
+      <a href="" class="brand-link">
+				<img src="media/images/virus.svg" alt="CoronaIndia Logo" class="brand-image img-circle elevation-3">
+				<span class="brand-text-thsw brand-text font-weight-bold text-shadow brand-text-light" style="">COVID-19 INDIA</span>
+			</a>
+      <!-- Sidebar -->
+      <div class="sidebar">
+				<!-- Sidebar Menu -->
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+						<!-- Add icons to the links using the .nav-icon class
+				 with font-awesome or any other icon font library -->
+						<li class="nav-item">
+							<a href="" class="nav-link">
+								<i class="nav-icon fas fa-home"></i>
+								<p>
+									Home
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="../index.html" class="nav-link">
+								<i class="nav-icon fas fa-th"></i>
+								<p>
+									Stats- INDIA
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="worldwide.html" class="nav-link">
+								<i class="nav-icon fas fa-globe"></i>
+								<p>
+									Stats- WORLD
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="researchcentre.html" class="nav-link">
+								<i class="nav-icon fas fa-flask"></i>
+								<p>
+									Research Centre &nbsp; <span class="badge badge-danger new-text">New</span>
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="about.html" class="nav-link">
+								<i class="fa fa-info-circle nav-icon"></i>
+								<p>
+									About
+								</p>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+    </aside>
+    <!--Common navbar ends here-->
+
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>404 Error Page</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                <li class="breadcrumb-item active">404 Error Page</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="error-page">
+          <h2 class="headline text-warning"> 404</h2>
+
+          <div class="error-content">
+            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
+
+            <p>
+              We could not find the page you were looking for.
+              Meanwhile, you may <a href="../index.html">return to dashboard</a> or try using the search form.
+            </p>
+
+            <form class="search-form">
+              <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.input-group -->
+            </form>
+          </div>
+          <!-- /.error-content -->
+        </div>
+        <!-- /.error-page -->
+      </section>
+      <!-- /.content -->
+    </div>
+
+    <footer class="main-footer ">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-6 col-md-4">
+						<span class="flex-nowrap "><i class="far fa-envelope text-danger"></i><span style="color:#20B4C4;"> elcomrades19@gmail.com</span></span>
+					</div>
+					<div class="col-6 col-md-2">
+						<span class="flex-nowrap ">Visitor Count : <span class="badge badge-danger" id="visitorCount"><i class='fa fa-spinner fa-spin'></i></span></span>
+					</div>
+					<div class="col-8 col-md-4 pt-md-0 pt-2">
+						<span class="flex-nowrap">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></span>
+					</div>
+					<div class="col-4 col-md-2">
+						<span class="flex-nowrap"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;"></i> Authors</a></span>
+					</div>
+				</div>
+			</div>
+		</footer>
+    <aside class="control-sidebar" style="" id="newsscroll">
+			<div id="frame">
+				<div class="chatbot-frame-thsw content bg-white shadow" style="">
+					<div class="bot-header-thsw contact-profile shadow rounded ">
+						<img src="media/images/robot.svg" class="img animated flip delay-0.2s">
+						<h4><span class="animated fadeIn delay-0.2s ">Corona Bot</span></h4>
+						<div>
+							<h6 style="float:left;"><span class="badge badge-success" onclick="start_over();" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> Start Again</span></h6>
+							<h6><span class="badge badge-danger" data-widget="control-sidebar" data-slide="true" style="cursor: pointer;"><i class="fas fa-times"></i> Close</span></h6>
+						</div>
+					</div>
+					<div class="messages shadow rounded border border-dark" id="mssg">
+						<ul>
+							<li class="replies">
+								<p>Hello I am Corona Bot. And I am here to help you during novel corona virus outbreak.</p>
+							</li>
+							<li class="replies">
+								<p>Warning: Do not take this as medical advise. Consult your doctor if you feel sick.</p>
+							</li>
+							<li class="sent">
+								<button type="button" class="btn btn-success" onclick="start()">Risk Analyzer. &#129298;</button>
+								<button type="button" class="btn btn-danger" onclick="quiz()">Take Quiz. &#129299;</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</aside>
+  </div>
+    <!--JQuery -->
+    <script src="media/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <!--JQueryUI -->
+    <script src="media/jquery-ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <!--Bootstrap -->
+    <script src="media/bootstrap/bootstrap-4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Json values and variables -->
+  	<script src="media/misc/js/jsonNvars.js"> </script>
+  	<!-- chart and map js -->
+  	<script src="media/misc/js/themeSwitch.js"> </script>
+  	<!--TextFit JS----->
+    <script type="text/javascript" src="media/textFit/2.4.0/textFit.min.js"></script>
+    <!--customBootstrap----->
+    <script type="text/javascript" src="media/prashantUIUX/customBootstrap/js/customBootstrap.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- Chat bot js -->
+    <script src="media/chatbot/js/chatbot.js"> </script>
+    <!-- common js -->
+    <script src="media/misc/js/common.js"> </script>
+    <script src="examples/app.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
