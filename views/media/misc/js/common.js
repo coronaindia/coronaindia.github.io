@@ -26,6 +26,7 @@ $(function() {
 
 });
 //initialize plugin with custom options on all div elements and return all instances as array
+if($('.customScrollBar').length)
   divOverlayScrollbarsInstances = $('.customScrollBar').overlayScrollbars({className : cutomScrollThemeClassTyp1 }).overlayScrollbars();
 
 //get the instance information of all elements on your page and store it into a variable
