@@ -279,7 +279,7 @@ color: #F2F9FF;
   box-shadow: -0.1px 1px 20px -7px #f8f9fa !important;
 }
 
-.btn-dark {
+/*.btn-dark {
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
@@ -287,7 +287,7 @@ color: #F2F9FF;
   transition: all 0.3s ease 0s;
   box-shadow: -0.1px 1px 20px -7px #343a40 !important;
 }
-
+*/
 .btn-primary:hover {
   color: #fff;
   background-color: #0069d9;
@@ -330,11 +330,11 @@ color: #F2F9FF;
   border-color: #dae0e5;
 }
 
-.btn-dark:hover {
+/*.btn-dark:hover {
   color: #fff;
   background-color: #23272b;
   border-color: #1d2124;
-}
+}*/
 
 
 
