@@ -9,6 +9,7 @@
 
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script data-ad-client="ca-pub-3584207319564393" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161859093-2"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -61,7 +62,6 @@
 	<link rel="stylesheet" href="views/robot/style.css">
 
 	<link rel="manifest" href="views/media/pwa/manifest.json" />
-	<script data-ad-client="ca-pub-3584207319564393" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed" id="pagescroll" ng-app="" ng-cloak>
@@ -459,7 +459,24 @@
 								</div>
 							</div>
 
-							<div class="card shadow" id="">
+							<div class="card shadow" id="doughnutCard">
+								<div class="card-header">
+									<h3 class="card-title">
+										<i class="fas fa-chart-pie mr-1" style="color:#20B4C4;"></i>
+										Cases 2019-nCoV
+									</h3>
+									<div class="card-tools">
+										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+								<div class="card-body">
+									<canvas id="ncovDoughnut"></canvas>
+								</div>
+							</div>
+
+							<div class="card shadow d-none" id="">
 								<div class="card-header">
 									<h3 class="card-title">
 										<i class="fas fa-chart-pie mr-1" style="color:#20B4C4;"></i>
@@ -478,23 +495,6 @@
 									data-ad-format="fluid"
 									data-ad-client="ca-pub-3584207319564393"
 									data-ad-slot="3552398597"></ins>
-								</div>
-							</div>
-
-							<div class="card shadow" id="doughnutCard">
-								<div class="card-header">
-									<h3 class="card-title">
-										<i class="fas fa-chart-pie mr-1" style="color:#20B4C4;"></i>
-										Cases 2019-nCoV
-									</h3>
-									<div class="card-tools">
-										<button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-											<i class="fas fa-minus"></i>
-										</button>
-									</div>
-								</div>
-								<div class="card-body">
-									<canvas id="ncovDoughnut"></canvas>
 								</div>
 							</div>
 
