@@ -36,3 +36,18 @@
 	    height: 630px !important;
 	}
 }
+
+
+@media screen and (max-width: 460px) {
+    .gogAdDiv {
+        min-width: 250px !important;
+        min-height: 250px !important;
+    }
+}
+
+@media screen and (min-width: 460px) {
+    .gogAdDiv {
+        min-width: 250px !important;
+        min-height: 220px !important;
+    }
+}
