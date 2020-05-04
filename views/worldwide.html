@@ -508,6 +508,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     html += "<td>" + columns[1] + "</td>";
                     var x = 0;
                     countryDict[columns[1]] = "true";
+                    var tpm = 0;
+                    var dpm = 0;
+                    var population1 = 0;
                     rows1.forEach(function getvalues(ourrow1) {
                         var str = columns[1];
                         var columns1 = ourrow1.split(",");
@@ -524,6 +527,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                             html += "<td>" + population + "</td>";
 
+                            tpm = (parseFloat(columns[3])/population)*1000000;
+                            tpm = tpm.toFixed(2);
+                            dpm = (parseFloat(columns[5])/population)*1000000
+                            dpm = dpm.toFixed(2);
                             x = 1;
                           }
                           }
@@ -534,21 +541,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       }
                       html += "<td>" + columns[2] + "</td>";
 
-                      html += "<td>" + columns[3] + "</td>"; html += "<td>" + columns[5] + "</td>";
-                      var tpm = columns[7];
-                      var dpm = columns[9];
-                      if (columns[1] == "Jersey") {
-                        tpm = (columns[3] / 97857) * 1000000;
-                        tpm = tpm.toFixed(2);
-                        dpm = (columns[5] / 97857) * 1000000;
-                        dpm = dpm.toFixed(2);
-                      } else if (columns[1] = "Guernsey") {
-                        tpm = (columns[3] / 67052) * 1000000;
-                        tpm = tpm.toFixed(2);
-                        dpm = (columns[5] / 67052) * 1000000;
-                        dpm = dpm.toFixed(2);
-                      }
-                      html += "<td>" + tpm + "</td>"; html += "<td>" + dpm + "</td>"; html += "<td>" + (dpm / tpm).toFixed(3) + "</td>";
+                      html += "<td>" + columns[3] + "</td>";
+                      html += "<td>" + columns[5] + "</td>";
+
+                      // var tpm = columns[7];
+                      // var dpm = columns[9];
+
+                      // if (columns[1] == "Jersey") {
+                      //   tpm1 = (columns[3] / 97857) * 1000000;
+                      //   tpm1 = tpm1.toFixed(2);
+                      //   dpm1 = (columns[5] / 97857) * 1000000;
+                      //   dpm1 = dpm1.toFixed(2);
+                      //   isCustom = 1;
+                      // } else if (columns[1] = "Guernsey") {
+                      //   tpm1 = (columns[3] / 67052) * 1000000;
+                      //   tpm1 = tpm1.toFixed(2);
+                      //   dpm1 = (columns[5] / 67052) * 1000000;
+                      //   dpm1 = dpm1.toFixed(2);
+                      //   isCustom = 1;
+                      // }
+
+
+                        html += "<td>" + tpm + "</td>";
+                        html += "<td>" + dpm + "</td>";
+
+                      html += "<td>" + (dpm / tpm).toFixed(3) + "</td>";
                       // close row
                       html += "</tr>";
                     }
