@@ -155,6 +155,8 @@ var ajaxLatestCases = $.ajax({
 
     //generate am chart series for covid19 satewise cases
       generateAmChartCovCasSeries(result.data.regional);
+
+     
   },
   error: function(results) {
     alert("There is an error. " + results.stringfy);
@@ -169,6 +171,7 @@ ajaxDailyStats = $.ajax({
   dataType: "json",
   success: function(result) {
 
+    getDoublingSeries(getCopyOfJSONObject(result.data));
     //storing data in global variable for use in future
     dailyStatsData = getCopyOfJSONObject(result.data);
     //passing last result because it will have most recent cases
@@ -178,6 +181,8 @@ ajaxDailyStats = $.ajax({
     //generate line graph for corona Cases daywise
     generateLineGraph(getCopyOfJSONObject(result.data), 3);
     setLastSevenDayData(getCopyOfJSONObject(result.data));
+
+     //get doubling rate
 
     $.when(ajaxLatestCases).then(function(){
         generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(result.data));
@@ -930,7 +935,20 @@ $(document).ready(function() {
   hackerList.add(govContactJson);
 });
 
-
+function getDoublingSeries(data){
+  console.log("doubling data",data);
+  var todayLatestCases =  parseInt(data[data.length-1].summary.total)-parseInt(data[data.length-2].summary.total);
+  var yesterDayCases = parseInt(data[data.length-2].summary.total);
+  console.log("today cases,",todayLatestCases);
+  console.log("yesterday cases,",yesterDayCases);
+  var r =todayLatestCases/yesterDayCases;
+  console.log("value of r is",r);
+  
+  for(var i=2;i<=10;i++){
+    var double = (Math.log(i)/Math.log(1+r));
+    console.log("cases getting "+i+" times in "+ double + " days");
+  }
+ }
 
 //Coro cases choropleth map
 am4core.ready(function() {
@@ -1031,5 +1049,6 @@ jQuery.getJSON( "https://www.amcharts.com/lib/4/geodata/json/india2019Low.json",
   hs.properties.fill = am4core.color("#673ab7");
 
 };
+
 
 }); // end am4core.ready()
