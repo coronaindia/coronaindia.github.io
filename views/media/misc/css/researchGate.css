@@ -91,3 +91,12 @@
 .modal-backdrop {
     z-index: -1;
 }
+.increment-text
+{
+    font-size: 33px;
+    font-weight: 700;
+}
+.tiles{
+    padding: 10px;
+    border-radius: 12px;
+}
