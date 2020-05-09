@@ -1,10 +1,10 @@
 Introduction
 ============
 
-[![npm version](https://img.shields.io/badge/npm%20%40elComrades%2Fcoronaindia-v1.0.0-blue)](https://www.npmjs.com/package/@elcomrades/coronaindia)
+[![npm version](https://img.shields.io/badge/npm%20%40elComrades%2Fcoronaindia-v1.0.0-blue)](https://www.npmjs.com/package/coronaindia)
 [![CDNJS](https://img.shields.io/badge/cdnjs%20%40elComrades%2Fcoronaindia-v1.0.0-blue)](https://cdnjs.com/libraries/coronaindia)
 [![npm version](https://img.shields.io/badge/npm%20%40elComrades%2Fcoronaindia--live--tile-v1.0.0-brightgreen
-)](https://www.npmjs.com/package/@elcomrades/coronaindia-live-tile)
+)](https://www.npmjs.com/package/coronaindia-live-tile)
 
 coronaindia-live-tile is part of coronaindia
 -------
@@ -23,7 +23,7 @@ Add COVID19 live update plugin on your website.
 
 #### 1. Via NPM:
 ```bash
-npm install @elcomrades/coronaindia-live-tile --save
+npm install coronaindia-live-tile --save
 ```
 
 #### 2. Include files:
