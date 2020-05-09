@@ -16,20 +16,18 @@ Installation
 -------
 There are multiple ways to install coronaindia.
 
-#### Download From Github releases:
+#### 1. Download From Github releases:
 
 Download from [Github releases](https://github.com/elComrades/coronaindia/releases).
 
-#### Using The Command Line:
+#### 2. Using The Command Line:
 
-_**Important Note**: To install it via NPM/Yarn, you need at least Node.js 10 or higher._
-
-__Via NPM__
+- __Via NPM__
+_**Note**: To install it via NPM, you need at least Node.js 10 or higher._
 ```bash
 npm install coronaindia --save
 ```
-
-__Via Git__(Clone to your machine)
+- __Via Git__ (Clone to your machine)
 ```
 git clone https://github.com/elComrades/coronaindia.git
 ```
@@ -41,7 +39,7 @@ To compile Run and deploy locally you need nodejs & npm, clone/download the repo
 1. `npm install` (install npm deps)
 2. `npm run serverstart` (developer mode, with browsersync support for live demo)
 
-## Add COVID19 live update plugin on your website.
+Add COVID19 live update plugin on your website.
 -------
 <p align="center">
 <img src="public/images/plugin.png" width="20%">
@@ -69,7 +67,7 @@ License
 coronaindia is an open source project by [elComrades](https://github.com/elComrades) that is licensed under [GPL](https://opensource.org/licenses/gpl-license). elComrades
 reserves the right to change the license of future releases.
 
-## Maintainers
+Maintainers
 -------
 - [elComrades](https://github.com/orgs/elComrades)
   - [Prashant Mishra](https://github.com/prashantmi)
