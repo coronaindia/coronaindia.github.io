@@ -10,4 +10,5 @@ npm run serverstart
 The plugin can be added to your website by including the following to the intended page  
 
 `<script src="dashboard_plugin/coronaindia.js"> </script>`
+
 `<link rel="stylesheet" href="dashboard_plugin/coronaindia.css" />`
