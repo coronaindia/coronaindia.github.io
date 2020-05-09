@@ -656,7 +656,7 @@ function generateStateList(data){
     // $('<option/>', { value : state }).text(state).appendTo('#stateList1');
   }
   //console.log("state list",stateList);
-
+  //return stateList;
 }
 function filterDataStateWise(state, flag){
 
@@ -937,18 +937,48 @@ $(document).ready(function() {
 
 function getDoublingSeries(data){
   console.log("doubling data",data);
+  var allData = [];
   var todayLatestCases =  parseInt(data[data.length-1].summary.total)-parseInt(data[data.length-2].summary.total);
   var yesterDayCases = parseInt(data[data.length-2].summary.total);
-  console.log("today cases,",todayLatestCases);
-  console.log("yesterday cases,",yesterDayCases);
-  var r =todayLatestCases/yesterDayCases;
-  console.log("value of r is",r);
   
-  for(var i=2;i<=10;i++){
+  var r =todayLatestCases/yesterDayCases;
+  //console.log("value of r is",r);
+  
+  for(var i=2;i<=5;i++){
     var double = (Math.log(i)/Math.log(1+r));
-    console.log("cases getting "+i+" times in "+ double + " days");
+    allData["all"+i] = double;
   }
+
+  generateStateData(data);
+
  }
+
+ function generateStateData(data){
+
+  var todayAllData = data[data.length-1];
+  var todayStateData = [];
+
+  var yesterdayAllData = data[data.length-2];
+  var yesterdayStateData = [];
+  
+  for(var i=0;i<todayAllData.regional.length;i++){
+    var state = todayAllData.regional[i].loc;;
+    let data1 = todayAllData.regional[i];
+    todayStateData[state] = getSumOfTheObjectKeys(data1);
+    
+  }
+
+  
+  for(var i=0;i<yesterdayAllData.regional.length;i++){
+    var state = yesterdayAllData.regional[i].loc;;
+    var data1 = yesterdayAllData.regional[i];
+    yesterdayStateData[state] = getSumOfTheObjectKeys(data1)
+    
+  }
+  console.log("today list",todayStateData);
+  console.log("yesterday list",yesterdayStateData);
+  return [todayStateData,yesterdayStateData];
+}
 
 //Coro cases choropleth map
 am4core.ready(function() {
