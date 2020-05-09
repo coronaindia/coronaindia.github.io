@@ -1,10 +1,10 @@
 Introduction
 ============
 
-[![npm version](https://img.shields.io/badge/npm%20%40elComrades%2Fcoronaindia-v1.0.0-blue)](https://www.npmjs.com/package/coronaindia)
+[![npm version](https://img.shields.io/badge/npm%20%40elComrades%2Fcoronaindia-v1.0.0-blue)](https://www.npmjs.com/package/@elcomrades/coronaindia)
 [![CDNJS](https://img.shields.io/badge/cdnjs%20%40elComrades%2Fcoronaindia-v1.0.0-blue)](https://cdnjs.com/libraries/coronaindia)
 [![npm version](https://img.shields.io/badge/npm%20%40elComrades%2Fcoronaindia--live--tile-v1.0.0-brightgreen
-)](https://www.npmjs.com/package/coronaindia-live-tile)
+)](https://www.npmjs.com/package/@elcomrades/coronaindia-live-tile)
 
 **coronaindia** is fully responsive dasboard consisting COVID19 India and global Tracker, predictive analytics and research. Built by engineers, data scientists, AI and medical professionals..
 
