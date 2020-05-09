@@ -40,3 +40,20 @@ ad.js
 /_site
 
 .git
+
+# ignore for now as file size is large
+/views/media/amCharts
+/views/media/bootstrap
+/views/media/chart.js
+/views/media/dataTables
+/views/media/fontawesome
+/views/media/highcharts
+/views/media/jquery
+/views/media/jquery-ui
+/views/media/list.js
+/views/media/moment-js
+/views/media/overlayScrollbars
+/views/media/pwa
+/views/media/rccss
+/views/media/rcimg
+/views/media/textFit

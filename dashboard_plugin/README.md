@@ -13,13 +13,13 @@ coronaindia-live-tile is part of coronaindia
 **Preview on [coronaindia.github.io](https://coronaindia.github.io)**
 
 <p align="center">
-<img src="public/images/coivid19.gif" width="50%">
+<img src="../public/images/coivid19.gif" width="50%">
 </p>
 
 
 Add COVID19 live update plugin on your website.
 -------
-<p align="center"> <img src="public/images/coivid19-plugins.gif" width="40%"> </p>
+<p align="center"> <img src="../public/images/coivid19-plugins.gif" width="40%"> </p>
 
 #### 1. Via NPM:
 ```bash
