@@ -27,7 +27,7 @@ Download from [Github releases](https://github.com/elComrades/coronaindia/releas
 
 - __Via NPM__ (_**Note**: To install it via NPM, you need at least Node.js 10 or higher._)
 ```bash
-npm install coronaindia --save
+npm install @elcomrades/coronaindia --save
 ```
 - __Via Git__ (Clone to your machine)
 ```
@@ -49,7 +49,7 @@ Add COVID19 live update plugin on your website.
 
 #### 1. Via NPM:
 ```bash
-npm install coronaindia-live-tile --save
+npm install @elcomrades/coronaindia-live-tile --save
 ```
 
 #### 2. Include files:
