@@ -22,8 +22,7 @@ Download from [Github releases](https://github.com/elComrades/coronaindia/releas
 
 #### 2. Using The Command Line:
 
-- __Via NPM__
-_**Note**: To install it via NPM, you need at least Node.js 10 or higher._
+- __Via NPM__ (_**Note**: To install it via NPM, you need at least Node.js 10 or higher._)
 ```bash
 npm install coronaindia --save
 ```
