@@ -12,6 +12,7 @@ Introduction
 <img src="public/images/coivid19.gif" width="100%">
 </p>
 
+
 Installation
 -------
 There are multiple ways to install coronaindia.
@@ -31,6 +32,7 @@ npm install coronaindia --save
 git clone https://github.com/elComrades/coronaindia.git
 ```
 
+
 Run and deploy locally
 -------
 To compile Run and deploy locally you need nodejs & npm, clone/download the repo then:
@@ -38,16 +40,21 @@ To compile Run and deploy locally you need nodejs & npm, clone/download the repo
 1. `npm install` (install npm deps)
 2. `npm run serverstart` (developer mode, with browsersync support for live demo)
 
+
 Add COVID19 live update plugin on your website.
 -------
 <p align="center">
 <img src="public/images/plugin.png" width="20%">
 </p>
 
-The plugin can be added to your website by including the following to the intended page  
+#### 1. Via NPM:
+```bash
+npm install coronaindia-live-tile --save
+```
 
+#### 2. Include files:
+(_The plugin can be added to your website by including the following to the intended page  ._)
 `<script src="dashboard_plugin/coronaindia.js"> </script>`
-
 `<link rel="stylesheet" href="dashboard_plugin/coronaindia.css" />`
 
 
@@ -61,10 +68,12 @@ Contribution are always **welcome and recommended**! Here is how:
 - Make your changes
 - Create a pull request
 
+
 License
 -------
 coronaindia is an open source project by [elComrades](https://github.com/elComrades) that is licensed under [GPL](https://opensource.org/licenses/gpl-license). elComrades
 reserves the right to change the license of future releases.
+
 
 Maintainers
 -------
