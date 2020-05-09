@@ -43,7 +43,7 @@ To compile Run and deploy locally you need nodejs & npm, clone/download the repo
 
 Add COVID19 live update plugin on your website.
 -------
-<p align="center"> <img src="public/images/plugin.png" width="20%"> </p>
+<p align="center"> <img src="public/images/coivid19-plugins.gif" width="20%"> </p>
 
 #### 1. Via NPM:
 ```bash
