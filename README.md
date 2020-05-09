@@ -11,7 +11,7 @@ Introduction
 **Preview on [coronaindia.github.io](https://coronaindia.github.io)**
 
 <p align="center">
-<img src="public/images/coivid19.gif" width="100%">
+<img src="public/images/coivid19.gif" width="80%">
 </p>
 
 
