@@ -13,10 +13,10 @@ Introduction
 </p>
 
 Installation
-------------
+-------
 There are multiple ways to install coronaindia.
 
-#### Download:
+#### Download From Github releases:
 
 Download from [Github releases](https://github.com/elComrades/coronaindia/releases).
 
@@ -29,40 +29,22 @@ __Via NPM__
 npm install coronaindia --save
 ```
 
-__Via Git__
-- Clone to your machine
+__Via Git__(Clone to your machine)
 ```
 git clone https://github.com/elComrades/coronaindia.git
 ```
 
-Contribution
-------------
-Contribution are always **welcome and recommended**! Here is how:
-
-- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-- Clone to your machine ```git clone https://github.com/YOUR_USERNAME/coronaindia.git```
-- Create a new branch
-- Make your changes
-- Create a pull request
-
+Run and deploy locally
+-------
 To compile Run and deploy locally you need nodejs & npm, clone/download the repo then:
 
 1. `npm install` (install npm deps)
 2. `npm run serverstart` (developer mode, with browsersync support for live demo)
 
-License
+## Add COVID19 live update plugin on your website.
 -------
-coronaindia is an open source project by [elComrades](https://github.com/elComrades) that is licensed under [GPL](https://opensource.org/licenses/gpl-license). elComrades
-reserves the right to change the license of future releases.
-
-Latest Release
----------------
-- [coronaindia](https://github.com/elComrades/coronaindia/releases)
-
-## Add COVID19 plugin for live update on your website
-
 <p align="center">
-<img src="public/images/plugin.png" width="100%">
+<img src="public/images/plugin.png" width="20%">
 </p>
 
 The plugin can be added to your website by including the following to the intended page  
@@ -72,7 +54,23 @@ The plugin can be added to your website by including the following to the intend
 `<link rel="stylesheet" href="dashboard_plugin/coronaindia.css" />`
 
 
+Contribution
+-------
+Contribution are always **welcome and recommended**! Here is how:
+
+- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
+- Clone to your machine ```git clone https://github.com/YOUR_USERNAME/coronaindia.git```
+- Create a new branch
+- Make your changes
+- Create a pull request
+
+License
+-------
+coronaindia is an open source project by [elComrades](https://github.com/elComrades) that is licensed under [GPL](https://opensource.org/licenses/gpl-license). elComrades
+reserves the right to change the license of future releases.
+
 ## Maintainers
+-------
 - [elComrades](https://github.com/orgs/elComrades)
   - [Prashant Mishra](https://github.com/prashantmi)
   - [Deepandu Jain](https://github.com/deepandu)
