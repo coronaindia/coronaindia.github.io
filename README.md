@@ -8,7 +8,7 @@ Introduction
 
 **coronaindia** is fully responsive dasboard consisting COVID19 India and global Tracker, predictive analytics and research. Built by engineers, data scientists, AI and medical professionals..
 
-**Preview on [coronaindia.github.io](https://coronaindia.github.io)**
+**View Dashboard [coronaindia.github.io](https://coronaindia.github.io)**
 
 <p align="center">
 <img src="public/images/coivid19.gif" width="80%">
