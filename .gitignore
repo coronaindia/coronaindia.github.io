@@ -39,7 +39,7 @@ ad.js
 
 /_site
 
-.git
+.git/
 
 # ignore for now as file size is large
 /views/media/amCharts

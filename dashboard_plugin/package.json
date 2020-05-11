@@ -1,6 +1,6 @@
 {
   "name": "coronaindia-live-tile",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "coronaindia dasboard's live tile for COVID19 cases stats",
   "main": "coronaindia.js",
   "scripts": {

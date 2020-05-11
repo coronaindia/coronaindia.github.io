@@ -1,6 +1,6 @@
 {
   "name": "coronaindia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://coronaindia.github.io",
   "scripts": {
     "start": "node ./bin/www",
