@@ -131,7 +131,7 @@ am4core.ready(function() {
 
   // main container
   // https://www.amcharts.com/docs/v4/concepts/svg-engine/containers/
-  var container = am4core.create("chartdiv", am4core.Container);
+  var container = am4core.create("amChartsWorldMapDiv", am4core.Container);
   container.width = am4core.percent(100);
   container.height = am4core.percent(100);
   container.background.fill='#fafafa';
