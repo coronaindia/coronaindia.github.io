@@ -45,10 +45,12 @@
   <link href="media/bootstrap/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <!--Bootstrap Datables -->
   <link href="media/dataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+  <!--Bootstrap Datatables Buttons -->
+  <link href="media/dataTables/Buttons-1.5.6/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
   <!--Bootstrap Datables Responsive -->
   <link href="media/dataTables/Responsive-2.2.2/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-  <!-- Datables select -->
-  <link rel="stylesheet" href="media/dataTables/DataTables-1.10.18/css/select.dataTables.min.css" />
+  <!--Bootstrap Select -->
+  <link href="media/dataTables/select/1.3.1/css/select.bootstrap.min.css" rel="stylesheet" type="text/css" />
   <!--Fontawesome Icons---->
   <link rel="stylesheet" href="media/fontawesome/5.10.1/css/all.css" />
   <!-- OverlayScrollbars Plugin CSS -->
@@ -62,8 +64,6 @@
   <link rel="stylesheet" href="media/misc/css/common.css" type="text/css" />
   <link rel="stylesheet" href="media/misc/css/themeSwitch.css" type="text/css" />
   <link rel="stylesheet" href="media/misc/css/allAnimation.css" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
   <script src="media/misc/js/pace.js"></script>
   <style>
     .pace {
@@ -256,26 +256,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container-fluid">
           <!-- Main row -->
           <div class="row">
-            <section class="col-lg-12 connectedSortable">
+            <section class="col-12 col-md-6 connectedSortable">
               <div class="card shadow" id="mapCard">
                 <div class="card-header border-0 mb-0">
                   <h3 class="card-title">
                     <i class="fas fa-globe mr-1" style="color:#20B4C4;"></i>
-                    Worldwide Cases Information
+                    Worldwide Cases Map
                   </h3>
-                  <!-- card tools -->
                   <div class="card-tools">
                     <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                       <i class="fas fa-minus"></i>
                     </button>
                   </div>
-                  <!-- /.card-tools -->
                 </div>
                 <div class="card-body mt-0 mb-0">
-                  <div class="flexbox">
-                    <div id="chartdiv"></div>
-                    <div id="list" class="ncovWorldAmTable-div-thsw">
-                      <table id="areas" class="ncovWorldAmTable-thsw compact hover order-column row-border">
+                    <div id="chartdiv" style="height: 368px; width: 100%"></div>
+                </div>
+              </div>
+            </section>
+            <section class="col-12 col-md-6 connectedSortable">
+              <div class="card shadow" id="mapCard">
+                <div class="card-header border-0 mb-0">
+                  <h3 class="card-title">
+                    <i class="fas fa-globe mr-1" style="color:#20B4C4;"></i>
+                    Worldwide Cases Data
+                  </h3>
+                  <br>
+                  Data: <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University</a>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body mt-0 mb-0">
+                    <div id="" class="ncovWorldAmTable-div-thsw px-2" style="width: 100%">
+                      <table id="areas" class="ncovWorldAmTable-thsw table table-bordered table-sm hover dt-responsive table-condensed" style="width: 100%">
                         <thead>
                           <tr>
                             <th>Country/State</th>
@@ -288,51 +304,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </tbody>
                       </table>
                     </div>
-                  </div>
                 </div>
-                <!-- /.card-body-->
-              </div>
-              <div align="right">
-                Data: <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University</a>
               </div>
             </section>
-          </div>
-        </div>
-      </section>
-      <section class="content" id="dashboardSection">
-        <div class="container-fluid">
-          <!-- Main row -->
-          <div class="row">
             <section class="col-lg-12 connectedSortable">
-              <div class="card shadow" id="mapCard">
-                <div class="card-header border-0 mb-0">
-                  <h3 class="card-title">
-                    <i class="fas fa-globe mr-1" style="color:#20B4C4;"></i>
-                    Statistics on World Data
-                  </h3>
-                  <!-- card tools -->
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                  </div>
-                  <!-- /.card-tools -->
-                </div>
-                <div class="card-body mt-0 mb-0">
-                  <div class="flexbox">
-                    <div id="container" class="ncovWorldStat-div-thsw">
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body-->
-              </div>
-              <div align="right">
-                Data: <a href="#">Our World Data</a>, Idea Courtesy: Prof. Dr. TS Ravikumar, AIIMS Mangalagiri
-              </div>
-            </section>
+				  <div class="card shadow" id="mapCard">
+				    <div class="card-header border-0 mb-0">
+				      <h3 class="card-title">
+				        <i class="fas fa-globe mr-1" style="color:#20B4C4;"></i>
+				        Statistics on World Data
+				      </h3>
+				      <!-- card tools -->
+				      <div class="card-tools">
+				        <button type="button" class="btn btn-dark btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+				          <i class="fas fa-minus"></i>
+				        </button>
+				      </div>
+				      <!-- /.card-tools -->
+				    </div>
+				    <div class="card-body mt-0 mb-0">
+				      <div id="container" class="ncovWorldStat-div-thsw">
+				      </div>
+				    </div>
+				    <!-- /.card-body-->
+				  </div>
+				  <div align="right">
+				    Data: <a href="#">Our World Data</a>, Idea Courtesy: Prof. Dr. TS Ravikumar, AIIMS Mangalagiri
+				  </div>
+			</section>
           </div>
         </div>
       </section>
+      
     </div>
     <footer class="main-footer ">
       <div class="container-fluid">
@@ -396,13 +399,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!--Bootstrap Datables -->
   <script src="media/dataTables/DataTables-1.10.18/js/jquery.dataTables.min.js" type="text/javascript"></script>
   <script src="media/dataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+  <!--Bootstrap Datatables Buttons -->
+  <script src="media/dataTables/Buttons-1.5.6/js/dataTables.buttons.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/Buttons-1.5.6/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/Buttons-1.5.6/js/buttons.colVis.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/Buttons-1.5.6/js/buttons.flash.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/Buttons-1.5.6/js/buttons.html5.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/Buttons-1.5.6/js/buttons.print.min.js" type="text/javascript"></script>
+  <!--Excel HTML5 export button -->
+  <script src="media/dataTables/JSZip-2.5.0/jszip.min.js" type="text/javascript"></script>
+  <!--PDF HTML5 export button -->
+  <script src="media/dataTables/pdfmake-0.1.36/pdfmake.min.js" type="text/javascript"></script>
+  <script src="media/dataTables/pdfmake-0.1.36/vfs_fonts.js" type="text/javascript"></script>
   <!--Bootstrap Datables Responsive -->
   <script src="media/dataTables/Responsive-2.2.2/js/dataTables.responsive.min.js" type="text/javascript"></script>
   <script src="media/dataTables/Responsive-2.2.2/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
   <!-- Datables api->processing -->
-  <script type="text/javascript" src="media/dataTables/api/processing().js"></script>
-  <!-- Datables select -->
-  <script src="media/dataTables/DataTables-1.10.18/js/dataTables.select.min.js"></script>
+  <script type="text/javascript" src="media/dataTables/api/processing().js"></script>  
+  <!--Bootstrap Select -->
+  <script src="media/dataTables/select/1.3.1/js/select.bootstrap4.min.js" type="text/javascript"></script>
+  <!-- <link href="media/dataTables/select/1.3.1/css/select.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
+  <script src="media/dataTables/select/1.3.1/js/dataTables.select.min.js" type="text/javascript"></script>
+
   <!---moment.js dattimepicker---->
   <script type="text/javascript" src="media/moment-js/moment.js"></script>
   <!--highchart JS -->
@@ -447,14 +465,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     //	$.widget.bridge('uibutton', $.ui.button)
   </script>
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+  
+  
+<!--   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script> -->
+
   <script>
     $.get('https://covid.ourworldindata.org/data/owid-covid-data.csv', function(data) {
           var countries = null;
@@ -471,7 +493,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
           });
           // start the table
-          var html = '<table id ="table_id" class="ncovWorldStat-thsw table table-bordered">';
+          var html = '<table id ="table_id" class="ncovWorldStat-thsw table table-bordered table-sm  dt-responsive nowrap table-condensed" style="width: 100%">';
           // split into lines
           var rows = data.split("\n");
           var rows1 = countries.split("\n");
@@ -579,11 +601,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             $('#container').append(html);
             // $('#table_id').DataTable();
             $('#table_id').DataTable({
-              dom: 'Bfrtip',
+            	"dom": '<"row m-0 no-gutters"<"col-4 col-sm-4 col-lg-3"B><"col-8 col-sm-8 col-lg-3"f><"col-12 col-sm-12 col-lg-6"p>>rt<"row"<"col-12"i>><"clear">',
+	  processing: true,
+	  "scrollY":        "300px",
+	  "scrollCollapse": true,
+
+             /* dom: 'Bfrtip',
               responsive: true,
               buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
-              ]
+              ]*/
+              buttons: [{
+    	  extend: 'collection',
+    	  text: '',
+    	  className: "fas fa-cogs text-primary btn-lg bg-white btn-outline-light",
+    	  buttons: [
+    		  {
+    			  extend: 'excel',
+    			  title: 'covid-19 WorldWide Stats',
+    			  text: ' Download Excel',
+    			  className: "fas fa-file-excel text-primary bg-white btn-outline-light"
+    		  },
+    		  {
+    			  extend: 'pdfHtml5',
+    			  className: "fas fa-file-pdf text-primary bg-white btn-outline-light",
+    			  title: 'covid-19 WorldWide Stats',
+    			  text: ' Download Pdf',
+    			  /*pageMargins: [0, 0, 0, 0],
+    			  margin: [0, 0, 0, 0],
+    			  alignment: 'center',
+    			  exportOptions: {
+    				  columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+    					  		17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+    					  		32, 33, 34, 35, 36, 37, 38, 39, 40
+    					  		]
+    			  },
+    			  orientation: 'landscape',
+    			  pageSize: 'A4',
+    			  customize: function(doc) {
+    				  doc.styles.tableHeader.fontSize = 6;
+    				  doc.defaultStyle.fontSize = 5;
+    				  doc.defaultStyle.alignment = 'left';
+    			  }*/
+    		  },
+    		  {
+    			  extend: 'print',
+    			  className: "fas fa-file-pdf text-primary bg-white btn-outline-light",
+    			  title: 'covid-19 WorldWide Stats',
+    			  text: ' Print',
+    		  }
+          ]
+      }],
             });
           });
   </script>

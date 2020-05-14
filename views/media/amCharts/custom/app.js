@@ -1309,6 +1309,9 @@ am4core.ready(function() {
 
     }
     $("#areas").DataTable({
+      processing: true,
+    "scrollY":        "240px",
+    "scrollCollapse": true,
       "paging": false,
       "select": true
     }).column("1")
