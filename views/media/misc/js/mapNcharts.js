@@ -142,13 +142,15 @@ var ajaxLatestCases = $.ajax({
   url: apiUrlLatestCases,
   dataType: "json",
   success: function(result) {
-    coronaCasesSummary=result.data.summary;
+    coronaCasesSummary=result.data["unofficial-summary"][0];
     coronaCasesAll = result.data;
     //set values in dashboard tiles
-      setDashboardStats(result.data.summary);
+    console.log("corona case summary, ",coronaCasesSummary);
+      coronaCasesSummary["discharged"] = coronaCasesSummary["recovered"]
+      setDashboardStats(getCopyOfJSONObject(coronaCasesSummary));
 
     //generate and set donut Chart for covi19 cases
-      generateDonutChart(result.data.summary);
+      generateDonutChart(getCopyOfJSONObject(coronaCasesSummary));
 
     //generate and set markers coordinate and marker html for map
       //generateMapMarkers(result.data.regional);
