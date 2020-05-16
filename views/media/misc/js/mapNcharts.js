@@ -143,9 +143,34 @@ var ajaxLatestCases = $.ajax({
   dataType: "json",
   success: function(result) {
     coronaCasesSummary=result.data.summary;
-    coronaCasesAll = result.data;
+   var coronaCasesRegionalData = result.data.regional;
+   coronaCasesAll = result.data;
     //set values in dashboard tiles
-      setDashboardStats(result.data.summary);
+		if (result.data.summary.total==null)
+		{
+			var totalcases=0;
+			var totaldeaths=0;
+			var totalcured=0;
+			
+			for(var i=0;i<coronaCasesRegionalData.length;i++)
+			{
+				if (coronaCasesRegionalData[i].totalConfirmed !=null)
+					totalcases = totalcases +coronaCasesRegionalData[i].totalConfirmed;
+				if (coronaCasesRegionalData[i].deaths !=null)
+					totaldeaths = totaldeaths +coronaCasesRegionalData[i].deaths;
+				if (coronaCasesRegionalData[i].discharged !=null)
+					totalcured = totalcured +coronaCasesRegionalData[i].discharged;
+			}
+			result.data.summary.total=totalcases;
+			result.data.summary.deaths=totaldeaths;
+			result.data.summary.discharged=totalcured;
+			setDashboardStats(result.data.summary);
+			
+		}
+		else
+		{
+			setDashboardStats(result.data.summary);
+		}
 
     //generate and set donut Chart for covi19 cases
       generateDonutChart(result.data.summary);
