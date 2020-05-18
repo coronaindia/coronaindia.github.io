@@ -173,6 +173,7 @@ ajaxDailyStats = $.ajax({
   dataType: "json",
   success: function(result) {
 
+    console.log("result.data",result.data);
     getDoublingSeries(getCopyOfJSONObject(result.data));
     //storing data in global variable for use in future
     dailyStatsData = getCopyOfJSONObject(result.data);
@@ -334,6 +335,8 @@ function generateDonutChart(statsSummary) {
 
 //generate line graph for corona Cases daywise
 function generateLineGraph(dailyStats, flag) {
+
+  //console.log("dailyStats",dailyStats);
   var dateLable = [];
   var totalCasesData = [];
   var totalActiveCasesData = [];
@@ -663,6 +666,7 @@ function generateStateList(data){
 function filterDataStateWise(state, flag){
 
   if(state == "All States"){
+    console.log("dailyStatsData",dailyStatsData);
       generateLineGraph(getCopyOfJSONObject(dailyStatsData), flag);
       setDashboardStats(coronaCasesSummary);
       generateLineDblGraph(coronaCasesSummary, getCopyOfJSONObject(dailyStatsData));
