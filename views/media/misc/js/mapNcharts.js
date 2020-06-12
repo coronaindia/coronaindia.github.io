@@ -142,12 +142,35 @@ var ajaxLatestCases = $.ajax({
   url: apiUrlLatestCases,
   dataType: "json",
   success: function(result) {
-    coronaCasesSummary=result.data["unofficial-summary"][0];
-    coronaCasesAll = result.data;
+    coronaCasesSummary=result.data.summary;
+   var coronaCasesRegionalData = result.data.regional;
+   coronaCasesAll = result.data;
     //set values in dashboard tiles
-    console.log("corona case summary, ",coronaCasesSummary);
-      coronaCasesSummary["discharged"] = coronaCasesSummary["recovered"]
-      setDashboardStats(getCopyOfJSONObject(coronaCasesSummary));
+		if (result.data.summary.total==null)
+		{
+			var totalcases=0;
+			var totaldeaths=0;
+			var totalcured=0;
+			
+			for(var i=0;i<coronaCasesRegionalData.length;i++)
+			{
+				if (coronaCasesRegionalData[i].totalConfirmed !=null)
+					totalcases = totalcases +coronaCasesRegionalData[i].totalConfirmed;
+				if (coronaCasesRegionalData[i].deaths !=null)
+					totaldeaths = totaldeaths +coronaCasesRegionalData[i].deaths;
+				if (coronaCasesRegionalData[i].discharged !=null)
+					totalcured = totalcured +coronaCasesRegionalData[i].discharged;
+			}
+			result.data.summary.total=totalcases;
+			result.data.summary.deaths=totaldeaths;
+			result.data.summary.discharged=totalcured;
+			setDashboardStats(result.data.summary);
+			
+		}
+		else
+		{
+			setDashboardStats(result.data.summary);
+		}
 
     //generate and set donut Chart for covi19 cases
       generateDonutChart(getCopyOfJSONObject(coronaCasesSummary));
