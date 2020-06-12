@@ -174,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="col-7 col-md-3">
 						</div>
 						<div class="col-12 col-md-4">
-							<ol class="breadcrumb d-flex flex-row-reverse pt-3 pt-md-0">
+							<ol class="breadcrumb d-flex flex-row-reverse pt-3 pt-md-0" style="display: none !important">
 								<li class="nav-item mr-1">
 									<a class="fab fa-twitter shadow" title="Share via Twitter" target="_blank" href="https://twitter.com/elcomrades">
 									</a>
@@ -221,18 +221,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="flexbox">
                     <ul class="list-group">
                       <li class="list-group-item-thsw list-group-item">
-                        <b> Who are you and why are you doing this ?</b>
-                        <br />
-                        We are group of IT professionals who have closely worked with health informatics systems and want to make the world a better place through our skills. As the entire world is sufferring
-                        we find it our responsibility to put our knowledge to a good use by providing relevant and easy to understand information on COVID19.
-                        to the citizens.
-                      </li>
-                      <li class="list-group-item-thsw list-group-item">
-                        <b> Is this an official dashboard ?</b>
-                        <br />
-                        No, this is a volunteer driven initiative.
-                      </li>
-                      <li class="list-group-item-thsw list-group-item">
                         <b> What is the source of data ? </b>
                         <br />
                         We source our data from <a href="https://www.mohfw.gov.in/" target="_blank">Ministry of Health and Family Welfare, Government of India</a>.
@@ -243,13 +231,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         We want to provide only the authentic and reliable data and do not want to leave even a minute scope for misinformation. Moreover, with intuitive analysis on this data we belive we can provide a clearer picture on the progress
                         of COVID19.
                       </li>
-                      <li class="list-group-item-thsw list-group-item">
+                      <li class="list-group-item-thsw list-group-item d-none">
                         <b> How can I contribute ? </b>
                         <br />
                         If you want to contribute with coding, information or anything else, we will be glad to listen from you at <a href="mailto:elcomrades19@gmail.com?Subject=Hello%" target="_top">elcomrades19@gmail.com</a> or feel free to contribute
-                        on <a href="https://github.com/siddharthsrivastava/coronaindia.github.io">Github</a>.
+                        on <a href="https://github.com/elComrades/coronaindia">Github</a>.
                       </li>
                       <li class="list-group-item-thsw list-group-item">
+                        <b> How can I contribute ? </b>
+                        <br />
+                        If you want to contribute with coding, information or anything else, feel free to contribute
+                        on <a href="https://github.com/elComrades/coronaindia">Github</a>.
+                      </li>
+                      <li class="list-group-item-thsw list-group-item d-none">
                         <b> How can I get in touch ? </b> <br />
                         Follow us about us on <a href="https://www.facebook.com/elcomrades/" target="_blank">Facebook</a> and
                         <a href="https://twitter.com/elcomrades" target="_blank">Twitter</a>.
@@ -271,7 +265,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="card-header border-0 mb-0">
                   <h3 class="card-title">
                     <i class="fab fa-connectdevelop" style="color:#20B4C4; font-size: 20px; font-weight: bold;"></i>
-                    Team
+                    Contributors
                   </h3>
                   <!-- card tools -->
                   <div class="card-tools">
@@ -434,23 +428,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </section>
     </div>
     <footer class="main-footer ">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-6 col-md-4">
-						<span class="flex-nowrap "><i class="far fa-envelope text-danger"></i><span style="color:#20B4C4;"> elcomrades19@gmail.com</span></span>
-					</div>
-					<div class="col-6 col-md-2">
-						<span class="flex-nowrap ">Visitor Count : <span class="badge badge-danger" id="visitorCount"><i class='fa fa-spinner fa-spin'></i></span></span>
-					</div>
-					<div class="col-8 col-md-4 pt-md-0 pt-2">
-						<span class="flex-nowrap">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></span>
-					</div>
-					<div class="col-4 col-md-2">
-						<span class="flex-nowrap"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;"></i> Authors</a></span>
-					</div>
-				</div>
-			</div>
-		</footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 col-md-4">
+            <span class="flex-nowrap d-none"><i class="far fa-envelope text-danger"></i><span style="color:#20B4C4;"> elcomrades19@gmail.com</span></span>
+            <span class="flex-nowrap">Supported By: <a href="https://www.cdac.in/index.aspx?id=noida">CDAC, Noida</a></span>
+          </div>
+          <div class="col-6 col-md-3">
+            <span class="flex-nowrap ">Visitor Count : <span class="badge badge-danger" id="visitorCount"><i class='fa fa-spinner fa-spin'></i></span></span>
+          </div>
+          <div class="col-8 col-md-3 "> <!-- pt-md-0 pt-2 -->
+            <span class="flex-nowrap  d-none">Designed & Developed By <a href="https://github.com/orgs/elComrades">elComrades</a></span>
+            <span class="flex-nowrap"><a href="https://github.com/elComrades/coronaindia"><i class="fab fa-github" style="color:black;"></i> GitHub Repo</a></span>
+          </div>
+          <div class="col-4 col-md-2">
+            <span class="flex-nowrap"><a href="https://github.com/orgs/elComrades/people"><i class="fab fa-github" style="color:black;"></i> Contributors</a></span>
+          </div>
+        </div>
+      </div>
+    </footer>
     <aside class="control-sidebar" style="" id="newsscroll">
 			<div id="frame">
 				<div class="chatbot-frame-thsw content bg-white shadow" style="">
