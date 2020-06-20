@@ -314,7 +314,8 @@ var randomColorGenerator = function () {
 
 //generate and set donut Chart for covi19 cases
 function generateDonutChart(statsSummary) {
-  var dognutChartValArry = [statsSummary.total, statsSummary.discharged, statsSummary.deaths];
+	var totalactivcases= (statsSummary.total-statsSummary.discharged-statsSummary.deaths);
+  var dognutChartValArry = [totalactivcases, statsSummary.discharged, statsSummary.deaths];
 
   var ctx = document.getElementById("ncovDoughnut");
   ncovDoughnut = new Chart(ctx, {
@@ -340,7 +341,7 @@ function generateDonutChart(statsSummary) {
           //'rgba(144,238,144, 5)',
           //'rgba(105,105,105, 5)'
          ],
-        borderWidth: 0
+        borderWidth: 0 
       }]
     },
     options: {
