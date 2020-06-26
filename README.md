@@ -73,12 +73,12 @@ Contribution are always **welcome and recommended**! Here is how:
 
 License
 -------
-coronaindia is an open source project by [elComrades](https://github.com/elComrades) that is licensed under [GPL](https://opensource.org/licenses/gpl-license). elComrades
-reserves the right to change the license of future releases.
+coronaindia is an open source project backed by [CDAC](http://cdac.in) that is licensed under [GPL](https://opensource.org/licenses/gpl-license).
 
 
 Maintainers
 -------
+- [CDAC](http://cdac.in)
 - [elComrades](https://github.com/orgs/elComrades)
   - [Prashant Mishra](https://github.com/prashantmi)
   - [Deepandu Jain](https://github.com/deepandu)
